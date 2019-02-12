@@ -23,6 +23,10 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
+        
+        navigationController?.navigationBar.barTintColor = UIColor.white.withAlphaComponent(0.9)
+        
         setupTableView()
     }
     
@@ -55,7 +59,18 @@ extension LobbyViewController: UITableViewDataSource {
             for: indexPath
         )
         
-        return cell
+        guard let lobbyCell = cell as? LobbyTableViewCell else { return cell }
+        
+        if indexPath.row % 2 == 0 {
+            
+            lobbyCell.singlePage()
+        
+        } else {
+        
+            lobbyCell.multiplePages()
+        }
+        
+        return lobbyCell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -25,6 +25,8 @@ enum ImageAsset: String {
     case Icons_36px_Catalog_Normal
     
     case Icons_36px_Catalog_Selected
+    
+    case Image_Logo02
 }
 
 extension UIImage {

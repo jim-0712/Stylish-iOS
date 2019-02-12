@@ -10,8 +10,28 @@ import UIKit
 
 class LobbyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var singleImgView: UIImageView!
+    
+    @IBOutlet weak var multipleImgView1: UIImageView!
+    
+    @IBOutlet weak var multipleImgView2: UIImageView!
+    
+    @IBOutlet weak var multipleImgView3: UIImageView!
+    
+    @IBOutlet weak var multipleImgView4: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func singlePage() {
+        
+        singleImgView.alpha = 1.0
+    }
+    
+    func multiplePages() {
+        
+        singleImgView.alpha = 0.0
     }
 }
