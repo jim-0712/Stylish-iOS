@@ -25,13 +25,17 @@ class LobbyTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func singlePage() {
+    func singlePage(img: String) {
         
         singleImgView.alpha = 1.0
+    
+        
     }
     
-    func multiplePages() {
+    func multiplePages(imgs: [String]) {
         
         singleImgView.alpha = 0.0
+        
+        
     }
 }

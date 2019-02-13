@@ -9,7 +9,7 @@
 import UIKit
 
 class LobbyViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
@@ -20,13 +20,30 @@ class LobbyViewController: UIViewController {
         }
     }
     
+    var datas: [PromotedProducts] = [] {
+        
+        didSet {
+            
+            tableView.reloadData()
+        }
+    }
+    
+    let marketProvider = MarketProvider()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLayout()
+        
+        fetchData()
+    }
+    
+    private func setupLayout() {
+        
         navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
         
         navigationController?.navigationBar.barTintColor = UIColor.white.withAlphaComponent(0.9)
-        
+    
         setupTableView()
     }
     
@@ -38,18 +55,38 @@ class LobbyViewController: UIViewController {
         
         tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
     }
+    
+    func fetchData() {
+        
+        marketProvider.fetchHots(completion: { [weak self] result in
+            
+            guard let strongSelf = self else { return }
+            
+            switch result {
+                
+            case .success(let products):
+                
+                strongSelf.datas = products
+                
+            case .failure(let error):
+            
+                print(error)
+            }
+            
+        })
+    }
 }
 
 extension LobbyViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 5
+        return datas.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return datas[section].products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +112,7 @@ extension LobbyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return "冬季新品搶先看"
+        return datas[section].title
     }
 }
 
