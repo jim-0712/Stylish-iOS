@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15265D73F392969301BCFD4F /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FDED6FB4F51B5D1C7CC270 /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
 		3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F515221143BE00C5B3E2 /* Profile.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162031A81ADC706E21AF7E52 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		3CED4C092214192100121D4B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3CED4C0B22141E9700121D4B /* MarketProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketProvider.swift; sourceTree = "<group>"; };
 		3CED4C0E2214222A00121D4B /* STParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STParser.swift; sourceTree = "<group>"; };
+		94F1DA1B3AFFC63723BA0D2D /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
+		E7FDED6FB4F51B5D1C7CC270 /* Pods_STYLiSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STYLiSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +67,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15265D73F392969301BCFD4F /* Pods_STYLiSH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39EFE2697943DD3F27B96002 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				162031A81ADC706E21AF7E52 /* Pods-STYLiSH.debug.xcconfig */,
+				94F1DA1B3AFFC63723BA0D2D /* Pods-STYLiSH.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3C09F51F22115A9F00C5B3E2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +125,8 @@
 			children = (
 				3CD2911B221135E2008B8A2D /* STYLiSH */,
 				3CD2911A221135E2008B8A2D /* Products */,
+				39EFE2697943DD3F27B96002 /* Pods */,
+				F26A8A19BFED7C956C38BFE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +211,14 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		F26A8A19BFED7C956C38BFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDED6FB4F51B5D1C7CC270 /* Pods_STYLiSH.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CD2912B221135E3008B8A2D /* Build configuration list for PBXNativeTarget "STYLiSH" */;
 			buildPhases = (
+				0F10DDF59B6F1960372915EC /* [CP] Check Pods Manifest.lock */,
 				3CD29115221135E2008B8A2D /* Sources */,
 				3CD29116221135E2008B8A2D /* Frameworks */,
 				3CD29117221135E2008B8A2D /* Resources */,
+				91118C4C5947C3943CD60F94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,6 +292,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F10DDF59B6F1960372915EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-STYLiSH-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91118C4C5947C3943CD60F94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3CD29115221135E2008B8A2D /* Sources */ = {
@@ -428,6 +493,7 @@
 		};
 		3CD2912C221135E3008B8A2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162031A81ADC706E21AF7E52 /* Pods-STYLiSH.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +513,7 @@
 		};
 		3CD2912D221135E3008B8A2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94F1DA1B3AFFC63723BA0D2D /* Pods-STYLiSH.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

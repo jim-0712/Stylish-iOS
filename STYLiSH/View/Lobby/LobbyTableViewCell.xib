@@ -89,11 +89,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="descriptionLbl" destination="qsc-4z-Kz2" id="bRJ-NQ-q1Q"/>
                 <outlet property="multipleImgView1" destination="Tec-0d-mkc" id="kwX-c7-Frb"/>
                 <outlet property="multipleImgView2" destination="e6b-Iu-Ljg" id="ZHl-5F-IjM"/>
                 <outlet property="multipleImgView3" destination="wpa-s3-706" id="gHP-6N-C8a"/>
                 <outlet property="multipleImgView4" destination="aQJ-Ca-bjg" id="UjJ-kx-toh"/>
                 <outlet property="singleImgView" destination="xgR-FG-MYL" id="9hI-uf-Tuu"/>
+                <outlet property="titleLbl" destination="Mly-bM-UO9" id="JLb-b6-JuT"/>
             </connections>
             <point key="canvasLocation" x="178.40000000000001" y="138.53073463268368"/>
         </tableViewCell>

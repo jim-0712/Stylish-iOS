@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LobbyTableViewCell: UITableViewCell {
 
@@ -20,6 +21,10 @@ class LobbyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var multipleImgView4: UIImageView!
     
+    @IBOutlet weak var titleLbl: UILabel!
+    
+    @IBOutlet weak var descriptionLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,13 +34,26 @@ class LobbyTableViewCell: UITableViewCell {
         
         singleImgView.alpha = 1.0
     
-        
+        singleImgView.kf.setImage(with: URL(string: img))
     }
     
     func multiplePages(imgs: [String]) {
         
         singleImgView.alpha = 0.0
         
+        multipleImgView1.kf.setImage(with: URL(string: imgs[0]))
         
+        multipleImgView2.kf.setImage(with: URL(string: imgs[1]))
+        
+        multipleImgView3.kf.setImage(with: URL(string: imgs[2]))
+        
+        multipleImgView4.kf.setImage(with: URL(string: imgs[3]))
+    }
+    
+    func layout(title: String, description: String) {
+        
+        titleLbl.text = title
+        
+        descriptionLbl.text = description
     }
 }

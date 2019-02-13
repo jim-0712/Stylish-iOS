@@ -98,14 +98,21 @@ extension LobbyViewController: UITableViewDataSource {
         
         guard let lobbyCell = cell as? LobbyTableViewCell else { return cell }
         
+        let product = datas[indexPath.section].products[indexPath.row]
+        
         if indexPath.row % 2 == 0 {
             
-            lobbyCell.singlePage()
+            lobbyCell.singlePage(img: product.main_image)
         
         } else {
         
-            lobbyCell.multiplePages()
+            lobbyCell.multiplePages(imgs: product.images)
         }
+        
+        lobbyCell.layout(
+            title: product.title,
+            description: product.description
+        )
         
         return lobbyCell
     }
