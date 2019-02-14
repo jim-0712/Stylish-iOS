@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class LobbyViewController: UIViewController {
     
@@ -35,7 +36,7 @@ class LobbyViewController: UIViewController {
 
         setupLayout()
         
-        fetchData()
+        tableView.mj_header.beginRefreshing()
     }
     
     private func setupLayout() {
@@ -54,13 +55,23 @@ class LobbyViewController: UIViewController {
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
         
         tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            
+            self?.fetchData(completion: {
+                
+                self?.tableView.mj_header.endRefreshing()
+            })
+        })
     }
     
-    func fetchData() {
+    func fetchData(completion: @escaping () -> Void) {
         
         marketProvider.fetchHots(completion: { [weak self] result in
             
             guard let strongSelf = self else { return }
+            
+            completion()
             
             switch result {
                 
