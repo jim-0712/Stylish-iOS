@@ -14,4 +14,11 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var textLbl: UILabel!
     
+    func layoutCell(image: UIImage?, text: String) {
+        
+        imgView.image = image
+        
+        textLbl.text = text
+    }
+    
 }

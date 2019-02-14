@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let manager = ProfileManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,12 +25,12 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 2
+        return manager.groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 4
+        return manager.groups[section].items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,7 +40,13 @@ extension ProfileViewController: UICollectionViewDataSource {
             for: indexPath
         )
         
-        return cell
+        guard let profileCell = cell as? ProfileCollectionViewCell else { return cell }
+        
+        let item = manager.groups[indexPath.section].items[indexPath.row]
+        
+        profileCell.layoutCell(image: item.image, text: item.title)
+        
+        return profileCell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -51,7 +59,13 @@ extension ProfileViewController: UICollectionViewDataSource {
                 for: indexPath
             )
             
-            return header
+            guard let profileView = header as? ProfileCollectionReusableView else { return header }
+            
+            let group = manager.groups[indexPath.section]
+            
+            profileView.layoutView(title: group.title, actionText: group.action?.title)
+            
+            return profileView
         }
         
         return UICollectionReusableView()
@@ -62,21 +76,27 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: UIScreen.width / 4.0, height: 60.0)
+        if indexPath.section == 0 {
+            
+            return CGSize(width: UIScreen.width / 5.0, height: 60.0)
+            
+        } else if indexPath.section == 1 {
+            
+            return CGSize(width: UIScreen.width / 4.0, height: 60.0)
+        }
+        
+        return CGSize.zero
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 24.0, left: 0, bottom: 0, right: 0)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return 24.0
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         

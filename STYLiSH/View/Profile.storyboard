@@ -41,7 +41,7 @@
                                                     <color key="textColor" name="B1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_AwaitingShipment" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-IM-QKM">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-IM-QKM">
                                                     <rect key="frame" x="75" y="0.0" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="KZk-z4-fC7"/>
@@ -57,6 +57,10 @@
                                             <constraint firstItem="jKb-IM-QKM" firstAttribute="top" secondItem="JMV-YZ-TRF" secondAttribute="top" id="uM3-7t-EsT"/>
                                         </constraints>
                                         <size key="customSize" width="174" height="118"/>
+                                        <connections>
+                                            <outlet property="imgView" destination="jKb-IM-QKM" id="AAV-Ef-pxL"/>
+                                            <outlet property="textLbl" destination="Xt7-hW-Fc7" id="jwb-9Z-Ks2"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionReusableView" id="9ip-aI-UfW" customClass="ProfileCollectionReusableView" customModule="STYLiSH" customModuleProvider="target">
@@ -83,6 +87,10 @@
                                         <constraint firstItem="IFV-b8-qZG" firstAttribute="top" secondItem="9ip-aI-UfW" secondAttribute="top" constant="24" id="gM8-kG-Heu"/>
                                         <constraint firstItem="IFV-b8-qZG" firstAttribute="leading" secondItem="9ip-aI-UfW" secondAttribute="leading" constant="16" id="ipw-Lr-von"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="actionBtn" destination="kle-jd-isM" id="aj6-if-8cR"/>
+                                        <outlet property="titleLbl" destination="IFV-b8-qZG" id="OSt-Aq-WyQ"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="jmF-8q-0Gj" id="pUe-Bf-F4m"/>
@@ -158,7 +166,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icons_24px_AwaitingShipment" width="24" height="24"/>
         <image name="profile_sticker_placeholder01" width="36" height="36"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
