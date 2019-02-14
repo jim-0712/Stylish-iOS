@@ -21,6 +21,10 @@
 		3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD879221350B300F5237E /* UIColor+Extension.swift */; };
 		3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD87C2213533F00F5237E /* LobbyTableViewCell.swift */; };
 		3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0DD87D2213533F00F5237E /* LobbyTableViewCell.xib */; };
+		3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFE322151F50005583E2 /* ProfileViewController.swift */; };
+		3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */; };
+		3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFE822152D29005583E2 /* ProfileCollectionViewCell.swift */; };
+		3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFEA22153114005583E2 /* ProfileCollectionReusableView.swift */; };
 		3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9EF5332213C5C800DEE152 /* HTTPClient.swift */; };
 		3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9EF5352213C97D00DEE152 /* MarketRequest.swift */; };
 		3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD2911C221135E2008B8A2D /* AppDelegate.swift */; };
@@ -47,6 +51,10 @@
 		3C0DD879221350B300F5237E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3C0DD87C2213533F00F5237E /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
 		3C0DD87D2213533F00F5237E /* LobbyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyTableViewCell.xib; sourceTree = "<group>"; };
+		3C1ACFE322151F50005583E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		3C1ACFE822152D29005583E2 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C1ACFEA22153114005583E2 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		3C9EF5332213C5C800DEE152 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3C9EF5352213C97D00DEE152 /* MarketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketRequest.swift; sourceTree = "<group>"; };
 		3CD29119221135E2008B8A2D /* STYLiSH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STYLiSH.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +98,7 @@
 				3C09F52022115AB700C5B3E2 /* UIImage+Extension.swift */,
 				3C0DD87722134EC100F5237E /* UIFont+Extension.swift */,
 				3C0DD879221350B300F5237E /* UIColor+Extension.swift */,
+				3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -109,6 +118,31 @@
 				3C0DD87D2213533F00F5237E /* LobbyTableViewCell.xib */,
 			);
 			path = Lobby;
+			sourceTree = "<group>";
+		};
+		3C1ACFE122151F29005583E2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3C1ACFE222151F3D005583E2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3C1ACFE322151F50005583E2 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3C1ACFE722152D10005583E2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3C1ACFE822152D29005583E2 /* ProfileCollectionViewCell.swift */,
+				3C1ACFEA22153114005583E2 /* ProfileCollectionReusableView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		3C9EF5322213C5B400DEE152 /* HTTP */ = {
@@ -155,6 +189,7 @@
 		3CD2912E22113CE4008B8A2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C1ACFE722152D10005583E2 /* Profile */,
 				3C0DD87B2213531400F5237E /* Lobby */,
 				3CD29125221135E3008B8A2D /* LaunchScreen.storyboard */,
 				3C09F5192211442000C5B3E2 /* Auth.storyboard */,
@@ -170,7 +205,8 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */,
+				3C1ACFE222151F3D005583E2 /* Profile */,
+				3C1ACFE122151F29005583E2 /* Base */,
 				3C0DD874221348D200F5237E /* Lobby */,
 			);
 			path = Controller;
@@ -341,14 +377,18 @@
 			files = (
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
+				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
+				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
+				3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */,
 				3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */,
+				3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */,
 				3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */,
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
 				3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */,
