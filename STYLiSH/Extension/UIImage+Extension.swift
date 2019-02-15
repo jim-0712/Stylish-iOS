@@ -37,6 +37,10 @@ enum ImageAsset: String {
     case Icons_24px_SystemFeedback
     case Icons_24px_RegisterCellphone
     case Icons_24px_Settings
+    
+    //Product page
+    case Icons_24px_CollectionView
+    case Icons_24px_ListView
 }
 
 extension UIImage {

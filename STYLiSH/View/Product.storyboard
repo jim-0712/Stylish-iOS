@@ -1,28 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yka-na-vga">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="igA-yf-5FC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--型錄-->
         <scene sceneID="eCe-Xb-enG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="atF-IO-8C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Yka-na-vga" sceneMemberID="viewController">
+                <viewController id="Yka-na-vga" customClass="ProductViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sU9-Nv-si9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-Mn-LZ1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIU-pU-Sui">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="女裝">
+                                            <color key="titleColor" name="B3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="B1"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onChangeProducts:" destination="Yka-na-vga" eventType="touchUpInside" id="N7B-BG-CP6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-1w-gpV">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="44"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="男裝">
+                                            <color key="titleColor" name="B3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="B1"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onChangeProducts:" destination="Yka-na-vga" eventType="touchUpInside" id="qT8-yg-X6b"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-Ll-LpG">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="44"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="配件">
+                                            <color key="titleColor" name="B3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="B1"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onChangeProducts:" destination="Yka-na-vga" eventType="touchUpInside" id="m8d-XF-HlH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vQB-Oq-8gF"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovl-mw-pYu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                                <color key="backgroundColor" name="B4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="W6Q-Hz-gpD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-40-Gaf">
+                                <rect key="frame" x="0.0" y="44" width="125" height="1"/>
+                                <color key="backgroundColor" name="B1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Gb5-n1-hO0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iT1-40-Gaf" firstAttribute="centerX" secondItem="mIU-pU-Sui" secondAttribute="centerX" id="0j9-C2-t5x"/>
+                            <constraint firstItem="iT1-40-Gaf" firstAttribute="width" secondItem="mIU-pU-Sui" secondAttribute="width" id="2eZ-WR-OAY"/>
+                            <constraint firstItem="ssr-DQ-tiu" firstAttribute="trailing" secondItem="Mfk-Mn-LZ1" secondAttribute="trailing" id="CUj-MP-oMA"/>
+                            <constraint firstItem="ssr-DQ-tiu" firstAttribute="trailing" secondItem="ovl-mw-pYu" secondAttribute="trailing" id="Dxe-Ud-5aU"/>
+                            <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="XI2-rI-GSe"/>
+                            <constraint firstItem="iT1-40-Gaf" firstAttribute="top" secondItem="ovl-mw-pYu" secondAttribute="top" id="ZRb-92-Wzk"/>
+                            <constraint firstItem="ovl-mw-pYu" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="daG-WE-OWY"/>
+                            <constraint firstItem="ovl-mw-pYu" firstAttribute="top" secondItem="Mfk-Mn-LZ1" secondAttribute="bottom" id="fuD-N3-kAl"/>
+                            <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="top" secondItem="ssr-DQ-tiu" secondAttribute="top" id="t6S-Gg-3bM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ssr-DQ-tiu"/>
                     </view>
+                    <navigationItem key="navigationItem" title="型錄" id="dI3-PV-yB4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Icons_24px_ListView" id="fMg-rv-MfI">
+                            <connections>
+                                <action selector="onChangeLayoutType:" destination="Yka-na-vga" id="PF2-93-Z2f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="indicatorCenterXConstraint" destination="0j9-C2-t5x" id="uMA-Pt-aaQ"/>
+                        <outlet property="indicatorView" destination="iT1-40-Gaf" id="Rlp-4l-swZ"/>
+                        <outlet property="layoutBtn" destination="fMg-rv-MfI" id="9hK-wM-9a9"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="atF-IO-8C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="4"/>
+            <point key="canvasLocation" x="936.79999999999995" y="3.1484257871064472"/>
+        </scene>
+        <!--No Underline Navigation Controller-->
+        <scene sceneID="EBx-ly-Xbs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="igA-yf-5FC" customClass="STNoUnderlineNavigationController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Mbv-Jk-3Ug">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yka-na-vga" kind="relationship" relationship="rootViewController" id="yT5-bA-6QK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M04-Y5-LZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2.3999999999999999" y="3.1484257871064472"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icons_24px_ListView" width="24" height="24"/>
+        <namedColor name="B1">
+            <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B3">
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B4">
+            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
