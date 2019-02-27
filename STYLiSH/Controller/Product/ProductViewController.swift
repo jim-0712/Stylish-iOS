@@ -29,12 +29,14 @@ class ProductViewController: UIViewController {
         }
     }
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         isListLayout = true
     }
 
+    //MARK: - Action
     @IBAction func onChangeProducts(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
@@ -47,6 +49,7 @@ class ProductViewController: UIViewController {
         isListLayout = !isListLayout
     }
     
+    //MARK: - Private method
     private func showListLayout() {
 
         layoutBtn.image = UIImage.asset(.Icons_24px_ListView)
