@@ -25,8 +25,16 @@
 		3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */; };
 		3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFE822152D29005583E2 /* ProfileCollectionViewCell.swift */; };
 		3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1ACFEA22153114005583E2 /* ProfileCollectionReusableView.swift */; };
+		3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33690C2226F53E008A5A7A /* TrolleyTableViewCell.swift */; };
+		3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C33690D2226F53E008A5A7A /* TrolleyTableViewCell.xib */; };
+		3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3369152227CE7D008A5A7A /* TrolleyProductBaseView.swift */; };
+		3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3369172227CE8E008A5A7A /* TrolleyProductBaseView.xib */; };
+		3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3369192227D20B008A5A7A /* UIView+Extension.swift */; };
+		3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33691E2227DC7B008A5A7A /* TrolleySelectionView.swift */; };
+		3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */; };
 		3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */; };
 		3C41B8472216667000112F94 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41B8462216667000112F94 /* ProductViewController.swift */; };
+		3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */; };
 		3C9C0D532215400900595689 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9C0D522215400900595689 /* ProfileItem.swift */; };
 		3C9C0D552215443900595689 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9C0D542215443900595689 /* ProfileManager.swift */; };
 		3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9EF5332213C5C800DEE152 /* HTTPClient.swift */; };
@@ -64,8 +72,16 @@
 		3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		3C1ACFE822152D29005583E2 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C1ACFEA22153114005583E2 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionReusableView.swift; sourceTree = "<group>"; };
+		3C33690C2226F53E008A5A7A /* TrolleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyTableViewCell.swift; sourceTree = "<group>"; };
+		3C33690D2226F53E008A5A7A /* TrolleyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrolleyTableViewCell.xib; sourceTree = "<group>"; };
+		3C3369152227CE7D008A5A7A /* TrolleyProductBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyProductBaseView.swift; sourceTree = "<group>"; };
+		3C3369172227CE8E008A5A7A /* TrolleyProductBaseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrolleyProductBaseView.xib; sourceTree = "<group>"; };
+		3C3369192227D20B008A5A7A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3C33691E2227DC7B008A5A7A /* TrolleySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleySelectionView.swift; sourceTree = "<group>"; };
+		3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrolleySelectionView.xib; sourceTree = "<group>"; };
 		3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		3C41B8462216667000112F94 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyViewController.swift; sourceTree = "<group>"; };
 		3C9C0D522215400900595689 /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
 		3C9C0D542215443900595689 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		3C9EF5332213C5C800DEE152 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -117,6 +133,7 @@
 				3C0DD87722134EC100F5237E /* UIFont+Extension.swift */,
 				3C0DD879221350B300F5237E /* UIColor+Extension.swift */,
 				3C1ACFE522152B1F005583E2 /* UIScreen+Extension.swift */,
+				3C3369192227D20B008A5A7A /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -164,6 +181,50 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3C33690B2226F513008A5A7A /* Trolley */ = {
+			isa = PBXGroup;
+			children = (
+				3C33691D2227DC63008A5A7A /* TrolleySelectionView */,
+				3C33691B2227DC3B008A5A7A /* TrolleyProductBaseView */,
+				3C33691C2227DC4E008A5A7A /* TrolleyTableViewCell */,
+			);
+			path = Trolley;
+			sourceTree = "<group>";
+		};
+		3C3369102227CDAF008A5A7A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3C33691B2227DC3B008A5A7A /* TrolleyProductBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				3C3369152227CE7D008A5A7A /* TrolleyProductBaseView.swift */,
+				3C3369172227CE8E008A5A7A /* TrolleyProductBaseView.xib */,
+			);
+			path = TrolleyProductBaseView;
+			sourceTree = "<group>";
+		};
+		3C33691C2227DC4E008A5A7A /* TrolleyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3C33690C2226F53E008A5A7A /* TrolleyTableViewCell.swift */,
+				3C33690D2226F53E008A5A7A /* TrolleyTableViewCell.xib */,
+			);
+			path = TrolleyTableViewCell;
+			sourceTree = "<group>";
+		};
+		3C33691D2227DC63008A5A7A /* TrolleySelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3C33691E2227DC7B008A5A7A /* TrolleySelectionView.swift */,
+				3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */,
+			);
+			path = TrolleySelectionView;
+			sourceTree = "<group>";
+		};
 		3C41B8452216665200112F94 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +232,14 @@
 				3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		3C5DD7CA2227EFE40053B67A /* Trolley */ = {
+			isa = PBXGroup;
+			children = (
+				3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */,
+			);
+			path = Trolley;
 			sourceTree = "<group>";
 		};
 		3C9C0D512215377B00595689 /* Profile */ = {
@@ -253,6 +322,8 @@
 		3CD2912E22113CE4008B8A2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C3369102227CDAF008A5A7A /* Base */,
+				3C33690B2226F513008A5A7A /* Trolley */,
 				3CC706132216B32700CAD850 /* Product */,
 				3C1ACFE722152D10005583E2 /* Profile */,
 				3C0DD87B2213531400F5237E /* Lobby */,
@@ -270,6 +341,7 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3C5DD7CA2227EFE40053B67A /* Trolley */,
 				3C41B8452216665200112F94 /* Product */,
 				3C1ACFE222151F3D005583E2 /* Profile */,
 				3C1ACFE122151F29005583E2 /* Base */,
@@ -386,6 +458,7 @@
 				3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */,
 				3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
+				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
 				3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */,
 				3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */,
 				3CD29124221135E3008B8A2D /* Assets.xcassets in Resources */,
@@ -393,6 +466,8 @@
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
 				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
+				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
+				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +524,8 @@
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
+				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
+				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
@@ -456,13 +533,16 @@
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
+				3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */,
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
+				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */,
 				3C9C0D532215400900595689 /* ProfileItem.swift in Sources */,
 				3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */,
 				3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */,
 				3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */,
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
+				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
 				3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */,
 				3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */,
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
