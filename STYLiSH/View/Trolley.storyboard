@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JzZ-2a-XtA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -40,6 +40,37 @@
             </objects>
             <point key="canvasLocation" x="991.20000000000005" y="160.56971514242881"/>
         </scene>
+        <!--Tap Pay View Controller-->
+        <scene sceneID="cTC-GA-Jhm">
+            <objects>
+                <viewController id="PGS-2G-ghc" customClass="STTapPayViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pVQ-An-90u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njh-jC-ENc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Njh-jC-ENc" firstAttribute="top" secondItem="FIL-kP-k8s" secondAttribute="top" id="KMl-Bw-war"/>
+                            <constraint firstItem="FIL-kP-k8s" firstAttribute="bottom" secondItem="Njh-jC-ENc" secondAttribute="bottom" id="MKQ-4v-8sO"/>
+                            <constraint firstItem="Njh-jC-ENc" firstAttribute="leading" secondItem="FIL-kP-k8s" secondAttribute="leading" id="o49-1P-Bc0"/>
+                            <constraint firstItem="FIL-kP-k8s" firstAttribute="trailing" secondItem="Njh-jC-ENc" secondAttribute="trailing" id="xIp-Ev-rMu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FIL-kP-k8s"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hhG-oF-PXI"/>
+                    <connections>
+                        <outlet property="tapPayView" destination="Njh-jC-ENc" id="0as-h8-4NU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1uT-9e-630" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537" y="1008"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nhd-Fx-00A">
             <objects>
@@ -51,7 +82,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="smL-C9-XpV" kind="relationship" relationship="rootViewController" id="81f-WT-1l8"/>
+                        <segue destination="PGS-2G-ghc" kind="relationship" relationship="rootViewController" id="cXd-bx-tCY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpO-cK-HJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>

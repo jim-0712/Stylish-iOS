@@ -34,6 +34,23 @@
 		3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */; };
 		3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */; };
 		3C41B8472216667000112F94 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41B8462216667000112F94 /* ProductViewController.swift */; };
+		3C4B10CD22292732009942B7 /* card_jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10BE22292732009942B7 /* card_jcb.png */; };
+		3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10BF22292732009942B7 /* card_amex@2x.png */; };
+		3C4B10CF22292732009942B7 /* card_visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C022292732009942B7 /* card_visa.png */; };
+		3C4B10D022292732009942B7 /* card_amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C122292732009942B7 /* card_amex@3x.png */; };
+		3C4B10D122292732009942B7 /* card_mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C222292732009942B7 /* card_mastercard.png */; };
+		3C4B10D222292732009942B7 /* card_unknown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C322292732009942B7 /* card_unknown@3x.png */; };
+		3C4B10D322292732009942B7 /* card_jcb@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C422292732009942B7 /* card_jcb@3x.png */; };
+		3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C522292732009942B7 /* card_jcb@2x.png */; };
+		3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C622292732009942B7 /* card_unknown@2x.png */; };
+		3C4B10D622292732009942B7 /* card_amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C722292732009942B7 /* card_amex.png */; };
+		3C4B10D722292732009942B7 /* card_unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C822292732009942B7 /* card_unknown.png */; };
+		3C4B10D822292732009942B7 /* card_mastercard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10C922292732009942B7 /* card_mastercard@3x.png */; };
+		3C4B10D922292732009942B7 /* card_visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10CA22292732009942B7 /* card_visa@2x.png */; };
+		3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10CB22292732009942B7 /* card_visa@3x.png */; };
+		3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10CC22292732009942B7 /* card_mastercard@2x.png */; };
+		3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4B10DC2229273F009942B7 /* TPDirect.framework */; };
+		3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */; };
 		3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */; };
 		3C9C0D532215400900595689 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9C0D522215400900595689 /* ProfileItem.swift */; };
 		3C9C0D552215443900595689 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9C0D542215443900595689 /* ProfileManager.swift */; };
@@ -81,6 +98,24 @@
 		3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrolleySelectionView.xib; sourceTree = "<group>"; };
 		3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		3C41B8462216667000112F94 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		3C4B10BE22292732009942B7 /* card_jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_jcb.png; sourceTree = "<group>"; };
+		3C4B10BF22292732009942B7 /* card_amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_amex@2x.png"; sourceTree = "<group>"; };
+		3C4B10C022292732009942B7 /* card_visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_visa.png; sourceTree = "<group>"; };
+		3C4B10C122292732009942B7 /* card_amex@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_amex@3x.png"; sourceTree = "<group>"; };
+		3C4B10C222292732009942B7 /* card_mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_mastercard.png; sourceTree = "<group>"; };
+		3C4B10C322292732009942B7 /* card_unknown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_unknown@3x.png"; sourceTree = "<group>"; };
+		3C4B10C422292732009942B7 /* card_jcb@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_jcb@3x.png"; sourceTree = "<group>"; };
+		3C4B10C522292732009942B7 /* card_jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_jcb@2x.png"; sourceTree = "<group>"; };
+		3C4B10C622292732009942B7 /* card_unknown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_unknown@2x.png"; sourceTree = "<group>"; };
+		3C4B10C722292732009942B7 /* card_amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_amex.png; sourceTree = "<group>"; };
+		3C4B10C822292732009942B7 /* card_unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_unknown.png; sourceTree = "<group>"; };
+		3C4B10C922292732009942B7 /* card_mastercard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_mastercard@3x.png"; sourceTree = "<group>"; };
+		3C4B10CA22292732009942B7 /* card_visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_visa@2x.png"; sourceTree = "<group>"; };
+		3C4B10CB22292732009942B7 /* card_visa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_visa@3x.png"; sourceTree = "<group>"; };
+		3C4B10CC22292732009942B7 /* card_mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_mastercard@2x.png"; sourceTree = "<group>"; };
+		3C4B10DC2229273F009942B7 /* TPDirect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPDirect.framework; sourceTree = "<group>"; };
+		3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "STYLiSH-Bridging-Header.h"; sourceTree = "<group>"; };
+		3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTapPayViewController.swift; sourceTree = "<group>"; };
 		3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyViewController.swift; sourceTree = "<group>"; };
 		3C9C0D522215400900595689 /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
 		3C9C0D542215443900595689 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
@@ -110,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15265D73F392969301BCFD4F /* Pods_STYLiSH.framework in Frameworks */,
+				3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +270,53 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		3C4B10BC22292732009942B7 /* TPDirectResource */ = {
+			isa = PBXGroup;
+			children = (
+				3C4B10BD22292732009942B7 /* Image */,
+			);
+			path = TPDirectResource;
+			sourceTree = "<group>";
+		};
+		3C4B10BD22292732009942B7 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				3C4B10BE22292732009942B7 /* card_jcb.png */,
+				3C4B10BF22292732009942B7 /* card_amex@2x.png */,
+				3C4B10C022292732009942B7 /* card_visa.png */,
+				3C4B10C122292732009942B7 /* card_amex@3x.png */,
+				3C4B10C222292732009942B7 /* card_mastercard.png */,
+				3C4B10C322292732009942B7 /* card_unknown@3x.png */,
+				3C4B10C422292732009942B7 /* card_jcb@3x.png */,
+				3C4B10C522292732009942B7 /* card_jcb@2x.png */,
+				3C4B10C622292732009942B7 /* card_unknown@2x.png */,
+				3C4B10C722292732009942B7 /* card_amex.png */,
+				3C4B10C822292732009942B7 /* card_unknown.png */,
+				3C4B10C922292732009942B7 /* card_mastercard@3x.png */,
+				3C4B10CA22292732009942B7 /* card_visa@2x.png */,
+				3C4B10CB22292732009942B7 /* card_visa@3x.png */,
+				3C4B10CC22292732009942B7 /* card_mastercard@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		3C4B10DE22292743009942B7 /* TapPay */ = {
+			isa = PBXGroup;
+			children = (
+				3C4B10BC22292732009942B7 /* TPDirectResource */,
+				3C4B10DC2229273F009942B7 /* TPDirect.framework */,
+			);
+			path = TapPay;
+			sourceTree = "<group>";
+		};
+		3C4B10E022292EA5009942B7 /* TapPay */ = {
+			isa = PBXGroup;
+			children = (
+				3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */,
+			);
+			path = TapPay;
+			sourceTree = "<group>";
+		};
 		3C5DD7CA2227EFE40053B67A /* Trolley */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +424,7 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3C4B10E022292EA5009942B7 /* TapPay */,
 				3C5DD7CA2227EFE40053B67A /* Trolley */,
 				3C41B8452216665200112F94 /* Product */,
 				3C1ACFE222151F3D005583E2 /* Profile */,
@@ -364,6 +448,8 @@
 		3CD2913122113D12008B8A2D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3C4B10DE22292743009942B7 /* TapPay */,
+				3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */,
 				3CD29123221135E3008B8A2D /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -455,19 +541,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C09F51A2211442000C5B3E2 /* Auth.storyboard in Resources */,
+				3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */,
 				3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */,
 				3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */,
+				3C4B10D622292732009942B7 /* card_amex.png in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
 				3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */,
 				3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */,
+				3C4B10D022292732009942B7 /* card_amex@3x.png in Resources */,
+				3C4B10D722292732009942B7 /* card_unknown.png in Resources */,
+				3C4B10D822292732009942B7 /* card_mastercard@3x.png in Resources */,
 				3CD29124221135E3008B8A2D /* Assets.xcassets in Resources */,
+				3C4B10D222292732009942B7 /* card_unknown@3x.png in Resources */,
 				3CD29122221135E2008B8A2D /* Main.storyboard in Resources */,
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
+				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
+				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
 				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
+				3C4B10D322292732009942B7 /* card_jcb@3x.png in Resources */,
+				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
+				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
+				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
+				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
+				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
+				3C4B10D922292732009942B7 /* card_visa@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +626,7 @@
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
+				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
@@ -696,6 +798,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RR2TL95C6Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
+				);
 				INFOPLIST_FILE = STYLiSH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -704,6 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = LukeWu.STYLiSH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "STYLiSH/Resource/STYLiSH-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -716,6 +823,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RR2TL95C6Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
+				);
 				INFOPLIST_FILE = STYLiSH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -724,6 +835,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = LukeWu.STYLiSH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "STYLiSH/Resource/STYLiSH-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
