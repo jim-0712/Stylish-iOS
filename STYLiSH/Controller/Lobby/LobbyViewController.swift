@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MJRefresh
 
 class LobbyViewController: UIViewController {
     
@@ -56,7 +55,7 @@ class LobbyViewController: UIViewController {
         
         tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+        tableView.addRefreshHeader(refreshingBlock: { [weak self] in
             
             self?.fetchData(completion: {
                 

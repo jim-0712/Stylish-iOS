@@ -49,6 +49,8 @@ extension UIView {
     
     func stickSubView(_ objectView: UIView) {
         
+        objectView.removeFromSuperview()
+        
         addSubview(objectView)
         
         objectView.translatesAutoresizingMaskIntoConstraints = false

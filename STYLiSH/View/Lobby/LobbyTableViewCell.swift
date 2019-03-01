@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class LobbyTableViewCell: UITableViewCell {
 
@@ -34,20 +33,20 @@ class LobbyTableViewCell: UITableViewCell {
         
         singleImgView.alpha = 1.0
     
-        singleImgView.kf.setImage(with: URL(string: img))
+        singleImgView.loadImage(img)
     }
     
     func multiplePages(imgs: [String]) {
         
         singleImgView.alpha = 0.0
         
-        multipleImgView1.kf.setImage(with: URL(string: imgs[0]))
+        multipleImgView1.loadImage(imgs[0])
         
-        multipleImgView2.kf.setImage(with: URL(string: imgs[1]))
+        multipleImgView2.loadImage(imgs[1])
         
-        multipleImgView3.kf.setImage(with: URL(string: imgs[2]))
+        multipleImgView3.loadImage(imgs[2])
         
-        multipleImgView4.kf.setImage(with: URL(string: imgs[3]))
+        multipleImgView4.loadImage(imgs[3])
     }
     
     func layout(title: String, description: String) {
