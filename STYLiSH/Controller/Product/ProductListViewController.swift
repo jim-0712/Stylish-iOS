@@ -22,18 +22,18 @@ class ProductListViewController: STCompondViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerTableViewCell()
+        view.backgroundColor = UIColor.white
         
-        registerCollectionCell()
+        setupTableView()
         
-        setupCollectionViewLayout()
-        
-        datas = [[1, 2, 3, 4, 5, 6, 7]]
-    
-        collectionView.isHidden = true
+        setupCollectionView()
     }
     
-    private func registerTableViewCell() {
+    private func setupTableView() {
+        
+        tableView.separatorStyle = .none
+        
+        tableView.backgroundColor = UIColor.white
         
         tableView.lk_registerCellWithNib(
             identifier: String(describing: ProductTableViewCell.self),
@@ -41,12 +41,16 @@ class ProductListViewController: STCompondViewController {
         )
     }
 
-    private func registerCollectionCell() {
+    private func setupCollectionView() {
+        
+        collectionView.backgroundColor = UIColor.white
         
         collectionView.lk_registerCellWithNib(
             identifier: String(describing: ProductCollectionViewCell.self),
             bundle: nil
         )
+        
+        setupCollectionViewLayout()
     }
     
     private func setupCollectionViewLayout() {
@@ -55,7 +59,7 @@ class ProductListViewController: STCompondViewController {
         
         flowLayout.itemSize = CGSize(
             width: Int(164.0 / 375.0 * UIScreen.width) ,
-            height: Int(164.0 / 375.0 * UIScreen.width * 220.0 / 164.0)
+            height: Int(164.0 / 375.0 * UIScreen.width * 308.0 / 164.0)
         )
         
         flowLayout.sectionInset = UIEdgeInsets(top: 24.0, left: 16.0, bottom: 24.0, right: 16.0)
@@ -93,8 +97,6 @@ class ProductListViewController: STCompondViewController {
             for: indexPath
         )
         
-        cell.textLabel?.text = "\(indexPath.row)"
-        
         return cell
     }
     
@@ -106,8 +108,6 @@ class ProductListViewController: STCompondViewController {
             withReuseIdentifier: String(describing: ProductCollectionViewCell.self),
             for: indexPath
         )
-    
-        cell.backgroundColor = UIColor.blue
         
         return cell
     }

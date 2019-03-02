@@ -30,14 +30,14 @@ class STCompondViewController:
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupTableView()
+        cpdSetupTableView()
         
-        setupCollectionView()
+        cpdSetupCollectionView()
         
         tableView.beginHeaderRefreshing()
     }
     
-    private func setupTableView() {
+    private func cpdSetupTableView() {
         
         if tableView == nil {
             
@@ -63,7 +63,7 @@ class STCompondViewController:
         })
     }
 
-    private func setupCollectionView() {
+    private func cpdSetupCollectionView() {
         
         if collectionView == nil {
             
