@@ -160,6 +160,14 @@ class STCompondViewController:
         collectionView.isHidden = false
         
         tableView.isHidden = true
+        
+        guard let indexPaths = tableView.indexPathsForVisibleRows else { return }
+        
+        let sortedResult = indexPaths.sorted(by: { $0.row < $1.row })
+        
+        guard let minmumIndexPath = sortedResult.first else { return }
+        
+        collectionView.scrollToItem(at: minmumIndexPath, at: .top, animated: false)
     }
     
     func showListView() {
@@ -167,6 +175,12 @@ class STCompondViewController:
         collectionView.isHidden = true
         
         tableView.isHidden = false
+        
+        let sortedResult = collectionView.indexPathsForVisibleItems.sorted(by: { $0.row < $1.row })
+        
+        guard let minmumIndexPath = sortedResult.first else { return }
+        
+        tableView.scrollToRow(at: minmumIndexPath, at: .top, animated: false)
     }
     
     //MARK - UITableViewDataSource. Subclass should override these method for setting properly.
