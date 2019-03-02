@@ -34,7 +34,7 @@
                                             <action selector="onChangeProducts:" destination="Yka-na-vga" eventType="touchUpInside" id="N7B-BG-CP6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-1w-gpV">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-1w-gpV">
                                         <rect key="frame" x="125" y="0.0" width="125" height="44"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="男裝">
@@ -47,7 +47,7 @@
                                             <action selector="onChangeProducts:" destination="Yka-na-vga" eventType="touchUpInside" id="qT8-yg-X6b"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-Ll-LpG">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-Ll-LpG">
                                         <rect key="frame" x="250" y="0.0" width="125" height="44"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="配件">
@@ -82,7 +82,19 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wo4-r2-uEs">
                                 <rect key="frame" x="0.0" y="45" width="375" height="558"/>
                                 <connections>
-                                    <segue destination="0fW-Bv-nO2" kind="embed" id="fLF-VF-2VV"/>
+                                    <segue destination="0fW-Bv-nO2" kind="embed" identifier="SegueMen" id="fLF-VF-2VV"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzb-lH-MQR">
+                                <rect key="frame" x="0.0" y="45" width="375" height="558"/>
+                                <connections>
+                                    <segue destination="z7y-xk-zwK" kind="embed" identifier="SegueAccessories" id="YtP-im-DMZ"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-7D-T5k">
+                                <rect key="frame" x="0.0" y="45" width="375" height="558"/>
+                                <connections>
+                                    <segue destination="iS0-b9-T4S" kind="embed" identifier="SegueWomen" id="cAL-Qr-2Xg"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -90,17 +102,25 @@
                         <constraints>
                             <constraint firstItem="iT1-40-Gaf" firstAttribute="centerX" secondItem="mIU-pU-Sui" secondAttribute="centerX" id="0j9-C2-t5x"/>
                             <constraint firstItem="iT1-40-Gaf" firstAttribute="width" secondItem="mIU-pU-Sui" secondAttribute="width" id="2eZ-WR-OAY"/>
+                            <constraint firstItem="nzb-lH-MQR" firstAttribute="bottom" secondItem="Wo4-r2-uEs" secondAttribute="bottom" id="2pJ-Fh-Pe6"/>
+                            <constraint firstItem="nzb-lH-MQR" firstAttribute="top" secondItem="Wo4-r2-uEs" secondAttribute="top" id="41M-49-Jj8"/>
+                            <constraint firstItem="nzb-lH-MQR" firstAttribute="leading" secondItem="Wo4-r2-uEs" secondAttribute="leading" id="9cM-cK-hG5"/>
                             <constraint firstItem="ssr-DQ-tiu" firstAttribute="trailing" secondItem="Mfk-Mn-LZ1" secondAttribute="trailing" id="CUj-MP-oMA"/>
+                            <constraint firstItem="EzC-7D-T5k" firstAttribute="top" secondItem="nzb-lH-MQR" secondAttribute="top" id="DFH-oG-6bo"/>
                             <constraint firstItem="ssr-DQ-tiu" firstAttribute="trailing" secondItem="ovl-mw-pYu" secondAttribute="trailing" id="Dxe-Ud-5aU"/>
+                            <constraint firstItem="EzC-7D-T5k" firstAttribute="bottom" secondItem="nzb-lH-MQR" secondAttribute="bottom" id="EOu-TH-pAr"/>
                             <constraint firstItem="Wo4-r2-uEs" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="KT7-tl-RDa"/>
+                            <constraint firstItem="nzb-lH-MQR" firstAttribute="trailing" secondItem="Wo4-r2-uEs" secondAttribute="trailing" id="MKE-YF-jnu"/>
                             <constraint firstItem="ssr-DQ-tiu" firstAttribute="trailing" secondItem="Wo4-r2-uEs" secondAttribute="trailing" id="PJ8-bn-4Qy"/>
                             <constraint firstItem="Wo4-r2-uEs" firstAttribute="top" secondItem="ovl-mw-pYu" secondAttribute="bottom" id="PU3-vp-hRH"/>
+                            <constraint firstItem="EzC-7D-T5k" firstAttribute="leading" secondItem="nzb-lH-MQR" secondAttribute="leading" id="QTf-7v-Q9k"/>
                             <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="XI2-rI-GSe"/>
                             <constraint firstItem="iT1-40-Gaf" firstAttribute="top" secondItem="ovl-mw-pYu" secondAttribute="top" id="ZRb-92-Wzk"/>
                             <constraint firstItem="ovl-mw-pYu" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="daG-WE-OWY"/>
                             <constraint firstItem="ovl-mw-pYu" firstAttribute="top" secondItem="Mfk-Mn-LZ1" secondAttribute="bottom" id="fuD-N3-kAl"/>
                             <constraint firstItem="ssr-DQ-tiu" firstAttribute="bottom" secondItem="Wo4-r2-uEs" secondAttribute="bottom" id="oQa-xf-BEh"/>
                             <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="top" secondItem="ssr-DQ-tiu" secondAttribute="top" id="t6S-Gg-3bM"/>
+                            <constraint firstItem="EzC-7D-T5k" firstAttribute="trailing" secondItem="nzb-lH-MQR" secondAttribute="trailing" id="wDo-4k-BjJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssr-DQ-tiu"/>
                     </view>
@@ -112,14 +132,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accessoriesProductsContainerView" destination="nzb-lH-MQR" id="05m-jj-8Uc"/>
                         <outlet property="indicatorCenterXConstraint" destination="0j9-C2-t5x" id="uMA-Pt-aaQ"/>
                         <outlet property="indicatorView" destination="iT1-40-Gaf" id="Rlp-4l-swZ"/>
                         <outlet property="layoutBtn" destination="fMg-rv-MfI" id="9hK-wM-9a9"/>
+                        <outlet property="menProductsContainerView" destination="Wo4-r2-uEs" id="CAT-6r-GmF"/>
+                        <outlet property="womenProductsContainerView" destination="EzC-7D-T5k" id="YzR-4b-N3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atF-IO-8C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936.79999999999995" y="3.1484257871064472"/>
+            <point key="canvasLocation" x="1737" y="3"/>
         </scene>
         <!--No Underline Navigation Controller-->
         <scene sceneID="EBx-ly-Xbs">
@@ -147,25 +170,41 @@
                     <view key="view" contentMode="scaleToFill" id="5Mo-iR-ATY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vhz-Nz-vvJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Vhz-Nz-vvJ" secondAttribute="trailing" id="FLb-CC-cRZ"/>
-                            <constraint firstAttribute="bottom" secondItem="Vhz-Nz-vvJ" secondAttribute="bottom" id="cEC-oc-A1t"/>
-                            <constraint firstItem="Vhz-Nz-vvJ" firstAttribute="top" secondItem="5Mo-iR-ATY" secondAttribute="top" id="fSl-fs-IvS"/>
-                            <constraint firstItem="Vhz-Nz-vvJ" firstAttribute="leading" secondItem="5Mo-iR-ATY" secondAttribute="leading" id="nuS-w6-6qV"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JK8-aB-ON1"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gr2-t6-ejG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="824"/>
+            <point key="canvasLocation" x="1737" y="824"/>
+        </scene>
+        <!--Product List View Controller-->
+        <scene sceneID="lTU-DL-bBN">
+            <objects>
+                <viewController id="z7y-xk-zwK" customClass="ProductListViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zra-VY-jsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nlu-My-v5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="824"/>
+        </scene>
+        <!--Product List View Controller-->
+        <scene sceneID="JXV-7s-IxW">
+            <objects>
+                <viewController id="iS0-b9-T4S" customClass="ProductListViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4RL-lJ-qNa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V7f-5H-eIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="824"/>
         </scene>
     </scenes>
     <resources>

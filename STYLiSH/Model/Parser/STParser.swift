@@ -12,9 +12,10 @@ struct STSuccessParser<T: Codable>: Codable {
     
     let data: T
     
-    let paging: String?
+    let paging: Int?
 }
 
-struct STFailureParser {
+struct STFailureParser: Codable {
     
+    let errorMessage: String
 }

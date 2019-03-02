@@ -10,11 +10,47 @@ import UIKit
 
 class ProductViewController: UIViewController {
 
+    enum LayoutType {
+        
+        case list
+        
+        case grid
+    }
+    
+    enum ProductType: Int {
+        
+        case women = 0
+        
+        case men = 1
+        
+        case accessories = 2
+    }
+    
+    struct Segue {
+        
+        static let men = "SegueMen"
+        
+        static let women = "SegueWomen"
+        
+        static let accessories = "SegueAccessories"
+    }
+    
     @IBOutlet weak var indicatorView: UIView!
     
     @IBOutlet weak var indicatorCenterXConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var layoutBtn: UIBarButtonItem!
+    
+    @IBOutlet weak var menProductsContainerView: UIView!
+    
+    @IBOutlet weak var womenProductsContainerView: UIView!
+    
+    @IBOutlet weak var accessoriesProductsContainerView: UIView!
+    
+    var containers: [UIView] {
+        
+        return [menProductsContainerView, womenProductsContainerView, accessoriesProductsContainerView]
+    }
     
     var isListLayout: Bool = true {
         
@@ -42,6 +78,8 @@ class ProductViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         
         moveIndicatorView(reference: sender)
+        
+        updateContainer(type: ProductType(rawValue: sender.tag)!)
     }
     
     @IBAction func onChangeLayoutType(_ sender: UIBarButtonItem) {
@@ -49,15 +87,62 @@ class ProductViewController: UIViewController {
         isListLayout = !isListLayout
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let vc = segue.destination as? ProductListViewController else { return }
+        
+        let identifier = segue.identifier
+        
+        var provider: ProductListDataProvider?
+        
+        let marketProvider = MarketProvider()
+        
+        if identifier == Segue.men {
+            
+            provider = ProductsProvider(productType: ProductsProvider.ProductType.men, dataProvider: marketProvider)
+            
+        } else if identifier == Segue.women {
+            
+            provider = ProductsProvider(productType: ProductsProvider.ProductType.women, dataProvider: marketProvider)
+            
+        }  else if identifier == Segue.accessories {
+            
+            provider = ProductsProvider(productType: ProductsProvider.ProductType.accessories, dataProvider: marketProvider)
+        }
+        
+        vc.provider = provider
+    }
+    
     //MARK: - Private method
     private func showListLayout() {
 
         layoutBtn.image = UIImage.asset(.Icons_24px_ListView)
+        
+        showLayout(type: .list)
     }
     
     private func showGridLayout() {
         
         layoutBtn.image = UIImage.asset(.Icons_24px_CollectionView)
+    
+        showLayout(type: .grid)
+    }
+    
+    private func showLayout(type: LayoutType) {
+        
+        children.forEach({ child in
+            
+            if let child = child as? ProductListViewController {
+                
+                switch type {
+                    
+                case .list: child.showListView()
+                    
+                case .grid: child.showGridView()
+                
+                }
+            }
+        })
     }
     
     private func moveIndicatorView(reference: UIView) {
@@ -72,5 +157,23 @@ class ProductViewController: UIViewController {
             
             self?.view.layoutIfNeeded()
         })
+    }
+    
+    private func updateContainer(type: ProductType) {
+        
+        containers.forEach({ $0.isHidden = true })
+        
+        switch type {
+        
+        case .men:
+            menProductsContainerView.isHidden = false
+        
+        case .women:
+            womenProductsContainerView.isHidden = false
+            
+        case .accessories:
+            accessoriesProductsContainerView.isHidden = false
+        
+        }
     }
 }

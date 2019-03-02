@@ -8,17 +8,18 @@
 
 import UIKit
 
-typealias ProductsResponse = (Result<[Product]>) -> Void
-
 protocol ProductListDataProvider {
     
-    func fetchData(completion: @escaping ProductsResponse)
+    func fetchData(paging: Int, completion: @escaping ProductsResponseWithPaging)
 }
 
 class ProductListViewController: STCompondViewController {
 
     var provider: ProductListDataProvider?
     
+    var paging: Int? = 0
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +30,7 @@ class ProductListViewController: STCompondViewController {
         setupCollectionView()
     }
     
+    //MARK: - Private method
     private func setupTableView() {
         
         tableView.separatorStyle = .none
@@ -71,15 +73,26 @@ class ProductListViewController: STCompondViewController {
         collectionView.collectionViewLayout = flowLayout
     }
     
-    override func tableViewHeaderLoader() {
+    //MARK: - Override super class method
+    override func headerLoader() {
         
-        provider?.fetchData(completion: { [weak self] result in
+        paging = 0
+        
+        datas = []
+        
+        resetNoMoreData()
+        
+        provider?.fetchData(paging: paging!, completion: { [weak self] result in
+            
+            self?.endHeaderRefreshing()
             
             switch result{
                 
-            case .success(let products):
+            case .success(let response):
                 
-                self?.datas = [products]
+                self?.datas = [response.data]
+                
+                self?.paging = response.paging
                 
             case .failure(let error):
                 
@@ -88,8 +101,43 @@ class ProductListViewController: STCompondViewController {
         })
     }
     
-    //MARK: - UITableViewDataSource
+    override func footerLoader() {
+        
+        guard let paging = paging else {
+            
+            endWithNoMoreData()
+            
+            return
+        }
+        
+        provider?.fetchData(paging: paging, completion: { [weak self] result in
+            
+            self?.endFooterRefreshing()
+            
+            guard let strongSelf = self else { return }
+            
+            switch result{
+                
+            case .success(let response):
+                
+                guard let originalData = strongSelf.datas.first else { return }
+                
+                let newDatas = response.data
+                
+                self?.datas = [originalData + newDatas]
+                
+                self?.paging = response.paging
+                
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
+        })
+    }
     
+    
+    
+    //MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(
@@ -97,11 +145,23 @@ class ProductListViewController: STCompondViewController {
             for: indexPath
         )
         
-        return cell
+        guard let productCell = cell as? ProductTableViewCell,
+              let product = datas[indexPath.section][indexPath.row] as? Product
+        else {
+            
+            return cell
+        }
+        
+        productCell.productImg.loadImage(product.main_image)
+        
+        productCell.productTitleLbl.text = product.title
+        
+        productCell.productPriceLbl.text = String(product.price)
+        
+        return productCell
     }
     
     //MARK: - UICollectionViewDataSource
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(
@@ -109,6 +169,19 @@ class ProductListViewController: STCompondViewController {
             for: indexPath
         )
         
-        return cell
+        guard let productCell = cell as? ProductCollectionViewCell,
+            let product = datas[indexPath.section][indexPath.row] as? Product
+            else {
+                
+                return cell
+        }
+        
+        productCell.productImg.loadImage(product.main_image)
+        
+        productCell.productTitleLbl.text = product.title
+        
+        productCell.productPriceLbl.text = String(product.price)
+        
+        return productCell
     }
 }

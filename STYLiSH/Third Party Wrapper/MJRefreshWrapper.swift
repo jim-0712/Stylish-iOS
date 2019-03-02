@@ -35,6 +35,16 @@ extension UITableView {
         
         mj_footer.endRefreshing()
     }
+    
+    func endWithNoMoreData() {
+        
+        mj_footer.endRefreshingWithNoMoreData()
+    }
+    
+    func resetNoMoreData() {
+        
+        mj_footer.resetNoMoreData()
+    }
 }
 
 extension UICollectionView {
@@ -62,5 +72,15 @@ extension UICollectionView {
     func endFooterRefreshing() {
         
         mj_footer.endRefreshing()
+    }
+    
+    func endWithNoMoreData() {
+        
+        mj_footer.endRefreshingWithNoMoreData()
+    }
+    
+    func resetNoMoreData() {
+        
+        mj_footer.resetNoMoreData()
     }
 }

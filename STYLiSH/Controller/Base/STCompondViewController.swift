@@ -27,6 +27,7 @@ class STCompondViewController:
         }
     }
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +38,7 @@ class STCompondViewController:
         tableView.beginHeaderRefreshing()
     }
     
+    //MARK: - Private Method
     private func cpdSetupTableView() {
         
         if tableView == nil {
@@ -54,12 +56,12 @@ class STCompondViewController:
         
         tableView.addRefreshHeader(refreshingBlock: { [weak self] in
             
-            self?.tableViewHeaderLoader()
+            self?.headerLoader()
         })
         
         tableView.addRefreshFooter(refreshingBlock: { [weak self] in
             
-            self?.tableViewFooterLoader()
+            self?.footerLoader()
         })
     }
 
@@ -83,15 +85,16 @@ class STCompondViewController:
         
         collectionView.addRefreshHeader(refreshingBlock: { [weak self] in
             
-            self?.collectionViewHeaderLoader()
+            self?.headerLoader()
         })
         
         collectionView.addRefreshFooter(refreshingBlock: { [weak self] in
             
-            self?.collectionViewFooterLoader()
+            self?.footerLoader()
         })
     }
     
+    //MARK: - Public Method: Manipulate table view and collection view
     func reloadData() {
         
         guard Thread.isMainThread == true else {
@@ -109,24 +112,61 @@ class STCompondViewController:
         collectionView.reloadData()
     }
     
-    func tableViewHeaderLoader() {
+    func headerLoader() {
         
         tableView.endHeaderRefreshing()
-    }
-    
-    func tableViewFooterLoader() {
-        
-        tableView.endFooterRefreshing()
-    }
-    
-    func collectionViewHeaderLoader() {
         
         collectionView.endHeaderRefreshing()
     }
     
-    func collectionViewFooterLoader() {
+    func footerLoader() {
+        
+        tableView.endFooterRefreshing()
         
         collectionView.endFooterRefreshing()
+    }
+    
+    func endHeaderRefreshing() {
+        
+        tableView.endHeaderRefreshing()
+        
+        collectionView.endHeaderRefreshing()
+    }
+    
+    func endFooterRefreshing() {
+        
+        tableView.endFooterRefreshing()
+        
+        collectionView.endFooterRefreshing()
+    }
+    
+    func endWithNoMoreData() {
+        
+        tableView.endWithNoMoreData()
+        
+        collectionView.endWithNoMoreData()
+    }
+    
+    func resetNoMoreData() {
+        
+        tableView.resetNoMoreData()
+        
+        collectionView.resetNoMoreData()
+    }
+    
+    //MARK: - Public Method: Change layout
+    func showGridView() {
+        
+        collectionView.isHidden = false
+        
+        tableView.isHidden = true
+    }
+    
+    func showListView() {
+        
+        collectionView.isHidden = true
+        
+        tableView.isHidden = false
     }
     
     //MARK - UITableViewDataSource. Subclass should override these method for setting properly.

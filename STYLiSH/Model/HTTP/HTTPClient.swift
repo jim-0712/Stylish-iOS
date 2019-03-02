@@ -89,9 +89,9 @@ class HTTPClient {
     
     private func makeRequest(_ stRequest: STRequest) -> URLRequest {
         
-        let urlString = Bundle.main.infoDictionary![urlKey] as! String
+        let urlString = (Bundle.main.infoDictionary![urlKey] as! String) + stRequest.endPoint
         
-        let url = URL(string: urlString)!.appendingPathComponent(stRequest.endPoint)
+        let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
         
