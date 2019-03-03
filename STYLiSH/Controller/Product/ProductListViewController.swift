@@ -135,7 +135,18 @@ class ProductListViewController: STCompondViewController {
         })
     }
     
-    
+    private func showProductDetailViewController(product: Product) {
+        
+        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
+            String(describing: ProductDetailViewController.self)
+        )
+        
+        guard let detailVC = vc as? ProductDetailViewController else { return }
+        
+        detailVC.product = product
+        
+        show(detailVC, sender: nil)
+    }
     
     //MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,6 +172,15 @@ class ProductListViewController: STCompondViewController {
         return productCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let product = datas[indexPath.section][indexPath.row] as? Product else { return }
+        
+        showProductDetailViewController(product: product)
+    }
+    
     //MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -183,5 +203,14 @@ class ProductListViewController: STCompondViewController {
         productCell.productPriceLbl.text = String(product.price)
         
         return productCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+    
+        guard let product = datas[indexPath.section][indexPath.row] as? Product else { return }
+        
+        showProductDetailViewController(product: product)
     }
 }

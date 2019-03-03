@@ -67,12 +67,7 @@ class LKGalleryView: UIView, UICollectionViewDataSource, UICollectionViewDelegat
         return control
     }()
 
-    var datas: [String] = [
-        "http://18.214.165.31/assets/201807201824/0.jpg",
-        "http://18.214.165.31/assets/201807201824/1.jpg",
-        "http://18.214.165.31/assets/201807201824/0.jpg",
-        "http://18.214.165.31/assets/201807201824/1.jpg"
-    ] {
+    var datas: [String] = [] {
         
         didSet {
             

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gGW-se-d1f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="igA-yf-5FC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -196,12 +196,12 @@
         <!--Product Detail View Controller-->
         <scene sceneID="shq-3j-rRM">
             <objects>
-                <viewController storyboardIdentifier="ProductDetailViewController" id="gGW-se-d1f" customClass="ProductDetailViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="gGW-se-d1f" customClass="ProductDetailViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i6J-FW-GCZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JNy-Dd-FWj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JNy-Dd-FWj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="171-NO-oAQ" customClass="LKGalleryView" customModule="STYLiSH" customModuleProvider="target">
@@ -210,16 +210,30 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz7-Xk-k2r">
+                                <rect key="frame" x="16" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="3cO-1H-swp"/>
+                                    <constraint firstAttribute="height" constant="44" id="75V-3H-axd"/>
+                                </constraints>
+                                <state key="normal" image="Icons_44px_Back01"/>
+                                <connections>
+                                    <action selector="popBack:" destination="gGW-se-d1f" eventType="touchUpInside" id="qBE-ek-IUN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NPk-LD-3mb" firstAttribute="bottom" secondItem="JNy-Dd-FWj" secondAttribute="bottom" id="2il-ur-GQP"/>
+                            <constraint firstItem="bz7-Xk-k2r" firstAttribute="leading" secondItem="NPk-LD-3mb" secondAttribute="leading" constant="16" id="UOW-Rf-CuM"/>
                             <constraint firstItem="JNy-Dd-FWj" firstAttribute="leading" secondItem="NPk-LD-3mb" secondAttribute="leading" id="bWX-w8-Khf"/>
+                            <constraint firstItem="bz7-Xk-k2r" firstAttribute="top" secondItem="i6J-FW-GCZ" secondAttribute="top" constant="30" id="k98-59-F0O"/>
                             <constraint firstItem="NPk-LD-3mb" firstAttribute="trailing" secondItem="JNy-Dd-FWj" secondAttribute="trailing" id="nkp-pV-0Nc"/>
                             <constraint firstItem="JNy-Dd-FWj" firstAttribute="top" secondItem="i6J-FW-GCZ" secondAttribute="top" id="v8R-Nx-zZB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NPk-LD-3mb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="J1S-gD-mvJ"/>
                     <connections>
                         <outlet property="galleryView" destination="171-NO-oAQ" id="YgB-uE-CdA"/>
                         <outlet property="tableView" destination="JNy-Dd-FWj" id="pBt-qQ-smn"/>
@@ -227,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJ1-v3-v3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2797.5999999999999" y="1.3493253373313345"/>
+            <point key="canvasLocation" x="3736.8000000000002" y="1.3493253373313345"/>
         </scene>
         <!--Product List View Controller-->
         <scene sceneID="JXV-7s-IxW">
@@ -247,6 +261,7 @@
     </scenes>
     <resources>
         <image name="Icons_24px_ListView" width="24" height="24"/>
+        <image name="Icons_44px_Back01" width="44" height="44"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

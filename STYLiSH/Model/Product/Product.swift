@@ -44,6 +44,19 @@ struct Product: Codable {
     let main_image: String
     
     let images: [String]
+    
+    var size: String {
+        
+        return (sizes.first ?? "") + " - " + (sizes.last ?? "")
+    }
+    
+    var stock: Int {
+        
+        return variants.reduce(0, { (previousData, upcomingData) -> Int in
+            
+            return previousData + upcomingData.stock
+        })
+    }
 }
 
 struct Color: Codable {
