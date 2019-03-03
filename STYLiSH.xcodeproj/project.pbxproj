@@ -67,6 +67,8 @@
 		3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC706152216B34800CAD850 /* ProductTableViewCell.xib */; };
 		3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC706182216B36800CAD850 /* ProductCollectionViewCell.swift */; };
 		3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC706192216B36800CAD850 /* ProductCollectionViewCell.xib */; };
+		3CCB3BC4222AA8FD00976A1C /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB3BC3222AA8FD00976A1C /* ProductDetailViewController.swift */; };
+		3CCB3BC6222AAC8300976A1C /* LKGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB3BC5222AAC8300976A1C /* LKGalleryView.swift */; };
 		3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD2911C221135E2008B8A2D /* AppDelegate.swift */; };
 		3CD29122221135E2008B8A2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD29120221135E2008B8A2D /* Main.storyboard */; };
 		3CD29124221135E3008B8A2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD29123221135E3008B8A2D /* Assets.xcassets */; };
@@ -138,6 +140,8 @@
 		3CC706152216B34800CAD850 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		3CC706182216B36800CAD850 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CC706192216B36800CAD850 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		3CCB3BC3222AA8FD00976A1C /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		3CCB3BC5222AAC8300976A1C /* LKGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKGalleryView.swift; sourceTree = "<group>"; };
 		3CD29119221135E2008B8A2D /* STYLiSH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STYLiSH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD2911C221135E2008B8A2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CD29121221135E2008B8A2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 		3C3369102227CDAF008A5A7A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3CCB3BC5222AAC8300976A1C /* LKGalleryView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			children = (
 				3C41B8462216667000112F94 /* ProductViewController.swift */,
 				3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */,
+				3CCB3BC3222AA8FD00976A1C /* ProductDetailViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -665,6 +671,7 @@
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
 				3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */,
 				3CB8011E22299B460029A552 /* STCompondViewController.swift in Sources */,
+				3CCB3BC4222AA8FD00976A1C /* ProductDetailViewController.swift in Sources */,
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
 				3CA25519222A484300B286F6 /* ProductsListProvider.swift in Sources */,
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
@@ -681,6 +688,7 @@
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
 				3CB801212229A0970029A552 /* KingFisherWrapper.swift in Sources */,
 				3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */,
+				3CCB3BC6222AAC8300976A1C /* LKGalleryView.swift in Sources */,
 				3C9C0D552215443900595689 /* ProfileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
