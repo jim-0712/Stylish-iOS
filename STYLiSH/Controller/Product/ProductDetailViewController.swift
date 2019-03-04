@@ -86,6 +86,11 @@ private enum ProductCategory: String {
 
 class ProductDetailViewController: STHideNavigationBarController, UITableViewDataSource, UITableViewDelegate {
     
+    struct Segue {
+        
+        static let picker = "SeguePicker"
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
         
@@ -104,6 +109,17 @@ class ProductDetailViewController: STHideNavigationBarController, UITableViewDat
             galleryView.delegate = self
         }
     }
+    
+    @IBOutlet weak var productPickerView: UIView!
+    
+    lazy var blurView: UIView = {
+        
+        let blurView = UIView(frame: tableView.frame)
+        
+        blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        
+        return blurView
+    }()
     
     private let datas: [ProductCategory] = [.description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks]
     
@@ -127,6 +143,39 @@ class ProductDetailViewController: STHideNavigationBarController, UITableViewDat
         guard let product = product else { return }
         
         galleryView.datas = product.images
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == Segue.picker,
+           let pickerVC = segue.destination as? ProductPickerController {
+            
+            pickerVC.delegate = self
+        }
+    }
+    
+    @IBAction func onShowShoppingPage(_ sender: UIButton) {
+        
+        view.addSubview(blurView)
+        
+        view.bringSubviewToFront(blurView)
+    
+        productPickerView.frame = CGRect(
+            x: 0, y: UIScreen.height - 80.0, width: UIScreen.width, height: 0.0
+        )
+        
+        view.addSubview(productPickerView)
+        
+        view.bringSubviewToFront(productPickerView)
+        
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            
+            let y = 145.0 / 667.0 * UIScreen.height
+            
+            self?.productPickerView.frame = CGRect(
+                x: 0, y: y , width: UIScreen.width, height: UIScreen.height - y - 80.0
+            )
+        })
     }
     
     private func setupTableView() {
@@ -171,5 +220,22 @@ extension ProductDetailViewController: LKGalleryViewDelegate {
     func sizeForItem(_ galleryView: LKGalleryView) -> CGSize {
         
         return CGSize(width: UIScreen.width, height: UIScreen.width / 375.0 * 500.0)
+    }
+}
+
+extension ProductDetailViewController: ProductPickerControllerDelegate {
+    
+    func dismissPicker(_ controller: ProductPickerController) {
+        
+        let origin = productPickerView.frame
+        
+        let nextFrame = CGRect(x: origin.minX, y: origin.maxY, width: origin.width, height: 0)
+        
+        blurView.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            
+            self?.productPickerView.frame = nextFrame
+        })
     }
 }
