@@ -10,16 +10,22 @@ import UIKit
 
 private enum STFontName: String {
     
-    case medium = "PingFangTC-Medium"
-    
-    case regular = "PingFangTC-Regular"
+    case regular = "NotoSansChakma-Regular"
 }
 
 extension UIFont {
     
     static func medium(size: CGFloat) -> UIFont? {
         
-        return STFont(.medium, size: size)
+        var descriptor = UIFontDescriptor(name: STFontName.regular.rawValue, size: size)
+        
+        descriptor = descriptor.addingAttributes(
+            [UIFontDescriptor.AttributeName.traits : [UIFontDescriptor.TraitKey.weight : UIFont.Weight.medium]]
+        )
+        
+        let font = UIFont(descriptor: descriptor, size: size)
+        
+        return font
     }
     
     static func regular(size: CGFloat) -> UIFont? {

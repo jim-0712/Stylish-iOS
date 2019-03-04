@@ -41,6 +41,9 @@ enum ImageAsset: String {
     //Product page
     case Icons_24px_CollectionView
     case Icons_24px_ListView
+    
+    //Product size and color picker
+    case Image_StrikeThrough
 }
 
 extension UIImage {

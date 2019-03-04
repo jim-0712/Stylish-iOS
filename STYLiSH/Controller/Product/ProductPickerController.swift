@@ -25,11 +25,22 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    @IBOutlet weak var headerView: UIView!
+    
     weak var delegate: ProductPickerControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(
+            SizeSelectionCell.self,
+            forCellReuseIdentifier: String(describing: SizeSelectionCell.self)
+        )
+    
+        tableView.register(
+            ColorSelectionCell.self,
+            forCellReuseIdentifier: String(describing: ColorSelectionCell.self)
+        )
     }
     
     @IBAction func onDismiss(_ sender: UIButton) {
@@ -39,25 +50,42 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        
-        cell.textLabel?.text = "\(indexPath.section) \(indexPath.row)"
-        
-        return cell
+        if indexPath.row == 0 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SizeSelectionCell.self), for: indexPath)
+            
+            return cell
+    
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ColorSelectionCell.self), for: indexPath)
+            
+            guard let colorCell = cell as? ColorSelectionCell else { return cell }
+            
+            colorCell.colors = ["FFFFFF", "DDFFBB", "CCCCCC"]
+            
+            return cell
+            
+        }
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 50.0
+        return 108.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return headerView
     }
 }
