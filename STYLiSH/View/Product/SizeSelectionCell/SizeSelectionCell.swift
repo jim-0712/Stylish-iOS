@@ -34,7 +34,7 @@ struct SizeObject {
     
     let size: SizeType
     
-    var status: StockStatus = .avaliable
+    var status: StockStatus
 }
 
 class SizeSelectionCell: BasicSelectionCell {
@@ -123,11 +123,6 @@ class SizeSelectionCell: BasicSelectionCell {
         }
         
         guard touchHandler?(sizes[indexPath.row].size.rawValue) == true else { return }
-        
-        if sizes[indexPath.row].status == .unAvaliable {
-            
-            return
-        }
         
         for index in 0 ..< sizes.count {
         

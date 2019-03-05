@@ -112,6 +112,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     
     @IBOutlet weak var productPickerView: UIView!
     
+    @IBOutlet weak var addToCarBtn: UIButton!
+    
     lazy var blurView: UIView = {
         
         let blurView = UIView(frame: tableView.frame)
@@ -161,24 +163,59 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         }
     }
     
-    @IBAction func onShowShoppingPage(_ sender: UIButton) {
+    @IBAction func didTouchAddToCarBtn(_ sender: UIButton) {
     
+        if productPickerView.superview == nil {
+            
+            showProductPickerView()
+        
+        } else {
+        
+            //SAVE to core data
+            
+            print("Save to core data")
+        }
+    }
+    
+    func showProductPickerView() {
+        
         productPickerView.frame = CGRect(
             x: 0, y: UIScreen.height - 80.0, width: UIScreen.width, height: 0.0
         )
         
-        view.insertSubview(productPickerView, belowSubview: sender.superview!)
+        view.insertSubview(productPickerView, belowSubview: addToCarBtn.superview!)
         
         view.insertSubview(blurView, belowSubview: productPickerView)
         
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { [weak self] in
+                
+                let y = 145.0 / 667.0 * UIScreen.height
+                
+                self?.productPickerView.frame = CGRect(
+                    x: 0, y: y , width: UIScreen.width, height: UIScreen.height - y - 80.0
+                )
+                
+                self?.isEnableAddToCarBtn(false)
+            }
+        )
+    }
+    
+    func isEnableAddToCarBtn(_ flag: Bool) {
+        
+        if flag {
             
-            let y = 145.0 / 667.0 * UIScreen.height
-            
-            self?.productPickerView.frame = CGRect(
-                x: 0, y: y , width: UIScreen.width, height: UIScreen.height - y - 80.0
-            )
-        })
+            addToCarBtn.isEnabled = true
+        
+            addToCarBtn.backgroundColor = UIColor.B1
+        
+        } else {
+         
+            addToCarBtn.isEnabled = false
+        
+            addToCarBtn.backgroundColor = UIColor.B4
+        }
     }
     
     private func setupTableView() {
@@ -240,14 +277,29 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
             
                 self?.productPickerView.frame = nextFrame
             
-            }, completion: { [weak self] _ in
-                
                 self?.blurView.removeFromSuperview()
+                
+                self?.isEnableAddToCarBtn(true)
+                
+            }, completion: { [weak self] _ in
             
                 self?.productPickerView.removeFromSuperview()
             }
         )
+    }
+    
+    func valueChange(_ controller: ProductPickerController) {
         
+        guard let color = controller.selectedColor,
+              let size = controller.selectedSize,
+              let amount = controller.selectedAmount
+        else {
         
+            isEnableAddToCarBtn(false)
+            
+            return
+        }
+        
+        isEnableAddToCarBtn(true)
     }
 }

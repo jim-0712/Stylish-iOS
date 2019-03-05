@@ -33,6 +33,8 @@ enum ProductPickerCellType {
 protocol ProductPickerControllerDelegate: AnyObject {
     
     func dismissPicker(_ controller: ProductPickerController)
+    
+    func valueChange(_ controller: ProductPickerController)
 }
 
 class ProductPickerController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -66,6 +68,10 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
             
             manipulaterCell(cell, type: .size)
+            
+            selectedSize = nil
+            
+            delegate?.valueChange(self)
         }
     }
     
@@ -73,8 +79,27 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         
         didSet {
             
-            tableView.reloadData()
+            guard let index = datas.firstIndex(of: .amount) else { return }
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            
+            guard let cell = tableView.cellForRow(at: indexPath) else { return }
+            
+            manipulaterCell(cell, type: .amount)
+            
+            delegate?.valueChange(self)
         }
+    }
+    
+    var selectedAmount: Int? {
+        
+        guard let index = datas.firstIndex(of: .amount) else { return nil }
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? AmountSelectionCell else { return nil }
+        
+        return cell.amount
     }
     
     override func viewDidLoad() {
