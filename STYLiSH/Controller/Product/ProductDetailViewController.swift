@@ -157,18 +157,14 @@ class ProductDetailViewController: STHideNavigationBarController, UITableViewDat
     }
     
     @IBAction func onShowShoppingPage(_ sender: UIButton) {
-        
-        view.addSubview(blurView)
-        
-        view.bringSubviewToFront(blurView)
     
         productPickerView.frame = CGRect(
             x: 0, y: UIScreen.height - 80.0, width: UIScreen.width, height: 0.0
         )
         
-        view.addSubview(productPickerView)
+        view.insertSubview(productPickerView, belowSubview: sender.superview!)
         
-        view.bringSubviewToFront(productPickerView)
+        view.insertSubview(blurView, belowSubview: productPickerView)
         
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             
@@ -231,13 +227,22 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
         
         let origin = productPickerView.frame
         
-        let nextFrame = CGRect(x: origin.minX, y: origin.maxY, width: origin.width, height: 0)
+        let nextFrame = CGRect(x: origin.minX, y: origin.maxY, width: origin.width, height: origin.height)
         
-        blurView.removeFromSuperview()
-        
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { [weak self] in
             
-            self?.productPickerView.frame = nextFrame
-        })
+                self?.productPickerView.frame = nextFrame
+            
+            }, completion: { [weak self] _ in
+                
+                self?.blurView.removeFromSuperview()
+            
+                self?.productPickerView.removeFromSuperview()
+            }
+        )
+        
+        
     }
 }
