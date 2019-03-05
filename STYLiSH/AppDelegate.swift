@@ -8,6 +8,7 @@
 
 import UIKit
 import AdSupport
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         TPDSetup.shareInstance().serverSync()
+        
+        IQKeyboardManager.shared().isEnabled = true
+        
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
         return true
     }

@@ -59,7 +59,7 @@
 		3C6020DD222B90DF00312958 /* ProductDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020DB222B90DF00312958 /* ProductDetailCell.swift */; };
 		3C6020DE222B90DF00312958 /* ProductDetailLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6020DC222B90DF00312958 /* ProductDetailLabelCell.xib */; };
 		3C6020E0222B937F00312958 /* ProductDetailColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6020DF222B937F00312958 /* ProductDetailColorCell.xib */; };
-		3C6020E6222BB03400312958 /* STHideNavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E5222BB03400312958 /* STHideNavigationBarController.swift */; };
+		3C6020E6222BB03400312958 /* STBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E5222BB03400312958 /* STBaseViewController.swift */; };
 		3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E7222BBA3C00312958 /* ProductBasicCell.swift */; };
 		3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E9222BC00100312958 /* UILabel+Extension.swift */; };
 		3C6B8FE8222CE53100804EFE /* BasicSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */; };
@@ -146,7 +146,7 @@
 		3C6020DB222B90DF00312958 /* ProductDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCell.swift; sourceTree = "<group>"; };
 		3C6020DC222B90DF00312958 /* ProductDetailLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailLabelCell.xib; sourceTree = "<group>"; };
 		3C6020DF222B937F00312958 /* ProductDetailColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailColorCell.xib; sourceTree = "<group>"; };
-		3C6020E5222BB03400312958 /* STHideNavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHideNavigationBarController.swift; sourceTree = "<group>"; };
+		3C6020E5222BB03400312958 /* STBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseViewController.swift; sourceTree = "<group>"; };
 		3C6020E7222BBA3C00312958 /* ProductBasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBasicCell.swift; sourceTree = "<group>"; };
 		3C6020E9222BC00100312958 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSelectionCell.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 				3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */,
 				3CC706112216955900CAD850 /* STBaseNavigationController.swift */,
 				3CB8011D22299B460029A552 /* STCompondViewController.swift */,
-				3C6020E5222BB03400312958 /* STHideNavigationBarController.swift */,
+				3C6020E5222BB03400312958 /* STBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -741,18 +741,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -807,7 +809,7 @@
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
 				3CB801212229A0970029A552 /* KingFisherWrapper.swift in Sources */,
 				3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */,
-				3C6020E6222BB03400312958 /* STHideNavigationBarController.swift in Sources */,
+				3C6020E6222BB03400312958 /* STBaseViewController.swift in Sources */,
 				3CCB3BC6222AAC8300976A1C /* LKGalleryView.swift in Sources */,
 				3C9C0D552215443900595689 /* ProfileManager.swift in Sources */,
 			);

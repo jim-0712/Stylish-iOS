@@ -84,7 +84,7 @@ private enum ProductCategory: String {
     }
 }
 
-class ProductDetailViewController: STHideNavigationBarController, UITableViewDataSource, UITableViewDelegate {
+class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     struct Segue {
         
@@ -133,6 +133,11 @@ class ProductDetailViewController: STHideNavigationBarController, UITableViewDat
             
             galleryView.datas = product.images
         }
+    }
+    
+    override var isHideNavigationBar: Bool {
+        
+        return true
     }
     
     override func viewDidLoad() {
