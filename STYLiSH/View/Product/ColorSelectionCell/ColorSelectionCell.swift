@@ -15,7 +15,7 @@ private struct ColorObject {
     var isSelected: Bool
 }
 
-class ColorSelectionCell: SizeSelectionCell {
+class ColorSelectionCell: BasicSelectionCell {
 
     var colors: [String] = [] {
     
@@ -30,6 +30,8 @@ class ColorSelectionCell: SizeSelectionCell {
             })
         }
     }
+    
+    var touchHandler: ((IndexPath) -> Void)?
     
     private var colorObjects: [ColorObject] = [] {
         
@@ -86,6 +88,8 @@ class ColorSelectionCell: SizeSelectionCell {
         }
         
         colorObjects[indexPath.row].isSelected = !colorObjects[indexPath.row].isSelected
+        
+        touchHandler?(indexPath)
         
         collectionView.reloadData()
     }

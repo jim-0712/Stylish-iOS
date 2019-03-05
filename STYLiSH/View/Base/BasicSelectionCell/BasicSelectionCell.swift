@@ -79,6 +79,8 @@ class BasicSelectionCell: UITableViewCell, UICollectionViewDataSource, UICollect
         setupLabel()
         
         dataSource = self
+        
+        selectionStyle = .none
     }
  
     private func setupCollectionView() {

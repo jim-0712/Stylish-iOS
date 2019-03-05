@@ -12,6 +12,17 @@ class TrolleySelectionView: UIView {
 
     @IBOutlet weak var contentView: UIView!
     
+    @IBOutlet weak var addBtn: UIButton!
+    
+    @IBOutlet weak var substractBtn: UIButton!
+    
+    @IBOutlet weak var inputField: UITextField!
+    
+    private var inputViews: [UIView] {
+        
+        return [addBtn, substractBtn, inputField]
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,4 +48,38 @@ class TrolleySelectionView: UIView {
         stickSubView(contentView)
     }
 
+    func isEnable(_ flag: Bool) {
+        
+        if flag {
+            
+            inputViews.forEach({ item in
+                
+                item.layer.borderColor = UIColor.B1?.cgColor
+                
+                item.tintColor = UIColor.B1
+            })
+            
+            addBtn.isEnabled = true
+            
+            substractBtn.isEnabled = true
+            
+            inputField.isEnabled = true
+            
+        } else {
+            
+            inputViews.forEach({ item in
+                
+                item.layer.borderColor = UIColor.B1?.withAlphaComponent(0.4).cgColor
+                
+                item.tintColor = UIColor.B1?.withAlphaComponent(0.4)
+            })
+            
+            addBtn.isEnabled = false
+            
+            substractBtn.isEnabled = false
+            
+            inputField.isEnabled = false
+        }
+    }
+    
 }

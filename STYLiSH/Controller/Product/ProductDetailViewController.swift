@@ -151,6 +151,8 @@ class ProductDetailViewController: STHideNavigationBarController, UITableViewDat
            let pickerVC = segue.destination as? ProductPickerController {
             
             pickerVC.delegate = self
+
+            pickerVC.product = product
         }
     }
     

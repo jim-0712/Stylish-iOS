@@ -26,6 +26,8 @@ enum StockStatus {
     case unAvaliable
     
     case selected
+    
+    case disable
 }
 
 struct SizeObject {
@@ -37,19 +39,41 @@ struct SizeObject {
 
 class SizeSelectionCell: BasicSelectionCell {
 
-    lazy var sizes: [SizeObject] = {
+    private lazy var sizes: [SizeObject] = {
         
         var result: [SizeObject] = []
         
         for type in SizeType.allCases {
             
-            let object = SizeObject(size: type, status: .avaliable)
+            let object = SizeObject(size: type, status: .disable)
     
             result.append(object)
         }
         
         return result
     }()
+    
+    var avalibleSizes: [String] = [] {
+        
+        didSet {
+            
+            for index in 0 ..< sizes.count {
+                
+                if avalibleSizes.contains(sizes[index].size.rawValue) {
+                    
+                    sizes[index].status = .avaliable
+                
+                } else {
+                    
+                    sizes[index].status = .unAvaliable
+                }
+            }
+            
+            collectionView.reloadData()
+        }
+    }
+    
+    var touchHandler: ((String) -> Bool)?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -92,6 +116,18 @@ class SizeSelectionCell: BasicSelectionCell {
     }
     
     override func didSelected(_ cell: BasicSelectionCell, at indexPath: IndexPath) {
+        
+        if sizes[indexPath.row].status == .unAvaliable || sizes[indexPath.row].status == .disable {
+            
+            return
+        }
+        
+        guard touchHandler?(sizes[indexPath.row].size.rawValue) == true else { return }
+        
+        if sizes[indexPath.row].status == .unAvaliable {
+            
+            return
+        }
         
         for index in 0 ..< sizes.count {
         
@@ -166,17 +202,29 @@ private class SizeView: UIView {
         
         backgroundColor = UIColor.B5
         
+        sizeLbl.textColor = UIColor.B1
+        
+        slashImg.isHidden = true
+        
         switch object.status {
             
-        case .avaliable: slashImg.isHidden = true
+        case .avaliable: break
             
-        case .unAvaliable: slashImg.isHidden = false
+        case .unAvaliable:
+            
+            slashImg.isHidden = false
+            
+            sizeLbl.textColor = UIColor.B1?.withAlphaComponent(0.4)
             
         case .selected:
             
             layer.borderColor = UIColor.B1?.cgColor
             
             backgroundColor = UIColor.white
+            
+        case .disable:
+            
+            sizeLbl.textColor = UIColor.B1?.withAlphaComponent(0.4)
         }
     }
 }

@@ -23,7 +23,7 @@ extension UIView {
             return UIColor(cgColor: borderColor)
         }
         set {
-            layer.borderColor = lkBorderColor?.cgColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -33,7 +33,7 @@ extension UIView {
             return layer.borderWidth
         }
         set {
-            layer.borderWidth = lkBorderWidth
+            layer.borderWidth = newValue
         }
     }
     
@@ -43,7 +43,7 @@ extension UIView {
             return layer.cornerRadius
         }
         set {
-            layer.cornerRadius = lkCornerRadius
+            layer.cornerRadius = newValue
         }
     }
     

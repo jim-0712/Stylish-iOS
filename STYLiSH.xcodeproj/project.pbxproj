@@ -33,6 +33,8 @@
 		3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33691E2227DC7B008A5A7A /* TrolleySelectionView.swift */; };
 		3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */; };
 		3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */; };
+		3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34794A222E82F500969C30 /* AmountSelectionCell.swift */; };
+		3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C34794B222E82F500969C30 /* AmountSelectionCell.xib */; };
 		3C41B8472216667000112F94 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41B8462216667000112F94 /* ProductViewController.swift */; };
 		3C4B10CD22292732009942B7 /* card_jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10BE22292732009942B7 /* card_jcb.png */; };
 		3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10BF22292732009942B7 /* card_amex@2x.png */; };
@@ -117,6 +119,8 @@
 		3C33691E2227DC7B008A5A7A /* TrolleySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleySelectionView.swift; sourceTree = "<group>"; };
 		3C3369202227DC84008A5A7A /* TrolleySelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrolleySelectionView.xib; sourceTree = "<group>"; };
 		3C33863E221BB2B800ED97E4 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		3C34794A222E82F500969C30 /* AmountSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountSelectionCell.swift; sourceTree = "<group>"; };
+		3C34794B222E82F500969C30 /* AmountSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmountSelectionCell.xib; sourceTree = "<group>"; };
 		3C41B8462216667000112F94 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		3C4B10BE22292732009942B7 /* card_jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_jcb.png; sourceTree = "<group>"; };
 		3C4B10BF22292732009942B7 /* card_amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_amex@2x.png"; sourceTree = "<group>"; };
@@ -309,6 +313,15 @@
 			path = TrolleySelectionView;
 			sourceTree = "<group>";
 		};
+		3C347949222E82F500969C30 /* AmountSelectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3C34794A222E82F500969C30 /* AmountSelectionCell.swift */,
+				3C34794B222E82F500969C30 /* AmountSelectionCell.xib */,
+			);
+			path = AmountSelectionCell;
+			sourceTree = "<group>";
+		};
 		3C41B8452216665200112F94 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +444,7 @@
 		3CC706132216B32700CAD850 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				3C347949222E82F500969C30 /* AmountSelectionCell */,
 				3CDC5A68222D85B50071D0D1 /* SizeSelectionCell */,
 				3CDC5A64222D85080071D0D1 /* ColorSelectionCell */,
 				3C6020DA222B908800312958 /* ProductDetailCell */,
@@ -687,6 +701,7 @@
 				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
 				3C4B10D322292732009942B7 /* card_jcb@3x.png in Resources */,
 				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
+				3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */,
 				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
 				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
@@ -761,6 +776,7 @@
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
 				3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
+				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,

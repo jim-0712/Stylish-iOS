@@ -32,7 +32,7 @@
                             <constraint firstAttribute="height" constant="52" id="HAz-uJ-4Sb"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPI-rD-T3S">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPI-rD-T3S" customClass="TrolleySelectionView" customModule="STYLiSH" customModuleProvider="target">
                         <rect key="frame" x="122" y="84" width="150" height="32"/>
                         <color key="backgroundColor" name="B4"/>
                         <constraints>
