@@ -26,6 +26,8 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
         }
     }
     
+    var valueChangeHandler: ((Int) -> Void)?
+    
     private var maxNumber: Int? {
  
         didSet {
@@ -85,7 +87,7 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
         checkData()
     }
     
-    func isEnable(_ flag: Bool, maxNumber: Int?) {
+    func isEnable(_ flag: Bool, maxNumber: Int?, amount: Int = 1) {
         
         if flag {
             
@@ -109,6 +111,8 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
         }
         
         self.maxNumber = maxNumber
+        
+        inputField.text = String(amount)
     }
     
     func checkData() {
@@ -129,6 +133,8 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
             
             return
         }
+        
+        valueChangeHandler?(input)
         
         if input == maxNumber {
             
@@ -151,7 +157,6 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
         enable(item: addBtn)
         
         enable(item: substractBtn)
-        
     }
     
     private func disable(item: UIControl) {

@@ -41,7 +41,7 @@ struct Product: Codable {
     
     let variants: [Variant]
     
-    let main_image: String
+    let mainImage: String
     
     let images: [String]
     
@@ -57,6 +57,24 @@ struct Product: Codable {
             return previousData + upcomingData.stock
         })
     }
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case id
+        case title
+        case description
+        case price
+        case texture
+        case wash
+        case place
+        case note
+        case story
+        case colors
+        case sizes
+        case variants
+        case mainImage = "main_image"
+        case images
+    }
 }
 
 struct Color: Codable {
@@ -68,11 +86,18 @@ struct Color: Codable {
 
 struct Variant: Codable {
     
-    let color_code: String
+    let colorCode: String
     
     let size: String
     
     let stock: Int
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case colorCode = "color_code"
+        case size
+        case stock
+    }
 }
 
 

@@ -8,17 +8,6 @@
 
 import UIKit
 
-protocol TrolleyProductBaseViewModel {
-    
-    var troTitle: String { get }
-    
-    var troSize: String { get }
-
-    var troPrice: String { get }
-    
-    var troColor: UIColor { get }
-}
-
 class TrolleyProductBaseView: UIView {
 
     @IBOutlet weak var contentView: UIView!
@@ -33,7 +22,20 @@ class TrolleyProductBaseView: UIView {
     
     @IBOutlet weak var removeBtn: UIButton!
     
-    var touchHandler: (() -> Void)?
+    var touchHandler: (() -> Void)? {
+        
+        didSet {
+            
+            if touchHandler == nil {
+                
+                removeBtn.isHidden = true
+            
+            } else {
+            
+                removeBtn.isHidden = false
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,15 +67,15 @@ class TrolleyProductBaseView: UIView {
         touchHandler?()
     }
     
-    func layoutView(model: TrolleyProductBaseViewModel) {
+    func layoutView(title: String, size: String, price: String, color: String) {
         
-        titleLbl.text = model.troTitle
+        titleLbl.text = title
         
-        sizeLbl.text = model.troSize
+        sizeLbl.text = size
         
-        priceLbl.text = model.troPrice
+        priceLbl.text = price
         
-        colorView.backgroundColor = model.troColor
+        colorView.backgroundColor = UIColor.hexStringToUIColor(hex: color)
     }
 
 }

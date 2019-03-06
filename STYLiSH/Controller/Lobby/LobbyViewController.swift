@@ -112,7 +112,7 @@ extension LobbyViewController: UITableViewDataSource {
         
         if indexPath.row % 2 == 0 {
             
-            lobbyCell.singlePage(img: product.main_image)
+            lobbyCell.singlePage(img: product.mainImage)
         
         } else {
         

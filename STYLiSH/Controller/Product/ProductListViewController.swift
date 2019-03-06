@@ -163,7 +163,7 @@ class ProductListViewController: STCompondViewController {
             return cell
         }
         
-        productCell.productImg.loadImage(product.main_image)
+        productCell.productImg.loadImage(product.mainImage)
         
         productCell.productTitleLbl.text = product.title
         
@@ -196,7 +196,7 @@ class ProductListViewController: STCompondViewController {
                 return cell
         }
         
-        productCell.productImg.loadImage(product.main_image)
+        productCell.productImg.loadImage(product.mainImage)
         
         productCell.productTitleLbl.text = product.title
         

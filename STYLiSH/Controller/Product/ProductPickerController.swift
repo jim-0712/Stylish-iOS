@@ -149,7 +149,7 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
             
             sizeCell.avalibleSizes = product.variants.compactMap({ variant in
                 
-                if variant.color_code == selectedColor {
+                if variant.colorCode == selectedColor {
                     return variant.size
                 }
                 
@@ -185,8 +185,8 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         
             let variant = product.variants.filter({ item in
                 
-                if item.color_code == selectedColor && item.size == selectedSize {
-                    
+                if item.colorCode == selectedColor && item.size == selectedSize {
+                
                     return true
                 }
                 

@@ -137,6 +137,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         }
     }
     
+    var pickerViewController: ProductPickerController?
+    
     override var isHideNavigationBar: Bool {
         
         return true
@@ -160,6 +162,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             pickerVC.delegate = self
 
             pickerVC.product = product
+            
+            pickerViewController = pickerVC
         }
     }
     
@@ -171,9 +175,29 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         
         } else {
         
-            //SAVE to core data
+            guard let color = pickerViewController?.selectedColor,
+                  let size = pickerViewController?.selectedSize,
+                  let amount = pickerViewController?.selectedAmount,
+                  let product = product
+            else { return }
             
-            print("Save to core data")
+            StorageManager.shared.saveOrder(
+                color: color, size: size, amount: amount, product: product,
+                completion: { result in
+                
+                    switch result{
+                        
+                    case .success(_):
+                        
+                        LKProgressHUD.showSuccess()
+                        
+                        dismissPicker(pickerViewController!)
+                        
+                    case .failure(_):
+                    
+                        LKProgressHUD.showFailure(text: "儲存失敗！")
+                    }
+                })
         }
     }
     
@@ -290,9 +314,9 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
     
     func valueChange(_ controller: ProductPickerController) {
         
-        guard let color = controller.selectedColor,
-              let size = controller.selectedSize,
-              let amount = controller.selectedAmount
+        guard let _ = controller.selectedColor,
+              let _ = controller.selectedSize,
+              let _ = controller.selectedAmount
         else {
         
             isEnableAddToCarBtn(false)
