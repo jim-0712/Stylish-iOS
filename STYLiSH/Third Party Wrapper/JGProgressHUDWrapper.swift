@@ -59,7 +59,7 @@ class LKProgressHUD {
         
         shared.hud.show(in: shared.view)
     
-        shared.hud.dismiss(afterDelay: 2.0)
+        shared.hud.dismiss(afterDelay: 1.5)
     }
     
     static func showFailure(text: String = "Failure") {
@@ -79,6 +79,38 @@ class LKProgressHUD {
         
         shared.hud.show(in: shared.view)
         
-        shared.hud.dismiss(afterDelay: 2.0)
+        shared.hud.dismiss(afterDelay: 1.5)
+    }
+    
+    static func show() {
+        
+        if !Thread.isMainThread {
+            
+            DispatchQueue.main.async {
+                show()
+            }
+            
+            return
+        }
+        
+        shared.hud.indicatorView = JGProgressHUDIndeterminateIndicatorView()
+        
+        shared.hud.textLabel.text = "Loading"
+        
+        shared.hud.show(in: shared.view)
+    }
+    
+    static func dismiss() {
+        
+        if !Thread.isMainThread {
+            
+            DispatchQueue.main.async {
+                dismiss()
+            }
+            
+            return
+        }
+        
+        shared.hud.dismiss()
     }
 }

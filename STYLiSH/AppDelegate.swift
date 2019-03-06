@@ -9,6 +9,8 @@
 import UIKit
 import AdSupport
 import IQKeyboardManager
+import FBSDKCoreKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,27 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
+        FBSDKApplicationDelegate.sharedInstance()!.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-    
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        
+        return FBSDKApplicationDelegate.sharedInstance()!.application(app, open:url, options:options)
     }
 }
 

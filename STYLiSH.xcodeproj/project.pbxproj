@@ -96,6 +96,10 @@
 		3CE7A50C22304679009FF003 /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50B22304679009FF003 /* InputFieldCell.swift */; };
 		3CE7A50E22304691009FF003 /* BillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50D22304691009FF003 /* BillCell.swift */; };
 		3CE7A51022304B5D009FF003 /* CheckoutHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */; };
+		3CE7A51322305916009FF003 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51222305916009FF003 /* UserProvider.swift */; };
+		3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51422305E5A009FF003 /* KeyChainManager.swift */; };
+		3CE7A517223061A9009FF003 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A516223061A9009FF003 /* UserRequest.swift */; };
+		3CE7A519223064C7009FF003 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A518223064C7009FF003 /* UserObject.swift */; };
 		3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEBE076222F718D0064EF82 /* StorageManager.swift */; };
 		3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CEBE078222F72600064EF82 /* STYLiSH.xcdatamodeld */; };
 		3CEBE07C222F7A210064EF82 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEBE07B222F7A210064EF82 /* Int+Extension.swift */; };
@@ -198,6 +202,10 @@
 		3CE7A50B22304679009FF003 /* InputFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
 		3CE7A50D22304691009FF003 /* BillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell.swift; sourceTree = "<group>"; };
 		3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutHeaderCell.swift; sourceTree = "<group>"; };
+		3CE7A51222305916009FF003 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		3CE7A51422305E5A009FF003 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		3CE7A516223061A9009FF003 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		3CE7A518223064C7009FF003 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		3CEBE076222F718D0064EF82 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3CEBE079222F72600064EF82 /* STYLiSH.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STYLiSH.xcdatamodel; sourceTree = "<group>"; };
 		3CEBE07B222F7A210064EF82 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -581,6 +589,7 @@
 		3CD2913022113CF3008B8A2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3CE7A51122305904009FF003 /* User */,
 				3CEBE075222F714A0064EF82 /* Local Storage */,
 				3C9C0D512215377B00595689 /* Profile */,
 				3CED4C0D2214220600121D4B /* Parser */,
@@ -650,6 +659,17 @@
 				3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */,
 			);
 			path = Checkout;
+			sourceTree = "<group>";
+		};
+		3CE7A51122305904009FF003 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3CE7A51222305916009FF003 /* UserProvider.swift */,
+				3CE7A518223064C7009FF003 /* UserObject.swift */,
+				3CE7A516223061A9009FF003 /* UserRequest.swift */,
+				3CE7A51422305E5A009FF003 /* KeyChainManager.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		3CEBE075222F714A0064EF82 /* Local Storage */ = {
@@ -813,15 +833,23 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-STYLiSH/Pods-STYLiSH-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
@@ -840,6 +868,7 @@
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
+				3CE7A519223064C7009FF003 /* UserObject.swift in Sources */,
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
@@ -877,6 +906,7 @@
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */,
 				3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */,
+				3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */,
 				3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */,
 				3C9C0D532215400900595689 /* ProfileItem.swift in Sources */,
 				3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */,
@@ -888,9 +918,11 @@
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
 				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
 				3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */,
+				3CE7A517223061A9009FF003 /* UserRequest.swift in Sources */,
 				3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */,
 				3C6B8FE8222CE53100804EFE /* BasicSelectionCell.swift in Sources */,
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
+				3CE7A51322305916009FF003 /* UserProvider.swift in Sources */,
 				3CB801212229A0970029A552 /* KingFisherWrapper.swift in Sources */,
 				3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */,
 				3C6020E6222BB03400312958 /* STBaseViewController.swift in Sources */,

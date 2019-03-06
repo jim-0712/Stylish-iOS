@@ -95,7 +95,7 @@
         <!--Product Picker Controller-->
         <scene sceneID="QAU-FP-eJz">
             <objects>
-                <viewController id="Kqq-SJ-u64" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductPickerController" id="Kqq-SJ-u64" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="isR-Qj-AYP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,14 +126,42 @@
         <!--Tap Pay View Controller-->
         <scene sceneID="cTC-GA-Jhm">
             <objects>
-                <viewController id="PGS-2G-ghc" customClass="STTapPayViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="PGS-2G-ghc" customClass="STTapPayViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVQ-An-90u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njh-jC-ENc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-Li-sJ0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x9-L0-OGm">
+                                        <rect key="frame" x="16" y="401.5" width="343" height="44"/>
+                                        <color key="backgroundColor" name="B1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="In3-Yn-xDm"/>
+                                        </constraints>
+                                        <state key="normal" title="Pay">
+                                            <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneAction:" destination="PGS-2G-ghc" eventType="touchUpInside" id="C9R-WC-MTb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qgi-Li-sJ0" firstAttribute="top" secondItem="Njh-jC-ENc" secondAttribute="top" id="4Yi-Ny-jvQ"/>
+                                    <constraint firstItem="qgi-Li-sJ0" firstAttribute="height" secondItem="Njh-jC-ENc" secondAttribute="height" multiplier="0.5" id="5pq-aa-9S2"/>
+                                    <constraint firstItem="qgi-Li-sJ0" firstAttribute="leading" secondItem="Njh-jC-ENc" secondAttribute="leading" id="WtB-TO-f5c"/>
+                                    <constraint firstItem="9x9-L0-OGm" firstAttribute="leading" secondItem="Njh-jC-ENc" secondAttribute="leading" constant="16" id="Yvf-Ee-xHS"/>
+                                    <constraint firstAttribute="trailing" secondItem="qgi-Li-sJ0" secondAttribute="trailing" id="ZSA-nd-6Ad"/>
+                                    <constraint firstItem="9x9-L0-OGm" firstAttribute="top" secondItem="qgi-Li-sJ0" secondAttribute="bottom" constant="100" id="cPV-hG-Vht"/>
+                                    <constraint firstAttribute="trailing" secondItem="9x9-L0-OGm" secondAttribute="trailing" constant="16" id="iYU-u9-4NT"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,17 +175,60 @@
                     </view>
                     <navigationItem key="navigationItem" id="hhG-oF-PXI"/>
                     <connections>
-                        <outlet property="tapPayView" destination="Njh-jC-ENc" id="0as-h8-4NU"/>
+                        <outlet property="cardView" destination="qgi-Li-sJ0" id="Ogt-k4-DmV"/>
+                        <outlet property="payButton" destination="9x9-L0-OGm" id="EB1-mT-glY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uT-9e-630" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="1217"/>
+            <point key="canvasLocation" x="1990" y="1296"/>
+        </scene>
+        <!--結帳結果-->
+        <scene sceneID="C6N-ih-iDy">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="lq0-BK-jm9" customClass="STBaseViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rjs-nb-Snn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_80px_Success02" translatesAutoresizingMaskIntoConstraints="NO" id="bLz-nf-h8B">
+                                <rect key="frame" x="147.5" y="214" width="80" height="80"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結帳成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Od-VM-TUn">
+                                <rect key="frame" x="157.5" y="318" width="60" height="22"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="15"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我們收到您的訂單了！將以最快的速度為您安排出貨。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtF-Pw-8JW">
+                                <rect key="frame" x="16" y="356" width="343" height="44"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="15"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OWe-yd-5nP" firstAttribute="trailing" secondItem="HtF-Pw-8JW" secondAttribute="trailing" constant="16" id="JDo-wV-ywV"/>
+                            <constraint firstItem="5Od-VM-TUn" firstAttribute="centerX" secondItem="bLz-nf-h8B" secondAttribute="centerX" id="Khq-bV-JF1"/>
+                            <constraint firstItem="bLz-nf-h8B" firstAttribute="top" secondItem="OWe-yd-5nP" secondAttribute="top" constant="150" id="N6J-IO-Qjv"/>
+                            <constraint firstItem="bLz-nf-h8B" firstAttribute="centerX" secondItem="OWe-yd-5nP" secondAttribute="centerX" id="Rnr-fu-bS0"/>
+                            <constraint firstItem="5Od-VM-TUn" firstAttribute="top" secondItem="bLz-nf-h8B" secondAttribute="bottom" constant="24" id="SbT-NW-mDC"/>
+                            <constraint firstItem="HtF-Pw-8JW" firstAttribute="top" secondItem="5Od-VM-TUn" secondAttribute="bottom" constant="16" id="Yle-e5-ir2"/>
+                            <constraint firstItem="HtF-Pw-8JW" firstAttribute="leading" secondItem="OWe-yd-5nP" secondAttribute="leading" constant="16" id="p42-AP-9Gd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OWe-yd-5nP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="結帳結果" id="XB5-vQ-K5N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6o-1E-wOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104" y="1297"/>
         </scene>
         <!--結帳-->
         <scene sceneID="AtB-Pv-0Iv">
             <objects>
-                <viewController id="eNk-xJ-dhF" customClass="CheckoutViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="eNk-xJ-dhF" customClass="CheckoutViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eMw-vm-4KL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,6 +490,8 @@
                     <connections>
                         <outlet property="footerView" destination="doA-pW-mL9" id="AfT-tf-lsZ"/>
                         <outlet property="tableView" destination="Td8-Rv-VO4" id="fOW-bs-2U4"/>
+                        <segue destination="PGS-2G-ghc" kind="show" identifier="SegueTapPay" id="9Q5-Tx-DJX"/>
+                        <segue destination="lq0-BK-jm9" kind="show" identifier="SegueSuccess" id="94B-E3-J4J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJy-6t-u6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -433,6 +506,9 @@
                             <state key="normal" title="確定結帳">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="checkout:" destination="eNk-xJ-dhF" eventType="touchUpInside" id="sKF-FK-cje"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -445,7 +521,7 @@
                     <viewLayoutGuide key="safeArea" id="kP5-kn-gyL"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="991" y="1322"/>
+            <point key="canvasLocation" x="991" y="1401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nhd-Fx-00A">
@@ -546,6 +622,7 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Close" width="24" height="24"/>
+        <image name="Icons_80px_Success02" width="80" height="80"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

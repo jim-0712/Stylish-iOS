@@ -7,47 +7,81 @@
 //
 
 import UIKit
+import TPDirect
 
-class STTapPayViewController: UIViewController {
+protocol STTapPayDelegate: AnyObject {
+    
+    func didCompelte(_ vc: STTapPayViewController, prime: String?)
+}
 
-    @IBOutlet weak var tapPayView: UIView!
+class STTapPayViewController: STBaseViewController {
     
-    var tpdForm: TPDForm?
+    //MARK: - @IBOutlet
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var payButton: UIButton!
     
-    var tpdCard: TPDCard?
+    weak var delegate: STTapPayDelegate?
+    
+    var tpdCard : TPDCard!
+    var tpdForm : TPDForm!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let tapView = tapPayView else { return }
-
-        tpdForm = TPDForm.setup(withContainer: tapView)
         
-        tpdForm?.setErrorColor(UIColor.red)
+        // 1. Setup TPDForm With Your Customized CardView, Recommend(width:260, height:80)
+        tpdForm = TPDForm.setup(withContainer: cardView)
         
-        tpdForm?.setOkColor(UIColor.green)
+        // 2. Setup TPDForm Text Color
+        tpdForm.setErrorColor(UIColor.red)
+        tpdForm.setOkColor(UIColor.blue)
+        tpdForm.setNormalColor(UIColor.black)
         
-        tpdForm?.setNormalColor(UIColor.black)
         
-        tpdForm?.onFormUpdated { (status) in
-            if (status.isCanGetPrime()) {
-                // Can make payment.
-            } else {
-                // Can't make payment.
-            }
+        
+        // 3. Setup TPDForm onFormUpdated Callback
+        tpdForm.onFormUpdated { (status) in
+            
+            // Use callback Get Status.
+            
+            weak var weakSelf = self
+            
+            weakSelf?.payButton.isEnabled = status.isCanGetPrime()
+            weakSelf?.payButton.alpha     = (status.isCanGetPrime()) ? 1.0 : 0.25
+            
         }
         
-        tpdCard = TPDCard.setup(tpdForm!)
+        // Button Disable (Default)
+        payButton.isEnabled = false
+        payButton.alpha     = 0.25
         
-        tpdCard?.onSuccessCallback { (prime, cardInfo) in
+    }
+    
+    //MARK: - @IBAction
+    @IBAction func doneAction(_ sender: Any) {
+        
+        // Example Card
+        // Number : 4242 4242 4242 4242
+        // DueMonth : 01
+        // DueYear : 23
+        // CCV : 123
+        
+        // 1. Setup TPDCard.
+        tpdCard = TPDCard.setup(tpdForm)
+        
+        // 2. Setup TPDCard on Success Callback.
+        tpdCard
+            .onSuccessCallback { [weak self] (prime, cardInfo) in
             
-            print("Prime : \(prime!), cardInfo : \(cardInfo)")
-            
-            }.onFailureCallback { (status, message) in
+                guard let strongSelf = self else { return }
                 
-                print("status : \(status) , Message : \(message)")
+                self?.delegate?.didCompelte(strongSelf, prime: prime)
+            
+            }.onFailureCallback { [weak self] (status, message) in
+                
+                guard let strongSelf = self else { return }
+                
+                self?.delegate?.didCompelte(strongSelf, prime: nil)
                 
             }.getPrime()
     }
-
 }

@@ -26,11 +26,30 @@ enum STHTTPClientError: Error {
     case unexpectedError
 }
 
+enum STHTTPMethod: String {
+    
+    case GET
+    
+    case POST
+}
+
+enum STHTTPHeaderField: String {
+    
+    case contentType = "Content-Type"
+    
+    case auth = "Authorization"
+}
+
+enum STHTTPHeaderValue: String {
+    
+    case json = "application/json"
+}
+
 protocol STRequest {
     
     var headers: [String: String] { get }
     
-    var body: Data? { get }
+    var body: [String: Any] { get }
     
     var method: String { get }
     
@@ -42,6 +61,8 @@ class HTTPClient {
     static let shared = HTTPClient()
     
     private let decoder = JSONDecoder()
+    
+    private let encoder = JSONEncoder()
     
     private init() { }
     
@@ -95,7 +116,7 @@ class HTTPClient {
         
         request.allHTTPHeaderFields = stRequest.headers
         
-        request.httpBody = stRequest.body
+        request.httpBody = try! JSONSerialization.data(withJSONObject: stRequest.body, options: [.prettyPrinted])
         
         request.httpMethod = stRequest.method
         

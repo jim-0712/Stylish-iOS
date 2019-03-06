@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum STHTTPMethod: String {
-    
-    case GET
-    
-    case POST
-}
-
 enum STMarketRequest: STRequest {
     
     case hots
@@ -34,11 +27,11 @@ enum STMarketRequest: STRequest {
         }
     }
     
-    var body: Data? {
+    var body: [String: Any] {
         
         switch self {
             
-        case .hots, .women, .men, .accessories: return nil
+        case .hots, .women, .men, .accessories: return [:]
             
         }
     }
