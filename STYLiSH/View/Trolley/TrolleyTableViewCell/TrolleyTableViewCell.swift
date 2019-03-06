@@ -12,9 +12,11 @@ class TrolleyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var trolleyBaseView: TrolleyProductBaseView!
     
-    @IBOutlet weak var trolleySelectionView: TrolleySelectionView!
+    @IBOutlet weak var trolleySelectionView: TrolleySelectionView?
     
     @IBOutlet weak var productImg: UIImageView!
+    
+    @IBOutlet weak var amountLbl: UILabel?
     
     var touchHandler: (() -> Void)? {
         didSet {
@@ -25,14 +27,14 @@ class TrolleyTableViewCell: UITableViewCell {
     var valueChangeHandler: ((Int) -> Void)? {
         
         didSet {
-            trolleySelectionView.valueChangeHandler = valueChangeHandler
+            trolleySelectionView?.valueChangeHandler = valueChangeHandler
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        trolleySelectionView.isEnable(true, maxNumber: nil)
+        trolleySelectionView?.isEnable(true, maxNumber: nil)
         
         trolleyBaseView.touchHandler = nil
     }
@@ -66,7 +68,9 @@ class TrolleyTableViewCell: UITableViewCell {
 
         guard let maxNumber = variant.first?.stocks else { return }
         
-        trolleySelectionView.isEnable(true, maxNumber: Int(maxNumber), amount: Int(order.amount))
+        trolleySelectionView?.isEnable(true, maxNumber: Int(maxNumber), amount: Int(order.amount))
+        
+        amountLbl?.text = "x \(order.amount)"
     }
     
     

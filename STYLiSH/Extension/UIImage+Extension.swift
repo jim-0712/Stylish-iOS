@@ -47,6 +47,9 @@ enum ImageAsset: String {
     
     //PlaceHolder
     case Image_Placeholder
+    
+    //Back button
+    case Icons_24px_Back02
 }
 
 extension UIImage {

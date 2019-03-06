@@ -86,8 +86,6 @@ class TrolleyViewController: STBaseViewController {
                     
                 case .success(_):
                     
-                    LKProgressHUD.showSuccess()
-                    
                     orders.remove(at: index)
                     
                 case .failure(_):
