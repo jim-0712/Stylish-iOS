@@ -61,6 +61,8 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         }
     }
     
+    @IBOutlet weak var footerView: UIView!
+    
     var orders: [LSOrder] = []
     
     var datas: [CellType] = [.product(0), .inputField, .deliveryTime, .detail] {
@@ -74,6 +76,14 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        
+        footerView.frame.size.height = 80.0
+        
+        tableView.tableFooterView = footerView
     }
     
     func fetchData() {
@@ -122,13 +132,11 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: String(describing: CheckoutHeaderCell.self)
-        )
+        let header = tableView.dequeueReusableCell(withIdentifier: String(describing: CheckoutHeaderCell.self))
         
         guard let headerView = header as? CheckoutHeaderCell else { return header }
         
-        return header
+        return headerView
     }
     
 }
