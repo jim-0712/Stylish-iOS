@@ -10,47 +10,6 @@ import UIKit
 import FBSDKLoginKit
 
 class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
-
-    enum CellType {
-        
-        case product(Int)
-        
-        case inputField
-        
-        case deliveryTime
-        
-        case detail
-        
-        func identifier() -> String {
-            
-            switch self {
-                
-            case .product: return String(describing: TrolleyTableViewCell.self)
-                
-            case .inputField: return String(describing: InputFieldCell.self)
-                
-            case .deliveryTime: return String(describing: SegmentedCell.self)
-                
-            case .detail: return String(describing: BillCell.self)
-                
-            }
-        }
-        
-        func count() -> Int {
-            
-            switch self {
-                
-            case .product(let count): return count
-                
-            case .inputField: return 4
-            
-            case .deliveryTime: return 1
-            
-            case .detail: return 1
-            
-            }
-        }
-    }
     
     private struct Segue {
         
@@ -71,15 +30,7 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var footerView: UIView!
     
-    var orders: [LSOrder] = []
-    
-    var datas: [CellType] = [.product(0), .inputField, .deliveryTime, .detail] {
-        
-        didSet {
-            
-            tableView.reloadData()
-        }
-    }
+    let orderProvider = OrderProvider()
     
     let userProvider = UserProvider()
     
@@ -94,25 +45,6 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         footerView.frame.size.height = 80.0
         
         tableView.tableFooterView = footerView
-    }
-    
-    func fetchData() {
-        
-        StorageManager.shared.fetchOrders(completion: { result in
-            
-            switch result{
-                
-            case .success(let orders):
-                
-                self.orders = orders
-                
-                datas = [.product(self.orders.count), .inputField, .deliveryTime, .detail]
-                
-            case .failure(_):
-                
-                LKProgressHUD.showFailure(text: "讀取資料失敗！")
-            }
-        })
     }
     
     @IBAction func checkout(_ sender: UIButton) {
@@ -203,17 +135,19 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return datas.count
+        return orderProvider.numberOfSection()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return datas[section].count()
+        return orderProvider.numberOfRow(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: datas[indexPath.section].identifier(), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: orderProvider.identifier(indexPath: indexPath), for: indexPath)
+        
+        orderProvider.manipulateCell(cell, at: indexPath)
         
         return cell
     }
@@ -229,6 +163,8 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         let header = tableView.dequeueReusableCell(withIdentifier: String(describing: CheckoutHeaderCell.self))
         
         guard let headerView = header as? CheckoutHeaderCell else { return header }
+        
+        headerView.titleLbl.text = orderProvider.titleForSection(section)
         
         return headerView
     }

@@ -22,6 +22,8 @@ class TrolleyViewController: STBaseViewController {
     
     @IBOutlet weak var emptyView: UIView!
     
+    @IBOutlet weak var checkoutBtn: UIButton!
+    
     var orders: [LSOrder] = [] {
         
         didSet {
@@ -32,10 +34,20 @@ class TrolleyViewController: STBaseViewController {
                 
                 tableView.isHidden = true
                 
+                checkoutBtn.isEnabled = false
+                
+                checkoutBtn.backgroundColor = UIColor.B4
+                
             } else {
                 
                 tableView.isHidden = false
+                
+                checkoutBtn.isEnabled = true
+                
+                checkoutBtn.backgroundColor = UIColor.B1
             }
+            
+            view.layoutIfNeeded()
         }
     }
     
