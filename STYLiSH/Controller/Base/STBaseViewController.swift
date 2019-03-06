@@ -32,6 +32,8 @@ class STBaseViewController: UIViewController {
         if isHideNavigationBar {
             navigationItem.hidesBackButton = true
         }
+        
+        navigationController?.navigationBar.barTintColor = UIColor.white.withAlphaComponent(0.9)
     }
     
     override func viewWillAppear(_ animated: Bool) {

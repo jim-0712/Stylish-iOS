@@ -17,6 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購物車目前沒有物品！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bP4-Sc-qZ7">
+                                <rect key="frame" x="87.5" y="351" width="200" height="29.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JzZ-2a-XtA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -25,8 +31,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JzZ-2a-XtA" firstAttribute="top" secondItem="YQV-mp-sgw" secondAttribute="top" id="VGQ-Bn-TnD"/>
+                            <constraint firstItem="bP4-Sc-qZ7" firstAttribute="centerX" secondItem="YQV-mp-sgw" secondAttribute="centerX" id="a3C-cU-Beh"/>
                             <constraint firstItem="YQV-mp-sgw" firstAttribute="trailing" secondItem="JzZ-2a-XtA" secondAttribute="trailing" id="cwS-w0-0Q2"/>
                             <constraint firstItem="YQV-mp-sgw" firstAttribute="bottom" secondItem="JzZ-2a-XtA" secondAttribute="bottom" id="dfE-fg-MEE"/>
+                            <constraint firstItem="bP4-Sc-qZ7" firstAttribute="centerY" secondItem="YQV-mp-sgw" secondAttribute="centerY" id="kOf-vh-mUa"/>
                             <constraint firstItem="JzZ-2a-XtA" firstAttribute="leading" secondItem="YQV-mp-sgw" secondAttribute="leading" id="lBm-cy-rSp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YQV-mp-sgw"/>

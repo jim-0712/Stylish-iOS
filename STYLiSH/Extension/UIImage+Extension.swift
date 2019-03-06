@@ -44,6 +44,9 @@ enum ImageAsset: String {
     
     //Product size and color picker
     case Image_StrikeThrough
+    
+    //PlaceHolder
+    case Image_Placeholder
 }
 
 extension UIImage {

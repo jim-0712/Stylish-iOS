@@ -44,6 +44,15 @@ class LKProgressHUD {
     
     static func showSuccess(text: String = "success") {
         
+        if !Thread.isMainThread {
+            
+            DispatchQueue.main.async {
+                showSuccess(text: text)
+            }
+            
+            return
+        }
+        
         shared.hud.textLabel.text = text
         
         shared.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
@@ -54,6 +63,15 @@ class LKProgressHUD {
     }
     
     static func showFailure(text: String = "Failure") {
+        
+        if !Thread.isMainThread {
+            
+            DispatchQueue.main.async {
+                showFailure(text: text)
+            }
+            
+            return
+        }
         
         shared.hud.textLabel.text = text
         

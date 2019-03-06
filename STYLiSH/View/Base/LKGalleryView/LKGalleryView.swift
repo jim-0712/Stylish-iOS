@@ -120,7 +120,7 @@ class LKGalleryView: UIView, UICollectionViewDataSource, UICollectionViewDelegat
         
         guard let galleryCell = cell as? LKGalleryViewCell else { return cell }
         
-        galleryCell.galleryImg.loadImage(datas[indexPath.row])
+        galleryCell.galleryImg.loadImage(datas[indexPath.row], placeHolder: UIImage.asset(.Image_Placeholder))
         
         return galleryCell
     }

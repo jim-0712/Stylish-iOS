@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        TPDSetup.setWithAppId(123, withAppKey: "asd", with: TPDServerType.sandBox)
+        TPDSetup.setWithAppId(
+            Bundle.STValueForInt32(key: STConstant.tapPayAppID),
+            withAppKey: Bundle.STValueForString(key: STConstant.tapPayAppKey),
+            with: TPDServerType.sandBox
+        )
         
         TPDSetup.shareInstance().setupIDFA(
             ASIdentifierManager.shared().advertisingIdentifier.uuidString

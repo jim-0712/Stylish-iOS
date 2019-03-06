@@ -20,5 +20,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func layoutCell(image: String, title: String, price: Int) {
+        
+        productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
+        
+        productTitleLbl.text = title
+        
+        productPriceLbl.text = String(price)
+    }
 }

@@ -41,8 +41,6 @@ class HTTPClient {
     
     static let shared = HTTPClient()
     
-    private let urlKey = "STBaseURL"
-    
     private let decoder = JSONDecoder()
     
     private init() { }
@@ -89,7 +87,7 @@ class HTTPClient {
     
     private func makeRequest(_ stRequest: STRequest) -> URLRequest {
         
-        let urlString = (Bundle.main.infoDictionary![urlKey] as! String) + stRequest.endPoint
+        let urlString = Bundle.STValueForString(key: STConstant.urlKey) + stRequest.endPoint
         
         let url = URL(string: urlString)!
         

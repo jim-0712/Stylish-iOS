@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LobbyViewController: UIViewController {
+class LobbyViewController: STBaseViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         
@@ -41,46 +41,38 @@ class LobbyViewController: UIViewController {
     private func setupLayout() {
         
         navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
-        
-        navigationController?.navigationBar.barTintColor = UIColor.white.withAlphaComponent(0.9)
     
         setupTableView()
     }
     
     private func setupTableView() {
         
-        let cellIdentifier = String(describing: LobbyTableViewCell.self)
-        
-        let nib = UINib(nibName: cellIdentifier, bundle: nil)
-        
-        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        tableView.lk_registerCellWithNib(
+            identifier: String(describing: LobbyTableViewCell.self),
+            bundle: nil
+        )
         
         tableView.addRefreshHeader(refreshingBlock: { [weak self] in
             
-            self?.fetchData(completion: {
-                
-                self?.tableView.mj_header.endRefreshing()
-            })
+            self?.fetchData()
         })
     }
     
-    func fetchData(completion: @escaping () -> Void) {
+    func fetchData() {
         
         marketProvider.fetchHots(completion: { [weak self] result in
             
-            guard let strongSelf = self else { return }
-            
-            completion()
+            self?.tableView.mj_header.endRefreshing()
             
             switch result {
                 
             case .success(let products):
                 
-                strongSelf.datas = products
+                self?.datas = products
                 
-            case .failure(let error):
+            case .failure(_):
             
-                print(error)
+                LKProgressHUD.showFailure(text: "讀取資料失敗！")
             }
             
         })
@@ -112,17 +104,20 @@ extension LobbyViewController: UITableViewDataSource {
         
         if indexPath.row % 2 == 0 {
             
-            lobbyCell.singlePage(img: product.mainImage)
+            lobbyCell.singlePage(
+                img: product.mainImage,
+                title: product.title,
+                description: product.description
+            )
         
         } else {
         
-            lobbyCell.multiplePages(imgs: product.images)
+            lobbyCell.multiplePages(
+                imgs: product.images,
+                title: product.title,
+                description: product.description
+            )
         }
-        
-        lobbyCell.layout(
-            title: product.title,
-            description: product.description
-        )
         
         return lobbyCell
     }

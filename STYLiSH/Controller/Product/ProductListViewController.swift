@@ -163,11 +163,11 @@ class ProductListViewController: STCompondViewController {
             return cell
         }
         
-        productCell.productImg.loadImage(product.mainImage)
-        
-        productCell.productTitleLbl.text = product.title
-        
-        productCell.productPriceLbl.text = String(product.price)
+        productCell.layoutCell(
+            image: product.mainImage,
+            title: product.title,
+            price: product.price
+        )
         
         return productCell
     }
@@ -190,17 +190,17 @@ class ProductListViewController: STCompondViewController {
         )
         
         guard let productCell = cell as? ProductCollectionViewCell,
-            let product = datas[indexPath.section][indexPath.row] as? Product
-            else {
-                
-                return cell
+              let product = datas[indexPath.section][indexPath.row] as? Product
+        else {
+            
+            return cell
         }
         
-        productCell.productImg.loadImage(product.mainImage)
-        
-        productCell.productTitleLbl.text = product.title
-        
-        productCell.productPriceLbl.text = String(product.price)
+        productCell.layoutCell(
+            image: product.mainImage,
+            title: product.title,
+            price: product.price
+        )
         
         return productCell
     }

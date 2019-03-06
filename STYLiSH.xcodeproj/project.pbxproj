@@ -74,6 +74,8 @@
 		3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB801222229A5290029A552 /* MJRefreshWrapper.swift */; };
 		3CB801252229AEE30029A552 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB801242229AEE30029A552 /* UITableView+Extension.swift */; };
 		3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB801262229AFF10029A552 /* UICollectionView+Extension.swift */; };
+		3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB80E75222FCBE60095F18C /* STConstant.swift */; };
+		3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */; };
 		3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC706112216955900CAD850 /* STBaseNavigationController.swift */; };
 		3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC706142216B34800CAD850 /* ProductTableViewCell.swift */; };
 		3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC706152216B34800CAD850 /* ProductTableViewCell.xib */; };
@@ -165,6 +167,8 @@
 		3CB801222229A5290029A552 /* MJRefreshWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshWrapper.swift; sourceTree = "<group>"; };
 		3CB801242229AEE30029A552 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		3CB801262229AFF10029A552 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		3CB80E75222FCBE60095F18C /* STConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STConstant.swift; sourceTree = "<group>"; };
+		3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		3CC706112216955900CAD850 /* STBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseNavigationController.swift; sourceTree = "<group>"; };
 		3CC706142216B34800CAD850 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		3CC706152216B34800CAD850 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				3CB801242229AEE30029A552 /* UITableView+Extension.swift */,
 				3CB801262229AFF10029A552 /* UICollectionView+Extension.swift */,
 				3C6020E9222BC00100312958 /* UILabel+Extension.swift */,
+				3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -451,6 +456,14 @@
 			path = "Third Party Wrapper";
 			sourceTree = "<group>";
 		};
+		3CB80E74222FCBD30095F18C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				3CB80E75222FCBE60095F18C /* STConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		3CC706132216B32700CAD850 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +576,7 @@
 		3CD2913122113D12008B8A2D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3CB80E74222FCBD30095F18C /* Constant */,
 				3C4B10DE22292743009942B7 /* TapPay */,
 				3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */,
 				3CD29123221135E3008B8A2D /* Assets.xcassets */,
@@ -787,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
+				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
@@ -800,6 +815,7 @@
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
 				3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */,
+				3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,

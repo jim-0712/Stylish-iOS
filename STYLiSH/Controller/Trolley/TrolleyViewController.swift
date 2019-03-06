@@ -8,19 +8,34 @@
 
 import UIKit
 
-class TrolleyViewController: UIViewController {
+class TrolleyViewController: STBaseViewController {
 
     @IBOutlet weak var tableView: UITableView! {
+        
         didSet {
+        
             tableView.delegate = self
+            
             tableView.dataSource = self
         }
     }
     
+    @IBOutlet weak var emptyView: UIView!
+    
     var orders: [LSOrder] = [] {
         
         didSet {
+            
             tableView.reloadData()
+            
+            if orders.count == 0 {
+                
+                tableView.isHidden = true
+                
+            } else {
+                
+                tableView.isHidden = false
+            }
         }
     }
     
@@ -103,10 +118,6 @@ extension TrolleyViewController: UITableViewDataSource {
         trolleyCell.valueChangeHandler = { [weak self] value in
             
             self?.orders[indexPath.row].amount = value.int64()
-            
-            print("----Yo------")
-            
-            print(self?.orders[indexPath.row].amount)
         }
         
         return trolleyCell

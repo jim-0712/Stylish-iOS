@@ -29,27 +29,28 @@ class LobbyTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func singlePage(img: String) {
+    func singlePage(img: String, title: String, description: String) {
         
         singleImgView.alpha = 1.0
     
-        singleImgView.loadImage(img)
+        singleImgView.loadImage(img, placeHolder: UIImage.asset(.Image_Placeholder))
+        
+        titleLbl.text = title
+        
+        descriptionLbl.text = description
     }
     
-    func multiplePages(imgs: [String]) {
+    func multiplePages(imgs: [String], title: String, description: String) {
         
         singleImgView.alpha = 0.0
         
-        multipleImgView1.loadImage(imgs[0])
+        multipleImgView1.loadImage(imgs[0], placeHolder: UIImage.asset(.Image_Placeholder))
         
-        multipleImgView2.loadImage(imgs[1])
+        multipleImgView2.loadImage(imgs[1], placeHolder: UIImage.asset(.Image_Placeholder))
         
-        multipleImgView3.loadImage(imgs[2])
+        multipleImgView3.loadImage(imgs[2], placeHolder: UIImage.asset(.Image_Placeholder))
         
-        multipleImgView4.loadImage(imgs[3])
-    }
-    
-    func layout(title: String, description: String) {
+        multipleImgView4.loadImage(imgs[3], placeHolder: UIImage.asset(.Image_Placeholder))
         
         titleLbl.text = title
         

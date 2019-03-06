@@ -19,27 +19,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="477" height="243.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tec-0d-mkc">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tec-0d-mkc">
                         <rect key="frame" x="16" y="0.0" width="170" height="170"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="170" id="Wqd-9P-8H1"/>
                             <constraint firstAttribute="height" constant="170" id="ief-KR-spO"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-Ca-bjg">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-Ca-bjg">
                         <rect key="frame" x="274" y="0.0" width="187" height="170"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="170" id="cFq-rW-Zjg"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-Iu-Ljg">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-Iu-Ljg">
                         <rect key="frame" x="188" y="0.0" width="84" height="84"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="Coj-ka-G0n"/>
                             <constraint firstAttribute="height" constant="84" id="Kwj-Ge-yym"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-s3-706">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-s3-706">
                         <rect key="frame" x="188" y="86" width="84" height="84"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="6D9-SX-9vI"/>
