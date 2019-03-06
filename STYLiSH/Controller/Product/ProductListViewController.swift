@@ -76,13 +76,13 @@ class ProductListViewController: STCompondViewController {
     //MARK: - Override super class method
     override func headerLoader() {
         
-        paging = 0
+        paging = nil
         
         datas = []
         
         resetNoMoreData()
         
-        provider?.fetchData(paging: paging!, completion: { [weak self] result in
+        provider?.fetchData(paging: 0, completion: { [weak self] result in
             
             self?.endHeaderRefreshing()
             
@@ -96,7 +96,7 @@ class ProductListViewController: STCompondViewController {
                 
             case .failure(let error):
                 
-                print(error.localizedDescription)
+                LKProgressHUD.showFailure(text: error.localizedDescription)
             }
         })
     }
@@ -130,7 +130,7 @@ class ProductListViewController: STCompondViewController {
                 
             case .failure(let error):
                 
-                print(error.localizedDescription)
+                LKProgressHUD.showFailure(text: error.localizedDescription)
             }
         })
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 class STCompondViewController:
-    UIViewController,
+    STBaseViewController,
     UITableViewDataSource,
     UITableViewDelegate,
     UICollectionViewDataSource,
@@ -34,6 +34,10 @@ class STCompondViewController:
         cpdSetupTableView()
         
         cpdSetupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         tableView.beginHeaderRefreshing()
     }

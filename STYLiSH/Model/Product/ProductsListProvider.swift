@@ -10,7 +10,7 @@ import Foundation
 
 class ProductsProvider: ProductListDataProvider {
     
-    private enum ProductType {
+    enum ProductType {
         
         case men
         
@@ -19,9 +19,9 @@ class ProductsProvider: ProductListDataProvider {
         case accessories
     }
     
-    let productType: ProductType
+    private let productType: ProductType
     
-    let dataProvider: MarketProvider
+    private let dataProvider: MarketProvider
     
     init(productType: ProductType, dataProvider: MarketProvider) {
         
