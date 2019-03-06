@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ProductPickerCellType {
+private enum ProductPickerCellType {
     
     case color
     
@@ -53,7 +53,7 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
     
     weak var delegate: ProductPickerControllerDelegate?
     
-    let datas: [ProductPickerCellType] = [.color, .size, .amount]
+    private let datas: [ProductPickerCellType] = [.color, .size, .amount]
     
     var product: Product?
     
@@ -102,6 +102,7 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         return cell.amount
     }
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,9 +127,29 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         )
     }
     
+    //MARK: - Action
+    @IBAction func onDismiss(_ sender: UIButton) {
+        
+        delegate?.dismissPicker(self)
+    }
+    
+    //MARK: - Cell Arrangement
     private func manipulaterCell(_ cell: UITableViewCell, type: ProductPickerCellType) {
         
         switch type {
+            
+        case .color:
+            
+            guard let colorCell = cell as? ColorSelectionCell,
+                let product = product
+                else { return }
+            
+            colorCell.colors = product.colors.map({ $0.code })
+            
+            colorCell.touchHandler = { [weak self] indexPath in
+                
+                self?.selectedColor = self?.product?.colors[indexPath.row].code
+            }
             
         case .size:
             
@@ -143,9 +164,11 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
                 return true
             }
             
-            guard let product = product,
-                  let selectedColor = selectedColor
-            else { return }
+            guard let product = product else { return }
+            
+            sizeCell.sizes = product.sizes
+            
+            guard let selectedColor = selectedColor else { return }
             
             sizeCell.avalibleSizes = product.variants.compactMap({ variant in
                 
@@ -155,19 +178,6 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
                 
                 return nil
             })
-            
-        case .color:
-            
-            guard let colorCell = cell as? ColorSelectionCell,
-                  let product = product
-            else { return }
-            
-            colorCell.colors = product.colors.map({ $0.code })
-            
-            colorCell.touchHandler = { [weak self] indexPath in
-                
-                self?.selectedColor = self?.product?.colors[indexPath.row].code
-            }
             
         case .amount:
             
@@ -197,11 +207,7 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    @IBAction func onDismiss(_ sender: UIButton) {
-        
-        delegate?.dismissPicker(self)
-    }
-    
+    //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return datas.count

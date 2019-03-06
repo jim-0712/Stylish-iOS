@@ -8,17 +8,6 @@
 
 import UIKit
 
-enum SizeType: String, CaseIterable {
-    
-    case XS
-    
-    case S
-    
-    case M
-    
-    case L
-}
-
 enum StockStatus {
 
     case avaliable
@@ -32,26 +21,37 @@ enum StockStatus {
 
 struct SizeObject {
     
-    let size: SizeType
+    let size: String
     
     var status: StockStatus
 }
 
 class SizeSelectionCell: BasicSelectionCell {
 
-    private lazy var sizes: [SizeObject] = {
+    var sizes: [String] = [] {
         
-        var result: [SizeObject] = []
-        
-        for type in SizeType.allCases {
+        didSet {
             
-            let object = SizeObject(size: type, status: .disable)
-    
-            result.append(object)
+            var result: [SizeObject] = []
+            
+            for size in sizes {
+                
+                let object = SizeObject(size: size, status: .disable)
+                
+                result.append(object)
+            }
+            
+            sizeObjects = result
         }
+    }
+    
+    private var sizeObjects: [SizeObject] = [] {
         
-        return result
-    }()
+        didSet {
+        
+            reloadData()
+        }
+    }
     
     var avalibleSizes: [String] = [] {
         
@@ -59,17 +59,17 @@ class SizeSelectionCell: BasicSelectionCell {
             
             for index in 0 ..< sizes.count {
                 
-                if avalibleSizes.contains(sizes[index].size.rawValue) {
+                if avalibleSizes.contains(sizeObjects[index].size) {
                     
-                    sizes[index].status = .avaliable
+                    sizeObjects[index].status = .avaliable
                 
                 } else {
                     
-                    sizes[index].status = .unAvaliable
+                    sizeObjects[index].status = .unAvaliable
                 }
             }
             
-            collectionView.reloadData()
+            reloadData()
         }
     }
     
@@ -90,8 +90,6 @@ class SizeSelectionCell: BasicSelectionCell {
     private func setupLetterSpacing() {
         
         titleLbl.text = "選擇尺寸"
-        
-        titleLbl.characterSpacing = 2.1
     }
     
     override func numberOfItem(_ cell: BasicSelectionCell) -> Int {
@@ -105,34 +103,34 @@ class SizeSelectionCell: BasicSelectionCell {
             
             let sizeView = SizeView()
             
-            sizeView.layoutCell(with: sizes[indexPath.row])
+            sizeView.layoutCell(with: sizeObjects[indexPath.row])
         
             selectionCell.objectView = sizeView
             
             return
         }
         
-        sizeView.layoutCell(with: sizes[indexPath.row])
+        sizeView.layoutCell(with: sizeObjects[indexPath.row])
     }
     
     override func didSelected(_ cell: BasicSelectionCell, at indexPath: IndexPath) {
         
-        if sizes[indexPath.row].status == .unAvaliable || sizes[indexPath.row].status == .disable {
+        if sizeObjects[indexPath.row].status == .unAvaliable || sizeObjects[indexPath.row].status == .disable {
             
             return
         }
         
-        guard touchHandler?(sizes[indexPath.row].size.rawValue) == true else { return }
+        guard touchHandler?(sizeObjects[indexPath.row].size) == true else { return }
         
-        for index in 0 ..< sizes.count {
+        for index in 0 ..< sizeObjects.count {
         
-            if sizes[index].status == .selected {
+            if sizeObjects[index].status == .selected {
                 
-                sizes[index].status = .avaliable
+                sizeObjects[index].status = .avaliable
             }
         }
         
-        sizes[indexPath.row].status = .selected
+        sizeObjects[indexPath.row].status = .selected
         
         collectionView.reloadData()
     }
@@ -191,7 +189,7 @@ private class SizeView: UIView {
     
     func layoutCell(with object: SizeObject) {
         
-        sizeLbl.text = object.size.rawValue
+        sizeLbl.text = object.size
         
         layer.borderColor = UIColor.B5?.cgColor
         

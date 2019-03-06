@@ -8,85 +8,9 @@
 
 import UIKit
 
-private enum ProductCategory: String {
-    
-    case description = ""
-    
-    case color = "顏色"
-    
-    case size = "尺寸"
-    
-    case stock = "庫存"
-    
-    case texture = "材質"
-    
-    case washing = "洗滌"
-    
-    case placeOfProduction = "產地"
-    
-    case remarks = "備註"
-    
-    func identifier() -> String {
-        
-        switch self {
-            
-        case .description: return String(describing: ProductDescriptionTableViewCell.self)
-            
-        case .color: return ProductDetailCell.color
-            
-        case .size, .stock, .texture, .washing, .placeOfProduction, .remarks: return ProductDetailCell.label
-            
-        }
-    }
-    
-    func cellForIndexPath(_ indexPath: IndexPath, tableView: UITableView, data: Product) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier(), for: indexPath)
-        
-        guard let basicCell = cell as? ProductBasicCell else { return cell }
-        
-        switch self {
-        
-        case .description:
-            
-            basicCell.layoutCell(product: data)
-            
-        case .color:
-
-            basicCell.layoutCellWithColors(category: rawValue, colors: data.colors.map({ $0.code }))
-            
-        case .size:
-
-            basicCell.layoutCell(category: rawValue, content: data.size)
-        
-        case .stock:
-            
-            basicCell.layoutCell(category: rawValue, content: String(data.stock))
-            
-        case .texture:
-            
-            basicCell.layoutCell(category: rawValue, content: data.texture)
-            
-        case .washing:
-            
-            basicCell.layoutCell(category: rawValue, content: data.wash)
-            
-        case .placeOfProduction:
-            
-            basicCell.layoutCell(category: rawValue, content: data.place)
-            
-        case .remarks:
-            
-            basicCell.layoutCell(category: rawValue, content: data.note)
-        }
-        
-        return basicCell
-    }
-}
-
 class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    struct Segue {
+    private struct Segue {
         
         static let picker = "SeguePicker"
     }
@@ -123,7 +47,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         return blurView
     }()
     
-    private let datas: [ProductCategory] = [.description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks]
+    private let datas: [ProductContentCategory] = [.description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks]
     
     var product: Product? {
         
@@ -144,6 +68,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         return true
     }
     
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -152,6 +78,24 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         guard let product = product else { return }
         
         galleryView.datas = product.images
+    }
+    
+    private func setupTableView() {
+        
+        tableView.lk_registerCellWithNib(identifier:
+            String(describing: ProductDescriptionTableViewCell.self),
+                                         bundle: nil
+        )
+        
+        tableView.lk_registerCellWithNib(identifier:
+            ProductDetailCell.color,
+                                         bundle: nil
+        )
+        
+        tableView.lk_registerCellWithNib(identifier:
+            ProductDetailCell.label,
+                                         bundle: nil
+        )
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -167,6 +111,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         }
     }
     
+    //MARK: - Action
     @IBAction func didTouchAddToCarBtn(_ sender: UIButton) {
     
         if productPickerView.superview == nil {
@@ -240,24 +185,6 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         
             addToCarBtn.backgroundColor = UIColor.B4
         }
-    }
-    
-    private func setupTableView() {
-        
-        tableView.lk_registerCellWithNib(identifier:
-            String(describing: ProductDescriptionTableViewCell.self),
-            bundle: nil
-        )
-        
-        tableView.lk_registerCellWithNib(identifier:
-            ProductDetailCell.color,
-            bundle: nil
-        )
-        
-        tableView.lk_registerCellWithNib(identifier:
-            ProductDetailCell.label,
-            bundle: nil
-        )
     }
     
     //MARK: - UITableViewDataSource
