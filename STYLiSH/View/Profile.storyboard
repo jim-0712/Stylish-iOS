@@ -92,10 +92,6 @@
                                         <outlet property="titleLbl" destination="IFV-b8-qZG" id="OSt-Aq-WyQ"/>
                                     </connections>
                                 </collectionReusableView>
-                                <connections>
-                                    <outlet property="dataSource" destination="jmF-8q-0Gj" id="pUe-Bf-F4m"/>
-                                    <outlet property="delegate" destination="jmF-8q-0Gj" id="jdU-c0-yQ1"/>
-                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-Kk-nRw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="92"/>

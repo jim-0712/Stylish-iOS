@@ -10,7 +10,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView! {
+        
+        didSet {
+           
+            collectionView.delegate = self
+            
+            collectionView.dataSource = self
+        }
+    }
     
     let manager = ProfileManager()
     

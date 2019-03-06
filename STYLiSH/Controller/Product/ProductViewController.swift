@@ -10,14 +10,14 @@ import UIKit
 
 class ProductViewController: UIViewController {
 
-    enum LayoutType {
+    private enum LayoutType {
         
         case list
         
         case grid
     }
     
-    enum ProductType: Int {
+    private enum ProductType: Int {
         
         case women = 0
         
@@ -26,7 +26,7 @@ class ProductViewController: UIViewController {
         case accessories = 2
     }
     
-    struct Segue {
+    private struct Segue {
         
         static let men = "SegueMen"
         
@@ -47,7 +47,7 @@ class ProductViewController: UIViewController {
     
     @IBOutlet weak var accessoriesProductsContainerView: UIView!
     
-    var containers: [UIView] {
+    var containerViews: [UIView] {
         
         return [menProductsContainerView, womenProductsContainerView, accessoriesProductsContainerView]
     }
@@ -55,6 +55,7 @@ class ProductViewController: UIViewController {
     var isListLayout: Bool = true {
         
         didSet {
+            
             switch isListLayout {
             
             case true: showListLayout()
@@ -79,7 +80,9 @@ class ProductViewController: UIViewController {
         
         moveIndicatorView(reference: sender)
         
-        updateContainer(type: ProductType(rawValue: sender.tag)!)
+        guard let type = ProductType(rawValue: sender.tag) else { return }
+        
+        updateContainer(type: type)
     }
     
     @IBAction func onChangeLayoutType(_ sender: UIBarButtonItem) {
@@ -161,7 +164,7 @@ class ProductViewController: UIViewController {
     
     private func updateContainer(type: ProductType) {
         
-        containers.forEach({ $0.isHidden = true })
+        containerViews.forEach({ $0.isHidden = true })
         
         switch type {
         

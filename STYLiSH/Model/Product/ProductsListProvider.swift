@@ -10,7 +10,7 @@ import Foundation
 
 class ProductsProvider: ProductListDataProvider {
     
-    enum ProductType {
+    private enum ProductType {
         
         case men
         
