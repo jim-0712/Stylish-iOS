@@ -96,9 +96,7 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
                 enable(item: item)
             })
             
-            inputField.text = "1"
-            
-            disable(item: substractBtn)
+            inputField.text = String(amount)
             
         } else {
             
@@ -108,21 +106,47 @@ class TrolleySelectionView: UIView, UITextFieldDelegate {
             })
             
             inputField.text = ""
+            
+            return
         }
         
         self.maxNumber = maxNumber
-        
-        inputField.text = String(amount)
     }
     
     func checkData() {
         
         guard let maxNumber = maxNumber else { return }
         
+        if maxNumber < 1 {
+            
+            disable(item: addBtn)
+            
+            disable(item: substractBtn)
+            
+            inputField.text = ""
+            
+            disable(item: inputField)
+            
+            return
+        }
+        
+        if maxNumber == 1 {
+            
+            disable(item: addBtn)
+            
+            disable(item: substractBtn)
+            
+            inputField.text = "1"
+            
+            disable(item: inputField)
+            
+            return
+        }
+        
         guard let text = inputField.text,
               let input = Int(text),
               input <= maxNumber,
-              input > 0
+              input >= 1
         else {
             
             inputField.text = String(maxNumber)

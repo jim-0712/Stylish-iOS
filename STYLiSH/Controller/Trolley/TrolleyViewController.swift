@@ -53,6 +53,12 @@ class TrolleyViewController: STBaseViewController {
         fetchData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        StorageManager.shared.saveAll(completion: { _ in })
+    }
+    
     func fetchData() {
         
         StorageManager.shared.fetchOrders(completion: { result in

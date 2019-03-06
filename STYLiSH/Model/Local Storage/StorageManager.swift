@@ -74,6 +74,20 @@ class StorageManager {
         }
     }
     
+    func saveAll(completion: (Result<Void>) -> Void) {
+        
+        do {
+        
+            try viewContext.save()
+            
+            completion(Result.success(()))
+        
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
+    
     func saveOrder(
         color: String, size: String, amount: Int, product: Product,
         completion: (Result<Void>) -> Void)

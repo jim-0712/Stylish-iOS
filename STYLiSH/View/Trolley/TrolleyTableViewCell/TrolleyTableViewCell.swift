@@ -69,4 +69,12 @@ class TrolleyTableViewCell: UITableViewCell {
         trolleySelectionView.isEnable(true, maxNumber: Int(maxNumber), amount: Int(order.amount))
     }
     
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        touchHandler = nil
+        
+        valueChangeHandler = nil
+    }
 }
