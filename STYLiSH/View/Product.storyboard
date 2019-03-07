@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-Mn-LZ1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIU-pU-Sui">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIU-pU-Sui">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="女裝">
@@ -138,6 +138,9 @@
                         <outlet property="layoutBtn" destination="fMg-rv-MfI" id="9hK-wM-9a9"/>
                         <outlet property="menProductsContainerView" destination="Wo4-r2-uEs" id="CAT-6r-GmF"/>
                         <outlet property="womenProductsContainerView" destination="EzC-7D-T5k" id="YzR-4b-N3S"/>
+                        <outletCollection property="productBtns" destination="mIU-pU-Sui" collectionClass="NSMutableArray" id="cLK-UG-ZpL"/>
+                        <outletCollection property="productBtns" destination="ELV-1w-gpV" collectionClass="NSMutableArray" id="Nll-Lp-4xo"/>
+                        <outletCollection property="productBtns" destination="Vep-Ll-LpG" collectionClass="NSMutableArray" id="MOn-uE-JAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atF-IO-8C8" userLabel="First Responder" sceneMemberID="firstResponder"/>

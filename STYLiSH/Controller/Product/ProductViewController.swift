@@ -47,6 +47,8 @@ class ProductViewController: UIViewController {
     
     @IBOutlet weak var accessoriesProductsContainerView: UIView!
     
+    @IBOutlet var productBtns: [UIButton]!
+    
     var containerViews: [UIView] {
         
         return [menProductsContainerView, womenProductsContainerView, accessoriesProductsContainerView]
@@ -76,7 +78,12 @@ class ProductViewController: UIViewController {
     //MARK: - Action
     @IBAction func onChangeProducts(_ sender: UIButton) {
         
-        sender.isSelected = !sender.isSelected
+        for btn in productBtns {
+            
+            btn.isSelected = false
+        }
+        
+        sender.isSelected = true
         
         moveIndicatorView(reference: sender)
         
@@ -118,15 +125,15 @@ class ProductViewController: UIViewController {
     
     //MARK: - Private method
     private func showListLayout() {
-
-        layoutBtn.image = UIImage.asset(.Icons_24px_ListView)
+        
+        layoutBtn.image = UIImage.asset(.Icons_24px_CollectionView)
         
         showLayout(type: .list)
     }
     
     private func showGridLayout() {
-        
-        layoutBtn.image = UIImage.asset(.Icons_24px_CollectionView)
+    
+        layoutBtn.image = UIImage.asset(.Icons_24px_ListView)
     
         showLayout(type: .grid)
     }
