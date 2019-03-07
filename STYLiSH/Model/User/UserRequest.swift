@@ -31,7 +31,7 @@ enum STUserRequest: STRequest {
         }
     }
     
-    var body: [String: Any] {
+    var body: [String: Any]? {
         
         switch self {
             

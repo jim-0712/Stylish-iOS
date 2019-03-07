@@ -27,11 +27,11 @@ enum STMarketRequest: STRequest {
         }
     }
     
-    var body: [String: Any] {
+    var body: [String: Any]? {
         
         switch self {
             
-        case .hots, .women, .men, .accessories: return [:]
+        case .hots, .women, .men, .accessories: return nil
             
         }
     }

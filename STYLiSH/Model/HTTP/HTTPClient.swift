@@ -49,7 +49,7 @@ protocol STRequest {
     
     var headers: [String: String] { get }
     
-    var body: [String: Any] { get }
+    var body: [String: Any]? { get }
     
     var method: String { get }
     
@@ -116,7 +116,10 @@ class HTTPClient {
         
         request.allHTTPHeaderFields = stRequest.headers
         
-        request.httpBody = try! JSONSerialization.data(withJSONObject: stRequest.body, options: [.prettyPrinted])
+        if let body = stRequest.body {
+        
+            request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: [.prettyPrinted])
+        }
         
         request.httpMethod = stRequest.method
         
