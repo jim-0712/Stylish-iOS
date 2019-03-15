@@ -12,9 +12,18 @@ class SegmentedCell: UITableViewCell {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var valueChangedHandler: ((String) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        segmentedControl.addTarget(self, action: #selector(segmentedControlDidChangeValue(_:)), for: .valueChanged)
     }
 
+    @objc func segmentedControlDidChangeValue(_ sender: UISegmentedControl) {
+        
+        guard let text = sender.titleForSegment(at: sender.selectedSegmentIndex) else { return }
+        
+        valueChangedHandler?(text)
+    }
 }

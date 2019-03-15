@@ -87,6 +87,7 @@
 		3CD29122221135E2008B8A2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD29120221135E2008B8A2D /* Main.storyboard */; };
 		3CD29124221135E3008B8A2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD29123221135E3008B8A2D /* Assets.xcassets */; };
 		3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD29125221135E3008B8A2D /* LaunchScreen.storyboard */; };
+		3CD9BB35223B882C0012C00D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD9BB34223B882C0012C00D /* AuthViewController.swift */; };
 		3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */; };
 		3CDC5A6A222D860B0071D0D1 /* SizeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */; };
 		3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50122302354009FF003 /* ProductContentCategory.swift */; };
@@ -195,6 +196,7 @@
 		3CD29123221135E3008B8A2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CD29126221135E3008B8A2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CD29128221135E3008B8A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CD9BB34223B882C0012C00D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCell.swift; sourceTree = "<group>"; };
 		3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSelectionCell.swift; sourceTree = "<group>"; };
 		3CE7A50122302354009FF003 /* ProductContentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContentCategory.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3CD9BB33223B88110012C00D /* Auth */,
 				3C4B10E022292EA5009942B7 /* TapPay */,
 				3C5DD7CA2227EFE40053B67A /* Trolley */,
 				3C41B8452216665200112F94 /* Product */,
@@ -613,6 +616,14 @@
 				3CD29123221135E3008B8A2D /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		3CD9BB33223B88110012C00D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3CD9BB34223B882C0012C00D /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		3CDC5A63222D84EE0071D0D1 /* LKGalleryView */ = {
@@ -939,6 +950,7 @@
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
 				3CE7A51322305916009FF003 /* UserProvider.swift in Sources */,
 				3CE7A51E22308D34009FF003 /* OrderObject.swift in Sources */,
+				3CD9BB35223B882C0012C00D /* AuthViewController.swift in Sources */,
 				3CB801212229A0970029A552 /* KingFisherWrapper.swift in Sources */,
 				3C33863F221BB2B800ED97E4 /* ProductListViewController.swift in Sources */,
 				3C6020E6222BB03400312958 /* STBaseViewController.swift in Sources */,

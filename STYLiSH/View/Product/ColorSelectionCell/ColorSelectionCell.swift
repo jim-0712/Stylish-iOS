@@ -125,17 +125,19 @@ private class ColorView: UIView {
     
     func layoutCell(color: String, isSelected: Bool) {
         
-        layer.borderColor = UIColor.hexStringToUIColor(hex: color).cgColor
-        
         contentView.backgroundColor = UIColor.hexStringToUIColor(hex: color)
         
         if isSelected {
         
             backgroundColor = UIColor.white
+            
+            layer.borderColor = UIColor.B1?.cgColor
         
         } else {
             
             backgroundColor = UIColor.hexStringToUIColor(hex: color)
+        
+            layer.borderColor = UIColor.hexStringToUIColor(hex: color).cgColor
         }
     }
 }

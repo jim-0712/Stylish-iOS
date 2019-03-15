@@ -47,6 +47,23 @@ class OrderProvider {
         case address = "地址"
     }
     
+    var order: Order? {
+        
+        didSet {
+            
+            guard let order = order else { return }
+            
+            orderChangeHandler?(order.isReady())
+        }
+    }
+    
+    private var datas: [CellType] = [.product(0), .inputField, .deliveryTime, .detail]
+    
+    private let recievers: [RecieverColumn] = [.name, .email, .phoneNumber, .address]
+    
+    private var reciever: Reciever = Reciever()
+    
+    var orderChangeHandler: ((Bool) -> Void)?
     
     init() {
         
@@ -81,9 +98,9 @@ class OrderProvider {
                 
             case .success(let orders):
                 
-                self.orders = orders
+                self.order = Order(orders: orders, reciever: Reciever(), deliverTime: nil, payment: nil)
                 
-                datas = [.product(self.orders.count), .inputField, .deliveryTime, .detail]
+                datas = [.product(self.order!.orders.count), .inputField, .deliveryTime, .detail]
                 
             case .failure(_):
                 
@@ -94,13 +111,15 @@ class OrderProvider {
     
     func manipulateCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
         
+        guard let order = order else { return }
+        
         switch datas[indexPath.section] {
         
         case .product:
             
             guard let productCell = cell as? TrolleyTableViewCell else { return }
             
-            productCell.layoutView(order: orders[indexPath.row])
+            productCell.layoutView(order: order.orders[indexPath.row])
             
         case .inputField:
             
@@ -108,33 +127,71 @@ class OrderProvider {
             
             switch recievers[indexPath.row] {
             
-            case .name: inputCell.inputField.text = reciever.name ?? RecieverColumn.name.rawValue
+            case .name:
                 
-            case .email: inputCell.inputField.text = reciever.email ?? RecieverColumn.email.rawValue
+                inputCell.inputField.placeholder = reciever.name ?? RecieverColumn.name.rawValue
+                
+                inputCell.textChangeHandler = { [weak self] text in
+                    
+                    self?.order?.reciever?.name = text
+                }
+                
+            case .email:
+                
+                inputCell.inputField.placeholder = reciever.email ?? RecieverColumn.email.rawValue
+                
+                inputCell.textChangeHandler = { [weak self] text in
+                    
+                    self?.order?.reciever?.email = text
+                }
             
-            case .phoneNumber: inputCell.inputField.text = reciever.phoneNumber ?? RecieverColumn.phoneNumber.rawValue
+            case .phoneNumber:
+                
+                inputCell.inputField.placeholder = reciever.phoneNumber ?? RecieverColumn.phoneNumber.rawValue
+                
+                inputCell.textChangeHandler = { [weak self] text in
+                    
+                    self?.order?.reciever?.phoneNumber = text
+                }
             
-            case .address: inputCell.inputField.text = reciever.address ?? RecieverColumn.address.rawValue
+            case .address:
+                
+                inputCell.inputField.placeholder = reciever.address ?? RecieverColumn.address.rawValue
+                
+                inputCell.textChangeHandler = { [weak self] text in
+                    
+                    self?.order?.reciever?.address = text
+                }
             
             }
         
         case .deliveryTime:
         
             guard let segmentedCell = cell as? SegmentedCell else { return }
+            
+            segmentedCell.valueChangedHandler = { [weak self] text in
+                    
+                self?.order?.deliverTime = text
+            }
         
         case .detail:
         
             guard let inputCell = cell as? BillCell else { return }
+            
+            inputCell.layoutCell(
+                amount: String(order.amount),
+                productPrice: order.productPrices,
+                freightPrice: order.freight
+            )
+            
+            inputCell.shipmentHandler = { [weak self] text in
+                
+                guard let payment = Payment(rawValue: text) else { return }
+                
+                self?.order?.payment = payment
+            }
         }
     }
-    
-    private var orders: [LSOrder] = []
-    
-    private var datas: [CellType] = [.product(0), .inputField, .deliveryTime, .detail]
-    
-    private let recievers: [RecieverColumn] = [.name, .email, .phoneNumber, .address]
-    
-    private var reciever: Reciever = Reciever()
     
     private func identifier(type: CellType) -> String {
         

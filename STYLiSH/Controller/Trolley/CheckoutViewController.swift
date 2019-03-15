@@ -30,7 +30,28 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var footerView: UIView!
     
-    let orderProvider = OrderProvider()
+    @IBOutlet weak var puchaseBtn: UIButton!
+    
+    lazy var orderProvider: OrderProvider = {
+        
+        let provider = OrderProvider()
+        
+        provider.orderChangeHandler = { [weak self] flag in
+            
+            self?.puchaseBtn.isEnabled = flag
+            
+            if flag {
+                
+                self?.puchaseBtn.backgroundColor = UIColor.B1
+            
+            } else {
+            
+                self?.puchaseBtn.backgroundColor = UIColor.B4
+            }
+        }
+        
+        return provider
+    }()
     
     let userProvider = UserProvider()
     
@@ -51,13 +72,20 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         
         guard KeyChainManager.shared.token != nil else {
             
-            onFacebookLogin()
+            onShowLogin()
             
             return
         }
         
-        performSegue(withIdentifier: Segue.tapPay, sender: nil)
+        guard let payment = orderProvider.order?.payment else { return }
         
+        switch payment {
+            
+        case .cash: break
+            //貨到付款
+        case .credit:
+            performSegue(withIdentifier: Segue.tapPay, sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,46 +95,15 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
             
             vc.delegate = self
         }
-        
     }
     
-    func onFacebookLogin() {
+    func onShowLogin() {
         
-        userProvider.loginWithFaceBook(from: self, completion: { [weak self] result in
-            
-            switch result{
-            
-            case .success(let token):
-                
-                self?.onSTYLiSHSignIn(token: token)
-                
-            case .failure(_):
-                
-                LKProgressHUD.showSuccess(text: "Facebook 登入失敗!")
-            }
-        })
-    }
-    
-    func onSTYLiSHSignIn(token: String) {
+        guard let vc = UIStoryboard.auth.instantiateInitialViewController() else { return }
         
-        LKProgressHUD.show()
+        vc.modalPresentationStyle = .overCurrentContext
         
-        userProvider.signInToSTYLiSH(fbToken: token, completion: { result in
-            
-            LKProgressHUD.dismiss()
-            
-            switch result{
-                
-            case .success(_):
-                
-                LKProgressHUD.showSuccess(text: "STYLiSH 登入成功")
-                
-            case .failure(_):
-                
-                LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!")
-            }
-            
-        })
+        present(vc, animated: false, completion: nil)
     }
     
     func checkout(prime: String) {
@@ -114,7 +111,7 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         LKProgressHUD.show()
         
         userProvider.checkout(prime: prime, completion: { [weak self] result in
-        
+            
             LKProgressHUD.dismiss()
             
             switch result{
@@ -167,6 +164,16 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
         headerView.titleLbl.text = orderProvider.titleForSection(section)
         
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 1.0
     }
     
 }

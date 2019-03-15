@@ -24,15 +24,22 @@ class KeyChainManager {
     var token: String? {
         
         set {
-            service[serverTokenKey] = newValue
+            
+            let uuid = UUID().uuidString
+            
+            UserDefaults.standard.set(uuid, forKey: serverTokenKey)
+            
+            service[uuid] = newValue
         }
         
         get {
             
+            guard let serverKey = UserDefaults.standard.string(forKey: serverTokenKey) else { return nil }
+            
             for item in service.allItems() {
                 
                 if let key = item["key"] as? String,
-                   key == serverTokenKey {
+                   key == serverKey {
                 
                     return item["value"] as? String
                 }

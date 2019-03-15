@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BillCell: UITableViewCell {
+class BillCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var inputField: STBaseTextField!
     
@@ -20,9 +20,25 @@ class BillCell: UITableViewCell {
     
     @IBOutlet weak var totalPriceLbl: UILabel!
     
+    var shipmentHandler: ((String) -> Void)?
+    
+    private lazy var pickerView: UIPickerView = {
+        
+        let picker = UIPickerView()
+        
+        picker.dataSource = self
+        
+        picker.delegate = self
+        
+        return picker
+    }()
+    
+    private let pickerOptions = ["貨到付款", "信用卡付款"]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        inputField.inputView = pickerView
     }
 
     func layoutCell(amount: String, productPrice: Int, freightPrice: Int = 60) {
@@ -36,4 +52,28 @@ class BillCell: UITableViewCell {
         totalPriceLbl.text = "NT$ \(freightPrice + productPrice)"
     }
 
+    //MARK: - UIPickerViewDataSource
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return pickerOptions.count
+    }
+    
+    //MARK: - UIPickerViewDelegate
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return pickerOptions[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        inputField.text = pickerOptions[row]
+        
+        shipmentHandler?(pickerOptions[row])
+    }
 }
