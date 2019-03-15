@@ -33,7 +33,7 @@ class ProductDetailCell: ProductBasicCell, UICollectionViewDataSource, UICollect
     
     @IBOutlet weak var categoryLbl: UILabel!
     
-    private var colors: [String] = ["CCCCCC", "DDFFBB"] {
+    private var colors: [String] = [] {
         
         didSet {
             

@@ -28,7 +28,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         
         didSet {
             
-            galleryView.frame.size.height = UIScreen.width / 375.0 * 500.0
+            galleryView.frame.size.height = CGFloat(Int(UIScreen.width / 375.0 * 500.0))
         
             galleryView.delegate = self
         }
@@ -210,7 +210,7 @@ extension ProductDetailViewController: LKGalleryViewDelegate {
     
     func sizeForItem(_ galleryView: LKGalleryView) -> CGSize {
         
-        return CGSize(width: UIScreen.width, height: UIScreen.width / 375.0 * 500.0)
+        return CGSize(width: Int(UIScreen.width), height: Int(UIScreen.width / 375.0 * 500.0))
     }
 }
 

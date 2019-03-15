@@ -31,6 +31,8 @@ class BasicSelectionCell: UITableViewCell, UICollectionViewDataSource, UICollect
         
         layoutObject.minimumInteritemSpacing = 0
         
+        layoutObject.scrollDirection = .horizontal
+        
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layoutObject)
         
         collectionView.backgroundColor = UIColor.white

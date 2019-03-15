@@ -67,9 +67,6 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
                                 <real key="value" value="2.25"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
-                                <real key="value" value="27"/>
-                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>

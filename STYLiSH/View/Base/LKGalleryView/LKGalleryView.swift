@@ -15,7 +15,17 @@ protocol LKGalleryViewDelegate: AnyObject {
 
 class LKGalleryView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    weak var delegate: LKGalleryViewDelegate?
+    weak var delegate: LKGalleryViewDelegate? {
+        
+        didSet {
+        
+            collectionView.dataSource = self
+            
+            collectionView.delegate = self
+            
+            collectionView.reloadData()
+        }
+    }
     
     private lazy var collectionView: UICollectionView = {
         
@@ -35,10 +45,6 @@ class LKGalleryView: UIView, UICollectionViewDataSource, UICollectionViewDelegat
             frame: CGRect.zero,
             collectionViewLayout: layoutObject
         )
-        
-        collectionView.dataSource = self
-        
-        collectionView.delegate = self
         
         collectionView.register(
             LKGalleryViewCell.self,
