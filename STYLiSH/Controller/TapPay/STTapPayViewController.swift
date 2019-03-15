@@ -69,14 +69,21 @@ class STTapPayViewController: STBaseViewController {
         tpdCard = TPDCard.setup(tpdForm)
         
         // 2. Setup TPDCard on Success Callback.
+        
+        LKProgressHUD.show()
+        
         tpdCard
             .onSuccessCallback { [weak self] (prime, cardInfo) in
-            
+        
+                LKProgressHUD.dismiss()
+                
                 guard let strongSelf = self else { return }
                 
                 self?.delegate?.didCompelte(strongSelf, prime: prime)
             
             }.onFailureCallback { [weak self] (status, message) in
+                
+                LKProgressHUD.dismiss()
                 
                 guard let strongSelf = self else { return }
                 

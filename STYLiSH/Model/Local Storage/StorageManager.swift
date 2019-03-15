@@ -14,15 +14,15 @@ typealias LSOrderResult = (Result<LSOrder>) -> Void
 
 class StorageManager {
     
-    private struct Entity {
+    private enum Entity: String, CaseIterable {
         
-        static let color = "LSColor"
+        case color = "LSColor"
         
-        static let order = "LSOrder"
+        case order = "LSOrder"
         
-        static let product = "LSProduct"
+        case product = "LSProduct"
         
-        static let variant = "LSVariant"
+        case variant = "LSVariant"
     }
     
     private struct Order {
@@ -58,7 +58,7 @@ class StorageManager {
     
     func fetchOrders(completion: LSOrderResults) {
         
-        let request = NSFetchRequest<LSOrder>(entityName: Entity.order)
+        let request = NSFetchRequest<LSOrder>(entityName: Entity.order.rawValue)
         
         request.sortDescriptors = [NSSortDescriptor(key: Order.createTime, ascending: true)]
         
@@ -149,6 +149,29 @@ class StorageManager {
             
             completion(Result.failure(error))
         }
+    }
+    
+    func deleteAllProduct(completion: (Result<Void>) -> Void) {
+        
+        for item in Entity.allCases {
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: item.rawValue)
+            
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                
+                try viewContext.execute(deleteRequest)
+                
+            } catch {
+                
+                completion(Result.failure(error))
+                
+                return
+            }
+        }
+        
+        completion(Result.success(()))
     }
 }
 

@@ -118,6 +118,8 @@ class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITab
                 
             case .success(_):
                 
+                StorageManager.shared.deleteAllProduct(completion: { _ in })
+                
                 self?.performSegue(withIdentifier: Segue.success, sender: nil)
                 
             case .failure(_):
