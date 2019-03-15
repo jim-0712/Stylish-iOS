@@ -70,7 +70,10 @@ class AuthViewController: STBaseViewController {
                 LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!")
             }
           
-            self?.presentingViewController?.dismiss(animated: false, completion: nil)
+            DispatchQueue.main.async {
+                
+                self?.presentingViewController?.dismiss(animated: false, completion: nil)
+            }
         })
     }
     

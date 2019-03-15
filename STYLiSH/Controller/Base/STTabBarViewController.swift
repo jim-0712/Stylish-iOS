@@ -76,7 +76,7 @@ private enum Tab {
     }
 }
 
-class STTabBarViewController: UITabBarController {
+class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     private let tabs: [Tab] = [.lobby, .product, .trolley, .profile]
     
@@ -84,6 +84,30 @@ class STTabBarViewController: UITabBarController {
         super.viewDidLoad()
  
         viewControllers = tabs.map({ $0.controller() })
+        
+        delegate = self
     }
 
+    //MARK: - UITabBarControllerDelegate
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        guard let navVC = viewController as? UINavigationController,
+              let _ = navVC.viewControllers.first as? ProfileViewController
+        else { return true }
+    
+        guard KeyChainManager.shared.token != nil else {
+            
+            if let vc = UIStoryboard.auth.instantiateInitialViewController() {
+                
+                vc.modalPresentationStyle = .overCurrentContext
+                
+                present(vc, animated: false, completion: nil)
+            }
+            
+            return false
+        }
+        
+        return true
+    }
 }
