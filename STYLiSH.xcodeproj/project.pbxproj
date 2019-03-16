@@ -76,6 +76,7 @@
 		3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB801262229AFF10029A552 /* UICollectionView+Extension.swift */; };
 		3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB80E75222FCBE60095F18C /* STConstant.swift */; };
 		3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */; };
+		3CC3D738223D78FB007DAA0D /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC3D737223D78FB007DAA0D /* SafariServices.framework */; };
 		3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC706112216955900CAD850 /* STBaseNavigationController.swift */; };
 		3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC706142216B34800CAD850 /* ProductTableViewCell.swift */; };
 		3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC706152216B34800CAD850 /* ProductTableViewCell.xib */; };
@@ -183,6 +184,7 @@
 		3CB801262229AFF10029A552 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		3CB80E75222FCBE60095F18C /* STConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STConstant.swift; sourceTree = "<group>"; };
 		3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		3CC3D737223D78FB007DAA0D /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		3CC706112216955900CAD850 /* STBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseNavigationController.swift; sourceTree = "<group>"; };
 		3CC706142216B34800CAD850 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		3CC706152216B34800CAD850 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC3D738223D78FB007DAA0D /* SafariServices.framework in Frameworks */,
 				15265D73F392969301BCFD4F /* Pods_STYLiSH.framework in Frameworks */,
 				3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */,
 			);
@@ -729,6 +732,7 @@
 		F26A8A19BFED7C956C38BFE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CC3D737223D78FB007DAA0D /* SafariServices.framework */,
 				E7FDED6FB4F51B5D1C7CC270 /* Pods_STYLiSH.framework */,
 			);
 			name = Frameworks;
