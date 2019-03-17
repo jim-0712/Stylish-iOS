@@ -25,9 +25,16 @@ class KeyChainManager {
         
         set {
             
-            let uuid = UUID().uuidString
-            
-            UserDefaults.standard.set(uuid, forKey: serverTokenKey)
+            guard let uuid = UserDefaults.standard.value(forKey: serverTokenKey) as? String else {
+                
+                let uuid = UUID().uuidString
+                
+                UserDefaults.standard.set(uuid, forKey: serverTokenKey)
+                
+                service[uuid] = newValue
+                
+                return
+            }
             
             service[uuid] = newValue
         }
