@@ -14,6 +14,7 @@ PODS:
   - KeychainAccess (3.1.2)
   - Kingfisher (5.1.1)
   - MJRefresh (3.1.15.7)
+  - SwiftLint (0.30.1)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - KeychainAccess
   - Kingfisher
   - MJRefresh
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - KeychainAccess
     - Kingfisher
     - MJRefresh
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -43,7 +46,8 @@ SPEC CHECKSUMS:
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 224df20a1b3b6be2754d87d4a88840edde2b7a03
+PODFILE CHECKSUM: 18e79ce1f34e4aa501e2b1da5a838655a871fb97
 
 COCOAPODS: 1.6.0

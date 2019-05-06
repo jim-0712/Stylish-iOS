@@ -9,26 +9,31 @@
 import Foundation
 
 struct UserObject: Codable {
-    
-    let access_token: String
-    
+
+    let accessToken: String
+
     let user: User
+    
+    enum CodingKeys: String, CodingKey {
+        case user
+        case accessToken = "access_token"
+    }
 }
 
 struct User: Codable {
-    
+
     let id: Int
-    
+
     let provider: String
-    
+
     let name: String
-    
+
     let email: String
-    
+
     let picture: String
 }
 
 struct Reciept: Codable {
-    
+
     let number: String
 }

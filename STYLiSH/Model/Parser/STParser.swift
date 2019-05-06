@@ -9,13 +9,13 @@
 import Foundation
 
 struct STSuccessParser<T: Codable>: Codable {
-    
+
     let data: T
-    
+
     let paging: Int?
 }
 
 struct STFailureParser: Codable {
-    
+
     let errorMessage: String
 }

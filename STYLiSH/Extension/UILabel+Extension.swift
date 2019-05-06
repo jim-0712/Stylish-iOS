@@ -30,7 +30,9 @@ extension UILabel {
         }
 
         get {
+            // swiftlint:disable force_cast
             return attributedText?.value(forKey: NSAttributedString.Key.kern.rawValue) as! CGFloat
+            // swiftlint:enable force_cast
         }
 
     }

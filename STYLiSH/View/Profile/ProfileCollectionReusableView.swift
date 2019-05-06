@@ -9,15 +9,15 @@
 import UIKit
 
 class ProfileCollectionReusableView: UICollectionReusableView {
-    
+
     @IBOutlet weak var titleLbl: UILabel!
-    
+
     @IBOutlet weak var actionBtn: UIButton!
-    
+
     func layoutView(title: String, actionText: String?) {
-        
+
         titleLbl.text = title
-        
+
         actionBtn.setTitle(actionText ?? "", for: .normal)
     }
 }

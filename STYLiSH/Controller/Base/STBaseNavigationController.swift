@@ -14,9 +14,9 @@ class STNoUnderlineNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
-        
+
         navigationBar.setBackgroundImage(UIImage(), for: .default)
-        
+
         navigationBar.shadowImage = UIImage()
     }
 

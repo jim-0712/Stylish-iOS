@@ -9,10 +9,10 @@
 import Foundation
 
 struct STConstant {
-    
+
     static let tapPayAppID = "STTapPayAppID"
-    
+
     static let tapPayAppKey = "STTapPayAppKey"
-    
+
     static let urlKey = "STBaseURL"
 }

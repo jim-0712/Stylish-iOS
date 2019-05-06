@@ -9,10 +9,10 @@
 import Foundation
 
 class ProfileManager {
-    
+
     let orderGroup = ProfileGroup(
         title: "我的訂單",
-        action: ProfileSegue.SegueAllOrder,
+        action: ProfileSegue.segueAllOrder,
         items: [
             OrderItem.awaitingPayment,
             OrderItem.awaitingShipment,
@@ -21,7 +21,7 @@ class ProfileManager {
             OrderItem.exchange
         ]
     )
-    
+
     let serviceGroup = ProfileGroup(
         title: "更多服務",
         action: nil,
@@ -36,6 +36,6 @@ class ProfileManager {
             ServiceItem.setting
         ]
     )
-    
+
     lazy var groups: [ProfileGroup] = [orderGroup, serviceGroup]
 }

@@ -13,95 +13,95 @@ typealias PromotionHanlder = (Result<[PromotedProducts]>) -> Void
 typealias ProductsResponseWithPaging = (Result<STSuccessParser<[Product]>>) -> Void
 
 class MarketProvider {
-    
+
     let decoder = JSONDecoder()
-    
+
     private enum ProductType {
-        
+
         case men(Int)
-        
+
         case women(Int)
-        
+
         case accessories(Int)
     }
-    
-    //MARK: - Public method
+
+    // MARK: - Public method
     func fetchHots(completion: @escaping PromotionHanlder) {
-        
+
         HTTPClient.shared.request(
             STMarketRequest.hots,
             completion: { [weak self] result in
-            
+
                 guard let strongSelf = self else { return }
-                
-                switch result{
-                    
+
+                switch result {
+
                 case .success(let data):
-                    
+
                     do {
                         let products = try strongSelf.decoder.decode(STSuccessParser<[PromotedProducts]>.self, from: data)
-                        
+
                         DispatchQueue.main.async {
-                            
+
                            completion(Result.success(products.data))
                         }
-                        
+
                     } catch {
-                            
+
                         completion(Result.failure(error))
                     }
-                    
+
                 case .failure(let error):
-                        
+
                     completion(Result.failure(error))
-                    
+
                 }
         })
     }
-    
+
     func fetchProductForMen(paging: Int, completion: @escaping ProductsResponseWithPaging) {
-        
+
         fetchProducts(request: STMarketRequest.men(paging: paging), completion: completion)
     }
 
     func fetchProductForWomen(paging: Int, completion: @escaping ProductsResponseWithPaging) {
-        
+
         fetchProducts(request: STMarketRequest.women(paging: paging), completion: completion)
     }
-    
+
     func fetchProductForAccessories(paging: Int, completion: @escaping ProductsResponseWithPaging) {
-        
+
         fetchProducts(request: STMarketRequest.accessories(paging: paging), completion: completion)
     }
-    
-    //MARK: - Private method
+
+    // MARK: - Private method
     private func fetchProducts(request: STMarketRequest, completion: @escaping ProductsResponseWithPaging) {
-        
+
         HTTPClient.shared.request(
             request,
             completion: { [weak self] result in
-                
+
                 guard let strongSelf = self else { return }
-                
-                switch result{
-                    
+
+                switch result {
+
                 case .success(let data):
-                    
+
                     do {
                         let response = try strongSelf.decoder.decode(STSuccessParser<[Product]>.self, from: data)
-                        
+
                         DispatchQueue.main.async {
-                            
+
                             completion(Result.success(response))
                         }
-                        
+
                     } catch {
-                        
+
                         completion(Result.failure(error))
                     }
-                    
+
                 case .failure(let error):
-                    
+
                     completion(Result.failure(error))
                 }
         })

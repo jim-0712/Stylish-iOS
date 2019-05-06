@@ -9,54 +9,54 @@
 import Foundation
 
 enum STMarketRequest: STRequest {
-    
+
     case hots
-    
+
     case women(paging: Int)
-    
+
     case men(paging: Int)
-    
+
     case accessories(paging: Int)
-    
+
     var headers: [String: String] {
-        
+
         switch self {
-            
+
         case .hots, .women, .men, .accessories: return [:]
-        
+
         }
     }
-    
+
     var body: [String: Any]? {
-        
+
         switch self {
-            
+
         case .hots, .women, .men, .accessories: return nil
-            
+
         }
     }
-    
+
     var method: String {
-        
+
         switch self {
-            
+
         case .hots, .women, .men, .accessories: return STHTTPMethod.GET.rawValue
-            
+
         }
     }
-    
+
     var endPoint: String {
-        
+
         switch self {
-            
+
         case .hots: return "/marketing/hots"
-            
+
         case .women(let paging): return "/products/women?paging=\(paging)"
-            
+
         case .men(let paging): return "/products/men?paging=\(paging)"
-            
+
         case .accessories(let paging): return "/products/accessories?paging=\(paging)"
-            
+
         }
     }
 

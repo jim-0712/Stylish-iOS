@@ -9,57 +9,57 @@
 import Foundation
 
 struct PromotedProducts: Codable {
-    
+
     let title: String
-    
+
     let products: [Product]
 }
 
 struct Product: Codable {
-    
+
     let id: Int
-    
+
     let title: String
-    
+
     let description: String
-    
+
     let price: Int
-    
+
     let texture: String
-    
+
     let wash: String
-    
+
     let place: String
-    
+
     let note: String
-    
+
     let story: String
-    
+
     let colors: [Color]
-    
+
     let sizes: [String]
-    
+
     let variants: [Variant]
-    
+
     let mainImage: String
-    
+
     let images: [String]
-    
+
     var size: String {
-        
+
         return (sizes.first ?? "") + " - " + (sizes.last ?? "")
     }
-    
+
     var stock: Int {
-        
+
         return variants.reduce(0, { (previousData, upcomingData) -> Int in
-            
+
             return previousData + upcomingData.stock
         })
     }
-    
+
     enum CodingKeys: String, CodingKey {
-        
+
         case id
         case title
         case description
@@ -78,26 +78,24 @@ struct Product: Codable {
 }
 
 struct Color: Codable {
-    
+
     let name: String
 
     let code: String
 }
 
 struct Variant: Codable {
-    
+
     let colorCode: String
-    
+
     let size: String
-    
+
     let stock: Int
-    
+
     enum CodingKeys: String, CodingKey {
-        
+
         case colorCode = "color_code"
         case size
         case stock
     }
 }
-
-

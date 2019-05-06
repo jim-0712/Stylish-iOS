@@ -11,22 +11,22 @@ import UIKit
 class ProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var productImg: UIImageView!
-    
+
     @IBOutlet weak var productTitleLbl: UILabel!
-    
+
     @IBOutlet weak var productPriceLbl: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     func layoutCell(image: String, title: String, price: Int) {
-        
+
         productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
-        
+
         productTitleLbl.text = title
-        
+
         productPriceLbl.text = String(price)
     }
 }

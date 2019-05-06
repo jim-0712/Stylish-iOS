@@ -11,27 +11,27 @@ import UIKit
 class InputFieldCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var inputField: STBaseTextField! {
-        
+
         didSet {
             inputField.delegate = self
         }
     }
-    
+
     var textChangeHandler: ((String) -> Void)?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         if let text = textField.text, let range = Range(range, in: text) {
            let newText = text.replacingCharacters(in: range, with: string)
-            
+
             textChangeHandler?(newText)
         }
-        
+
         return true
     }
 }

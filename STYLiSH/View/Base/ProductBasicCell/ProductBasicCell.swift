@@ -14,17 +14,17 @@ class ProductBasicCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     //Implement by child class
     func layoutCell(product: Product) {
-        
+
     }
 
     func layoutCell(category: String, content: String) {
-        
+
     }
-    
+
     func layoutCellWithColors(category: String, colors: [String]) {
-        
+
     }
 }

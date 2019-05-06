@@ -11,22 +11,22 @@ import UIKit
 class ProductTableViewCell: UITableViewCell {
 
     @IBOutlet weak var productImg: UIImageView!
-    
+
     @IBOutlet weak var productTitleLbl: UILabel!
-    
+
     @IBOutlet weak var productPriceLbl: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+
     }
-    
+
     func layoutCell(image: String, title: String, price: Int) {
-        
+
         productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
-        
+
         productTitleLbl.text = title
-        
+
         productPriceLbl.text = String(price)
     }
 }
