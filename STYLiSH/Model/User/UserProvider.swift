@@ -56,8 +56,8 @@ class UserProvider {
     }
 
     func loginWithFaceBook(from: UIViewController, completion: @escaping FacebookResponse) {
-
-        FBSDKLoginManager().logIn(withReadPermissions: ["email"], from: from, handler: { (result, error) in
+        
+        LoginManager().logIn(permissions: ["email"], from: from, handler: { (result, error) in
 
             guard error == nil else { return completion(Result.failure(error!)) }
 
@@ -85,7 +85,7 @@ class UserProvider {
                     return completion(Result.failure(fbError))
                 }
 
-                guard let token = result.token.tokenString else {
+                guard let token = result.token?.tokenString else {
 
                     let fbError = FacebookError.noToken
 

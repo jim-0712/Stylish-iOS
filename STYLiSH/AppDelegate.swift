@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
 
-        FBSDKApplicationDelegate.sharedInstance()!.application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         return true
     }
@@ -51,6 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         options: [UIApplication.OpenURLOptionsKey: Any] = [:])
     -> Bool {
 
-        return FBSDKApplicationDelegate.sharedInstance()!.application(app, open: url, options: options)
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 }
