@@ -150,4 +150,20 @@ extension LobbyViewController: UITableViewDelegate {
 
         headerView.contentView.backgroundColor = UIColor.white
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let detailVC = UIStoryboard
+            .product
+            .instantiateViewController(
+                withIdentifier: String(describing: ProductDetailViewController.self)
+            ) as? ProductDetailViewController else {
+            
+                return
+        }
+        
+        detailVC.product = datas[indexPath.section].products[indexPath.row]
+        
+        show(detailVC, sender: nil)
+    }
 }

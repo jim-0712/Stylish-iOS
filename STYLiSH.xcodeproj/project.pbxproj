@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
 		3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F515221143BE00C5B3E2 /* Profile.storyboard */; };
@@ -110,7 +111,6 @@
 		3CED4C0A2214192100121D4B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C092214192100121D4B /* Product.swift */; };
 		3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0B22141E9700121D4B /* MarketProvider.swift */; };
 		3CED4C0F2214222A00121D4B /* STParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0E2214222A00121D4B /* STParser.swift */; };
-		3F8CC67FBC719A008A7487C8 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,7 +232,7 @@
 			files = (
 				3CC3D738223D78FB007DAA0D /* SafariServices.framework in Frameworks */,
 				3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */,
-				3F8CC67FBC719A008A7487C8 /* Pods_STYLiSH.framework in Frameworks */,
+				2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +245,6 @@
 				F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */,
 				E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1116,7 +1115,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RR2TL95C6Z;
+				DEVELOPMENT_TEAM = 93DCX8AMC8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
@@ -1141,7 +1140,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RR2TL95C6Z;
+				DEVELOPMENT_TEAM = 93DCX8AMC8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
