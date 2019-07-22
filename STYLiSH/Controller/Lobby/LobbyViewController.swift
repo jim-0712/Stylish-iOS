@@ -10,21 +10,19 @@ import UIKit
 
 class LobbyViewController: STBaseViewController {
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var lobbyView: LobbyView! {
 
         didSet {
 
-            tableView.delegate = self
-
-            tableView.dataSource = self
+            lobbyView.delegate = self
         }
     }
 
     var datas: [PromotedProducts] = [] {
 
         didSet {
-
-            tableView.reloadData()
+            
+            lobbyView.reloadData()
         }
     }
 
@@ -34,43 +32,15 @@ class LobbyViewController: STBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupLayout()
-
-        tableView.mj_header.beginRefreshing()
-    }
-
-    //MARK: - Set up Layout
-    private func setupLayout() {
-
         navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
-
-        setupTableView()
-    }
-
-    private func setupTableView() {
-
-        tableView.lk_registerCellWithNib(
-            identifier: String(describing: LobbyTableViewCell.self),
-            bundle: nil
-        )
-
-        tableView.register(
-            LobbyTableViewHeaderView.self,
-            forHeaderFooterViewReuseIdentifier: String(describing: LobbyTableViewHeaderView.self)
-        )
         
-        tableView.addRefreshHeader(refreshingBlock: { [weak self] in
-
-            self?.fetchData()
-        })
+        lobbyView.beginHeaderRefresh()
     }
 
     //MARK: - Action
     func fetchData() {
-
+        
         marketProvider.fetchHots(completion: { [weak self] result in
-
-            self?.tableView.mj_header.endRefreshing()
 
             switch result {
 
@@ -86,7 +56,12 @@ class LobbyViewController: STBaseViewController {
     }
 }
 
-extension LobbyViewController: UITableViewDataSource {
+extension LobbyViewController: LobbyViewDelegate {
+    
+    func triggerRefresh(_ lobbyView: LobbyView) {
+        
+        fetchData()
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -128,16 +103,13 @@ extension LobbyViewController: UITableViewDataSource {
 
         return lobbyCell
     }
-}
-
-extension LobbyViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 67.0 }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 258.0 }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.01 }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         guard let headerView = tableView
@@ -159,7 +131,7 @@ extension LobbyViewController: UITableViewDelegate {
             .instantiateViewController(
                 withIdentifier: String(describing: ProductDetailViewController.self)
             ) as? ProductDetailViewController else {
-            
+                
                 return
         }
         
