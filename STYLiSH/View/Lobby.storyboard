@@ -17,23 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VhC-G4-LCp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-g0-zye" customClass="LobbyView" customModule="STYLiSH" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </tableView>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VhC-G4-LCp">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="VhC-G4-LCp" secondAttribute="bottom" id="9L0-4a-sUO"/>
+                                    <constraint firstAttribute="trailing" secondItem="VhC-G4-LCp" secondAttribute="trailing" id="SLG-Dc-mJc"/>
+                                    <constraint firstItem="VhC-G4-LCp" firstAttribute="top" secondItem="6a8-g0-zye" secondAttribute="top" id="V2T-iV-S5M"/>
+                                    <constraint firstItem="VhC-G4-LCp" firstAttribute="leading" secondItem="6a8-g0-zye" secondAttribute="leading" id="uof-Ru-MeS"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="tableView" destination="VhC-G4-LCp" id="w0Q-Gm-lxp"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="q8u-7N-ibt" firstAttribute="trailing" secondItem="VhC-G4-LCp" secondAttribute="trailing" id="5ro-rC-5dT"/>
-                            <constraint firstItem="VhC-G4-LCp" firstAttribute="top" secondItem="q8u-7N-ibt" secondAttribute="top" id="bg4-aG-3uj"/>
-                            <constraint firstItem="VhC-G4-LCp" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="cLh-uA-yZW"/>
-                            <constraint firstItem="q8u-7N-ibt" firstAttribute="bottom" secondItem="VhC-G4-LCp" secondAttribute="bottom" id="hrk-f3-hwv"/>
+                            <constraint firstItem="6a8-g0-zye" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="5RT-4O-LyP"/>
+                            <constraint firstItem="q8u-7N-ibt" firstAttribute="trailing" secondItem="6a8-g0-zye" secondAttribute="trailing" id="aTh-FO-5zA"/>
+                            <constraint firstItem="q8u-7N-ibt" firstAttribute="bottom" secondItem="6a8-g0-zye" secondAttribute="bottom" id="afx-aa-n7x"/>
+                            <constraint firstItem="6a8-g0-zye" firstAttribute="top" secondItem="q8u-7N-ibt" secondAttribute="top" id="nI1-kc-CQV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q8u-7N-ibt"/>
                     </view>
                     <navigationItem key="navigationItem" id="u9J-6C-wET"/>
                     <connections>
-                        <outlet property="tableView" destination="VhC-G4-LCp" id="gIa-Be-p5t"/>
+                        <outlet property="lobbyView" destination="6a8-g0-zye" id="Fm5-Va-ZGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgU-lM-Hf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
