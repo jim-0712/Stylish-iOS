@@ -33,7 +33,7 @@ class BillCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
         return picker
     }()
 
-    private let pickerOptions = ["貨到付款", "信用卡付款"]
+    let pickerOptions = ["貨到付款", "信用卡付款"]
 
     override func awakeFromNib() {
         super.awakeFromNib()

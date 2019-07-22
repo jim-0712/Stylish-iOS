@@ -183,6 +183,8 @@ class OrderProvider {
                 productPrice: order.productPrices,
                 freightPrice: order.freight
             )
+            
+            self.order?.payment = Payment(rawValue: inputCell.pickerOptions[0])
 
             inputCell.shipmentHandler = { [weak self] text in
 
