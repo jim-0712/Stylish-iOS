@@ -30,6 +30,7 @@ class LobbyViewController: STBaseViewController {
 
     let marketProvider = MarketProvider()
 
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +39,7 @@ class LobbyViewController: STBaseViewController {
         tableView.mj_header.beginRefreshing()
     }
 
+    //MARK: - Set up Layout
     private func setupLayout() {
 
         navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
@@ -58,6 +60,7 @@ class LobbyViewController: STBaseViewController {
         })
     }
 
+    //MARK: - Action
     func fetchData() {
 
         marketProvider.fetchHots(completion: { [weak self] result in
@@ -74,7 +77,6 @@ class LobbyViewController: STBaseViewController {
 
                 LKProgressHUD.showFailure(text: "讀取資料失敗！")
             }
-
         })
     }
 }

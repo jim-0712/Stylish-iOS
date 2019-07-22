@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,27 +20,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tec-0d-mkc">
-                        <rect key="frame" x="16" y="0.0" width="170" height="170"/>
+                        <rect key="frame" x="16" y="0.0" width="272" height="170"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="170" id="Wqd-9P-8H1"/>
                             <constraint firstAttribute="height" constant="170" id="ief-KR-spO"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-Ca-bjg">
-                        <rect key="frame" x="274" y="0.0" width="187" height="170"/>
+                        <rect key="frame" x="376" y="0.0" width="85" height="170"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="85" id="HlH-j5-z8Z"/>
                             <constraint firstAttribute="height" constant="170" id="cFq-rW-Zjg"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-Iu-Ljg">
-                        <rect key="frame" x="188" y="0.0" width="84" height="84"/>
+                        <rect key="frame" x="290" y="0.0" width="84" height="84"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="Coj-ka-G0n"/>
                             <constraint firstAttribute="height" constant="84" id="Kwj-Ge-yym"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-s3-706">
-                        <rect key="frame" x="188" y="86" width="84" height="84"/>
+                        <rect key="frame" x="290" y="86" width="84" height="84"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="6D9-SX-9vI"/>
                             <constraint firstAttribute="height" constant="84" id="vNo-cS-Pa2"/>
@@ -90,10 +90,10 @@
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="descriptionLbl" destination="qsc-4z-Kz2" id="bRJ-NQ-q1Q"/>
-                <outlet property="multipleImgView1" destination="Tec-0d-mkc" id="kwX-c7-Frb"/>
-                <outlet property="multipleImgView2" destination="e6b-Iu-Ljg" id="ZHl-5F-IjM"/>
-                <outlet property="multipleImgView3" destination="wpa-s3-706" id="gHP-6N-C8a"/>
-                <outlet property="multipleImgView4" destination="aQJ-Ca-bjg" id="UjJ-kx-toh"/>
+                <outlet property="leftImgView" destination="Tec-0d-mkc" id="duD-eN-Jqa"/>
+                <outlet property="middleBottomImgView" destination="wpa-s3-706" id="JQF-ae-maL"/>
+                <outlet property="middleTopImgView" destination="e6b-Iu-Ljg" id="1Ij-Dp-n4t"/>
+                <outlet property="rightImgView" destination="aQJ-Ca-bjg" id="grD-1c-wyT"/>
                 <outlet property="singleImgView" destination="xgR-FG-MYL" id="9hI-uf-Tuu"/>
                 <outlet property="titleLbl" destination="Mly-bM-UO9" id="JLb-b6-JuT"/>
             </connections>

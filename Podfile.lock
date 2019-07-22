@@ -1,12 +1,12 @@
 PODS:
-  - FBSDKCoreKit (5.0.0):
-    - FBSDKCoreKit/Basics (= 5.0.0)
-    - FBSDKCoreKit/Core (= 5.0.0)
-  - FBSDKCoreKit/Basics (5.0.0)
-  - FBSDKCoreKit/Core (5.0.0):
+  - FBSDKCoreKit (5.2.3):
+    - FBSDKCoreKit/Basics (= 5.2.3)
+    - FBSDKCoreKit/Core (= 5.2.3)
+  - FBSDKCoreKit/Basics (5.2.3)
+  - FBSDKCoreKit/Core (5.2.3):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.0.0):
-    - FBSDKCoreKit (= 5.0.0)
+  - FBSDKLoginKit (5.2.3):
+    - FBSDKCoreKit (~> 5.0)
   - IQKeyboardManager (6.3.0)
   - JGProgressHUD (2.0.3)
   - KeychainAccess (3.2.0)
@@ -32,8 +32,8 @@ SPEC REPOS:
     - MJRefresh
 
 SPEC CHECKSUMS:
-  FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
-  FBSDKLoginKit: c6d0dc187bd076e370dffa10f7fc8a3562a6892c
+  FBSDKCoreKit: 5154c35d9058fd7dfa0445ba19e194c4b172fc32
+  FBSDKLoginKit: dc98b6bf12334f1a42f28d0457fffc9aa3d1eca5
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b

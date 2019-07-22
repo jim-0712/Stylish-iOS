@@ -12,13 +12,13 @@ class LobbyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var singleImgView: UIImageView!
 
-    @IBOutlet weak var multipleImgView1: UIImageView!
+    @IBOutlet weak var leftImgView: UIImageView!
 
-    @IBOutlet weak var multipleImgView2: UIImageView!
+    @IBOutlet weak var middleTopImgView: UIImageView!
 
-    @IBOutlet weak var multipleImgView3: UIImageView!
+    @IBOutlet weak var middleBottomImgView: UIImageView!
 
-    @IBOutlet weak var multipleImgView4: UIImageView!
+    @IBOutlet weak var rightImgView: UIImageView!
 
     @IBOutlet weak var titleLbl: UILabel!
 
@@ -44,13 +44,13 @@ class LobbyTableViewCell: UITableViewCell {
 
         singleImgView.alpha = 0.0
 
-        multipleImgView1.loadImage(imgs[0], placeHolder: UIImage.asset(.Image_Placeholder))
+        leftImgView.loadImage(imgs[0], placeHolder: UIImage.asset(.Image_Placeholder))
 
-        multipleImgView2.loadImage(imgs[1], placeHolder: UIImage.asset(.Image_Placeholder))
+        middleTopImgView.loadImage(imgs[1], placeHolder: UIImage.asset(.Image_Placeholder))
 
-        multipleImgView3.loadImage(imgs[2], placeHolder: UIImage.asset(.Image_Placeholder))
+        middleBottomImgView.loadImage(imgs[2], placeHolder: UIImage.asset(.Image_Placeholder))
 
-        multipleImgView4.loadImage(imgs[3], placeHolder: UIImage.asset(.Image_Placeholder))
+        rightImgView.loadImage(imgs[3], placeHolder: UIImage.asset(.Image_Placeholder))
 
         titleLbl.text = title
 
