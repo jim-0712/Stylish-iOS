@@ -16,6 +16,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     }
 
     @IBOutlet weak var tableView: UITableView! {
+        
         didSet {
 
             tableView.dataSource = self
@@ -65,10 +66,9 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     var pickerViewController: ProductPickerController?
 
-    override var isHideNavigationBar: Bool {
-
-        return true
-    }
+    override var isHideNavigationBar: Bool { return true }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
