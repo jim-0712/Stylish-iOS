@@ -79,12 +79,40 @@ private enum Tab {
 class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     private let tabs: [Tab] = [.lobby, .product, .trolley, .profile]
+    
+    var trolleyTabBarItem: UITabBarItem!
+    
+    var orderObserver: NSKeyValueObservation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewControllers = tabs.map({ $0.controller() })
 
+        trolleyTabBarItem = viewControllers?[2].tabBarItem
+        
+        trolleyTabBarItem.badgeColor = .brown
+        
+        orderObserver = StorageManager.shared.observe(
+            \StorageManager.orders,
+            options: .new,
+            changeHandler: { [weak self] manager, change in
+            
+                guard let newValue = change.newValue else { return }
+                
+                if newValue.count > 0 {
+                    
+                    self?.trolleyTabBarItem.badgeValue = String(newValue.count)
+                
+                } else {
+                
+                    self?.trolleyTabBarItem.badgeValue = nil
+                }
+            }
+        )
+        
+        StorageManager.shared.fetchOrders()
+        
         delegate = self
     }
 

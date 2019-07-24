@@ -12,7 +12,7 @@ typealias LSOrderResults = (Result<[LSOrder]>) -> Void
 
 typealias LSOrderResult = (Result<LSOrder>) -> Void
 
-class StorageManager {
+@objc class StorageManager: NSObject {
 
     private enum Entity: String, CaseIterable {
 
@@ -32,7 +32,7 @@ class StorageManager {
 
     static let shared = StorageManager()
 
-    private init() {
+    private override init() {
 
         print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
     }
@@ -55,8 +55,10 @@ class StorageManager {
 
         return persistanceContainer.viewContext
     }
+    
+    @objc dynamic var orders: [LSOrder] = []
 
-    func fetchOrders(completion: LSOrderResults) {
+    func fetchOrders(completion: LSOrderResults? = nil) {
 
         let request = NSFetchRequest<LSOrder>(entityName: Entity.order.rawValue)
 
@@ -65,12 +67,14 @@ class StorageManager {
         do {
 
             let orders = try viewContext.fetch(request)
+            
+            self.orders = orders
 
-            completion(Result.success(orders))
+            completion?(Result.success(orders))
 
         } catch {
 
-            completion(Result.failure(error))
+            completion?(Result.failure(error))
         }
     }
 
@@ -81,6 +85,8 @@ class StorageManager {
             try viewContext.save()
 
             completion(Result.success(()))
+            
+            fetchOrders()
 
         } catch {
 
@@ -113,6 +119,8 @@ class StorageManager {
             try viewContext.save()
 
             completion(Result.success(()))
+            
+            fetchOrders()
 
         } catch {
 
@@ -129,6 +137,8 @@ class StorageManager {
             try viewContext.save()
 
             completion(Result.success(()))
+            
+            fetchOrders()
 
         } catch {
 
@@ -143,6 +153,8 @@ class StorageManager {
             try viewContext.save()
 
             completion(Result.success(()))
+            
+            fetchOrders()
 
         } catch {
 
@@ -161,6 +173,8 @@ class StorageManager {
             do {
 
                 try viewContext.execute(deleteRequest)
+                
+                fetchOrders()
 
             } catch {
 

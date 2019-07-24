@@ -92,15 +92,17 @@ class OrderProvider {
 
     func fetchData() {
 
-        StorageManager.shared.fetchOrders(completion: { result in
+        StorageManager.shared.fetchOrders(completion: { [weak self] result in
 
             switch result {
 
             case .success(let orders):
 
-                self.order = Order(orders: orders, reciever: Reciever(), deliverTime: nil, payment: nil)
+                guard let strongSelf = self else { return }
+                
+                strongSelf.order = Order(orders: orders, reciever: Reciever(), deliverTime: nil, payment: nil)
 
-                datas = [.product(self.order!.orders.count), .inputField, .deliveryTime, .detail]
+                strongSelf.datas = [.product(strongSelf.order!.orders.count), .inputField, .deliveryTime, .detail]
 
             case .failure:
 
