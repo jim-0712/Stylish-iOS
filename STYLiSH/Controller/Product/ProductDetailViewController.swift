@@ -16,6 +16,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     }
 
     @IBOutlet weak var tableView: UITableView! {
+        
         didSet {
 
             tableView.dataSource = self
@@ -37,6 +38,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     @IBOutlet weak var productPickerView: UIView!
 
     @IBOutlet weak var addToCarBtn: UIButton!
+    
+    @IBOutlet weak var baseView: UIView!
 
     lazy var blurView: UIView = {
 
@@ -65,10 +68,9 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     var pickerViewController: ProductPickerController?
 
-    override var isHideNavigationBar: Bool {
-
-        return true
-    }
+    override var isHideNavigationBar: Bool { return true }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -149,22 +151,26 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     func showProductPickerView() {
 
+        let maxY = tableView.frame.maxY
+        
         productPickerView.frame = CGRect(
-            x: 0, y: UIScreen.height - 80.0, width: UIScreen.width, height: 0.0
+            x: 0, y: maxY, width: UIScreen.width, height: 0.0
         )
+        
+        baseView.insertSubview(productPickerView, belowSubview: addToCarBtn.superview!)
 
-        view.insertSubview(productPickerView, belowSubview: addToCarBtn.superview!)
-
-        view.insertSubview(blurView, belowSubview: productPickerView)
+        baseView.insertSubview(blurView, belowSubview: productPickerView)
 
         UIView.animate(
             withDuration: 0.3,
             animations: { [weak self] in
 
-                let height = 145.0 / 667.0 * UIScreen.height
+                guard let strongSelf = self else { return }
 
+                let height = 451.0 / 586.0 * strongSelf.tableView.frame.height
+                
                 self?.productPickerView.frame = CGRect(
-                    x: 0, y: height, width: UIScreen.width, height: UIScreen.height - height - 80.0
+                    x: 0, y: maxY - height, width: UIScreen.width, height: height
                 )
 
                 self?.isEnableAddToCarBtn(false)

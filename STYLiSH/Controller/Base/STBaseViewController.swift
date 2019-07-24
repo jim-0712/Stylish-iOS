@@ -56,6 +56,8 @@ class STBaseViewController: UIViewController {
         if !isEnableResignOnTouchOutside {
             IQKeyboardManager.shared().shouldResignOnTouchOutside = false
         }
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
