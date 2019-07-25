@@ -50,6 +50,10 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
     }
 
     @IBOutlet weak var headerView: UIView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
 
     weak var delegate: ProductPickerControllerDelegate?
 
@@ -229,6 +233,12 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
+        guard let product = product else { return headerView }
+        
+        titleLabel.text = product.title
+        
+        priceLabel.text = "NT$ \(product.price)"
+        
         return headerView
     }
 }

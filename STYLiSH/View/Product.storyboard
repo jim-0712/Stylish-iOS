@@ -346,7 +346,9 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="E0q-ph-Yfd" id="ShP-gE-0Yt"/>
+                        <outlet property="priceLabel" destination="0Lk-te-l3n" id="XFh-fg-NnW"/>
                         <outlet property="tableView" destination="3m4-St-GpY" id="WZf-Sl-xc9"/>
+                        <outlet property="titleLabel" destination="7Q2-wQ-QTB" id="axg-C0-tdg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlg-Kz-szS" userLabel="First Responder" sceneMemberID="firstResponder"/>
