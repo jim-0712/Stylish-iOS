@@ -12,11 +12,11 @@ struct Order {
 
     var products: [LSOrder] = []
 
-    var reciever: Reciever?
+    var reciever: Reciever = Reciever()
 
     var deliverTime: String?
 
-    var payment: Payment?
+    var payment: Payment = .cash
 
     var productPrices: Int {
 
@@ -54,9 +54,8 @@ struct Order {
 
     func isReady() -> Bool {
 
-        guard reciever?.isReady() == true,
+        guard reciever.isReady() == true,
               deliverTime != nil,
-              payment != nil,
               deliverTime != ""
         else {
             return false
@@ -73,24 +72,22 @@ struct Order {
 
 struct Reciever {
 
-    var name: String?
+    var name: String = String.empty
 
-    var email: String?
+    var email: String = String.empty
 
-    var phoneNumber: String?
+    var phoneNumber: String = String.empty
 
-    var address: String?
+    var address: String = String.empty
+    
+    var shipTime: String = String.empty
 
     func isReady() -> Bool {
 
-        guard name != nil,
-              email != nil,
-              phoneNumber != nil,
-              address != nil,
-              name != "",
-              email != "",
-              phoneNumber != "",
-              address != ""
+        guard name != String.empty,
+              email != String.empty,
+              phoneNumber != String.empty,
+              address != String.empty
         else {
               return false
         }

@@ -38,12 +38,31 @@ class STOrderUserInputCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 
+        shipTimeSelector.addTarget(self, action: #selector(updateShiptime(sender:)), for: .valueChanged)
     }
-}
-
-extension STOrderUserInputCell: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc func updateShiptime(sender: UISegmentedControl) {
+        
+        passData()
+    }
+    
+    func layoutCell(
+        name: String,
+        email: String,
+        phone: String,
+        address: String
+    ) {
+        
+        nameTextField.text = name
+        
+        emailTextField.text = email
+        
+        phoneTextField.text = phone
+        
+        addressTextField.text = address
+    }
+    
+    func passData() {
         
         guard
             let name = nameTextField.text,
@@ -63,6 +82,14 @@ extension STOrderUserInputCell: UITextFieldDelegate {
             address: address,
             shipTime: shipTime
         )
+    }
+}
+
+extension STOrderUserInputCell: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        passData()
     }
 }
 

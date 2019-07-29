@@ -118,28 +118,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             
         case .products:
             
-            guard
-                let orderCell = tableView.dequeueReusableCell(
-                        withIdentifier: STOrderProductCell.identifier,
-                        for: indexPath
-            ) as? STOrderProductCell
-            else {
-                
-                return cell
-            }
-            
-            let order = orderProvider.order.products[indexPath.row]
-            
-            orderCell.layoutCell(
-                imageUrl: order.product?.images?[0],
-                title: order.product?.title,
-                color: order.seletedColor,
-                size: order.seletedSize,
-                price: String(order.product!.price),
-                pieces: String(order.amount)
-            )
-            
-            return orderCell
+            return mappingCellWtih(order: orderProvider.order, at: indexPath)
             
         case .paymentInfo:
             
@@ -147,8 +126,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 let inputCell = tableView.dequeueReusableCell(
                     withIdentifier: STPaymentInfoTableViewCell.identifier,
                     for: indexPath
-                ) as? STPaymentInfoTableViewCell
-            else {
+                    ) as? STPaymentInfoTableViewCell
+                else {
                     
                     return cell
             }
@@ -157,18 +136,64 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             
         case .reciever:
             
-            guard
-                let paymentInfoCell = tableView.dequeueReusableCell(
-                    withIdentifier: STOrderUserInputCell.identifier,
-                    for: indexPath
-                ) as? STOrderUserInputCell
-            else {
-                    
-                    return cell
-            }
-         
-            return paymentInfoCell
+            return mappingCellWtih(reciever: orderProvider.order.reciever, at: indexPath)
         }
+    }
+    
+    private func mappingCellWtih(order: Order, at indexPath: IndexPath) -> UITableViewCell {
+        
+        guard
+            let orderCell = tableView.dequeueReusableCell(
+                withIdentifier: STOrderProductCell.identifier,
+                for: indexPath
+            ) as? STOrderProductCell
+        else {
+                
+                return UITableViewCell()
+        }
+        
+        let order = orderProvider.order.products[indexPath.row]
+        
+        orderCell.layoutCell(
+            imageUrl: order.product?.images?[0],
+            title: order.product?.title,
+            color: order.seletedColor,
+            size: order.seletedSize,
+            price: String(order.product!.price),
+            pieces: String(order.amount)
+        )
+        
+        return orderCell
+    }
+    
+    private func mappingCellWtih(reciever: Reciever, at indexPath: IndexPath) -> UITableViewCell {
+        
+        guard
+            let inputCell = tableView.dequeueReusableCell(
+                withIdentifier: STOrderUserInputCell.identifier,
+                for: indexPath
+            ) as? STOrderUserInputCell
+        else {
+                
+                return UITableViewCell()
+        }
+        
+        inputCell.layoutCell(
+            name: reciever.name,
+            email: reciever.email,
+            phone: reciever.phoneNumber,
+            address: reciever.address
+        )
+        
+        inputCell.delegate = self
+        
+        return inputCell
+    }
+    
+    //TODO
+    private func mappingCellWtih(payment: String, at indexPath: IndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
     }
 }
 
@@ -185,13 +210,38 @@ extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
         cardNumber: String,
         dueDate: String,
         verifyCode: String
-        ) {
-        print(payment, cardNumber, dueDate, verifyCode)
+    ) {
+        
     }
     
-    func checkout(_ cell:STPaymentInfoTableViewCell) {
+    func checkout(_ cell: STPaymentInfoTableViewCell) {
         
         print("=============")
         print("User did tap checkout button")
+    }
+}
+
+extension CheckoutViewController: STOrderUserInputCellDelegate {
+    
+    func didChangeUserData(
+        _ cell: STOrderUserInputCell,
+        username: String,
+        email: String,
+        phoneNumber: String,
+        address: String,
+        shipTime: String
+    ) {
+        
+        let newReciever = Reciever(
+            name: username,
+            email: email,
+            phoneNumber: phoneNumber,
+            address: address,
+            shipTime: shipTime
+        )
+        
+        orderProvider.order.reciever = newReciever
+    
+        print(orderProvider.order.reciever)
     }
 }
