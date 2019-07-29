@@ -22,6 +22,8 @@ private enum STColor: String {
     case B5
 
     case B6
+    
+    case G1
     // swiftlint:enable identifier_name
 }
 
@@ -35,6 +37,8 @@ extension UIColor {
 
     static let B5 = STColor(.B6)
 
+    static let G1 = STColor(.G1)
+    
     private static func STColor(_ color: STColor) -> UIColor? {
 
         return UIColor(named: color.rawValue)

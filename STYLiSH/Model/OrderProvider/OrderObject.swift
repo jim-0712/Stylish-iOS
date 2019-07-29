@@ -10,7 +10,7 @@ import Foundation
 
 struct Order {
 
-    var orders: [LSOrder] = []
+    var products: [LSOrder] = []
 
     var reciever: Reciever?
 
@@ -22,7 +22,7 @@ struct Order {
 
         var price = 0
 
-        for item in orders {
+        for item in products {
 
             price += Int(item.product!.price) * Int(item.amount)
         }
@@ -32,7 +32,7 @@ struct Order {
 
     var freight: Int {
 
-        return orders.count * 60
+        return products.count * 60
     }
 
     var totalPrice: Int {
@@ -44,7 +44,7 @@ struct Order {
 
         var result = 0
 
-        for item in orders {
+        for item in products {
 
             result += Int(item.amount)
         }
@@ -63,6 +63,11 @@ struct Order {
         }
 
         return true
+    }
+    
+    init(products: [LSOrder]) {
+        
+        self.products = products
     }
 }
 

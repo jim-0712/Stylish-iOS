@@ -10,6 +10,11 @@ import UIKit
 
 class TrolleyViewController: STBaseViewController {
 
+    private struct Segue {
+        
+        static let checkout = "SegueCheckout"
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
 
         didSet {
@@ -51,6 +56,8 @@ class TrolleyViewController: STBaseViewController {
         }
     }
 
+    //MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,6 +77,8 @@ class TrolleyViewController: STBaseViewController {
 
         StorageManager.shared.saveAll(completion: { _ in })
     }
+    
+    //MARK: - Action
 
     func fetchData() {
 
@@ -105,6 +114,18 @@ class TrolleyViewController: STBaseViewController {
                     LKProgressHUD.showFailure(text: "刪除資料失敗！")
                 }
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == Segue.checkout {
+            
+            guard let checkoutVC = segue.destination as? CheckoutViewController else { return }
+            
+            let orderProvider = OrderProvider(order: Order(products: orders))
+            
+            checkoutVC.orderProvider = orderProvider
+        }
     }
 }
 

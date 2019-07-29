@@ -8,34 +8,64 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController {
+class CheckoutViewController: STBaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let header = ["結帳商品", "收件資訊", "付款詳情"]
+    var orderProvider: OrderProvider! {
+        
+        didSet {
+            
+            guard orderProvider != nil else {
+                
+                tableView.dataSource = nil
+                
+                tableView.delegate = nil
+            
+                return
+            }
+            
+            setupTableView()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    private func setupTableView() {
+        
+        guard orderProvider != nil else { return }
+        
+        loadViewIfNeeded()
         
         tableView.dataSource = self
         
         tableView.delegate = self
         
-        tableView.lk_registerCellWithNib(identifier: String(describing: STOrderProductCell.self), bundle: nil)
+        tableView.lk_registerCellWithNib(identifier: STOrderProductCell.identifier, bundle: nil)
         
-        tableView.lk_registerCellWithNib(identifier: String(describing: STOrderUserInputCell.self), bundle: nil)
+        tableView.lk_registerCellWithNib(identifier: STOrderUserInputCell.identifier, bundle: nil)
         
-        tableView.lk_registerCellWithNib(identifier: String(describing: STPaymentInfoTableViewCell.self), bundle: nil)
+        tableView.lk_registerCellWithNib(identifier: STPaymentInfoTableViewCell.identifier, bundle: nil)
         
-        let headerXib = UINib(nibName: String(describing: STOrderHeaderView.self), bundle: nil)
+        let headerXib = UINib(nibName: STOrderHeaderView.identifier, bundle: nil)
         
-        tableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: STOrderHeaderView.self))
+        tableView.register(headerXib, forHeaderFooterViewReuseIdentifier: STOrderHeaderView.identifier)
     }
     
 }
 
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
+    //MARK: - Section Count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return orderProvider.orderCustructor.count
+    }
+    
+    //MARK: - Section Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 67.0
@@ -43,15 +73,21 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: STOrderHeaderView.self)) as? STOrderHeaderView else {
+        guard
+            let headerView = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: STOrderHeaderView.identifier
+            )
+        as? STOrderHeaderView else {
+            
             return nil
         }
         
-        headerView.titleLabel.text = header[section]
+        headerView.titleLabel.text = orderProvider.orderCustructor[section].rawValue
         
         return headerView
     }
     
+    //MARK: - Section Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         return 1
@@ -59,65 +95,80 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
-        return ""
+        return String.empty
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        
-        guard let footerView = view as? UITableViewHeaderFooterView else { return }
-        
-        footerView.contentView.backgroundColor = UIColor.hexStringToUIColor(hex: "cccccc")
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return header.count
-    }
-    
+
+    //MARK: - Section Row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        switch orderProvider.orderCustructor[section] {
+            
+        case .products: return orderProvider.order.products.count
+            
+        default: return 1
+        
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //Todo
+        let cell = UITableViewCell()
         
-        /*
-         
-         所有的 cell 都還沒有餵資料進去，請把購物車的資料，適當的傳遞到 Cell 當中
-         
-         */
-        
-        var cell: UITableViewCell
-        
-        if indexPath.section == 0 {
+        switch orderProvider.orderCustructor[indexPath.section] {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STOrderProductCell.self), for: indexPath)
+        case .products:
             
-        } else if indexPath.section == 1 {
-            
-            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STOrderUserInputCell.self), for: indexPath)
-            
-            //Todo
-            
-            /*
-             請適當的安排 STOrderUserInputCell，讓 ViewController 可以收到使用者的輸入
-             */
-            
-        } else {
-            
-            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STPaymentInfoTableViewCell.self), for: indexPath)
-            
-            guard let paymentCell = cell as? STPaymentInfoTableViewCell else {
+            guard
+                let orderCell = tableView.dequeueReusableCell(
+                        withIdentifier: STOrderProductCell.identifier,
+                        for: indexPath
+            ) as? STOrderProductCell
+            else {
                 
                 return cell
             }
             
-            paymentCell.delegate = self
+            let order = orderProvider.order.products[indexPath.row]
+            
+            orderCell.layoutCell(
+                imageUrl: order.product?.images?[0],
+                title: order.product?.title,
+                color: order.seletedColor,
+                size: order.seletedSize,
+                price: String(order.product!.price),
+                pieces: String(order.amount)
+            )
+            
+            return orderCell
+            
+        case .paymentInfo:
+            
+            guard
+                let inputCell = tableView.dequeueReusableCell(
+                    withIdentifier: STPaymentInfoTableViewCell.identifier,
+                    for: indexPath
+                ) as? STPaymentInfoTableViewCell
+            else {
+                    
+                    return cell
+            }
+            
+            return inputCell
+            
+        case .reciever:
+            
+            guard
+                let paymentInfoCell = tableView.dequeueReusableCell(
+                    withIdentifier: STOrderUserInputCell.identifier,
+                    for: indexPath
+                ) as? STOrderUserInputCell
+            else {
+                    
+                    return cell
+            }
+         
+            return paymentInfoCell
         }
-        
-        return cell
     }
 }
 

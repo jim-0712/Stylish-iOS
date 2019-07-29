@@ -26,4 +26,33 @@ class STOrderProductCell: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    func layoutCell(
+        imageUrl: String?,
+        title: String?,
+        color: String?,
+        size: String?,
+        price: String?,
+        pieces: String?
+    ) {
+        
+        productImageView.loadImage(imageUrl)
+        
+        productTitleLabel.text = title
+        
+        productSizeLabel.text = size
+
+        priceLabel.text = price
+        
+        orderNumberLabel.text = pieces
+        
+        guard let colorCode = color else {
+            
+            colorView.backgroundColor = UIColor.white
+            
+            return
+        }
+        
+        colorView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode)
+    }
 }

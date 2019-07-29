@@ -38,7 +38,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eNk-xJ-dhF" kind="show" identifier="" id="Jig-eN-pLJ"/>
+                                            <segue destination="eNk-xJ-dhF" kind="show" identifier="SegueCheckout" id="Jig-eN-pLJ"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pY4-JP-eMw">
@@ -76,7 +76,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YQV-mp-sgw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="購物車" id="iCo-m7-9cw"/>
+                    <navigationItem key="navigationItem" title="購物車" id="iCo-m7-9cw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="BWy-ky-L6o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkoutBtn" destination="KjU-we-SkD" id="fYK-C7-ZXv"/>
                         <outlet property="emptyView" destination="bP4-Sc-qZ7" id="JQq-1L-MV5"/>
@@ -207,11 +209,11 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="eNk-xJ-dhF" customClass="CheckoutViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eMw-vm-4KL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-Rv-VO4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="836"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -228,7 +230,6 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="LYH-BL-1YW"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="tableView" destination="Td8-Rv-VO4" id="fOW-bs-2U4"/>
                         <segue destination="PGS-2G-ghc" kind="show" identifier="SegueTapPay" id="9Q5-Tx-DJX"/>
@@ -236,28 +237,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJy-6t-u6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="doA-pW-mL9">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUF-DI-Y6F">
-                            <rect key="frame" x="16" y="16" width="208" height="96"/>
-                            <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="16"/>
-                            <state key="normal" title="確定結帳">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="kP5-kn-gyL" firstAttribute="trailing" secondItem="UUF-DI-Y6F" secondAttribute="trailing" constant="16" id="MIO-SR-E50"/>
-                        <constraint firstItem="UUF-DI-Y6F" firstAttribute="leading" secondItem="kP5-kn-gyL" secondAttribute="leading" constant="16" id="bub-FY-rWb"/>
-                        <constraint firstItem="kP5-kn-gyL" firstAttribute="bottom" secondItem="UUF-DI-Y6F" secondAttribute="bottom" constant="16" id="do3-wi-0Ls"/>
-                        <constraint firstItem="UUF-DI-Y6F" firstAttribute="top" secondItem="kP5-kn-gyL" secondAttribute="top" constant="16" id="q8Y-ok-sLv"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="kP5-kn-gyL"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="991" y="1297"/>
         </scene>

@@ -15,6 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Cj-VQ-bgC">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收件資訊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxk-v7-ZQi">
                     <rect key="frame" x="16" y="68" width="382" height="778"/>
                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
@@ -22,13 +26,19 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="J5H-JX-ckm" firstAttribute="trailing" secondItem="9Cj-VQ-bgC" secondAttribute="trailing" id="5Ve-ud-cAS"/>
+                <constraint firstItem="9Cj-VQ-bgC" firstAttribute="top" secondItem="J5H-JX-ckm" secondAttribute="top" id="AT8-ol-zm1"/>
+                <constraint firstItem="J5H-JX-ckm" firstAttribute="bottom" secondItem="9Cj-VQ-bgC" secondAttribute="bottom" id="F7V-b9-eMg"/>
                 <constraint firstItem="yxk-v7-ZQi" firstAttribute="leading" secondItem="J5H-JX-ckm" secondAttribute="leading" constant="16" id="Kuf-yM-YcL"/>
+                <constraint firstItem="9Cj-VQ-bgC" firstAttribute="leading" secondItem="J5H-JX-ckm" secondAttribute="leading" id="ULg-7J-qBM"/>
                 <constraint firstItem="yxk-v7-ZQi" firstAttribute="top" secondItem="J5H-JX-ckm" secondAttribute="top" constant="24" id="hMr-eY-diA"/>
                 <constraint firstItem="J5H-JX-ckm" firstAttribute="bottom" secondItem="yxk-v7-ZQi" secondAttribute="bottom" constant="16" id="jtq-xL-Jt3"/>
                 <constraint firstItem="J5H-JX-ckm" firstAttribute="trailing" secondItem="yxk-v7-ZQi" secondAttribute="trailing" constant="16" id="pZL-EA-6Pj"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="J5H-JX-ckm"/>
             <connections>
                 <outlet property="titleLabel" destination="yxk-v7-ZQi" id="8yc-lu-xaq"/>
