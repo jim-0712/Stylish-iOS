@@ -53,8 +53,7 @@
 		3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10CC22292732009942B7 /* card_mastercard@2x.png */; };
 		3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4B10DC2229273F009942B7 /* TPDirect.framework */; };
 		3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */; };
-		3C546BE322EABB480082C655 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C546BE222EABB480082C655 /* Test.storyboard */; };
-		3C546BE522EABB6D0082C655 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C546BE422EABB6D0082C655 /* TestViewController.swift */; };
+		3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C546BE422EABB6D0082C655 /* CheckoutViewController.swift */; };
 		3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */; };
 		3C546BE922EAC7AA0082C655 /* STOrderHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */; };
 		3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */; };
@@ -105,12 +104,8 @@
 		3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */; };
 		3CDC5A6A222D860B0071D0D1 /* SizeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */; };
 		3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50122302354009FF003 /* ProductContentCategory.swift */; };
-		3CE7A50422303D46009FF003 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50322303D46009FF003 /* CheckoutViewController.swift */; };
+		3CE7A50422303D46009FF003 /* CheckoutViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */; };
 		3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A506223042CE009FF003 /* STBaseTextField.swift */; };
-		3CE7A50A22304667009FF003 /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50922304667009FF003 /* SegmentedCell.swift */; };
-		3CE7A50C22304679009FF003 /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50B22304679009FF003 /* InputFieldCell.swift */; };
-		3CE7A50E22304691009FF003 /* BillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50D22304691009FF003 /* BillCell.swift */; };
-		3CE7A51022304B5D009FF003 /* CheckoutHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */; };
 		3CE7A51322305916009FF003 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51222305916009FF003 /* UserProvider.swift */; };
 		3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51422305E5A009FF003 /* KeyChainManager.swift */; };
 		3CE7A517223061A9009FF003 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A516223061A9009FF003 /* UserRequest.swift */; };
@@ -173,8 +168,7 @@
 		3C4B10DC2229273F009942B7 /* TPDirect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPDirect.framework; sourceTree = "<group>"; };
 		3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "STYLiSH-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTapPayViewController.swift; sourceTree = "<group>"; };
-		3C546BE222EABB480082C655 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		3C546BE422EABB6D0082C655 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3C546BE422EABB6D0082C655 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderHeaderView.swift; sourceTree = "<group>"; };
 		3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STOrderHeaderView.xib; sourceTree = "<group>"; };
 		3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyViewController.swift; sourceTree = "<group>"; };
@@ -227,12 +221,8 @@
 		3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCell.swift; sourceTree = "<group>"; };
 		3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSelectionCell.swift; sourceTree = "<group>"; };
 		3CE7A50122302354009FF003 /* ProductContentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContentCategory.swift; sourceTree = "<group>"; };
-		3CE7A50322303D46009FF003 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewControllers.swift; sourceTree = "<group>"; };
 		3CE7A506223042CE009FF003 /* STBaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseTextField.swift; sourceTree = "<group>"; };
-		3CE7A50922304667009FF003 /* SegmentedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; };
-		3CE7A50B22304679009FF003 /* InputFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
-		3CE7A50D22304691009FF003 /* BillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell.swift; sourceTree = "<group>"; };
-		3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutHeaderCell.swift; sourceTree = "<group>"; };
 		3CE7A51222305916009FF003 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		3CE7A51422305E5A009FF003 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		3CE7A516223061A9009FF003 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -459,7 +449,8 @@
 			isa = PBXGroup;
 			children = (
 				3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */,
-				3CE7A50322303D46009FF003 /* CheckoutViewController.swift */,
+				3C546BE422EABB6D0082C655 /* CheckoutViewController.swift */,
+				3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */,
 			);
 			path = Trolley;
 			sourceTree = "<group>";
@@ -489,21 +480,6 @@
 				3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */,
 			);
 			path = BasicSelectionCell;
-			sourceTree = "<group>";
-		};
-		3C831C5D22E9940E00112298 /* Homework */ = {
-			isa = PBXGroup;
-			children = (
-				3C831C5E22E9945500112298 /* STOrderProductCell.swift */,
-				3C831C5F22E9945500112298 /* STOrderProductCell.xib */,
-				3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */,
-				3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */,
-				3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */,
-				3C831C6322E9AF8F00112298 /* STOrderUserInputCell.xib */,
-				3C831C8822EAAF7A00112298 /* STPaymentInfoTableViewCell.swift */,
-				3C831C8922EAAF7A00112298 /* STPaymentInfoTableViewCell.xib */,
-			);
-			path = Homework;
 			sourceTree = "<group>";
 		};
 		3C9C0D512215377B00595689 /* Profile */ = {
@@ -622,9 +598,6 @@
 				3C09F513221143A600C5B3E2 /* Product.storyboard */,
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
-				3C546BE222EABB480082C655 /* Test.storyboard */,
-				3C546BE422EABB6D0082C655 /* TestViewController.swift */,
-				3C831C5D22E9940E00112298 /* Homework */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,10 +692,14 @@
 		3CE7A5082230464A009FF003 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
-				3CE7A50922304667009FF003 /* SegmentedCell.swift */,
-				3CE7A50B22304679009FF003 /* InputFieldCell.swift */,
-				3CE7A50D22304691009FF003 /* BillCell.swift */,
-				3CE7A50F22304B5D009FF003 /* CheckoutHeaderCell.swift */,
+				3C831C5E22E9945500112298 /* STOrderProductCell.swift */,
+				3C831C5F22E9945500112298 /* STOrderProductCell.xib */,
+				3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */,
+				3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */,
+				3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */,
+				3C831C6322E9AF8F00112298 /* STOrderUserInputCell.xib */,
+				3C831C8822EAAF7A00112298 /* STPaymentInfoTableViewCell.swift */,
+				3C831C8922EAAF7A00112298 /* STPaymentInfoTableViewCell.xib */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -878,7 +855,6 @@
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
-				3C546BE322EABB480082C655 /* Test.storyboard in Resources */,
 				3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */,
 				3C6020E0222B937F00312958 /* ProductDetailColorCell.xib in Resources */,
 				3C831C6522E9AF8F00112298 /* STOrderUserInputCell.xib in Resources */,
@@ -945,7 +921,7 @@
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
-				3C546BE522EABB6D0082C655 /* TestViewController.swift in Sources */,
+				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */,
 				3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */,
@@ -961,13 +937,11 @@
 				3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */,
 				3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
-				3CE7A50A22304667009FF003 /* SegmentedCell.swift in Sources */,
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
-				3CE7A50422303D46009FF003 /* CheckoutViewController.swift in Sources */,
-				3CE7A50C22304679009FF003 /* InputFieldCell.swift in Sources */,
+				3CE7A50422303D46009FF003 /* CheckoutViewControllers.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,
@@ -980,7 +954,6 @@
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
 				3CEBE07C222F7A210064EF82 /* Int+Extension.swift in Sources */,
 				3CA25519222A484300B286F6 /* ProductsListProvider.swift in Sources */,
-				3CE7A50E22304691009FF003 /* BillCell.swift in Sources */,
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */,
 				3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */,
@@ -1009,7 +982,6 @@
 				3C6020E6222BB03400312958 /* STBaseViewController.swift in Sources */,
 				3CEBE07E222F979F0064EF82 /* JGProgressHUDWrapper.swift in Sources */,
 				3CCB3BC6222AAC8300976A1C /* LKGalleryView.swift in Sources */,
-				3CE7A51022304B5D009FF003 /* CheckoutHeaderCell.swift in Sources */,
 				3C9C0D552215443900595689 /* ProfileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

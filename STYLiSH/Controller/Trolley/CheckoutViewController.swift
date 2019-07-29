@@ -1,212 +1,146 @@
 //
-//  CheckoutViewController.swift
+//  TestViewController.swift
 //  STYLiSH
 //
-//  Created by WU CHIH WEI on 2019/3/7.
+//  Created by WU CHIH WEI on 2019/7/26.
 //  Copyright © 2019 WU CHIH WEI. All rights reserved.
 //
 
 import UIKit
-import FBSDKLoginKit
 
-class CheckoutViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
-
-    private struct Segue {
-
-        static let tapPay = "SegueTapPay"
-
-        static let success = "SegueSuccess"
-    }
-
-    @IBOutlet weak var tableView: UITableView! {
-
-        didSet {
-
-            tableView.delegate = self
-
-            tableView.dataSource = self
-        }
-    }
-
-    @IBOutlet weak var footerView: UIView!
-
-    @IBOutlet weak var puchaseBtn: UIButton!
-
-    lazy var orderProvider: OrderProvider = {
-
-        let provider = OrderProvider()
-
-        provider.orderChangeHandler = { [weak self] flag in
-
-            self?.puchaseBtn.isEnabled = flag
-
-            if flag {
-
-                self?.puchaseBtn.backgroundColor = UIColor.B1
-
-            } else {
-
-                self?.puchaseBtn.backgroundColor = UIColor.B4
-            }
-        }
-
-        return provider
-    }()
-
-    let userProvider = UserProvider()
-
+class CheckoutViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let header = ["結帳商品", "收件資訊", "付款詳情"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupTableView()
+        
+        tableView.dataSource = self
+        
+        tableView.delegate = self
+        
+        tableView.lk_registerCellWithNib(identifier: String(describing: STOrderProductCell.self), bundle: nil)
+        
+        tableView.lk_registerCellWithNib(identifier: String(describing: STOrderUserInputCell.self), bundle: nil)
+        
+        tableView.lk_registerCellWithNib(identifier: String(describing: STPaymentInfoTableViewCell.self), bundle: nil)
+        
+        let headerXib = UINib(nibName: String(describing: STOrderHeaderView.self), bundle: nil)
+        
+        tableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: STOrderHeaderView.self))
     }
-
-    func setupTableView() {
-
-        footerView.frame.size.height = 80.0
-
-        tableView.tableFooterView = footerView
-    }
-
-    @IBAction func checkout(_ sender: UIButton) {
-
-        guard KeyChainManager.shared.token != nil else {
-
-            onShowLogin()
-
-            return
-        }
-
-        guard let payment = orderProvider.order?.payment else { return }
-
-        switch payment {
-
-        case .cash: break
-            //貨到付款
-        case .credit:
-            performSegue(withIdentifier: Segue.tapPay, sender: nil)
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == Segue.tapPay,
-           let vc = segue.destination as? STTapPayViewController {
-
-            vc.delegate = self
-        }
-    }
-
-    func onShowLogin() {
-
-        guard let vc = UIStoryboard.auth.instantiateInitialViewController() else { return }
-
-        vc.modalPresentationStyle = .overCurrentContext
-
-        present(vc, animated: false, completion: nil)
-    }
-
-    func checkout(prime: String) {
-
-        LKProgressHUD.show()
-
-        userProvider.checkout(prime: prime, completion: { [weak self] result in
-
-            LKProgressHUD.dismiss()
-
-            switch result {
-
-            case .success:
-
-                StorageManager.shared.deleteAllProduct(completion: { _ in })
-
-                self?.performSegue(withIdentifier: Segue.success, sender: nil)
-
-            case .failure:
-
-                LKProgressHUD.showFailure(text: "結帳失敗！")
-            }
-
-        })
-    }
-
-    // MARK: - UITableViewDataSource
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-
-        return orderProvider.numberOfSection()
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return orderProvider.numberOfRow(in: section)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: orderProvider.identifier(indexPath: indexPath),
-            for: indexPath
-        )
-
-        orderProvider.manipulateCell(cell, at: indexPath)
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
-        return 67
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let header = tableView.dequeueReusableCell(withIdentifier: String(describing: CheckoutHeaderCell.self))
-
-        guard let headerView = header as? CheckoutHeaderCell else { return header }
-
-        headerView.titleLbl.text = orderProvider.titleForSection(section)
-
-        return headerView
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-
-    }
-
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-
-        return 1.0
-    }
-
+    
 }
 
-extension CheckoutViewController: STTapPayDelegate {
-
-    func didCompelte(_ vc: STTapPayViewController, prime: String?) {
-
-        guard let prime = prime else {
-
-            LKProgressHUD.showFailure(text: "付款失敗！")
-
-            DispatchQueue.main.async { [weak self] in
-
-                guard let strongSelf = self else { return }
-
-                self?.navigationController?.popToViewController(strongSelf, animated: true)
+extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 67.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: STOrderHeaderView.self)) as? STOrderHeaderView else {
+            return nil
+        }
+        
+        headerView.titleLabel.text = header[section]
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        return ""
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        
+        guard let footerView = view as? UITableViewHeaderFooterView else { return }
+        
+        footerView.contentView.backgroundColor = UIColor.hexStringToUIColor(hex: "cccccc")
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return header.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //Todo
+        
+        /*
+         
+         所有的 cell 都還沒有餵資料進去，請把購物車的資料，適當的傳遞到 Cell 當中
+         
+         */
+        
+        var cell: UITableViewCell
+        
+        if indexPath.section == 0 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STOrderProductCell.self), for: indexPath)
+            
+        } else if indexPath.section == 1 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STOrderUserInputCell.self), for: indexPath)
+            
+            //Todo
+            
+            /*
+             請適當的安排 STOrderUserInputCell，讓 ViewController 可以收到使用者的輸入
+             */
+            
+        } else {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STPaymentInfoTableViewCell.self), for: indexPath)
+            
+            guard let paymentCell = cell as? STPaymentInfoTableViewCell else {
+                
+                return cell
             }
-
-            return
+            
+            paymentCell.delegate = self
         }
+        
+        return cell
+    }
+}
 
-        DispatchQueue.main.async { [weak self] in
-
-            guard let strongSelf = self else { return }
-
-            self?.navigationController?.popToViewController(strongSelf, animated: true)
-
-            self?.checkout(prime: prime)
-        }
+extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
+    
+    func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell) {
+        
+        tableView.reloadData()
+    }
+    
+    func didChangeUserData(
+        _ cell: STPaymentInfoTableViewCell,
+        payment: String,
+        cardNumber: String,
+        dueDate: String,
+        verifyCode: String
+        ) {
+        print(payment, cardNumber, dueDate, verifyCode)
+    }
+    
+    func checkout(_ cell:STPaymentInfoTableViewCell) {
+        
+        print("=============")
+        print("User did tap checkout button")
     }
 }
