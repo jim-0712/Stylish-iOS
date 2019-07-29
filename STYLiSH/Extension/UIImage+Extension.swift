@@ -52,6 +52,9 @@ enum ImageAsset: String {
 
     //Back button
     case Icons_24px_Back02
+    
+    //Drop down
+    case Icons_24px_DropDown
 }
 
 // swiftlint:enable identifier_name

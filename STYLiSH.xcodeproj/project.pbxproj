@@ -53,6 +53,10 @@
 		3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B10CC22292732009942B7 /* card_mastercard@2x.png */; };
 		3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4B10DC2229273F009942B7 /* TPDirect.framework */; };
 		3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */; };
+		3C546BE322EABB480082C655 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C546BE222EABB480082C655 /* Test.storyboard */; };
+		3C546BE522EABB6D0082C655 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C546BE422EABB6D0082C655 /* TestViewController.swift */; };
+		3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */; };
+		3C546BE922EAC7AA0082C655 /* STOrderHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */; };
 		3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */; };
 		3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020D6222B883600312958 /* ProductDescriptionTableViewCell.swift */; };
 		3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6020D7222B883600312958 /* ProductDescriptionTableViewCell.xib */; };
@@ -64,6 +68,12 @@
 		3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E9222BC00100312958 /* UILabel+Extension.swift */; };
 		3C6B8FE8222CE53100804EFE /* BasicSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */; };
 		3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */; };
+		3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C5E22E9945500112298 /* STOrderProductCell.swift */; };
+		3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C831C5F22E9945500112298 /* STOrderProductCell.xib */; };
+		3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */; };
+		3C831C6522E9AF8F00112298 /* STOrderUserInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C831C6322E9AF8F00112298 /* STOrderUserInputCell.xib */; };
+		3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C8822EAAF7A00112298 /* STPaymentInfoTableViewCell.swift */; };
+		3C831C8B22EAAF7A00112298 /* STPaymentInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C831C8922EAAF7A00112298 /* STPaymentInfoTableViewCell.xib */; };
 		3C8F191922E5997B00EECE90 /* LobbyTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F191822E5997B00EECE90 /* LobbyTableViewHeaderView.swift */; };
 		3C8F191B22E5BA9F00EECE90 /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F191A22E5BA9F00EECE90 /* LobbyView.swift */; };
 		3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C990F6B22E5C78200F2FCEA /* ProductDetailView.swift */; };
@@ -163,6 +173,10 @@
 		3C4B10DC2229273F009942B7 /* TPDirect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPDirect.framework; sourceTree = "<group>"; };
 		3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "STYLiSH-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C4B10E122292EBB009942B7 /* STTapPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTapPayViewController.swift; sourceTree = "<group>"; };
+		3C546BE222EABB480082C655 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		3C546BE422EABB6D0082C655 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderHeaderView.swift; sourceTree = "<group>"; };
+		3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STOrderHeaderView.xib; sourceTree = "<group>"; };
 		3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrolleyViewController.swift; sourceTree = "<group>"; };
 		3C6020D6222B883600312958 /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		3C6020D7222B883600312958 /* ProductDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDescriptionTableViewCell.xib; sourceTree = "<group>"; };
@@ -174,6 +188,12 @@
 		3C6020E9222BC00100312958 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSelectionCell.swift; sourceTree = "<group>"; };
 		3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPickerController.swift; sourceTree = "<group>"; };
+		3C831C5E22E9945500112298 /* STOrderProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderProductCell.swift; sourceTree = "<group>"; };
+		3C831C5F22E9945500112298 /* STOrderProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STOrderProductCell.xib; sourceTree = "<group>"; };
+		3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderUserInputCell.swift; sourceTree = "<group>"; };
+		3C831C6322E9AF8F00112298 /* STOrderUserInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STOrderUserInputCell.xib; sourceTree = "<group>"; };
+		3C831C8822EAAF7A00112298 /* STPaymentInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPaymentInfoTableViewCell.swift; sourceTree = "<group>"; };
+		3C831C8922EAAF7A00112298 /* STPaymentInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STPaymentInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3C8F191822E5997B00EECE90 /* LobbyTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTableViewHeaderView.swift; sourceTree = "<group>"; };
 		3C8F191A22E5BA9F00EECE90 /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
 		3C990F6B22E5C78200F2FCEA /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -471,6 +491,21 @@
 			path = BasicSelectionCell;
 			sourceTree = "<group>";
 		};
+		3C831C5D22E9940E00112298 /* Homework */ = {
+			isa = PBXGroup;
+			children = (
+				3C831C5E22E9945500112298 /* STOrderProductCell.swift */,
+				3C831C5F22E9945500112298 /* STOrderProductCell.xib */,
+				3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */,
+				3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */,
+				3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */,
+				3C831C6322E9AF8F00112298 /* STOrderUserInputCell.xib */,
+				3C831C8822EAAF7A00112298 /* STPaymentInfoTableViewCell.swift */,
+				3C831C8922EAAF7A00112298 /* STPaymentInfoTableViewCell.xib */,
+			);
+			path = Homework;
+			sourceTree = "<group>";
+		};
 		3C9C0D512215377B00595689 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +622,9 @@
 				3C09F513221143A600C5B3E2 /* Product.storyboard */,
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
+				3C546BE222EABB480082C655 /* Test.storyboard */,
+				3C546BE422EABB6D0082C655 /* TestViewController.swift */,
+				3C831C5D22E9940E00112298 /* Homework */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -814,16 +852,19 @@
 				3C4B10D622292732009942B7 /* card_amex.png in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
+				3C546BE922EAC7AA0082C655 /* STOrderHeaderView.xib in Resources */,
 				3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */,
 				3C6020DE222B90DF00312958 /* ProductDetailLabelCell.xib in Resources */,
 				3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */,
 				3C4B10D022292732009942B7 /* card_amex@3x.png in Resources */,
+				3C831C8B22EAAF7A00112298 /* STPaymentInfoTableViewCell.xib in Resources */,
 				3C4B10D722292732009942B7 /* card_unknown.png in Resources */,
 				3C4B10D822292732009942B7 /* card_mastercard@3x.png in Resources */,
 				3CD29124221135E3008B8A2D /* Assets.xcassets in Resources */,
 				3C4B10D222292732009942B7 /* card_unknown@3x.png in Resources */,
 				3CD29122221135E2008B8A2D /* Main.storyboard in Resources */,
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
+				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
@@ -837,8 +878,10 @@
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
+				3C546BE322EABB480082C655 /* Test.storyboard in Resources */,
 				3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */,
 				3C6020E0222B937F00312958 /* ProductDetailColorCell.xib in Resources */,
+				3C831C6522E9AF8F00112298 /* STOrderUserInputCell.xib in Resources */,
 				3C4B10D922292732009942B7 /* card_visa@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,16 +942,21 @@
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
 				3C8F191B22E5BA9F00EECE90 /* LobbyView.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
+				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
+				3C546BE522EABB6D0082C655 /* TestViewController.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */,
 				3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */,
 				3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
+				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
+				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
+				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
 				3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */,
 				3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */,
