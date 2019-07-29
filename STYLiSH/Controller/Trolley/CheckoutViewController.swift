@@ -29,6 +29,19 @@ class CheckoutViewController: STBaseViewController {
         }
     }
     
+    lazy var tappayVC: UIViewController = {
+        
+        let vc = UIStoryboard.trolley.instantiateViewController(withIdentifier: STTapPayViewController.identifier)
+        
+        addChild(vc)
+        
+        vc.loadViewIfNeeded()
+        
+        vc.didMove(toParent: self)
+        
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -112,8 +125,6 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
-        
         switch orderProvider.orderCustructor[indexPath.section] {
             
         case .products:
@@ -122,17 +133,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             
         case .paymentInfo:
             
-            guard
-                let inputCell = tableView.dequeueReusableCell(
-                    withIdentifier: STPaymentInfoTableViewCell.identifier,
-                    for: indexPath
-                    ) as? STPaymentInfoTableViewCell
-                else {
-                    
-                    return cell
-            }
-            
-            return inputCell
+            return mappingCellWtih(payment: "", at: indexPath)
             
         case .reciever:
             
@@ -193,7 +194,21 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     //TODO
     private func mappingCellWtih(payment: String, at indexPath: IndexPath) -> UITableViewCell {
         
-        return UITableViewCell()
+        guard
+            let inputCell = tableView.dequeueReusableCell(
+                withIdentifier: STPaymentInfoTableViewCell.identifier,
+                for: indexPath
+            ) as? STPaymentInfoTableViewCell
+        else {
+                
+                return UITableViewCell()
+        }
+        
+        inputCell.creditView.stickSubView(tappayVC.view)
+        
+        inputCell.delegate = self
+        
+        return inputCell
     }
 }
 

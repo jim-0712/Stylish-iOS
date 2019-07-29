@@ -203,7 +203,7 @@ extension STPaymentInfoTableViewCell: UITextFieldDelegate {
             
         case .creditCard:
             
-            manipulateHeight(228)
+            manipulateHeight(118)
             
             creditView.isHidden = false
         }
@@ -213,21 +213,13 @@ extension STPaymentInfoTableViewCell: UITextFieldDelegate {
     
     private func passData() {
         
-        guard
-            let cardNumber = cardNumberTextField.text,
-            let dueDate = dueDateTextField.text,
-            let verifyCode = verifyCodeTextField.text,
-            let paymentMethod = paymentTextField.text else
-        {
-            return
-        }
-        
         delegate?.didChangeUserData(
             self,
-            payment: paymentMethod,
-            cardNumber: cardNumber,
-            dueDate: dueDate,
-            verifyCode: verifyCode
+            payment: "",
+            cardNumber: "",
+            dueDate: "",
+            verifyCode: ""
         )
+        
     }
 }

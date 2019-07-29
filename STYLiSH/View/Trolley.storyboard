@@ -92,7 +92,7 @@
         <!--Tap Pay View Controller-->
         <scene sceneID="cTC-GA-Jhm">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="PGS-2G-ghc" customClass="STTapPayViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STTapPayViewController" hidesBottomBarWhenPushed="YES" id="PGS-2G-ghc" customClass="STTapPayViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVQ-An-90u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,32 +101,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-Li-sJ0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x9-L0-OGm">
-                                        <rect key="frame" x="16" y="401.5" width="343" height="44"/>
-                                        <color key="backgroundColor" name="B1"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="In3-Yn-xDm"/>
-                                        </constraints>
-                                        <state key="normal" title="Pay">
-                                            <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="doneAction:" destination="PGS-2G-ghc" eventType="touchUpInside" id="C9R-WC-MTb"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qgi-Li-sJ0" firstAttribute="top" secondItem="Njh-jC-ENc" secondAttribute="top" id="4Yi-Ny-jvQ"/>
-                                    <constraint firstItem="qgi-Li-sJ0" firstAttribute="height" secondItem="Njh-jC-ENc" secondAttribute="height" multiplier="0.5" id="5pq-aa-9S2"/>
+                                    <constraint firstItem="qgi-Li-sJ0" firstAttribute="height" secondItem="Njh-jC-ENc" secondAttribute="height" id="5pq-aa-9S2"/>
                                     <constraint firstItem="qgi-Li-sJ0" firstAttribute="leading" secondItem="Njh-jC-ENc" secondAttribute="leading" id="WtB-TO-f5c"/>
-                                    <constraint firstItem="9x9-L0-OGm" firstAttribute="leading" secondItem="Njh-jC-ENc" secondAttribute="leading" constant="16" id="Yvf-Ee-xHS"/>
                                     <constraint firstAttribute="trailing" secondItem="qgi-Li-sJ0" secondAttribute="trailing" id="ZSA-nd-6Ad"/>
-                                    <constraint firstItem="9x9-L0-OGm" firstAttribute="top" secondItem="qgi-Li-sJ0" secondAttribute="bottom" constant="100" id="cPV-hG-Vht"/>
-                                    <constraint firstAttribute="trailing" secondItem="9x9-L0-OGm" secondAttribute="trailing" constant="16" id="iYU-u9-4NT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -142,7 +126,6 @@
                     <navigationItem key="navigationItem" id="hhG-oF-PXI"/>
                     <connections>
                         <outlet property="cardView" destination="qgi-Li-sJ0" id="Ogt-k4-DmV"/>
-                        <outlet property="payButton" destination="9x9-L0-OGm" id="EB1-mT-glY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uT-9e-630" userLabel="First Responder" sceneMemberID="firstResponder"/>

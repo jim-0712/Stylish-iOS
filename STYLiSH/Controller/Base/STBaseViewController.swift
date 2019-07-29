@@ -11,6 +11,11 @@ import IQKeyboardManager
 
 class STBaseViewController: UIViewController {
 
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+    
     var isHideNavigationBar: Bool {
 
         return false

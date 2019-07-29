@@ -18,52 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="474" height="639.66666666666663"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nue-Rk-3kZ">
-                        <rect key="frame" x="0.0" y="56" width="474" height="185"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卡號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-OX-sTF" customClass="STOrderUserInputTextField" customModule="STYLiSH" customModuleProvider="target">
-                                <rect key="frame" x="16" y="36" width="442" height="56"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="QLB-Pn-9rV"/>
-                                </constraints>
-                                <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="100" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="到期日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kSG-z1-f0J" customClass="STOrderUserInputTextField" customModule="STYLiSH" customModuleProvider="target">
-                                <rect key="frame" x="16" y="128" width="276" height="56"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ypo-Af-H6G"/>
-                                </constraints>
-                                <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="檢核碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPo-dU-Yao" customClass="STOrderUserInputTextField" customModule="STYLiSH" customModuleProvider="target">
-                                <rect key="frame" x="308" y="128" width="150" height="56"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="eTI-c2-nUW"/>
-                                    <constraint firstAttribute="height" constant="56" id="m7l-PI-IsL"/>
-                                </constraints>
-                                <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                        </subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nue-Rk-3kZ">
+                        <rect key="frame" x="0.0" y="76" width="474" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iq1-OX-sTF" firstAttribute="leading" secondItem="nue-Rk-3kZ" secondAttribute="leading" constant="16" id="4xh-yl-E04"/>
-                            <constraint firstItem="IPo-dU-Yao" firstAttribute="leading" secondItem="kSG-z1-f0J" secondAttribute="trailing" constant="16" id="Ifb-iC-qgJ"/>
-                            <constraint firstItem="IPo-dU-Yao" firstAttribute="top" secondItem="iq1-OX-sTF" secondAttribute="bottom" constant="36" id="QEv-rA-A6h"/>
-                            <constraint firstAttribute="height" constant="185" id="ipR-4H-npb"/>
-                            <constraint firstItem="iq1-OX-sTF" firstAttribute="top" secondItem="nue-Rk-3kZ" secondAttribute="top" constant="36" id="jLR-mi-EEd"/>
-                            <constraint firstItem="kSG-z1-f0J" firstAttribute="top" secondItem="iq1-OX-sTF" secondAttribute="bottom" constant="36" id="kdu-NW-u7u"/>
-                            <constraint firstAttribute="trailing" secondItem="IPo-dU-Yao" secondAttribute="trailing" constant="16" id="mZS-CS-ide"/>
-                            <constraint firstAttribute="trailing" secondItem="iq1-OX-sTF" secondAttribute="trailing" constant="16" id="n0a-0O-ray"/>
-                            <constraint firstItem="kSG-z1-f0J" firstAttribute="leading" secondItem="nue-Rk-3kZ" secondAttribute="leading" constant="16" id="nQu-KY-b6a"/>
+                            <constraint firstAttribute="height" constant="70" id="ipR-4H-npb"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品總金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvu-dx-COl">
@@ -144,6 +103,7 @@
                         </state>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="nue-Rk-3kZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="50b-57-AeJ"/>
                     <constraint firstItem="vX3-QS-RG3" firstAttribute="centerY" secondItem="hPR-LJ-9ws" secondAttribute="centerY" id="8Sg-RW-nWj"/>
@@ -164,7 +124,7 @@
                     <constraint firstItem="6gP-45-wOA" firstAttribute="leading" secondItem="da4-NM-yrP" secondAttribute="leading" id="kwc-H9-x3b"/>
                     <constraint firstItem="hPR-LJ-9ws" firstAttribute="top" secondItem="yvu-dx-COl" secondAttribute="bottom" constant="16" id="q9a-t1-gsq"/>
                     <constraint firstItem="6gP-45-wOA" firstAttribute="trailing" secondItem="da4-NM-yrP" secondAttribute="trailing" id="qXa-OA-IRP"/>
-                    <constraint firstItem="nue-Rk-3kZ" firstAttribute="top" secondItem="da4-NM-yrP" secondAttribute="bottom" id="sav-4o-ODF"/>
+                    <constraint firstItem="nue-Rk-3kZ" firstAttribute="top" secondItem="da4-NM-yrP" secondAttribute="bottom" constant="20" id="sav-4o-ODF"/>
                     <constraint firstItem="hPR-LJ-9ws" firstAttribute="leading" secondItem="yvu-dx-COl" secondAttribute="leading" id="uuz-v6-WxW"/>
                     <constraint firstItem="WmE-zR-aH4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vRd-6w-cg6"/>
                     <constraint firstItem="WmE-zR-aH4" firstAttribute="top" secondItem="hPR-LJ-9ws" secondAttribute="bottom" constant="24" id="x8i-2U-CRA"/>
@@ -173,16 +133,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cardNumberTextField" destination="iq1-OX-sTF" id="8By-mP-VTI"/>
                 <outlet property="creditView" destination="nue-Rk-3kZ" id="2mE-Xs-Z0g"/>
-                <outlet property="dueDateTextField" destination="kSG-z1-f0J" id="ksb-lP-uAP"/>
                 <outlet property="paymentTextField" destination="da4-NM-yrP" id="eia-6w-AhH"/>
                 <outlet property="productAmountLabel" destination="8ov-ov-dSM" id="rep-49-JCF"/>
                 <outlet property="productPriceLabel" destination="Umo-U6-mXM" id="lO9-CN-8hm"/>
                 <outlet property="shipPriceLabel" destination="vX3-QS-RG3" id="5yE-nD-2sk"/>
                 <outlet property="topDistanceConstraint" destination="yp3-1R-2Z2" id="x3v-cE-cSh"/>
                 <outlet property="totalPriceLabel" destination="j2h-mD-Jbi" id="sBE-u8-nC1"/>
-                <outlet property="verifyCodeTextField" destination="IPo-dU-Yao" id="S2b-14-gEQ"/>
             </connections>
             <point key="canvasLocation" x="143.47826086956522" y="152.00892857142856"/>
         </tableViewCell>

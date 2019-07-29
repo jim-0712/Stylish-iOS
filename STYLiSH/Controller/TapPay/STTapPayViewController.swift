@@ -43,14 +43,13 @@ class STTapPayViewController: STBaseViewController {
 
             weak var weakSelf = self
 
-            weakSelf?.payButton.isEnabled = status.isCanGetPrime()
-            weakSelf?.payButton.alpha     = (status.isCanGetPrime()) ? 1.0 : 0.25
+//            weakSelf?.payButton.isEnabled = status.isCanGetPrime()
+//            weakSelf?.payButton.alpha     = (status.isCanGetPrime()) ? 1.0 : 0.25
 
         }
 
         // Button Disable (Default)
-        payButton.isEnabled = false
-        payButton.alpha     = 0.25
+        
 
     }
 
