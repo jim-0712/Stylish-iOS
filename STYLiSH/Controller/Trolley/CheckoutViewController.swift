@@ -29,9 +29,9 @@ class CheckoutViewController: STBaseViewController {
         }
     }
     
-    lazy var tappayVC: UIViewController = {
+    lazy var tappayVC: STTapPayViewController = {
         
-        let vc = UIStoryboard.trolley.instantiateViewController(withIdentifier: STTapPayViewController.identifier)
+        let vc = UIStoryboard.trolley.instantiateViewController(withIdentifier: STTapPayViewController.identifier) as! STTapPayViewController
         
         addChild(vc)
         
@@ -41,6 +41,10 @@ class CheckoutViewController: STBaseViewController {
         
         return vc
     }()
+    
+    var isCanGetPrime: Bool = false
+    
+    private let userProvider = UserProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -231,8 +235,35 @@ extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
     
     func checkout(_ cell: STPaymentInfoTableViewCell) {
         
-        print("=============")
-        print("User did tap checkout button")
+        guard tappayVC.isCanGetPrime == true else { return }
+        
+        tappayVC.getPrime(completion: { [weak self] result in
+            
+            switch result{
+                
+            case .success(let prime):
+                
+                self?.userProvider.checkout(prime: prime, completion: { result in
+                    
+                    switch result{
+                        
+                    case .success(let reciept):
+                        
+                        print(reciept)
+                        
+                    case .failure(let error):
+                        
+                        //TODO
+                        print(error)
+                    }
+                })
+                
+            case .failure(let error):
+                //TODO
+                
+                print(error)
+            }
+        })
     }
 }
 

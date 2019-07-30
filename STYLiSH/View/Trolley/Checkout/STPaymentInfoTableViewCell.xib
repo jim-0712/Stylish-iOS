@@ -101,6 +101,9 @@
                         <state key="normal" title="確定結帳">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="checkout" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UOr-T6-Rh9"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

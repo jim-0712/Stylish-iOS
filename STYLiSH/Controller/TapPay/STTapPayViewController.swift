@@ -9,21 +9,16 @@
 import UIKit
 import TPDirect
 
-protocol STTapPayDelegate: AnyObject {
-
-    func didCompelte(_ vc: STTapPayViewController, prime: String?)
-}
-
 class STTapPayViewController: STBaseViewController {
 
     // MARK: - @IBOutlet
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var payButton: UIButton!
-
-    weak var delegate: STTapPayDelegate?
 
     var tpdCard: TPDCard!
+    
     var tpdForm: TPDForm!
+    
+    var isCanGetPrime: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,24 +32,19 @@ class STTapPayViewController: STBaseViewController {
         tpdForm.setNormalColor(UIColor.black)
 
         // 3. Setup TPDForm onFormUpdated Callback
-        tpdForm.onFormUpdated { (status) in
+        tpdForm.onFormUpdated { [weak self] status in
 
             // Use callback Get Status.
 
-            weak var weakSelf = self
-
-//            weakSelf?.payButton.isEnabled = status.isCanGetPrime()
-//            weakSelf?.payButton.alpha     = (status.isCanGetPrime()) ? 1.0 : 0.25
-
+            guard let strongSelf = self else { return }
+            
+            strongSelf.isCanGetPrime = status.isCanGetPrime()
         }
-
-        // Button Disable (Default)
-        
 
     }
 
     // MARK: - @IBAction
-    @IBAction func doneAction(_ sender: Any) {
+    func getPrime(completion: @escaping (Result<String>) -> Void) {
 
         // Example Card
         // Number : 4242 4242 4242 4242
@@ -70,22 +60,21 @@ class STTapPayViewController: STBaseViewController {
         LKProgressHUD.show()
 
         tpdCard
-            .onSuccessCallback { [weak self] (prime, _) in
+            .onSuccessCallback { (prime, _) in
 
                 LKProgressHUD.dismiss()
 
-                guard let strongSelf = self else { return }
+                guard let prime = prime else { return }
+                
+                completion(Result.success(prime))
 
-                self?.delegate?.didCompelte(strongSelf, prime: prime)
-
-            }.onFailureCallback { [weak self] (_, _) in
+            }.onFailureCallback { (code, message) in
 
                 LKProgressHUD.dismiss()
 
-                guard let strongSelf = self else { return }
-
-                self?.delegate?.didCompelte(strongSelf, prime: nil)
-
-            }.getPrime()
+                //TODO
+                print(message)
+            }
+            .getPrime()
     }
 }
