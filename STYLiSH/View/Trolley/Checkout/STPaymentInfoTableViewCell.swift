@@ -8,26 +8,19 @@
 
 import UIKit
 
-private enum PaymentMethod: String {
-    
-    case creditCard = "信用卡付款"
-    
-    case cash = "貨到付款"
-}
-
 protocol STPaymentInfoTableViewCellDelegate: AnyObject {
     
-    func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell)
-    
-    func didChangeUserData(
-        _ cell: STPaymentInfoTableViewCell,
-        payment: String,
-        cardNumber: String,
-        dueDate: String,
-        verifyCode: String
-    )
+    func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell, index: Int)
     
     func checkout(_ cell:STPaymentInfoTableViewCell)
+    
+    func textsForPickerView(_ cell: STPaymentInfoTableViewCell) -> [String]
+    
+    func heightForConstraint(_ cell: STPaymentInfoTableViewCell, at index: Int) -> CGFloat
+    
+    func isHidden(_ cell: STPaymentInfoTableViewCell, at index: Int) -> Bool
+    
+    func endEditing(_ cell: STPaymentInfoTableViewCell)
 }
 
 class STPaymentInfoTableViewCell: UITableViewCell {
@@ -60,34 +53,14 @@ class STPaymentInfoTableViewCell: UITableViewCell {
             paymentTextField.rightViewMode = .always
             
             paymentTextField.delegate = self
-            
-            paymentTextField.text = PaymentMethod.cash.rawValue
         }
     }
     
-    @IBOutlet weak var cardNumberTextField: UITextField! {
-        
-        didSet {
-            
-            cardNumberTextField.delegate = self
-        }
-    }
+    @IBOutlet weak var cardNumberTextField: UITextField!
     
-    @IBOutlet weak var dueDateTextField: UITextField! {
-        
-        didSet {
-            
-            dueDateTextField.delegate = self
-        }
-    }
+    @IBOutlet weak var dueDateTextField: UITextField!
     
-    @IBOutlet weak var verifyCodeTextField: UITextField! {
-        
-        didSet {
-            
-            verifyCodeTextField.delegate = self
-        }
-    }
+    @IBOutlet weak var verifyCodeTextField: UITextField!
     
     @IBOutlet weak var productPriceLabel: UILabel!
     
@@ -107,7 +80,9 @@ class STPaymentInfoTableViewCell: UITableViewCell {
         }
     }
     
-    private let paymentMethod: [PaymentMethod] = [.cash, .creditCard]
+    @IBOutlet weak var checkoutBtn: UIButton!
+    
+    private lazy var paymentMethod: [String] = self.delegate?.textsForPickerView(self) ?? []
     
     weak var delegate: STPaymentInfoTableViewCellDelegate?
     
@@ -119,7 +94,9 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     func layoutCellWith(
         productPrice: Int,
         shipPrice: Int,
-        productCount: Int
+        productCount: Int,
+        payment: String,
+        isCheckoutEnable: Bool
     ) {
         
         productPriceLabel.text = "NT$ \(productPrice)"
@@ -129,6 +106,17 @@ class STPaymentInfoTableViewCell: UITableViewCell {
         totalPriceLabel.text = "NT$ \(shipPrice + productPrice)"
         
         productAmountLabel.text = "總計 (\(productCount)樣商品)"
+    
+        paymentTextField.text = payment
+        
+        updateCheckouttButton(isEnable: isCheckoutEnable)
+    }
+    
+    func updateCheckouttButton(isEnable: Bool) {
+        
+        checkoutBtn.isEnabled = isEnable
+        
+        checkoutBtn.backgroundColor = isEnable ? UIColor.B1 : UIColor.B5
     }
     
     @IBAction func checkout() {
@@ -156,19 +144,28 @@ extension STPaymentInfoTableViewCell: UIPickerViewDataSource, UIPickerViewDelega
     ) -> String?
     {
         
-        return paymentMethod[row].rawValue
+        return paymentMethod[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        paymentTextField.text = paymentMethod[row].rawValue
-    }
-    
-    private func manipulateHeight(_ distance: CGFloat) {
+        paymentTextField.text = paymentMethod[row]
         
-        topDistanceConstraint.constant = distance
+        guard
+            let height = delegate?.heightForConstraint(self, at: row),
+            let isHidden = delegate?.isHidden(self, at: row)
+        else {
+            return
+        }
         
-        delegate?.didChangePaymentMethod(self)
+        topDistanceConstraint.constant = height
+        
+        creditView.isHidden = isHidden
+        
+        delegate?.didChangePaymentMethod(
+            self,
+            index: row
+        )
     }
 }
 
@@ -176,50 +173,6 @@ extension STPaymentInfoTableViewCell: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField != paymentTextField {
-            
-            passData()
-            
-            return
-        }
-        
-        guard
-            let text = textField.text,
-            let payment = PaymentMethod(rawValue: text) else
-        {
-            
-            passData()
-            
-            return
-        }
-        
-        switch payment {
-            
-        case .cash:
-            
-            manipulateHeight(44)
-            
-            creditView.isHidden = true
-            
-        case .creditCard:
-            
-            manipulateHeight(118)
-            
-            creditView.isHidden = false
-        }
-        
-        passData()
-    }
-    
-    private func passData() {
-        
-        delegate?.didChangeUserData(
-            self,
-            payment: "",
-            cardNumber: "",
-            dueDate: "",
-            verifyCode: ""
-        )
-        
+        delegate?.endEditing(self)
     }
 }

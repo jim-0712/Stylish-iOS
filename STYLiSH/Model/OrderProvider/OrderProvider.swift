@@ -19,6 +19,8 @@ class OrderProvider {
     
     let orderCustructor: [OrderInfo] = [.products, .reciever, .paymentInfo]
     
+    let payments: [Payment] = [.cash, .credit]
+    
     var order: Order
     
     init(order: Order) {

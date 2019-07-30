@@ -14,11 +14,13 @@ class STTapPayViewController: STBaseViewController {
     // MARK: - @IBOutlet
     @IBOutlet weak var cardView: UIView!
 
+    var cardStatusHandler: ((Bool) -> Void)?
+    
     var tpdCard: TPDCard!
     
     var tpdForm: TPDForm!
     
-    var isCanGetPrime: Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,8 @@ class STTapPayViewController: STBaseViewController {
         tpdForm.onFormUpdated { [weak self] status in
 
             // Use callback Get Status.
-
-            guard let strongSelf = self else { return }
             
-            strongSelf.isCanGetPrime = status.isCanGetPrime()
+            self?.cardStatusHandler?(status.isCanGetPrime())
         }
 
     }

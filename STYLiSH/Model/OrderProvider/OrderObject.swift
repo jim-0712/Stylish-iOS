@@ -14,7 +14,7 @@ struct Order {
 
     var reciever: Reciever = Reciever()
 
-    var deliverTime: String?
+    var deliverTime: String = "08:00-12:00"
 
     var payment: Payment = .cash
 

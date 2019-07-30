@@ -39,10 +39,21 @@ class CheckoutViewController: STBaseViewController {
         
         vc.didMove(toParent: self)
         
+        vc.cardStatusHandler = { [weak self] flag in
+            
+            self?.isCanGetPrime = flag
+        }
+        
         return vc
     }()
     
-    var isCanGetPrime: Bool = false
+    var isCanGetPrime: Bool = false {
+        
+        didSet {
+        
+            updateCheckoutButton()
+        }
+    }
     
     private let userProvider = UserProvider()
     
@@ -72,6 +83,82 @@ class CheckoutViewController: STBaseViewController {
         tableView.register(headerXib, forHeaderFooterViewReuseIdentifier: STOrderHeaderView.identifier)
     }
     
+    //MARK: - Action
+    
+    func checkout(_ cell: STPaymentInfoTableViewCell) {
+        
+        guard canCheckout() == true else { return }
+        
+        switch orderProvider.order.payment {
+            
+        case .credit: checkoutWithTapPay()
+            
+        case .cash: checkoutWithCash()
+            
+        }
+    }
+    
+    //TODO
+    private func checkoutWithCash() {
+        
+        userProvider.checkout(prime: "", completion: { result in
+            
+            switch result{
+                
+            case .success(let reciept):
+                
+                print(reciept)
+                
+            case .failure(let error):
+                
+                //TODO
+                print(error)
+            }
+        })
+        
+    }
+    
+    private func checkoutWithTapPay() {
+        
+        tappayVC.getPrime(completion: { [weak self] result in
+            
+            switch result{
+                
+            case .success(let prime):
+                
+                self?.userProvider.checkout(prime: prime, completion: { result in
+                    
+                    switch result{
+                        
+                    case .success(let reciept):
+                        
+                        print(reciept)
+                        
+                    case .failure(let error):
+                        
+                        //TODO
+                        print(error)
+                    }
+                })
+                
+            case .failure(let error):
+                //TODO
+                
+                print(error)
+            }
+        })
+    }
+    
+    func canCheckout() -> Bool {
+        
+        switch orderProvider.order.payment {
+            
+        case .cash: return orderProvider.order.isReady()
+            
+        case .credit: return orderProvider.order.isReady() && isCanGetPrime
+            
+        }
+    }
 }
 
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
@@ -145,6 +232,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    //MARK: - Layout Cell
     private func mappingCellWtih(order: Order, at indexPath: IndexPath) -> UITableViewCell {
         
         guard
@@ -195,7 +283,6 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         return inputCell
     }
     
-    //TODO
     private func mappingCellWtih(payment: String, at indexPath: IndexPath) -> UITableViewCell {
         
         guard
@@ -212,58 +299,74 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         
         inputCell.delegate = self
         
+        inputCell.layoutCellWith(
+            productPrice: orderProvider.order.productPrices,
+            shipPrice: orderProvider.order.freight,
+            productCount: orderProvider.order.amount,
+            payment: orderProvider.order.payment.rawValue,
+            isCheckoutEnable: canCheckout()
+        )
+        
+        inputCell.checkoutBtn.isEnabled = canCheckout()
+        
         return inputCell
+    }
+    
+    func updateCheckoutButton() {
+        
+        guard
+            let index = orderProvider.orderCustructor.firstIndex(of: .paymentInfo),
+            let cell = tableView.cellForRow(
+                at: IndexPath(row: 0, section: index)
+            ) as? STPaymentInfoTableViewCell
+        else {
+            
+            return
+        }
+        
+        cell.updateCheckouttButton(isEnable: canCheckout())
     }
 }
 
 extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
     
-    func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell) {
+    func endEditing(_ cell: STPaymentInfoTableViewCell) {
         
         tableView.reloadData()
     }
     
-    func didChangeUserData(
-        _ cell: STPaymentInfoTableViewCell,
-        payment: String,
-        cardNumber: String,
-        dueDate: String,
-        verifyCode: String
-    ) {
+    func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell, index: Int) {
         
+        orderProvider.order.payment = orderProvider.payments[index]
+        
+        updateCheckoutButton()
     }
     
-    func checkout(_ cell: STPaymentInfoTableViewCell) {
+    func textsForPickerView(_ cell: STPaymentInfoTableViewCell) -> [String] {
         
-        guard tappayVC.isCanGetPrime == true else { return }
+        return orderProvider.payments.map{ $0.rawValue }
+    }
+    
+    func isHidden(_ cell: STPaymentInfoTableViewCell, at index: Int) -> Bool {
         
-        tappayVC.getPrime(completion: { [weak self] result in
+        switch orderProvider.payments[index] {
             
-            switch result{
-                
-            case .success(let prime):
-                
-                self?.userProvider.checkout(prime: prime, completion: { result in
-                    
-                    switch result{
-                        
-                    case .success(let reciept):
-                        
-                        print(reciept)
-                        
-                    case .failure(let error):
-                        
-                        //TODO
-                        print(error)
-                    }
-                })
-                
-            case .failure(let error):
-                //TODO
-                
-                print(error)
-            }
-        })
+        case .cash: return true
+            
+        case .credit: return false
+            
+        }
+    }
+    
+    func heightForConstraint(_ cell: STPaymentInfoTableViewCell, at index: Int) -> CGFloat {
+        
+        switch orderProvider.payments[index] {
+        
+        case .cash: return 44
+        
+        case .credit: return 118
+            
+        }
     }
 }
 
@@ -287,7 +390,7 @@ extension CheckoutViewController: STOrderUserInputCellDelegate {
         )
         
         orderProvider.order.reciever = newReciever
-    
-        print(orderProvider.order.reciever)
+        
+        updateCheckoutButton()
     }
 }
