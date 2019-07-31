@@ -141,16 +141,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_80px_Success02" translatesAutoresizingMaskIntoConstraints="NO" id="bLz-nf-h8B">
-                                <rect key="frame" x="147.5" y="214" width="80" height="80"/>
+                                <rect key="frame" x="147.5" y="170" width="80" height="80"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結帳成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Od-VM-TUn">
-                                <rect key="frame" x="157.5" y="318" width="60" height="22"/>
+                                <rect key="frame" x="157.5" y="274" width="60" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="15"/>
                                 <color key="textColor" name="B1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我們收到您的訂單了！將以最快的速度為您安排出貨。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtF-Pw-8JW">
-                                <rect key="frame" x="16" y="356" width="343" height="44"/>
+                                <rect key="frame" x="16" y="312" width="343" height="44"/>
                                 <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="15"/>
                                 <color key="textColor" name="B1"/>
                                 <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                     <connections>
                         <outlet property="tableView" destination="Td8-Rv-VO4" id="fOW-bs-2U4"/>
                         <segue destination="PGS-2G-ghc" kind="show" identifier="SegueTapPay" id="9Q5-Tx-DJX"/>
-                        <segue destination="lq0-BK-jm9" kind="show" identifier="SegueSuccess" id="94B-E3-J4J"/>
+                        <segue destination="lq0-BK-jm9" kind="presentation" identifier="SegueSuccess" id="94B-E3-J4J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJy-6t-u6q" userLabel="First Responder" sceneMemberID="firstResponder"/>

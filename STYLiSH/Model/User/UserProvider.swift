@@ -100,46 +100,18 @@ class UserProvider {
         })
     }
 
-    func checkout(prime: String, completion: @escaping (Result<Reciept>) -> Void) {
+    func checkout(order: Order, prime: String, completion: @escaping (Result<Reciept>) -> Void) {
 
         guard let token = KeyChainManager.shared.token else {
 
             return completion(Result.failure(STYLiSHSignInError.noToken))
         }
-
+        
+        let body = CheckoutAPIBody(order: order, prime: prime)
+        
         let request = STUserRequest.checkout(
             token: token,
-            body:
-            [
-                "prime": prime,
-                "order": [
-                    "shipping": "delivery",
-                    "payment": "credit_card",
-                    "subtotal": 1234,
-                    "freight": 14,
-                    "total": 1300,
-                    "recipient": [
-                        "name": "Luke",
-                        "phone": "0987654321",
-                        "email": "luke@gmail.com",
-                        "address": "市政府站",
-                        "time": "morning"
-                    ],
-                    "list": [
-                        [
-                            "id": "201807202157",
-                            "name": "活力花紋長筒牛仔褲",
-                            "price": 1299,
-                            "color": [
-                                "code": "DDF0FF",
-                                "name": "淺藍"
-                            ],
-                            "size": "M",
-                            "qty": 1
-                        ]
-                    ]
-                ]
-            ]
+            body: try? JSONEncoder().encode(body)
         )
 
         HTTPClient.shared.request(request, completion: { result in

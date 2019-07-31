@@ -132,23 +132,28 @@ class CheckoutViewController: STBaseViewController {
                 
             case .success(let prime):
                 
-                self?.userProvider.checkout(prime: prime, completion: { result in
+                guard let strongSelf = self else { return }
+                
+                self?.userProvider.checkout(
+                    order: strongSelf.orderProvider.order,
+                    prime: prime,
+                    completion: { result in
                     
-                    switch result{
-                        
-                    case .success(let reciept):
-                        
-                        print(reciept)
-                        
-                        StorageManager.shared.deleteAllProduct(completion: { _ in })
-                        
-                        self?.performSegue(withIdentifier: Segue.success, sender: nil)
-                        
-                    case .failure(let error):
-                        
-                        //TODO
-                        print(error)
-                    }
+                        switch result{
+                            
+                        case .success(let reciept):
+                            
+                            print(reciept)
+                            
+                            StorageManager.shared.deleteAllProduct(completion: { _ in })
+                            
+                            self?.performSegue(withIdentifier: Segue.success, sender: nil)
+                            
+                        case .failure(let error):
+                            
+                            //TODO
+                            print(error)
+                        }
                 })
                 
             case .failure(let error):

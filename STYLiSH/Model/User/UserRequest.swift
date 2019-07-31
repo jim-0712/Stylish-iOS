@@ -12,7 +12,7 @@ enum STUserRequest: STRequest {
 
     case signin(String)
 
-    case checkout(token: String, body: [String: Any])
+    case checkout(token: String, body: Data?)
 
     var headers: [String: String] {
 
@@ -31,16 +31,18 @@ enum STUserRequest: STRequest {
         }
     }
 
-    var body: [String: Any]? {
+    var body: Data? {
 
         switch self {
 
         case .signin(let token):
 
-            return [
+            let dict = [
                 "provider": "facebook",
                 "access_token": token
             ]
+            
+            return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
 
         case .checkout(_, let body):
 

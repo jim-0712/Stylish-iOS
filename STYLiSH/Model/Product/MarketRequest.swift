@@ -27,7 +27,7 @@ enum STMarketRequest: STRequest {
         }
     }
 
-    var body: [String: Any]? {
+    var body: Data? {
 
         switch self {
 

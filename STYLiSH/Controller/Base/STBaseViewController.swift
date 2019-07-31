@@ -91,27 +91,36 @@ class STBaseViewController: UIViewController {
         backToRoot(completion: nil)
     }
     
+    
+}
+
+extension UIViewController {
+    
     func backToRoot(completion: (() -> Void)? = nil) {
         
-        var isRoot = false
+        if presentingViewController != nil {
+            
+            let superVC = presentingViewController
+            
+            dismiss(animated: false, completion: nil)
+            
+            superVC?.backToRoot(completion: completion)
+            
+            return
+        }
+
+        if self is UITabBarController {
+            
+            let vc = (self as? UITabBarController)?.selectedViewController
+            
+            vc?.backToRoot(completion: completion)
+            
+            return
+        }
         
-        while !isRoot {
+        if self is UINavigationController {
             
-            if presentingViewController != nil {
-                
-                dismiss(animated: false, completion: nil)
-                
-                continue
-            }
-            
-            if navigationController != nil {
-                
-                navigationController?.popToRootViewController(animated: false)
-                
-                continue
-            }
-            
-            isRoot = true
+            (self as! UINavigationController).popToRootViewController(animated: false)
         }
         
         completion?()
