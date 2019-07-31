@@ -55,7 +55,6 @@ struct Order {
     func isReady() -> Bool {
 
         guard reciever.isReady() == true,
-              deliverTime != nil,
               deliverTime != ""
         else {
             return false

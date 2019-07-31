@@ -67,6 +67,7 @@
 		3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E9222BC00100312958 /* UILabel+Extension.swift */; };
 		3C6B8FE8222CE53100804EFE /* BasicSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */; };
 		3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */; };
+		3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */; };
 		3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C5E22E9945500112298 /* STOrderProductCell.swift */; };
 		3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C831C5F22E9945500112298 /* STOrderProductCell.xib */; };
 		3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */; };
@@ -183,6 +184,7 @@
 		3C6020E9222BC00100312958 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSelectionCell.swift; sourceTree = "<group>"; };
 		3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPickerController.swift; sourceTree = "<group>"; };
+		3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutResultViewController.swift; sourceTree = "<group>"; };
 		3C831C5E22E9945500112298 /* STOrderProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderProductCell.swift; sourceTree = "<group>"; };
 		3C831C5F22E9945500112298 /* STOrderProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STOrderProductCell.xib; sourceTree = "<group>"; };
 		3C831C6222E9AF8F00112298 /* STOrderUserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderUserInputCell.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */,
 				3C546BE422EABB6D0082C655 /* CheckoutViewController.swift */,
 				3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */,
+				3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */,
 			);
 			path = Trolley;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
+				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,

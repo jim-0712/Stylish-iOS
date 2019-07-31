@@ -85,4 +85,35 @@ class STBaseViewController: UIViewController {
 
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc @IBAction func backToRoot(_ sender: Any) {
+
+        backToRoot(completion: nil)
+    }
+    
+    func backToRoot(completion: (() -> Void)? = nil) {
+        
+        var isRoot = false
+        
+        while !isRoot {
+            
+            if presentingViewController != nil {
+                
+                dismiss(animated: false, completion: nil)
+                
+                continue
+            }
+            
+            if navigationController != nil {
+                
+                navigationController?.popToRootViewController(animated: false)
+                
+                continue
+            }
+            
+            isRoot = true
+        }
+        
+        completion?()
+    }
 }

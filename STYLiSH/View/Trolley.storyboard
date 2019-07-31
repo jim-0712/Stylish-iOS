@@ -135,7 +135,7 @@
         <!--結帳結果-->
         <scene sceneID="C6N-ih-iDy">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="lq0-BK-jm9" customClass="STBaseViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="lq0-BK-jm9" customClass="CheckoutResultViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rjs-nb-Snn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,6 +164,9 @@
                                 <state key="normal" title="再 去 逛 逛">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToRoot:" destination="lq0-BK-jm9" eventType="touchUpInside" id="5Kn-wb-pqZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,6 +10,11 @@ import UIKit
 
 class CheckoutViewController: STBaseViewController {
     
+    private struct Segue {
+        
+        static let success = "SegueSuccess"
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     var orderProvider: OrderProvider! {
@@ -89,6 +94,11 @@ class CheckoutViewController: STBaseViewController {
         
         guard canCheckout() == true else { return }
         
+        guard KeyChainManager.shared.token != nil else {
+            
+            return onShowLogin()
+        }
+        
         switch orderProvider.order.payment {
             
         case .credit: checkoutWithTapPay()
@@ -98,24 +108,20 @@ class CheckoutViewController: STBaseViewController {
         }
     }
     
-    //TODO
+    func onShowLogin() {
+        
+        guard let vc = UIStoryboard.auth.instantiateInitialViewController() else { return }
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        present(vc, animated: false, completion: nil)
+    }
+    
     private func checkoutWithCash() {
         
-        userProvider.checkout(prime: "", completion: { result in
-            
-            switch result{
-                
-            case .success(let reciept):
-                
-                print(reciept)
-                
-            case .failure(let error):
-                
-                //TODO
-                print(error)
-            }
-        })
+        StorageManager.shared.deleteAllProduct(completion: { _ in })
         
+        performSegue(withIdentifier: Segue.success, sender: nil)
     }
     
     private func checkoutWithTapPay() {
@@ -134,6 +140,10 @@ class CheckoutViewController: STBaseViewController {
                         
                         print(reciept)
                         
+                        StorageManager.shared.deleteAllProduct(completion: { _ in })
+                        
+                        self?.performSegue(withIdentifier: Segue.success, sender: nil)
+                        
                     case .failure(let error):
                         
                         //TODO
@@ -142,8 +152,8 @@ class CheckoutViewController: STBaseViewController {
                 })
                 
             case .failure(let error):
-                //TODO
                 
+                //TODO
                 print(error)
             }
         })
