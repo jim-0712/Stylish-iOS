@@ -105,7 +105,6 @@
 		3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */; };
 		3CDC5A6A222D860B0071D0D1 /* SizeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */; };
 		3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50122302354009FF003 /* ProductContentCategory.swift */; };
-		3CE7A50422303D46009FF003 /* CheckoutViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */; };
 		3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A506223042CE009FF003 /* STBaseTextField.swift */; };
 		3CE7A51322305916009FF003 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51222305916009FF003 /* UserProvider.swift */; };
 		3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7A51422305E5A009FF003 /* KeyChainManager.swift */; };
@@ -224,7 +223,6 @@
 		3CDC5A65222D85990071D0D1 /* ColorSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCell.swift; sourceTree = "<group>"; };
 		3CDC5A69222D860B0071D0D1 /* SizeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSelectionCell.swift; sourceTree = "<group>"; };
 		3CE7A50122302354009FF003 /* ProductContentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContentCategory.swift; sourceTree = "<group>"; };
-		3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewControllers.swift; sourceTree = "<group>"; };
 		3CE7A506223042CE009FF003 /* STBaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseTextField.swift; sourceTree = "<group>"; };
 		3CE7A51222305916009FF003 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		3CE7A51422305E5A009FF003 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -455,7 +453,6 @@
 			children = (
 				3C5DD7CB2227EFFF0053B67A /* TrolleyViewController.swift */,
 				3C546BE422EABB6D0082C655 /* CheckoutViewController.swift */,
-				3CE7A50322303D46009FF003 /* CheckoutViewControllers.swift */,
 				3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */,
 			);
 			path = Trolley;
@@ -948,7 +945,6 @@
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
-				3CE7A50422303D46009FF003 /* CheckoutViewControllers.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,

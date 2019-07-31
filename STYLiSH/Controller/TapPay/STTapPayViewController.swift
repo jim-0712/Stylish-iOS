@@ -55,22 +55,16 @@ class STTapPayViewController: STBaseViewController {
         // 1. Setup TPDCard.
         tpdCard = TPDCard.setup(tpdForm)
 
-        // 2. Setup TPDCard on Success Callback.
-
-        LKProgressHUD.show()
+        // 2. Setup TPDCard on Success Callback
 
         tpdCard
             .onSuccessCallback { (prime, _) in
-
-                LKProgressHUD.dismiss()
 
                 guard let prime = prime else { return }
                 
                 completion(Result.success(prime))
 
             }.onFailureCallback { (code, message) in
-
-                LKProgressHUD.dismiss()
 
                 //TODO
                 print(message)

@@ -107,13 +107,7 @@ struct Order: Encodable {
 
     func isReady() -> Bool {
 
-        guard reciever.isReady() == true,
-              deliverTime != ""
-        else {
-            return false
-        }
-
-        return true
+        return reciever.isReady()
     }
     
     init(products: [LSOrder]) {

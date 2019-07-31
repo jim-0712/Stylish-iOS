@@ -126,6 +126,8 @@ class CheckoutViewController: STBaseViewController {
     
     private func checkoutWithTapPay() {
         
+        LKProgressHUD.show()
+        
         tappayVC.getPrime(completion: { [weak self] result in
             
             switch result{
@@ -139,15 +141,18 @@ class CheckoutViewController: STBaseViewController {
                     prime: prime,
                     completion: { result in
                     
+                        LKProgressHUD.dismiss()
+                        
                         switch result{
                             
                         case .success(let reciept):
                             
                             print(reciept)
                             
+                            self?.performSegue(withIdentifier: Segue.success, sender: nil)
+                            
                             StorageManager.shared.deleteAllProduct(completion: { _ in })
                             
-                            self?.performSegue(withIdentifier: Segue.success, sender: nil)
                             
                         case .failure(let error):
                             
@@ -158,6 +163,7 @@ class CheckoutViewController: STBaseViewController {
                 
             case .failure(let error):
                 
+                LKProgressHUD.dismiss()
                 //TODO
                 print(error)
             }
