@@ -22,31 +22,19 @@ class STOrderProductCell: UITableViewCell {
     
     @IBOutlet weak var orderNumberLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func layoutCell(data: STOrderProductCellViewModel?) {
         
-    }
-    
-    func layoutCell(
-        imageUrl: String?,
-        title: String?,
-        color: String?,
-        size: String?,
-        price: String?,
-        pieces: String?
-    ) {
+        productImageView.loadImage(data?.imageUrl)
         
-        productImageView.loadImage(imageUrl)
+        productTitleLabel.text = data?.title
         
-        productTitleLabel.text = title
-        
-        productSizeLabel.text = size
+        productSizeLabel.text = data?.size
 
-        priceLabel.text = price
+        priceLabel.text = data?.price
         
-        orderNumberLabel.text = pieces
+        orderNumberLabel.text = data?.pieces
         
-        guard let colorCode = color else {
+        guard let colorCode = data?.color else {
             
             colorView.backgroundColor = UIColor.white
             

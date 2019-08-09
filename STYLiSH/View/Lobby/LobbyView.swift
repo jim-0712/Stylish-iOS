@@ -42,7 +42,7 @@ class LobbyView: UIView {
         
         setupTableView()
     }
-    //MARK: - Action
+    // MARK: - Action
     
     func beginHeaderRefresh() {
         
@@ -56,7 +56,7 @@ class LobbyView: UIView {
         tableView.reloadData()
     }
     
-    //MARK: - Private Method
+    // MARK: - Private Method
     
     private func setupTableView() {
         

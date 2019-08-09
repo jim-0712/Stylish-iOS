@@ -86,11 +86,10 @@ class STBaseViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc @IBAction func backToRoot(_ sender: Any) {
+    @IBAction func backToRoot(_ sender: Any) {
 
         backToRoot(completion: nil)
     }
-    
     
 }
 
@@ -109,18 +108,16 @@ extension UIViewController {
             return
         }
 
-        if self is UITabBarController {
+        if let tabbarVC = self as? UITabBarController {
             
-            let vc = (self as? UITabBarController)?.selectedViewController
-            
-            vc?.backToRoot(completion: completion)
+            tabbarVC.selectedViewController?.backToRoot(completion: completion)
             
             return
         }
         
-        if self is UINavigationController {
+        if let navigateVC = self as? UINavigationController {
             
-            (self as! UINavigationController).popToRootViewController(animated: false)
+            navigateVC.popToRootViewController(animated: false)
         }
         
         completion?()

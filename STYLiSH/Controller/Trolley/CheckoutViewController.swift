@@ -36,20 +36,25 @@ class CheckoutViewController: STBaseViewController {
     
     lazy var tappayVC: STTapPayViewController = {
         
-        let vc = UIStoryboard.trolley.instantiateViewController(withIdentifier: STTapPayViewController.identifier) as! STTapPayViewController
+        guard let tappayVC = UIStoryboard.trolley.instantiateViewController(
+                withIdentifier: STTapPayViewController.identifier
+            ) as? STTapPayViewController
+        else {
+            fatalError()
+        }
         
-        addChild(vc)
+        addChild(tappayVC)
         
-        vc.loadViewIfNeeded()
+        tappayVC.loadViewIfNeeded()
         
-        vc.didMove(toParent: self)
+        tappayVC.didMove(toParent: self)
         
-        vc.cardStatusHandler = { [weak self] flag in
+        tappayVC.cardStatusHandler = { [weak self] flag in
             
             self?.isCanGetPrime = flag
         }
         
-        return vc
+        return tappayVC
     }()
     
     var isCanGetPrime: Bool = false {
@@ -88,7 +93,7 @@ class CheckoutViewController: STBaseViewController {
         tableView.register(headerXib, forHeaderFooterViewReuseIdentifier: STOrderHeaderView.identifier)
     }
     
-    //MARK: - Action
+    // MARK: - Action
     
     func checkout(_ cell: STPaymentInfoTableViewCell) {
         
@@ -110,11 +115,11 @@ class CheckoutViewController: STBaseViewController {
     
     func onShowLogin() {
         
-        guard let vc = UIStoryboard.auth.instantiateInitialViewController() else { return }
+        guard let authVC = UIStoryboard.auth.instantiateInitialViewController() else { return }
         
-        vc.modalPresentationStyle = .overCurrentContext
+        authVC.modalPresentationStyle = .overCurrentContext
         
-        present(vc, animated: false, completion: nil)
+        present(authVC, animated: false, completion: nil)
     }
     
     private func checkoutWithCash() {
@@ -130,7 +135,7 @@ class CheckoutViewController: STBaseViewController {
         
         tappayVC.getPrime(completion: { [weak self] result in
             
-            switch result{
+            switch result {
                 
             case .success(let prime):
                 
@@ -143,7 +148,7 @@ class CheckoutViewController: STBaseViewController {
                     
                         LKProgressHUD.dismiss()
                         
-                        switch result{
+                        switch result {
                             
                         case .success(let reciept):
                             
@@ -153,10 +158,9 @@ class CheckoutViewController: STBaseViewController {
                             
                             StorageManager.shared.deleteAllProduct(completion: { _ in })
                             
-                            
                         case .failure(let error):
                             
-                            //TODO
+                            //Error Handle
                             print(error)
                         }
                 })
@@ -164,7 +168,9 @@ class CheckoutViewController: STBaseViewController {
             case .failure(let error):
                 
                 LKProgressHUD.dismiss()
-                //TODO
+                
+                //Error Handle
+                
                 print(error)
             }
         })
@@ -184,13 +190,13 @@ class CheckoutViewController: STBaseViewController {
 
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
-    //MARK: - Section Count
+    // MARK: - Section Count
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return orderProvider.orderCustructor.count
     }
     
-    //MARK: - Section Header
+    // MARK: - Section Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 67.0
@@ -212,7 +218,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         return headerView
     }
     
-    //MARK: - Section Footer
+    // MARK: - Section Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         return 1
@@ -223,7 +229,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         return String.empty
     }
 
-    //MARK: - Section Row
+    // MARK: - Section Row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch orderProvider.orderCustructor[section] {
@@ -253,7 +259,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    //MARK: - Layout Cell
+    // MARK: - Layout Cell
     private func mappingCellWtih(order: Order, at indexPath: IndexPath) -> UITableViewCell {
         
         guard
@@ -268,14 +274,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         
         let order = orderProvider.order.products[indexPath.row]
         
-        orderCell.layoutCell(
-            imageUrl: order.product?.images?[0],
-            title: order.product?.title,
-            color: order.seletedColor,
-            size: order.seletedSize,
-            price: String(order.product!.price),
-            pieces: String(order.amount)
-        )
+        orderCell.layoutCell(data: STOrderProductCellViewModel(order: order))
         
         return orderCell
     }
@@ -365,7 +364,7 @@ extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
     
     func textsForPickerView(_ cell: STPaymentInfoTableViewCell) -> [String] {
         
-        return orderProvider.payments.map{ $0.rawValue }
+        return orderProvider.payments.map { $0.rawValue }
     }
     
     func isHidden(_ cell: STPaymentInfoTableViewCell, at index: Int) -> Bool {
@@ -393,25 +392,20 @@ extension CheckoutViewController: STPaymentInfoTableViewCellDelegate {
 
 extension CheckoutViewController: STOrderUserInputCellDelegate {
     
-    func didChangeUserData(
-        _ cell: STOrderUserInputCell,
-        username: String,
-        email: String,
-        phoneNumber: String,
-        address: String,
-        shipTime: String
-    ) {
+    func didChangeUserData(_ cell: STOrderUserInputCell, data: STOrderUserInputCellModel) {
         
         let newReciever = Reciever(
-            name: username,
-            email: email,
-            phoneNumber: phoneNumber,
-            address: address,
-            shipTime: shipTime
+            name: data.username,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+            address: data.address,
+            shipTime: data.shipTime
         )
         
         orderProvider.order.reciever = newReciever
         
         updateCheckoutButton()
+        
     }
+
 }

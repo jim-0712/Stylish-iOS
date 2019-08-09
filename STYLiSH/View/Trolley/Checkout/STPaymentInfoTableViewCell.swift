@@ -12,7 +12,7 @@ protocol STPaymentInfoTableViewCellDelegate: AnyObject {
     
     func didChangePaymentMethod(_ cell: STPaymentInfoTableViewCell, index: Int)
     
-    func checkout(_ cell:STPaymentInfoTableViewCell)
+    func checkout(_ cell: STPaymentInfoTableViewCell)
     
     func textsForPickerView(_ cell: STPaymentInfoTableViewCell) -> [String]
     
@@ -132,8 +132,7 @@ extension STPaymentInfoTableViewCell: UIPickerViewDataSource, UIPickerViewDelega
     func pickerView(
         _ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int
-    ) -> Int
-    {
+    ) -> Int {
         return 2
     }
     
@@ -141,8 +140,7 @@ extension STPaymentInfoTableViewCell: UIPickerViewDataSource, UIPickerViewDelega
         _ pickerView: UIPickerView,
         titleForRow row: Int,
         forComponent component: Int
-    ) -> String?
-    {
+    ) -> String? {
         
         return paymentMethod[row]
     }

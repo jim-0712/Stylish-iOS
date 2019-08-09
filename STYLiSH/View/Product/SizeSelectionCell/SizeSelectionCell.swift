@@ -121,13 +121,10 @@ class SizeSelectionCell: BasicSelectionCell {
         }
 
         guard touchHandler?(sizeObjects[indexPath.row].size) == true else { return }
-
-        for index in 0 ..< sizeObjects.count {
-
-            if sizeObjects[index].status == .selected {
-
-                sizeObjects[index].status = .avaliable
-            }
+        
+        for (index, object) in sizeObjects.enumerated() where object.status == .selected {
+            
+            sizeObjects[index].status = .avaliable
         }
 
         sizeObjects[indexPath.row].status = .selected

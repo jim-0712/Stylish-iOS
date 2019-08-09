@@ -144,71 +144,92 @@ class ProductPickerController: UIViewController, UITableViewDataSource, UITableV
 
         case .color:
 
-            guard let colorCell = cell as? ColorSelectionCell,
-                let product = product
-                else { return }
-
-            colorCell.colors = product.colors.map({ $0.code })
-
-            colorCell.touchHandler = { [weak self] indexPath in
-
-                self?.selectedColor = self?.product?.colors[indexPath.row].code
-            }
+            updateColorSelectionCell(cell)
 
         case .size:
 
-            guard let sizeCell = cell as? SizeSelectionCell else { return }
-
-            sizeCell.touchHandler = { [weak self] size in
-
-                guard self?.selectedColor != nil else { return false }
-
-                self?.selectedSize = size
-
-                return true
-            }
-
-            guard let product = product else { return }
-
-            sizeCell.sizes = product.sizes
-
-            guard let selectedColor = selectedColor else { return }
-
-            sizeCell.avalibleSizes = product.variants.compactMap({ variant in
-
-                if variant.colorCode == selectedColor {
-                    return variant.size
-                }
-
-                return nil
-            })
+            updateSizeSelectionCell(cell)
 
         case .amount:
 
-            guard let amountCell = cell as? AmountSelectionCell else { return }
-
-            guard let product = product,
-                  let selectedColor = selectedColor,
-                  let selectedSize = selectedSize
-            else {
-
-                amountCell.layoutCell(variant: nil)
-
-                return
-            }
-
-            let variant = product.variants.filter({ item in
-
-                if item.colorCode == selectedColor && item.size == selectedSize {
-
-                    return true
-                }
-
-                return false
-            })
-
-            amountCell.layoutCell(variant: variant.first)
+            updateAmountSelectionCell(cell)
         }
+    }
+    
+    private func updateColorSelectionCell(_ cell: UITableViewCell) {
+        
+        guard let colorCell = cell as? ColorSelectionCell,
+            let product = product
+        else {
+            
+            return
+        }
+        
+        colorCell.colors = product.colors.map({ $0.code })
+        
+        colorCell.touchHandler = { [weak self] indexPath in
+            
+            self?.selectedColor = self?.product?.colors[indexPath.row].code
+        }
+    }
+    
+    private func updateSizeSelectionCell(_ cell: UITableViewCell) {
+        
+        guard let sizeCell = cell as? SizeSelectionCell,
+            let product = product
+        else {
+                
+            return
+        }
+        
+        sizeCell.touchHandler = { [weak self] size in
+            
+            guard self?.selectedColor != nil else { return false }
+            
+            self?.selectedSize = size
+            
+            return true
+        }
+        
+        sizeCell.sizes = product.sizes
+        
+        guard let selectedColor = selectedColor else { return }
+        
+        sizeCell.avalibleSizes = product.variants.compactMap({ variant in
+            
+            if variant.colorCode == selectedColor {
+                return variant.size
+            }
+            
+            return nil
+        })
+    }
+    
+    private func updateAmountSelectionCell(_ cell: UITableViewCell) {
+        
+        guard let amountCell = cell as? AmountSelectionCell else { return }
+        
+        guard let product = product,
+            let selectedColor = selectedColor,
+            let selectedSize = selectedSize
+        else {
+                
+                amountCell.layoutCell(variant: nil)
+                
+                return
+        }
+        
+        let variant = product.variants.filter({ item in
+            
+            if item.colorCode == selectedColor && item.size == selectedSize {
+                
+                return true
+            }
+            
+            return false
+        })
+        
+        amountCell.layoutCell(variant: variant.first)
     }
 
     // MARK: - UITableViewDataSource

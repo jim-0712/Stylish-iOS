@@ -8,15 +8,24 @@
 
 import UIKit
 
+struct STOrderUserInputCellModel {
+    
+    let username: String
+    
+    let email: String
+    
+    let phoneNumber: String
+    
+    let address: String
+    
+    let shipTime: String
+}
+
 protocol STOrderUserInputCellDelegate: AnyObject {
     
     func didChangeUserData(
         _ cell: STOrderUserInputCell,
-        username: String,
-        email: String,
-        phoneNumber: String,
-        address: String,
-        shipTime: String
+        data: STOrderUserInputCellModel
     )
 }
 
@@ -74,13 +83,17 @@ class STOrderUserInputCell: UITableViewCell {
             return
         }
         
-        delegate?.didChangeUserData(
-            self,
+        let data = STOrderUserInputCellModel(
             username: name,
             email: email,
             phoneNumber: phoneNumber,
             address: address,
             shipTime: shipTime
+        )
+        
+        delegate?.didChangeUserData(
+            self,
+            data: data
         )
     }
 }

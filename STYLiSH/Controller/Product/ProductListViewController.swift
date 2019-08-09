@@ -137,11 +137,11 @@ class ProductListViewController: STCompondViewController {
 
     private func showProductDetailViewController(product: Product) {
 
-        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
+        let productDetailVC = UIStoryboard.product.instantiateViewController(withIdentifier:
             String(describing: ProductDetailViewController.self)
         )
 
-        guard let detailVC = vc as? ProductDetailViewController else { return }
+        guard let detailVC = productDetailVC as? ProductDetailViewController else { return }
 
         detailVC.product = product
 

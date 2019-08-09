@@ -99,7 +99,7 @@ class ProductViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        guard let vc = segue.destination as? ProductListViewController else { return }
+        guard let productListVC = segue.destination as? ProductListViewController else { return }
 
         let identifier = segue.identifier
 
@@ -123,7 +123,7 @@ class ProductViewController: UIViewController {
             )
         }
 
-        vc.provider = provider
+        productListVC.provider = provider
     }
 
     // MARK: - Private method

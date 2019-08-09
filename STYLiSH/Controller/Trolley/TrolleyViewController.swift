@@ -56,7 +56,7 @@ class TrolleyViewController: STBaseViewController {
         }
     }
 
-    //MARK: - View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +78,7 @@ class TrolleyViewController: STBaseViewController {
         StorageManager.shared.saveAll(completion: { _ in })
     }
     
-    //MARK: - Action
+    // MARK: - Action
 
     func fetchData() {
 

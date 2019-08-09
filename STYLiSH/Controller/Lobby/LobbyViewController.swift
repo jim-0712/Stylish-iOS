@@ -28,7 +28,7 @@ class LobbyViewController: STBaseViewController {
 
     let marketProvider = MarketProvider()
 
-    //MARK: - View Life Cycle
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +37,7 @@ class LobbyViewController: STBaseViewController {
         lobbyView.beginHeaderRefresh()
     }
 
-    //MARK: - Action
+    // MARK: - Action
     func fetchData() {
         
         marketProvider.fetchHots(completion: { [weak self] result in
@@ -63,7 +63,7 @@ extension LobbyViewController: LobbyViewDelegate {
         fetchData()
     }
 
-    //MARK - UITableViewDataSource and UITableViewDelegate
+    // MARK: - UITableViewDataSource and UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
 
         return datas.count

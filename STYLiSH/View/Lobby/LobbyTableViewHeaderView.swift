@@ -44,10 +44,9 @@ class LobbyTableViewHeaderView: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
         
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
             
         ])
     }
-    
 
 }

@@ -39,7 +39,10 @@ class MarketProvider {
                 case .success(let data):
 
                     do {
-                        let products = try strongSelf.decoder.decode(STSuccessParser<[PromotedProducts]>.self, from: data)
+                        let products = try strongSelf.decoder.decode(
+                            STSuccessParser<[PromotedProducts]>.self,
+                            from: data
+                        )
 
                         DispatchQueue.main.async {
 

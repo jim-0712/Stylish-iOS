@@ -17,7 +17,10 @@ protocol SelectionCellDataSource: AnyObject {
     func didSelected(_ cell: BasicSelectionCell, at indexPath: IndexPath)
 }
 
-class BasicSelectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, SelectionCellDataSource {
+class BasicSelectionCell: UITableViewCell,
+    UICollectionViewDataSource,
+    UICollectionViewDelegate,
+    SelectionCellDataSource {
 
     lazy var collectionView: UICollectionView = {
 
@@ -142,9 +145,15 @@ class BasicSelectionCell: UITableViewCell, UICollectionViewDataSource, UICollect
         return self.dataSource?.numberOfItem(self) ?? 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SelectionCell.self), for: indexPath)
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: String(describing: SelectionCell.self),
+            for: indexPath
+        )
 
         guard let selectionCell = cell as? SelectionCell else { return cell }
 

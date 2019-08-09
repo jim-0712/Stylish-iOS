@@ -66,6 +66,7 @@
 		3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E7222BBA3C00312958 /* ProductBasicCell.swift */; };
 		3C6020EA222BC00100312958 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6020E9222BC00100312958 /* UILabel+Extension.swift */; };
 		3C6B8FE8222CE53100804EFE /* BasicSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */; };
+		3C6FABF522FD39EB00226316 /* STOrderProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FABF422FD39EB00226316 /* STOrderProductCellViewModel.swift */; };
 		3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */; };
 		3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */; };
 		3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C831C5E22E9945500112298 /* STOrderProductCell.swift */; };
@@ -182,6 +183,7 @@
 		3C6020E7222BBA3C00312958 /* ProductBasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBasicCell.swift; sourceTree = "<group>"; };
 		3C6020E9222BC00100312958 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		3C6B8FE6222CE53100804EFE /* BasicSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSelectionCell.swift; sourceTree = "<group>"; };
+		3C6FABF422FD39EB00226316 /* STOrderProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderProductCellViewModel.swift; sourceTree = "<group>"; };
 		3C7036D0222C4E0A00F6C58B /* ProductPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPickerController.swift; sourceTree = "<group>"; };
 		3C75FD0E22F1767D0068FEA5 /* CheckoutResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutResultViewController.swift; sourceTree = "<group>"; };
 		3C831C5E22E9945500112298 /* STOrderProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrderProductCell.swift; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				3C831C5E22E9945500112298 /* STOrderProductCell.swift */,
+				3C6FABF422FD39EB00226316 /* STOrderProductCellViewModel.swift */,
 				3C831C5F22E9945500112298 /* STOrderProductCell.xib */,
 				3C546BE622EAC79D0082C655 /* STOrderHeaderView.swift */,
 				3C546BE822EAC7AA0082C655 /* STOrderHeaderView.xib */,
@@ -777,6 +780,7 @@
 				3CD29116221135E2008B8A2D /* Frameworks */,
 				3CD29117221135E2008B8A2D /* Resources */,
 				BD721BFB42BEC7C4CF30F644 /* [CP] Embed Pods Frameworks */,
+				3C6FABF322FD26EA00226316 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -868,6 +872,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3C6FABF322FD26EA00226316 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		BD721BFB42BEC7C4CF30F644 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -920,6 +942,7 @@
 				3CE7A519223064C7009FF003 /* UserObject.swift in Sources */,
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
 				3C8F191B22E5BA9F00EECE90 /* LobbyView.swift in Sources */,
+				3C6FABF522FD39EB00226316 /* STOrderProductCellViewModel.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,

@@ -77,7 +77,10 @@ class ColorSelectionCell: BasicSelectionCell {
             return
         }
 
-        colorView.layoutCell(color: colorObjects[indexPath.row].color, isSelected: colorObjects[indexPath.row].isSelected)
+        colorView.layoutCell(
+            color: colorObjects[indexPath.row].color,
+            isSelected: colorObjects[indexPath.row].isSelected
+        )
     }
 
     override func didSelected(_ cell: BasicSelectionCell, at indexPath: IndexPath) {

@@ -19,8 +19,6 @@ class STTapPayViewController: STBaseViewController {
     var tpdCard: TPDCard!
     
     var tpdForm: TPDForm!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +62,9 @@ class STTapPayViewController: STBaseViewController {
                 
                 completion(Result.success(prime))
 
-            }.onFailureCallback { (code, message) in
+            }.onFailureCallback { (_, message) in
 
-                //TODO
+                // Error Handle
                 print(message)
             }
             .getPrime()

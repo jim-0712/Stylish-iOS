@@ -96,7 +96,7 @@ class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         orderObserver = StorageManager.shared.observe(
             \StorageManager.orders,
             options: .new,
-            changeHandler: { [weak self] manager, change in
+            changeHandler: { [weak self] _, change in
             
                 guard let newValue = change.newValue else { return }
                 
@@ -118,19 +118,22 @@ class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     // MARK: - UITabBarControllerDelegate
 
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        shouldSelect viewController: UIViewController
+    ) -> Bool {
 
         guard let navVC = viewController as? UINavigationController,
-              let _ = navVC.viewControllers.first as? ProfileViewController
+              navVC.viewControllers.first is ProfileViewController
         else { return true }
 
         guard KeyChainManager.shared.token != nil else {
 
-            if let vc = UIStoryboard.auth.instantiateInitialViewController() {
+            if let authVC = UIStoryboard.auth.instantiateInitialViewController() {
 
-                vc.modalPresentationStyle = .overCurrentContext
+                authVC.modalPresentationStyle = .overCurrentContext
 
-                present(vc, animated: false, completion: nil)
+                present(authVC, animated: false, completion: nil)
             }
 
             return false

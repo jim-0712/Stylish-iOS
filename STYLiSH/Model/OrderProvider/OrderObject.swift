@@ -53,7 +53,14 @@ struct Order: Encodable {
                 return nil
             }
             
-            let orderObject = OrderListObject(id: String(object.id), name: name, price: Int(object.price), color: color, size: size, qty: Int(product.amount))
+            let orderObject = OrderListObject(
+                id: String(object.id),
+                name: name, price:
+                Int(object.price),
+                color: color,
+                size: size,
+                qty: Int(product.amount)
+            )
             
             return orderObject
         }
@@ -69,7 +76,6 @@ struct Order: Encodable {
 
     var productPrices: Int {
         
-        get {
             var price = 0
             
             for item in products {
@@ -78,9 +84,6 @@ struct Order: Encodable {
             }
             
             return price
-        }
-        
-        set { }
     }
 
     var freight: Int {
@@ -156,7 +159,6 @@ enum Payment: String, Codable {
 
     case credit = "信用卡付款"
 }
-
 
 struct OrderListObject: Codable {
     
