@@ -11,7 +11,7 @@ import Foundation
 class ProfileManager {
 
     let orderGroup = ProfileGroup(
-        title: "我的訂單",
+        title: NSLocalizedString("我的訂單"),
         action: ProfileSegue.segueAllOrder,
         items: [
             OrderItem.awaitingPayment,
@@ -23,7 +23,7 @@ class ProfileManager {
     )
 
     let serviceGroup = ProfileGroup(
-        title: "更多服務",
+        title: NSLocalizedString("更多服務"),
         action: nil,
         items: [
             ServiceItem.collcetion,

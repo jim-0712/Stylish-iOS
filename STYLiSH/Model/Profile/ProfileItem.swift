@@ -23,7 +23,7 @@ enum ProfileSegue: String {
 
         switch self {
 
-        case .segueAllOrder: return "查看全部"
+        case .segueAllOrder: return NSLocalizedString("查看全部")
 
         }
     }
@@ -71,15 +71,15 @@ enum OrderItem: ProfileItem {
 
         switch self {
 
-        case .awaitingPayment: return "待付款"
+        case .awaitingPayment: return NSLocalizedString("待付款")
 
-        case .awaitingShipment: return "待出貨"
+        case .awaitingShipment: return NSLocalizedString("待出貨")
 
-        case .shipped: return "待簽收"
+        case .shipped: return NSLocalizedString("待簽收")
 
-        case .awaitingReview: return "待評價"
+        case .awaitingReview: return NSLocalizedString("待評價")
 
-        case .exchange: return "退換貨"
+        case .exchange: return NSLocalizedString("退換貨")
 
         }
     }
@@ -129,21 +129,21 @@ enum ServiceItem: ProfileItem {
 
         switch self {
 
-        case .collcetion: return "收藏"
+        case .collcetion: return NSLocalizedString("收藏")
 
-        case .notification: return "貨到通知"
+        case .notification: return NSLocalizedString("貨到通知")
 
-        case .refund: return "帳戶退款"
+        case .refund: return NSLocalizedString("帳戶退款")
 
-        case .address: return "地址"
+        case .address: return NSLocalizedString("地址")
 
-        case .customService: return "客服訊息"
+        case .customService: return NSLocalizedString("客服訊息")
 
-        case .systomReport: return "系統回饋"
+        case .systomReport: return NSLocalizedString("系統回饋")
 
-        case .bindPhone: return "手機綁定"
+        case .bindPhone: return NSLocalizedString("手機綁定")
 
-        case .setting: return "設定"
+        case .setting: return NSLocalizedString("設定")
         }
     }
 }

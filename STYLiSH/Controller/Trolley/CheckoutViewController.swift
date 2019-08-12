@@ -213,7 +213,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             return nil
         }
         
-        headerView.titleLabel.text = orderProvider.orderCustructor[section].rawValue
+        headerView.titleLabel.text = orderProvider.orderCustructor[section].title()
         
         return headerView
     }

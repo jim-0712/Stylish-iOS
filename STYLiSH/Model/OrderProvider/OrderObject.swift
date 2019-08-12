@@ -155,9 +155,20 @@ struct Reciever: Codable {
 
 enum Payment: String, Codable {
 
-    case cash = "貨到付款"
+    case cash
 
-    case credit = "信用卡付款"
+    case credit
+    
+    func title() -> String {
+        
+        switch self {
+
+        case .cash: return NSLocalizedString("貨到付款")
+            
+        case .credit: return NSLocalizedString("信用卡付款")
+
+        }
+    }
 }
 
 struct OrderListObject: Codable {

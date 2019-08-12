@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
-		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
-		3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F515221143BE00C5B3E2 /* Profile.storyboard */; };
-		3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F517221143FE00C5B3E2 /* Trolley.storyboard */; };
-		3C09F51A2211442000C5B3E2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5192211442000C5B3E2 /* Auth.storyboard */; };
 		3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */; };
 		3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */; };
 		3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F52022115AB700C5B3E2 /* UIImage+Extension.swift */; };
@@ -120,15 +116,18 @@
 		3CED4C0A2214192100121D4B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C092214192100121D4B /* Product.swift */; };
 		3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0B22141E9700121D4B /* MarketProvider.swift */; };
 		3CED4C0F2214222A00121D4B /* STParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0E2214222A00121D4B /* STParser.swift */; };
+		3CED8086230112C400B7DA8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CED8088230112C400B7DA8E /* InfoPlist.strings */; };
+		3CED808C2301138800B7DA8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CED808E2301138800B7DA8E /* Localizable.strings */; };
+		3CED80902301204200B7DA8E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED80922301204200B7DA8E /* Auth.storyboard */; };
+		3CED80A1230124DD00B7DA8E /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED80A3230124DD00B7DA8E /* Product.storyboard */; };
+		3CED80A62301256200B7DA8E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED80A82301256200B7DA8E /* Profile.storyboard */; };
+		3CED80AE23012CE400B7DA8E /* NSLocalizedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED80AD23012CE400B7DA8E /* NSLocalizedString+Extension.swift */; };
+		3CED80AF2301301300B7DA8E /* Trolley.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED80B12301301300B7DA8E /* Trolley.storyboard */; };
 		3CFAC67322EEF71C00785FAB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFAC67222EEF71C00785FAB /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
-		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
-		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		3C09F517221143FE00C5B3E2 /* Trolley.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trolley.storyboard; sourceTree = "<group>"; };
-		3C09F5192211442000C5B3E2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarViewController.swift; sourceTree = "<group>"; };
 		3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3C09F52022115AB700C5B3E2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -239,6 +238,23 @@
 		3CED4C092214192100121D4B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3CED4C0B22141E9700121D4B /* MarketProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketProvider.swift; sourceTree = "<group>"; };
 		3CED4C0E2214222A00121D4B /* STParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STParser.swift; sourceTree = "<group>"; };
+		3CED8087230112C400B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		3CED8089230112C500B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3CED808D2301138800B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3CED808F2301138A00B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3CED80942301204800B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Auth.strings"; sourceTree = "<group>"; };
+		3CED80952301205200B7DA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
+		3CED80972301207400B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
+		3CED80A2230124DD00B7DA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Product.storyboard; sourceTree = "<group>"; };
+		3CED80A4230124E300B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Product.strings; sourceTree = "<group>"; };
+		3CED80A5230124E500B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Product.strings"; sourceTree = "<group>"; };
+		3CED80A72301256200B7DA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		3CED80AA2301256600B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
+		3CED80AC2301256600B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Profile.strings"; sourceTree = "<group>"; };
+		3CED80AD23012CE400B7DA8E /* NSLocalizedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocalizedString+Extension.swift"; sourceTree = "<group>"; };
+		3CED80B02301301300B7DA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trolley.storyboard; sourceTree = "<group>"; };
+		3CED80B32301301700B7DA8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trolley.strings; sourceTree = "<group>"; };
+		3CED80B52301301800B7DA8E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Trolley.strings"; sourceTree = "<group>"; };
 		3CFAC67222EEF71C00785FAB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		524288A503CA319531F016DA /* Pods_STYLiSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STYLiSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +289,7 @@
 			children = (
 				3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */,
 				3CEBE07B222F7A210064EF82 /* Int+Extension.swift */,
+				3CED80AD23012CE400B7DA8E /* NSLocalizedString+Extension.swift */,
 				3C09F52022115AB700C5B3E2 /* UIImage+Extension.swift */,
 				3C0DD87722134EC100F5237E /* UIFont+Extension.swift */,
 				3C0DD879221350B300F5237E /* UIColor+Extension.swift */,
@@ -597,12 +614,12 @@
 				3C1ACFE722152D10005583E2 /* Profile */,
 				3C0DD87B2213531400F5237E /* Lobby */,
 				3CD29125221135E3008B8A2D /* LaunchScreen.storyboard */,
-				3C09F5192211442000C5B3E2 /* Auth.storyboard */,
+				3CED80922301204200B7DA8E /* Auth.storyboard */,
 				3C09F5112211435B00C5B3E2 /* Lobby.storyboard */,
+				3CED80A3230124DD00B7DA8E /* Product.storyboard */,
 				3CD29120221135E2008B8A2D /* Main.storyboard */,
-				3C09F513221143A600C5B3E2 /* Product.storyboard */,
-				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
-				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
+				3CED80A82301256200B7DA8E /* Profile.storyboard */,
+				3CED80B12301301300B7DA8E /* Trolley.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,6 +658,8 @@
 				3CB80E74222FCBD30095F18C /* Constant */,
 				3C4B10DE22292743009942B7 /* TapPay */,
 				3C4B10DF222927BB009942B7 /* STYLiSH-Bridging-Header.h */,
+				3CED808E2301138800B7DA8E /* Localizable.strings */,
+				3CED8088230112C400B7DA8E /* InfoPlist.strings */,
 				3CD29123221135E3008B8A2D /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -813,6 +832,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 3CD29110221135E2008B8A2D;
 			productRefGroup = 3CD2911A221135E2008B8A2D /* Products */;
@@ -829,15 +849,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C09F51A2211442000C5B3E2 /* Auth.storyboard in Resources */,
+				3CED80902301204200B7DA8E /* Auth.storyboard in Resources */,
+				3CED80A1230124DD00B7DA8E /* Product.storyboard in Resources */,
 				3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */,
-				3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */,
+				3CED80A62301256200B7DA8E /* Profile.storyboard in Resources */,
 				3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */,
 				3C4B10D622292732009942B7 /* card_amex.png in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
 				3C546BE922EAC7AA0082C655 /* STOrderHeaderView.xib in Resources */,
-				3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */,
 				3C6020DE222B90DF00312958 /* ProductDetailLabelCell.xib in Resources */,
 				3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */,
 				3C4B10D022292732009942B7 /* card_amex@3x.png in Resources */,
@@ -851,13 +871,15 @@
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
+				3CED808C2301138800B7DA8E /* Localizable.strings in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
-				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
+				3CED80AF2301301300B7DA8E /* Trolley.storyboard in Resources */,
 				3C4B10D322292732009942B7 /* card_jcb@3x.png in Resources */,
 				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
 				3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */,
 				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
 				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
+				3CED8086230112C400B7DA8E /* InfoPlist.strings in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
@@ -979,6 +1001,7 @@
 				3CCB3BC4222AA8FD00976A1C /* ProductDetailViewController.swift in Sources */,
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
 				3CEBE07C222F7A210064EF82 /* Int+Extension.swift in Sources */,
+				3CED80AE23012CE400B7DA8E /* NSLocalizedString+Extension.swift in Sources */,
 				3CA25519222A484300B286F6 /* ProductsListProvider.swift in Sources */,
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */,
@@ -1032,6 +1055,64 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		3CED8088230112C400B7DA8E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED8087230112C400B7DA8E /* zh-Hant */,
+				3CED8089230112C500B7DA8E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3CED808E2301138800B7DA8E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED808D2301138800B7DA8E /* zh-Hant */,
+				3CED808F2301138A00B7DA8E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		3CED80922301204200B7DA8E /* Auth.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED80942301204800B7DA8E /* zh-Hant */,
+				3CED80952301205200B7DA8E /* Base */,
+				3CED80972301207400B7DA8E /* en */,
+			);
+			name = Auth.storyboard;
+			sourceTree = "<group>";
+		};
+		3CED80A3230124DD00B7DA8E /* Product.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED80A2230124DD00B7DA8E /* Base */,
+				3CED80A4230124E300B7DA8E /* en */,
+				3CED80A5230124E500B7DA8E /* zh-Hant */,
+			);
+			name = Product.storyboard;
+			sourceTree = "<group>";
+		};
+		3CED80A82301256200B7DA8E /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED80A72301256200B7DA8E /* Base */,
+				3CED80AA2301256600B7DA8E /* en */,
+				3CED80AC2301256600B7DA8E /* zh-Hant */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		3CED80B12301301300B7DA8E /* Trolley.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CED80B02301301300B7DA8E /* Base */,
+				3CED80B32301301700B7DA8E /* en */,
+				3CED80B52301301800B7DA8E /* zh-Hant */,
+			);
+			name = Trolley.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1039,6 +1120,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1100,6 +1182,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
