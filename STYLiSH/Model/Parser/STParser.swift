@@ -13,6 +13,13 @@ struct STSuccessParser<T: Codable>: Codable {
     let data: T
 
     let paging: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case data
+        
+        case paging = "next_paging"
+    }
 }
 
 struct STFailureParser: Codable {
