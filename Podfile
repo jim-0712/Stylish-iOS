@@ -10,7 +10,7 @@ target 'STYLiSH' do
   
   pod 'Kingfisher'
   pod 'MJRefresh'
-  pod 'IQKeyboardManager'
+  pod 'IQKeyboardManagerSwift'
   pod 'JGProgressHUD'
   pod 'KeychainAccess'
   pod 'FBSDKLoginKit'

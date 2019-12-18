@@ -7,7 +7,7 @@ PODS:
     - FBSDKCoreKit/Basics
   - FBSDKLoginKit (5.2.3):
     - FBSDKCoreKit (~> 5.0)
-  - IQKeyboardManager (6.3.0)
+  - IQKeyboardManagerSwift (6.5.4)
   - JGProgressHUD (2.0.3)
   - KeychainAccess (3.2.0)
   - Kingfisher (5.4.0)
@@ -16,7 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - FBSDKLoginKit
-  - IQKeyboardManager
+  - IQKeyboardManagerSwift
   - JGProgressHUD
   - KeychainAccess
   - Kingfisher
@@ -27,7 +27,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FBSDKCoreKit
     - FBSDKLoginKit
-    - IQKeyboardManager
+    - IQKeyboardManagerSwift
     - JGProgressHUD
     - KeychainAccess
     - Kingfisher
@@ -37,13 +37,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   FBSDKCoreKit: 5154c35d9058fd7dfa0445ba19e194c4b172fc32
   FBSDKLoginKit: dc98b6bf12334f1a42f28d0457fffc9aa3d1eca5
-  IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
+  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 18e79ce1f34e4aa501e2b1da5a838655a871fb97
+PODFILE CHECKSUM: 69d32abab561556b6ef0d18466dc14f93a61a73a
 
 COCOAPODS: 1.8.4

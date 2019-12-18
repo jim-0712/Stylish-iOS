@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManager
+import IQKeyboardManagerSwift
 
 class STBaseViewController: UIViewController {
 
@@ -55,11 +55,11 @@ class STBaseViewController: UIViewController {
         }
 
         if !isEnableIQKeyboard {
-            IQKeyboardManager.shared().isEnabled = false
+            IQKeyboardManager.shared.enable = false
         }
 
         if !isEnableResignOnTouchOutside {
-            IQKeyboardManager.shared().shouldResignOnTouchOutside = false
+            IQKeyboardManager.shared.shouldResignOnTouchOutside = false
         }
         
         self.setNeedsStatusBarAppearanceUpdate()
@@ -73,11 +73,11 @@ class STBaseViewController: UIViewController {
         }
 
         if !isEnableIQKeyboard {
-            IQKeyboardManager.shared().isEnabled = true
+            IQKeyboardManager.shared.enable = true
         }
 
         if !isEnableResignOnTouchOutside {
-            IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+            IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         }
     }
 
