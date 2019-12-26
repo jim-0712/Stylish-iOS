@@ -8,7 +8,6 @@
 
 import UIKit
 import AdSupport
-import IQKeyboardManagerSwift
 import FBSDKCoreKit
 
 @UIApplicationMain
@@ -35,10 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         TPDSetup.shareInstance().serverSync()
-
-        IQKeyboardManager.shared.enable = true
-
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 

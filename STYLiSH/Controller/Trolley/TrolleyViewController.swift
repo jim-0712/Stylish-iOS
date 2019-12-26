@@ -51,8 +51,6 @@ class TrolleyViewController: STBaseViewController {
 
                 checkoutBtn.backgroundColor = UIColor.B1
             }
-
-            view.layoutIfNeeded()
         }
     }
 
