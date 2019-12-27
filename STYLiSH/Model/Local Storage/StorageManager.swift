@@ -58,7 +58,7 @@ typealias LSOrderResult = (Result<LSOrder>) -> Void
     
     @objc dynamic var orders: [LSOrder] = []
 
-    func fetchOrders(completion: LSOrderResults? = nil) {
+    func fetchOrders(completion: LSOrderResults = { _ in }) {
 
         let request = NSFetchRequest<LSOrder>(entityName: Entity.order.rawValue)
 
@@ -70,23 +70,7 @@ typealias LSOrderResult = (Result<LSOrder>) -> Void
             
             self.orders = orders
 
-            completion?(Result.success(orders))
-
-        } catch {
-
-            completion?(Result.failure(error))
-        }
-    }
-
-    func saveAll(completion: (Result<Void>) -> Void) {
-
-        do {
-
-            try viewContext.save()
-
-            completion(Result.success(()))
-            
-            fetchOrders()
+            completion(Result.success(orders))
 
         } catch {
 
@@ -114,52 +98,14 @@ typealias LSOrderResult = (Result<LSOrder>) -> Void
 
         order.createTime = Int(Date().timeIntervalSince1970).int64()
 
-        do {
-
-            try viewContext.save()
-
-            completion(Result.success(()))
-            
-            fetchOrders()
-
-        } catch {
-
-            completion(Result.failure(error))
-        }
+        save(completion: completion)
     }
 
     func deleteOrder(_ order: LSOrder, completion: (Result<Void>) -> Void) {
 
-        do {
-
-            viewContext.delete(order)
-
-            try viewContext.save()
-
-            completion(Result.success(()))
-            
-            fetchOrders()
-
-        } catch {
-
-            completion(Result.failure(error))
-        }
-    }
-
-    func updateOrder(completion: (Result<Void>) -> Void) {
-
-        do {
-
-            try viewContext.save()
-
-            completion(Result.success(()))
-            
-            fetchOrders()
-
-        } catch {
-
-            completion(Result.failure(error))
-        }
+        viewContext.delete(order)
+        
+        save(completion: completion)
     }
 
     func deleteAllProduct(completion: (Result<Void>) -> Void) {
@@ -186,8 +132,31 @@ typealias LSOrderResult = (Result<LSOrder>) -> Void
 
         completion(Result.success(()))
     }
+    
+    func save(completion: (Result<Void>) -> Void = { _ in  }) {
+        
+        do {
+            try viewContext.save()
+            
+            fetchOrders(completion: { result in
+                
+                switch result {
+                    
+                case .success: completion(Result.success(()))
+                    
+                case .failure(let error): completion(Result.failure(error))
+                
+                }
+            })
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
 }
 
+// MARK: - Data Operation
 private extension LSProduct {
 
     func mapping(_ object: Product) {

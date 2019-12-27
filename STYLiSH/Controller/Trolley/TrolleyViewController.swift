@@ -53,6 +53,8 @@ class TrolleyViewController: STBaseViewController {
             }
         }
     }
+    
+    var observation: NSKeyValueObservation?
 
     // MARK: - View Life Cycle
     
@@ -64,34 +66,24 @@ class TrolleyViewController: STBaseViewController {
         fetchData()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        fetchData()
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        StorageManager.shared.saveAll(completion: { _ in })
+        StorageManager.shared.save()
     }
     
     // MARK: - Action
 
     func fetchData() {
 
-        StorageManager.shared.fetchOrders(completion: { result in
-
-            switch result {
-
-            case .success(let orders):
-
-                self.orders = orders
-
-            case .failure:
-
-                LKProgressHUD.showFailure(text: "讀取資料發生錯誤！")
-            }
+        observation = StorageManager.shared.observe(
+            \.orders,
+            options: [.initial, .new],
+            changeHandler: { [weak self] (_, value) in
+            
+                guard let datas = value.newValue else { return }
+                
+                self?.orders = datas
         })
     }
 
@@ -103,13 +95,10 @@ class TrolleyViewController: STBaseViewController {
 
                 switch result {
 
-                case .success:
+                case .success: break
 
-                    orders.remove(at: index)
-
-                case .failure:
-
-                    LKProgressHUD.showFailure(text: "刪除資料失敗！")
+                case .failure: LKProgressHUD.showFailure(text: "刪除資料失敗！")
+                
                 }
         })
     }

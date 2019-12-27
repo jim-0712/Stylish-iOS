@@ -113,8 +113,7 @@ extension LobbyViewController: LobbyViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        guard let headerView = tableView
-            .dequeueReusableHeaderFooterView(
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: String(describing: LobbyTableViewHeaderView.self)
             ) as? LobbyTableViewHeaderView else {
                 return nil

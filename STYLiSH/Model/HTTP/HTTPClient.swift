@@ -56,6 +56,26 @@ protocol STRequest {
     var endPoint: String { get }
 }
 
+extension STRequest {
+    
+    func makeRequest() -> URLRequest {
+
+        let urlString = Bundle.STValueForString(key: STConstant.urlKey) + endPoint
+
+        let url = URL(string: urlString)!
+
+        var request = URLRequest(url: url)
+
+        request.allHTTPHeaderFields = headers
+        
+        request.httpBody = body
+
+        request.httpMethod = method
+
+        return request
+    }
+}
+
 class HTTPClient {
 
     static let shared = HTTPClient()
@@ -72,7 +92,7 @@ class HTTPClient {
     ) {
 
         URLSession.shared.dataTask(
-            with: makeRequest(stRequest),
+            with: stRequest.makeRequest(),
             completionHandler: { (data, response, error) in
 
             guard error == nil else {
@@ -105,22 +125,5 @@ class HTTPClient {
             }
 
         }).resume()
-    }
-
-    private func makeRequest(_ stRequest: STRequest) -> URLRequest {
-
-        let urlString = Bundle.STValueForString(key: STConstant.urlKey) + stRequest.endPoint
-
-        let url = URL(string: urlString)!
-
-        var request = URLRequest(url: url)
-
-        request.allHTTPHeaderFields = stRequest.headers
-        
-        request.httpBody = stRequest.body
-
-        request.httpMethod = stRequest.method
-
-        return request
     }
 }
