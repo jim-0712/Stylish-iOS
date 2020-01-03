@@ -30,6 +30,16 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
+  //History
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if indexPath.section == 1 && indexPath.row == 0 {
+      guard let vcc = storyboard?.instantiateViewController(identifier: "history") as?  HistoryViewController else {
+        return
+      }
+      vcc.modalPresentationStyle = .overCurrentContext
+      present(vcc, animated: true, completion: nil)
+    }
+  }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
 

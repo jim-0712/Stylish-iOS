@@ -124,6 +124,8 @@
 		3CED80AF2301301300B7DA8E /* Trolley.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED80B12301301300B7DA8E /* Trolley.storyboard */; };
 		3CFAC67322EEF71C00785FAB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFAC67222EEF71C00785FAB /* String+Extension.swift */; };
 		D306B883B370DFD3ED8ACD74 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C2B4AF3EF2ABFF2BB9F7AB /* Pods_STYLiSH.framework */; };
+		FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC623BEE8E30059176B /* HistoryViewController.swift */; };
+		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -259,6 +261,8 @@
 		42C2B4AF3EF2ABFF2BB9F7AB /* Pods_STYLiSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STYLiSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
+		FB335DC623BEE8E30059176B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +597,7 @@
 		3CD2911B221135E2008B8A2D /* STYLiSH */ = {
 			isa = PBXGroup;
 			children = (
+				FB335DC523BEE89E0059176B /* Jim */,
 				3CB8011F2229A0580029A552 /* Third Party Wrapper */,
 				3C09F51F22115A9F00C5B3E2 /* Extension */,
 				3CD2913122113D12008B8A2D /* Resource */,
@@ -785,6 +790,15 @@
 				42C2B4AF3EF2ABFF2BB9F7AB /* Pods_STYLiSH.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB335DC523BEE89E0059176B /* Jim */ = {
+			isa = PBXGroup;
+			children = (
+				FB335DC623BEE8E30059176B /* HistoryViewController.swift */,
+				FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */,
+			);
+			path = Jim;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -988,11 +1002,13 @@
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
 				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
+				FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,
+				FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */,
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
@@ -1246,7 +1262,7 @@
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
 				);
 				INFOPLIST_FILE = STYLiSH/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1271,7 +1287,7 @@
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
 				);
 				INFOPLIST_FILE = STYLiSH/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
