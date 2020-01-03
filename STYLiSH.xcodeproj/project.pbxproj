@@ -126,6 +126,10 @@
 		D306B883B370DFD3ED8ACD74 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C2B4AF3EF2ABFF2BB9F7AB /* Pods_STYLiSH.framework */; };
 		FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC623BEE8E30059176B /* HistoryViewController.swift */; };
 		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
+		FB335DCB23BF02640059176B /* Jim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB335DCA23BF02640059176B /* Jim.storyboard */; };
+		FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */; };
+		FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B723BF2E0200BC18A7 /* DataNow.swift */; };
+		FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B923BF34EC00BC18A7 /* storeJim.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +267,10 @@
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 		FB335DC623BEE8E30059176B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		FB335DCA23BF02640059176B /* Jim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jim.storyboard; sourceTree = "<group>"; };
+		FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
+		FBBC47B723BF2E0200BC18A7 /* DataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNow.swift; sourceTree = "<group>"; };
+		FBBC47B923BF34EC00BC18A7 /* storeJim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeJim.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -797,6 +805,10 @@
 			children = (
 				FB335DC623BEE8E30059176B /* HistoryViewController.swift */,
 				FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */,
+				FB335DCA23BF02640059176B /* Jim.storyboard */,
+				FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */,
+				FBBC47B723BF2E0200BC18A7 /* DataNow.swift */,
+				FBBC47B923BF34EC00BC18A7 /* storeJim.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -892,6 +904,7 @@
 				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
 				3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */,
 				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
+				FB335DCB23BF02640059176B /* Jim.storyboard in Resources */,
 				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
 				3CED8086230112C400B7DA8E /* InfoPlist.strings in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
@@ -976,7 +989,9 @@
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
 				3CE7A519223064C7009FF003 /* UserObject.swift in Sources */,
+				FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */,
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
+				FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */,
 				3C8F191B22E5BA9F00EECE90 /* LobbyView.swift in Sources */,
 				3C6FABF522FD39EB00226316 /* STOrderProductCellViewModel.swift in Sources */,
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
@@ -1011,6 +1026,7 @@
 				FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */,
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
+				FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */,
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
 				3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */,
 				3CB8011E22299B460029A552 /* STCompondViewController.swift in Sources */,
