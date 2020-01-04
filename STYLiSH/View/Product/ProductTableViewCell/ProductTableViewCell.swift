@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CommentManager {
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool)
+}
+
 class ProductTableViewCell: UITableViewCell {
   
   @IBOutlet weak var productImg: UIImageView!
@@ -18,16 +22,16 @@ class ProductTableViewCell: UITableViewCell {
   
   @IBOutlet weak var commentAction: UIButton!
   
+  var delegate: CommentManager?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     
   }
   @IBAction func commentActionReal(_ sender: Any) {
-    guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "Comment") as? CommentViewController else {
-      return
-    }
-    vc.navigationController?.pushViewController(vc, animated: true)
-//    self.show(vc, sender: nil)
+    
+    self.delegate?.commentVC(tableviewCell: self, trigger: true)
+
   }
   
   func layoutCell(image: String, title: String, price: Int) {

@@ -162,7 +162,7 @@ class ProductListViewController: STCompondViewController {
 
             return cell
         }
-
+        productCell.delegate = self
         productCell.layoutCell(
             image: product.mainImage,
             title: product.title,
@@ -191,14 +191,14 @@ class ProductListViewController: STCompondViewController {
             withReuseIdentifier: String(describing: ProductCollectionViewCell.self),
             for: indexPath
         )
-
+        
         guard let productCell = cell as? ProductCollectionViewCell,
               let product = datas[indexPath.section][indexPath.row] as? Product
         else {
 
             return cell
         }
-
+        
         productCell.layoutCell(
             image: product.mainImage,
             title: product.title,
@@ -216,4 +216,14 @@ class ProductListViewController: STCompondViewController {
 
         showProductDetailViewController(product: product)
     }
+}
+
+extension ProductListViewController: CommentManager {
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool) {
+        guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "Comment") as? CommentViewController else {
+          return
+        }
+        vc.navigationController?.pushViewController(vc, animated: true)
+        self.show(vc, sender: nil)
+  }
 }
