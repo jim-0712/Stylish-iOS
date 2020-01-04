@@ -9,44 +9,42 @@
 import Foundation
 
 struct HistoryList: Codable{
-  let user: String
-  let list: [Lists]
+  let total: [Int]
+  let orderlist: [Lists]
+    
+    enum CodingKeys: String, CodingKey {
+      case orderlist = "order_list"
+      case total
+    }
 }
-
 struct Lists: Codable {
-  let orderid: String
-  let product: [HistoryProduct]
-  
-  enum CodingKeys: String, CodingKey {
-    case orderid = "order_id"
-    case product = "product"
-  }
+  let number: String
+  let list: HistoryProduct
 }
-
 struct HistoryProduct: Codable {
-  let id: String
+  let id: Int
+  let qty: Int
   let name: String
   let size: String
   let color: ColorsY
-  let price: String
-  let qty: String
-  let picture: String
+  let price: Int
+  let mainimage: String
+  enum CodingKeys: String, CodingKey {
+    case mainimage = "main_image"
+    case id, qty, name, size, color,price
+  }
  }
-
 struct ColorsY: Codable {
   let colorcode: String
   let colorname: String
-  
   enum CodingKeys: String, CodingKey {
     case colorcode = "color_code"
     case colorname = "color_name"
   }
 }
-
 struct FromSty: Codable {
   let data: FromData
 }
-
 struct FromData: Codable {
   let id: Int
   let provider: String
@@ -54,4 +52,3 @@ struct FromData: Codable {
   let email: String
   let picture: String
 }
-

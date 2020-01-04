@@ -55,7 +55,7 @@ class PointViewController: UIViewController {
     if count == 0 {
       ticketCountLabel.text = "沒折價券了傻逼"
       getTicketButton.isEnabled = false
-    }else {
+    } else {
       getTicketButton.isEnabled = true
       count -= 1
       NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
@@ -84,7 +84,6 @@ class PointViewController: UIViewController {
     },
                    completion: nil)
     
-    
     UIView.animate(withDuration: 1.5,
                    delay: 0,
                    options: [.repeat, .autoreverse],
@@ -99,7 +98,7 @@ class PointViewController: UIViewController {
   func memberLevel() {
     if money < 4999 {
       vipImage.image = UIImage(named: "popo")
-      memberLabel.text = "一班會員"
+      memberLabel.text = "一般會員"
       let cash = 4999 - money
       mileStoneLabel.text = "距離下一等級差\(cash)元"
       targetLabelSett(now: 0, target: 4999)
