@@ -39,7 +39,11 @@ class UserProvider {
                     let userObject = try JSONDecoder().decode(STSuccessParser<UserObject>.self, from: data)
 
                     KeyChainManager.shared.token = userObject.data.accessToken
-
+                    StoreJimS.sharedJim.email = userObject.data.user.email
+                    UserDefaults.standard.set(userObject.data.user.email, forKey: "email")
+                    UserDefaults.standard.set(userObject.data.user.id, forKey: "id")
+                    UserDefaults.standard.set(userObject.data.user.name, forKey: "name")
+                    StoreJimS.sharedJim.id = userObject.data.user.id
                     completion(Result.success(()))
 
                 } catch {
@@ -140,5 +144,4 @@ class UserProvider {
             }
         })
     }
-
 }

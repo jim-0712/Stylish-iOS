@@ -9,25 +9,25 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-
-  @IBOutlet weak var productImage: UIImageView!
-  @IBOutlet weak var productName: UILabel!
-  @IBOutlet weak var color: UIView!
+  
+  
+  @IBOutlet weak var pictureView: UIImageView!
+  @IBOutlet weak var numberLabel: UILabel!
+  @IBOutlet weak var productLabel: UILabel!
+  @IBOutlet weak var colorBlock: UIView!
   @IBOutlet weak var sizeLabel: UILabel!
-  @IBOutlet weak var priceLabel: UILabel!
-  @IBOutlet weak var countLabel: UILabel!
-  
-  
+  @IBOutlet weak var accountLabel: UILabel!
+  @IBOutlet weak var moneyLabel: UILabel!
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    // Configure the view for the selected state
+  }
+  
 }

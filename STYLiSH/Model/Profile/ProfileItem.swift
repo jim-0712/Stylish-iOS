@@ -107,11 +107,11 @@ enum ServiceItem: ProfileItem {
 
         switch self {
 
-        case .collcetion: return UIImage.asset(.Icons_24px_Starred)
+        case .collcetion: return UIImage(named: "history")
 
-        case .notification: return UIImage.asset(.Icons_24px_Notification)
+        case .notification: return UIImage(named: "ticket")
 
-        case .refund: return UIImage.asset(.Icons_24px_Refunded)
+        case .refund: return UIImage(named: "contract")
 
         case .address: return UIImage.asset(.Icons_24px_Address)
 
