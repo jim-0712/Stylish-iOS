@@ -46,11 +46,9 @@ class ProfileViewController: UIViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(HistoryList.self, from: data)
         self.storeManJim.historyData = [result]
-        for count1 in 0 ..< self.storeManJim.historyData[0].list.count {
-          for count2 in 0 ..< self.storeManJim.historyData[0].list[count1].product.count {
-            guard let money = Int(self.storeManJim.historyData[0].list[count1].product[count2].price) else {break }
-            self.total += money
-          }
+        for count1 in 0 ..< self.storeManJim.historyData[0].orderlist.count {
+          let money = self.storeManJim.historyData[0].orderlist[count1].list.price
+          self.total += money
         }
         self.storeManJim.totalMoney = self.total
         print(result)
@@ -111,11 +109,9 @@ class ProfileViewController: UIViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(HistoryList.self, from: data)
         self.storeManJim.historyData = [result]
-        for count1 in 0 ..< self.storeManJim.historyData[0].list.count {
-          for count2 in 0 ..< self.storeManJim.historyData[0].list[count1].product.count {
-            guard let money = Int(self.storeManJim.historyData[0].list[count1].product[count2].price) else {break }
-            self.total += money
-          }
+        for count1 in 0 ..< self.storeManJim.historyData[0].orderlist.count {
+          let money = self.storeManJim.historyData[0].orderlist[count1].list.price
+          self.total += money
         }
         self.storeManJim.totalMoney = self.total
         print(result)
@@ -136,7 +132,7 @@ extension ProfileViewController: UICollectionViewDataSource {
       }
       vcc.modalPresentationStyle = .overCurrentContext
       present(vcc, animated: true, completion: nil)
-    } else if indexPath.section == 1 && indexPath.row == 3 {
+    }else if indexPath.section == 1 && indexPath.row == 3 {
       guard let vcc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "point")  as?  PointViewController else {
         return
       }
@@ -148,9 +144,15 @@ extension ProfileViewController: UICollectionViewDataSource {
       }
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
+    }else if indexPath.section == 1 && indexPath.row ==  1 {
+      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "Coupon") as? CouponViewController else {
+        return
+      }
+      vc.navigationController?.pushViewController(vc, animated: true)
+      show(vc, sender: nil)
     }
   }
-  
+  //  CouponViewController
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     
     return manager.groups.count

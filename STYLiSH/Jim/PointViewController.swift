@@ -99,7 +99,7 @@ class PointViewController: UIViewController {
   func memberLevel() {
     if money < 4999 {
       vipImage.image = UIImage(named: "popo")
-      memberLabel.text = "一班會員"
+      memberLabel.text = "一般會員"
       let cash = 4999 - money
       mileStoneLabel.text = "距離下一等級差\(cash)元"
       targetLabelSett(now: 0, target: 4999)
