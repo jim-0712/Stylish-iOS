@@ -40,12 +40,15 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
 //    return storeManJim.historyData[0].orderlist.count
     return 1
+
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "history", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell()}
+
 //    cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list.qty)"
 //    cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
 //    cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list.name

@@ -11,16 +11,18 @@ import Foundation
 struct HistoryList: Codable{
   let total: [Int]
   let orderlist: [Lists]
-    
-    enum CodingKeys: String, CodingKey {
-      case orderlist = "order_list"
-      case total
-    }
+  
+  enum CodingKeys: String, CodingKey {
+    case orderlist = "order_list"
+    case total
+  }
 }
+
 struct Lists: Codable {
   let number: String
   let list: HistoryProduct
 }
+
 struct HistoryProduct: Codable {
   let id: Int
   let qty: Int
@@ -29,9 +31,10 @@ struct HistoryProduct: Codable {
   let color: ColorsY
   let price: Int
   let mainimage: String
+  
   enum CodingKeys: String, CodingKey {
     case mainimage = "main_image"
-    case id, qty, name, size, color,price
+    case id, qty, name, size, color, price
   }
  }
 struct ColorsY: Codable {
