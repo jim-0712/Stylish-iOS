@@ -9,24 +9,39 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var productImg: UIImageView!
-
-    @IBOutlet weak var productTitleLbl: UILabel!
-
-    @IBOutlet weak var productPriceLbl: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
+  
+  @IBOutlet weak var productImg: UIImageView!
+  
+  @IBOutlet weak var productTitleLbl: UILabel!
+  
+  @IBOutlet weak var productPriceLbl: UILabel!
+  
+  @IBOutlet weak var commentAction: UIButton!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+  }
+  @IBAction func commentActionReal(_ sender: Any) {
+    guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "Comment") as? CommentViewController else {
+      return
     }
-
-    func layoutCell(image: String, title: String, price: Int) {
-
-        productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
-
-        productTitleLbl.text = title
-
-        productPriceLbl.text = String(price)
-    }
+    vc.navigationController?.pushViewController(vc, animated: true)
+//    self.show(vc, sender: nil)
+  }
+  
+  func layoutCell(image: String, title: String, price: Int) {
+    
+    productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
+    
+    productTitleLbl.text = title
+    
+    productPriceLbl.text = String(price)
+  }
 }
+
+//guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "chat") as? ChatViewController else {
+//  return
+//}
+//vc.navigationController?.pushViewController(vc, animated: true)
+//show(vc, sender: nil)

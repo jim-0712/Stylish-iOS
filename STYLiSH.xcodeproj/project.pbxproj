@@ -134,6 +134,7 @@
 		FB6DECEF23C09402000B3138 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECEE23C09402000B3138 /* CouponViewController.swift */; };
 		FB6DECF123C09998000B3138 /* CouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */; };
 		FB6DECF323C09D67000B3138 /* FreeDeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */; };
+		FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF423C0A55E000B3138 /* CommentViewController.swift */; };
 		FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */; };
 		FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B723BF2E0200BC18A7 /* DataNow.swift */; };
 		FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B923BF34EC00BC18A7 /* storeJim.swift */; };
@@ -282,6 +283,7 @@
 		FB6DECEE23C09402000B3138 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTableViewCell.swift; sourceTree = "<group>"; };
 		FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeDeliveryTableViewCell.swift; sourceTree = "<group>"; };
+		FB6DECF423C0A55E000B3138 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		FBBC47B723BF2E0200BC18A7 /* DataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNow.swift; sourceTree = "<group>"; };
 		FBBC47B923BF34EC00BC18A7 /* storeJim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeJim.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
 				FB6DECE823C07E18000B3138 /* Chat.storyboard */,
 				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
+				FB6DECF423C0A55E000B3138 /* CommentViewController.swift */,
 			);
 			path = Savannah;
 			sourceTree = "<group>";
@@ -1038,6 +1041,7 @@
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
+				FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */,
 				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
 				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,

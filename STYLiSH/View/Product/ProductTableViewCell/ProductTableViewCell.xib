@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yge-hZ-XS8">
@@ -27,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厚實毛呢格子外套" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryn-9R-EdD">
-                        <rect key="frame" x="122" y="53.5" width="213" height="21"/>
+                        <rect key="frame" x="122" y="53.5" width="214" height="21"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                         <color key="textColor" red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -38,12 +36,28 @@
                         <color key="textColor" red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRw-19-bMe">
+                        <rect key="frame" x="320" y="49" width="40" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="C6R-jc-SBi"/>
+                            <constraint firstAttribute="width" constant="40" id="dwm-L9-a3A"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="評論">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="commentActionReal:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZI5-CQ-w6P"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="yge-hZ-XS8" secondAttribute="bottom" priority="750" id="5fl-TX-EpN"/>
                     <constraint firstAttribute="trailing" secondItem="Dt8-as-qW5" secondAttribute="trailing" constant="24" id="8DQ-C8-zkB"/>
                     <constraint firstItem="yge-hZ-XS8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="Air-hV-ATp"/>
+                    <constraint firstItem="cRw-19-bMe" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Big-yL-rAP"/>
                     <constraint firstItem="Dt8-as-qW5" firstAttribute="leading" secondItem="ryn-9R-EdD" secondAttribute="leading" id="EyI-Jg-GJw"/>
+                    <constraint firstItem="cRw-19-bMe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="38" id="IwB-B0-5ey"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ryn-9R-EdD" secondAttribute="trailing" constant="24" id="LDN-JP-ttD"/>
                     <constraint firstItem="Dt8-as-qW5" firstAttribute="top" secondItem="ryn-9R-EdD" secondAttribute="bottom" constant="8" id="YuO-Fs-eeE"/>
                     <constraint firstItem="yge-hZ-XS8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="82/375" id="aCi-Vk-LfG"/>
@@ -54,6 +68,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="commentAction" destination="cRw-19-bMe" id="uh0-DU-vTs"/>
                 <outlet property="productImg" destination="yge-hZ-XS8" id="OY1-cQ-IZN"/>
                 <outlet property="productPriceLbl" destination="Dt8-as-qW5" id="lc1-GQ-XZX"/>
                 <outlet property="productTitleLbl" destination="ryn-9R-EdD" id="eVi-vM-grR"/>
