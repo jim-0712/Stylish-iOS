@@ -11,7 +11,7 @@ import UIKit
 
 class StoreJimS {
   static let sharedJim = StoreJimS()
-  private init(){}
+  private init() {}
   var historyData = [HistoryList]()
   var totalMoney = 0
   var id = 0

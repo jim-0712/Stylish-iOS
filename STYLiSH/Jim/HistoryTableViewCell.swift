@@ -10,7 +10,6 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
   
-  
   @IBOutlet weak var pictureView: UIImageView!
   @IBOutlet weak var numberLabel: UILabel!
   @IBOutlet weak var productLabel: UILabel!

@@ -87,7 +87,7 @@ class ProfileViewController: UIViewController {
   //    task.resume()
   //  }
   
-  func postLoginCall(){
+  func postLoginCall() {
     let email = UserDefaults.standard.value(forKey: "email")
     let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/user/profile")!
     var request = URLRequest(url: shoppingCart)
@@ -109,6 +109,7 @@ class ProfileViewController: UIViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(HistoryList.self, from: data)
         self.storeManJim.historyData = [result]
+
         for count1 in 0 ..< self.storeManJim.historyData[0].orderlist.count {
           let money = self.storeManJim.historyData[0].orderlist[count1].list.price
           self.total += money

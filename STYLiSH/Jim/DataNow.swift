@@ -37,21 +37,17 @@ struct HistoryProduct: Codable {
     case id, qty, name, size, color, price
   }
  }
-
 struct ColorsY: Codable {
   let colorcode: String
   let colorname: String
-  
   enum CodingKeys: String, CodingKey {
     case colorcode = "color_code"
     case colorname = "color_name"
   }
 }
-
 struct FromSty: Codable {
   let data: FromData
 }
-
 struct FromData: Codable {
   let id: Int
   let provider: String

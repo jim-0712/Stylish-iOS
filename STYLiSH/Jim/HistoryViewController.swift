@@ -38,23 +38,28 @@ class HistoryViewController: UIViewController {
   
 }
 
-extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return storeManJim.historyData[0].orderlist.count
+
+//    return storeManJim.historyData[0].orderlist.count
+    return 1
+
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "history", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell()}
-    cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list.qty)"
-    cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
-    cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list.name
-    cell.sizeLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list.size
-    let colorUrl = storeManJim.historyData[0].orderlist[indexPath.row].list.color.colorcode
-    cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
-    cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list.price)"
-    let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list.mainimage)
-    cell.pictureView.kf.setImage(with: imageURL)
-    return cell
+
+//    cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list.qty)"
+//    cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
+//    cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list.name
+//    cell.sizeLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list.size
+//    let colorUrl = storeManJim.historyData[0].orderlist[indexPath.row].list.color.colorcode
+//    cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
+//    cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list.price)"
+//    let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list.mainimage)
+//    cell.pictureView.kf.setImage(with: imageURL)
+//    return cell
+    return UITableViewCell()
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
