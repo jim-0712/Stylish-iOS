@@ -10,17 +10,12 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class ChatViewController: UIViewController {
-  
-  @IBOutlet weak var chatTable: UITableView!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
 
     var chatCount = 1
     var ownerQuestion: [String] = []
     var dbAnswer: [String] = []
     var questionIndex = 0
-
+    
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var customerText: UITextField!
     @IBAction func sendButton(_ sender: Any) {
@@ -56,14 +51,8 @@ extension ChatViewController: UITableViewDelegate {
 extension ChatViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 2
+    return chatCount
   }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatCount
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -92,5 +81,4 @@ extension ChatViewController: UITableViewDataSource {
         }
 
     }
-  }
 }
