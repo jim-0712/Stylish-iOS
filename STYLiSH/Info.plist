@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -29,12 +27,16 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<false/>
 	<key>FacebookAppID</key>
 	<string>296758097659999</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<false/>
 	<key>FacebookDisplayName</key>
 	<string>STYLiSH-Luke</string>
+	<key>LSApplicationCategoryType</key>
+	<string>Authorization</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -52,7 +54,7 @@
 		<false/>
 	</dict>
 	<key>STBaseURL</key>
-	<string>https://api.appworks-school.tw/api/1.0</string>
+	<string>https://williamyhhuang.com/api/1.0</string>
 	<key>STTapPayAppID</key>
 	<integer>12348</integer>
 	<key>STTapPayAppKey</key>

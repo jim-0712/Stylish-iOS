@@ -9,13 +9,8 @@
 import Foundation
 
 struct HistoryList: Codable{
-  let userid: String
+  let user: String
   let list: [Lists]
-  
-  enum CodingKeys: String, CodingKey {
-    case userid = "user_id"
-    case list = "list"
-  }
 }
 
 struct Lists: Codable {
@@ -48,5 +43,15 @@ struct ColorsY: Codable {
   }
 }
 
+struct FromSty: Codable {
+  let data: FromData
+}
 
+struct FromData: Codable {
+  let id: Int
+  let provider: String
+  let name: String
+  let email: String
+  let picture: String
+}
 

@@ -127,6 +127,10 @@
 		FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC623BEE8E30059176B /* HistoryViewController.swift */; };
 		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
 		FB335DCB23BF02640059176B /* Jim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB335DCA23BF02640059176B /* Jim.storyboard */; };
+		FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE623C07E18000B3138 /* ChatViewController.swift */; };
+		FB6DECEB23C07E18000B3138 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */; };
+		FB6DECEC23C07E18000B3138 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6DECE823C07E18000B3138 /* Chat.storyboard */; };
+		FB6DECED23C07E18000B3138 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */; };
 		FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */; };
 		FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B723BF2E0200BC18A7 /* DataNow.swift */; };
 		FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B923BF34EC00BC18A7 /* storeJim.swift */; };
@@ -268,6 +272,10 @@
 		FB335DC623BEE8E30059176B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FB335DCA23BF02640059176B /* Jim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jim.storyboard; sourceTree = "<group>"; };
+		FB6DECE623C07E18000B3138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
+		FB6DECE823C07E18000B3138 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		FBBC47B723BF2E0200BC18A7 /* DataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNow.swift; sourceTree = "<group>"; };
 		FBBC47B923BF34EC00BC18A7 /* storeJim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeJim.swift; sourceTree = "<group>"; };
@@ -605,6 +613,7 @@
 		3CD2911B221135E2008B8A2D /* STYLiSH */ = {
 			isa = PBXGroup;
 			children = (
+				FB6DECE523C07E18000B3138 /* Savannah */,
 				FB335DC523BEE89E0059176B /* Jim */,
 				3CB8011F2229A0580029A552 /* Third Party Wrapper */,
 				3C09F51F22115A9F00C5B3E2 /* Extension */,
@@ -813,6 +822,17 @@
 			path = Jim;
 			sourceTree = "<group>";
 		};
+		FB6DECE523C07E18000B3138 /* Savannah */ = {
+			isa = PBXGroup;
+			children = (
+				FB6DECE623C07E18000B3138 /* ChatViewController.swift */,
+				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
+				FB6DECE823C07E18000B3138 /* Chat.storyboard */,
+				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
+			);
+			path = Savannah;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -909,6 +929,7 @@
 				3CED8086230112C400B7DA8E /* InfoPlist.strings in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
+				FB6DECEC23C07E18000B3138 /* Chat.storyboard in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
 				3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */,
@@ -989,6 +1010,7 @@
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
 				3CE7A519223064C7009FF003 /* UserObject.swift in Sources */,
+				FB6DECEB23C07E18000B3138 /* ServerTableViewCell.swift in Sources */,
 				FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */,
 				3CB801272229AFF10029A552 /* UICollectionView+Extension.swift in Sources */,
 				FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */,
@@ -1019,6 +1041,7 @@
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
+				FB6DECED23C07E18000B3138 /* CustomerTableViewCell.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
@@ -1037,6 +1060,7 @@
 				3CA25519222A484300B286F6 /* ProductsListProvider.swift in Sources */,
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */,
+				FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */,
 				3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */,
 				3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */,
 				3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */,
