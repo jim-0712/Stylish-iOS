@@ -40,8 +40,3 @@ class ProductTableViewCell: UITableViewCell {
   }
 }
 
-//guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "chat") as? ChatViewController else {
-//  return
-//}
-//vc.navigationController?.pushViewController(vc, animated: true)
-//show(vc, sender: nil)
