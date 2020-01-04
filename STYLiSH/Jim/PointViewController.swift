@@ -55,7 +55,7 @@ class PointViewController: UIViewController {
     if count == 0 {
       ticketCountLabel.text = "沒折價券了傻逼"
       getTicketButton.isEnabled = false
-    }else {
+    } else {
       getTicketButton.isEnabled = true
       count -= 1
       NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
@@ -83,7 +83,6 @@ class PointViewController: UIViewController {
                     self.myGodView.backgroundColor = .red
     },
                    completion: nil)
-    
     
     UIView.animate(withDuration: 1.5,
                    delay: 0,
