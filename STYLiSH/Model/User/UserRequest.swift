@@ -13,6 +13,8 @@ enum STUserRequest: STRequest {
     case signin(String)
 
     case checkout(token: String, body: Data?)
+  
+    case lottery()
 
     var headers: [String: String] {
 
@@ -28,6 +30,9 @@ enum STUserRequest: STRequest {
                 STHTTPHeaderField.auth.rawValue: "Bearer \(token)",
                 STHTTPHeaderField.contentType.rawValue: STHTTPHeaderValue.json.rawValue
             ]
+        case .lottery:
+          
+          return [:]
         }
     }
 
@@ -47,6 +52,10 @@ enum STUserRequest: STRequest {
         case .checkout(_, let body):
 
             return body
+          
+        case .lottery():
+          
+          return nil
         }
     }
 
@@ -55,6 +64,8 @@ enum STUserRequest: STRequest {
         switch self {
 
         case .signin, .checkout: return STHTTPMethod.POST.rawValue
+          
+        case .lottery: return STHTTPMethod.GET.rawValue
 
         }
     }
@@ -66,6 +77,8 @@ enum STUserRequest: STRequest {
         case .signin: return "/user/signin"
 
         case .checkout: return "/order/checkout"
+          
+        case .lottery: return "apple"
         }
     }
 

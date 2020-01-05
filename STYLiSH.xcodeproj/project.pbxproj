@@ -127,6 +127,7 @@
 		FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC623BEE8E30059176B /* HistoryViewController.swift */; };
 		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
 		FB335DCB23BF02640059176B /* Jim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB335DCA23BF02640059176B /* Jim.storyboard */; };
+		FB4FC74B23C1B450008AB2EA /* ChatJimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */; };
 		FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE623C07E18000B3138 /* ChatViewController.swift */; };
 		FB6DECEB23C07E18000B3138 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */; };
 		FB6DECEC23C07E18000B3138 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6DECE823C07E18000B3138 /* Chat.storyboard */; };
@@ -276,6 +277,7 @@
 		FB335DC623BEE8E30059176B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FB335DCA23BF02640059176B /* Jim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jim.storyboard; sourceTree = "<group>"; };
+		FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatJimViewController.swift; sourceTree = "<group>"; };
 		FB6DECE623C07E18000B3138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		FB6DECE823C07E18000B3138 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -829,6 +831,7 @@
 				FB6DECEE23C09402000B3138 /* CouponViewController.swift */,
 				FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */,
 				FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */,
+				FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
+				FB4FC74B23C1B450008AB2EA /* ChatJimViewController.swift in Sources */,
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */,
@@ -1240,7 +1244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1296,7 +1300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1312,7 +1316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
@@ -1337,7 +1341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",

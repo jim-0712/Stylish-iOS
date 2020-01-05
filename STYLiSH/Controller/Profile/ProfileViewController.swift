@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   var storeManJim = StoreJimS.sharedJim
+  let provider = UserProvider()
   @IBOutlet weak var collectionView: UICollectionView! {
     
     didSet {
@@ -27,12 +28,80 @@ class ProfileViewController: UIViewController {
     getData()
   }
   
+//  func serviceData() {
+//    let configuration = URLSessionConfiguration.default
+//    let session = URLSession(configuration: configuration)
+//    
+//    let shoppingCart = URL(string: "")!
+//    var request = URLRequest(url: shoppingCart)
+//    request.httpMethod = "GET"
+//    let task = session.dataTask(with: request) {(data, response, error)  in
+//      guard let httpResponse = response as? HTTPURLResponse,
+//        httpResponse.statusCode == 200 else {return}
+//      
+//      guard let data = data else {
+//        return
+//      }
+//      let decoder = JSONDecoder()
+//      do {
+//        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//        let result  = try decoder.decode(Services.self, from: data)
+//        self.storeManJim.servicesAnswer = [result]
+//        print(result)
+//      } catch {
+//        
+//      }
+//    }
+//    task.resume()
+//  }
+  
+  func lotteryData() {
+    let configuration = URLSessionConfiguration.default
+    let session = URLSession(configuration: configuration)
+
+    let email = UserDefaults.standard.value(forKey: "email") as? String
+//    let lottery = URL(string: "https://yssites.com/api/1.0/points?email=\(email!)")!
+    
+    let newlottery = URL(string: "https://yssites.com/api/1.0/points")!
+    
+    
+    var request = URLRequest(url: newlottery)
+    request.httpMethod = "GET"
+    request.addValue(email!, forHTTPHeaderField: "email")
+    
+    let task = session.dataTask(with: request) {(data, response, error)  in
+      guard let httpResponse = response as? HTTPURLResponse,
+        httpResponse.statusCode == 200 else {return}
+      
+      guard let data = data else {
+        return
+      }
+      
+      let decoder = JSONDecoder()
+//      let result = try? decoder.decode(Lottery.self, from: data!)
+      do {
+        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+        let result  = try decoder.decode(Lottery.self, from: data)
+        self.storeManJim.lottery = [result]
+        print(result)
+      } catch {
+
+      }
+    }
+    task.resume()
+  }
+  
+
   func getData() {
     let configuration = URLSessionConfiguration.default
     let session = URLSession(configuration: configuration)
-    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/test")!
+//    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/search?email=won54chan@gmail.com")!
+    let email = UserDefaults.standard.value(forKey: "email") as? String
+    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/search")!
     var request = URLRequest(url: shoppingCart)
     request.httpMethod = "GET"
+    request.addValue(email!, forHTTPHeaderField: "email")
+   // request.value(forHTTPHeaderField: email!)
     
     let task = session.dataTask(with: request) {(data, response, error)  in
       guard let httpResponse = response as? HTTPURLResponse,
@@ -46,11 +115,11 @@ class ProfileViewController: UIViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(HistoryList.self, from: data)
         self.storeManJim.historyData = [result]
-        for count1 in 0 ..< self.storeManJim.historyData[0].orderlist.count {
-          let money = self.storeManJim.historyData[0].orderlist[count1].list.price
-          self.total += money
+        for count in 0 ..< result.total.count {
+          self.total += result.total[count]
         }
         self.storeManJim.totalMoney = self.total
+        self.lotteryData()
         print(result)
       } catch {
         
@@ -58,34 +127,20 @@ class ProfileViewController: UIViewController {
     }
     task.resume()
   }
-  //
-  //  func getDataFromSty() {
-  //    let token = KeyChainManager.shared.token
-  //    let configuration = URLSessionConfiguration.default
-  //    let session = URLSession(configuration: configuration)
-  //    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/user/profile")!
-  //    var request = URLRequest(url: shoppingCart)
-  //    request.httpMethod = "GET"
-  //    request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-  //
-  //    let task = session.dataTask(with: request) {(data, response, error)  in
-  //      guard let httpResponse = response as? HTTPURLResponse,
-  //        httpResponse.statusCode == 200 else {return}
-  //
-  //      guard let data = data else {
-  //        return
-  //      }
-  //      let decoder = JSONDecoder()
-  //      do {
-  //        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-  //        let result  = try decoder.decode(FromSty.self, from: data)
-  //        print(result)
-  //      } catch {
-  //
-  //      }
-  //    }
-  //    task.resume()
-  //  }
+ 
+//
+//  func realGetLottery(){
+//    provider.getLottery { result in
+//      switch result {
+//      case .success :
+//        print("123")
+//      case .failure(let error):
+//        print("123")
+//      }
+//    }
+//  }
+  
+  
   
   func postLoginCall() {
     let email = UserDefaults.standard.value(forKey: "email")
@@ -109,12 +164,6 @@ class ProfileViewController: UIViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(HistoryList.self, from: data)
         self.storeManJim.historyData = [result]
-
-        for count1 in 0 ..< self.storeManJim.historyData[0].orderlist.count {
-          let money = self.storeManJim.historyData[0].orderlist[count1].list.price
-          self.total += money
-        }
-        self.storeManJim.totalMoney = self.total
         print(result)
       } catch {
         
@@ -147,6 +196,12 @@ extension ProfileViewController: UICollectionViewDataSource {
       show(vc, sender: nil)
     }else if indexPath.section == 1 && indexPath.row ==  1 {
       guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "Coupon") as? CouponViewController else {
+        return
+      }
+      vc.navigationController?.pushViewController(vc, animated: true)
+      show(vc, sender: nil)
+    }else if indexPath.section == 1 && indexPath.row ==  5 {
+      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "chatJim") as? ChatJimViewController else {
         return
       }
       vc.navigationController?.pushViewController(vc, animated: true)

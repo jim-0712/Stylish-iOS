@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import  UserNotifications
 
 class LobbyViewController: STBaseViewController {
 
@@ -33,8 +34,23 @@ class LobbyViewController: STBaseViewController {
         super.viewDidLoad()
 
         navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
-        
-        lobbyView.beginHeaderRefresh()
+      
+//      let center = UNUserNotificationCenter.current()
+//
+//      center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in}
+//
+//      let content = UNMutableNotificationContent()
+//
+//      content.title = "Hey"
+//      content.body = "You"
+//
+//      let date = Date().addingTimeInterval(5)
+//      
+//      let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .second], from: date)
+//
+//      UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
+      
+      lobbyView.beginHeaderRefresh()
     }
 
     // MARK: - Action

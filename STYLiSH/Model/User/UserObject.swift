@@ -37,3 +37,4 @@ struct Reciept: Codable {
 
     let number: String
 }
+

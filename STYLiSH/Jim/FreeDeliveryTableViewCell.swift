@@ -10,16 +10,19 @@ import UIKit
 
 class FreeDeliveryTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var freeImage: UIImageView!
-  @IBOutlet weak var getAction: UIButton!
-  override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-  @IBAction func getActionFree(_ sender: Any) {
+  
+  @IBOutlet weak var freeDeliverView: UIImageView!
+  @IBAction func tapFreeButton(_ sender: Any) {
+    
   }
   
-    override func setSelected(_ selected: Bool, animated: Bool) {
+  override func awakeFromNib() {
+        super.awakeFromNib()
+    // Initialization code
+    }
+
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

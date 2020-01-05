@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HistoryList: Codable{
+struct HistoryList: Codable {
   let total: [Int]
   let orderlist: [Lists]
   
@@ -20,38 +20,43 @@ struct HistoryList: Codable{
 
 struct Lists: Codable {
   let number: String
-  let list: HistoryProduct
+  let list: [HistoryProduct]
 }
 
 struct HistoryProduct: Codable {
-  let id: Int
+  let id: String
   let qty: Int
   let name: String
   let size: String
-  let color: ColorsY
+  let color: String
   let price: Int
   let mainimage: String
-  
+
   enum CodingKeys: String, CodingKey {
     case mainimage = "main_image"
     case id, qty, name, size, color, price
   }
  }
-struct ColorsY: Codable {
-  let colorcode: String
-  let colorname: String
+
+
+struct Lottery: Codable{
+  let email: String
+  let totalpoints: Int
+  let coupon: Coupons
+  
   enum CodingKeys: String, CodingKey {
-    case colorcode = "color_code"
-    case colorname = "color_name"
+      case totalpoints = "total_points"
+      case email = "email"
+      case coupon = "coupon"
   }
 }
-struct FromSty: Codable {
-  let data: FromData
-}
-struct FromData: Codable {
-  let id: Int
-  let provider: String
-  let name: String
-  let email: String
-  let picture: String
+
+struct Coupons: Codable {
+  let tenpercent: [Int]
+  let shipfree: [Int]
+  
+  enum CodingKeys: String, CodingKey {
+      case tenpercent = "ten_percent"
+      case shipfree = "ship_free"
+  }
 }

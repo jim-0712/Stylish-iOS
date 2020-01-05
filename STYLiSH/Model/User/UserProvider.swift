@@ -144,4 +144,26 @@ class UserProvider {
             }
         })
     }
+  
+  
+  func getLottery(completion: @escaping (Result<Void>) -> Void){
+    
+    HTTPClient.shared.request(STUserRequest.lottery()) { result in
+      
+      switch result {
+        
+      case .success(let data):
+        do {
+          let lottery = try JSONDecoder().decode(STSuccessParser<Lottery>.self, from: data)
+        } catch  {
+          completion(Result.failure(error))
+        }
+        
+      case .failure(let error):
+         completion(Result.failure(error))
+      }
+    }
+  }
+  
+  
 }
