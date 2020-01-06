@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C53BFE23C2E8E500C83693 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C53BFD23C2E8E500C83693 /* Comment.storyboard */; };
+		24C53C0023C2E9CE00C83693 /* ReviewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53BFF23C2E9CE00C83693 /* ReviewCommentViewController.swift */; };
+		24C53C0223C2E9DF00C83693 /* MakeCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53C0123C2E9DF00C83693 /* MakeCommentViewController.swift */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */; };
 		3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */; };
@@ -142,6 +145,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24C53BFD23C2E8E500C83693 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
+		24C53BFF23C2E9CE00C83693 /* ReviewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCommentViewController.swift; sourceTree = "<group>"; };
+		24C53C0123C2E9DF00C83693 /* MakeCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCommentViewController.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarViewController.swift; sourceTree = "<group>"; };
 		3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -312,6 +318,28 @@
 				E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		24C53BFB23C2D69C00C83693 /* Customer Service */ = {
+			isa = PBXGroup;
+			children = (
+				FB6DECE823C07E18000B3138 /* Chat.storyboard */,
+				FB6DECE623C07E18000B3138 /* ChatViewController.swift */,
+				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
+				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
+				FB6DECF423C0A55E000B3138 /* CommentViewController.swift */,
+			);
+			path = "Customer Service";
+			sourceTree = "<group>";
+		};
+		24C53BFC23C2E75300C83693 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				24C53BFD23C2E8E500C83693 /* Comment.storyboard */,
+				24C53BFF23C2E9CE00C83693 /* ReviewCommentViewController.swift */,
+				24C53C0123C2E9DF00C83693 /* MakeCommentViewController.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		3C09F51F22115A9F00C5B3E2 /* Extension */ = {
@@ -839,11 +867,8 @@
 		FB6DECE523C07E18000B3138 /* Savannah */ = {
 			isa = PBXGroup;
 			children = (
-				FB6DECE623C07E18000B3138 /* ChatViewController.swift */,
-				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
-				FB6DECE823C07E18000B3138 /* Chat.storyboard */,
-				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
-				FB6DECF423C0A55E000B3138 /* CommentViewController.swift */,
+				24C53BFC23C2E75300C83693 /* Comment */,
+				24C53BFB23C2D69C00C83693 /* Customer Service */,
 			);
 			path = Savannah;
 			sourceTree = "<group>";
@@ -915,6 +940,7 @@
 				3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */,
 				3CED80A62301256200B7DA8E /* Profile.storyboard in Resources */,
 				3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */,
+				24C53BFE23C2E8E500C83693 /* Comment.storyboard in Resources */,
 				3C4B10D622292732009942B7 /* card_amex.png in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
@@ -1079,9 +1105,11 @@
 				3C3369162227CE7D008A5A7A /* TrolleyProductBaseView.swift in Sources */,
 				3CE7A50222302354009FF003 /* ProductContentCategory.swift in Sources */,
 				FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */,
+				24C53C0223C2E9DF00C83693 /* MakeCommentViewController.swift in Sources */,
 				3C6020E8222BBA3C00312958 /* ProductBasicCell.swift in Sources */,
 				3CE7A51522305E5A009FF003 /* KeyChainManager.swift in Sources */,
 				3C1ACFEB22153114005583E2 /* ProfileCollectionReusableView.swift in Sources */,
+				24C53C0023C2E9CE00C83693 /* ReviewCommentViewController.swift in Sources */,
 				3C9C0D532215400900595689 /* ProfileItem.swift in Sources */,
 				3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */,
 				3CB801252229AEE30029A552 /* UITableView+Extension.swift in Sources */,
