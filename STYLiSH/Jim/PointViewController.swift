@@ -45,7 +45,7 @@ class PointViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let targetWidth = backgroundView.frame.size.width
-    money = storeManJim.totalMoney
+    money = storeManJim.lottery[0].totalpoints
     useWidth = targetWidth
     mileStoneView.backgroundColor = .lightGray
     pointLabel.text = "總金額：\(money)"

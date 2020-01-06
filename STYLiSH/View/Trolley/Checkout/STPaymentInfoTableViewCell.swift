@@ -72,7 +72,30 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var topDistanceConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var creditView: UIView! {
+    @IBOutlet weak var appleView: UIView!
+  
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//      super.init(style: style, reuseIdentifier: reuseIdentifier)
+//      let percentBtn: UIButton = {
+//        let hi = UIButton()
+//        NSLayoutConstraint.activate([
+//          hi.topAnchor.constraint(equalTo: appleView.topAnchor, constant: 0),
+//          hi.bottomAnchor.constraint(equalTo: appleView.bottomAnchor, constant: 0),
+//          hi.leadingAnchor.constraint(equalTo: appleView.leadingAnchor, constant: 50),
+//          hi.widthAnchor.constraint(equalToConstant: 40)
+//        ])
+//        hi.translatesAutoresizingMaskIntoConstraints = false
+//        hi.backgroundColor = .red
+//        return hi
+//      }()
+//      appleView.addSubview(percentBtn)
+//  }
+//
+//  required init?(coder: NSCoder) {
+//    super.init(coder: coder)
+//  }
+  
+  @IBOutlet weak var creditView: UIView! {
         
         didSet {
         

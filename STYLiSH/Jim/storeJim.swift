@@ -14,8 +14,8 @@ class StoreJimS {
   private init() {}
   var historyData = [HistoryList]()
   var refundData = [WantRefund]()
-//  var servicesAnswer = [Services]()
   var lottery = [Lottery]()
+  var refundNum = [ResponseWhy]()
   var totalMoney = 0
   var id = 0
   var email = ""

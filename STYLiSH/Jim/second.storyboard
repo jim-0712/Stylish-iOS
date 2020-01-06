@@ -161,16 +161,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="為啥要退？" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vNm-CU-s3L">
-                                <rect key="frame" x="20" y="194" width="374" height="500"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="Sq3-qd-AtM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehS-c8-4qK">
-                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <rect key="frame" x="20" y="762" width="374" height="50"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WDn-xv-8rw"/>
@@ -191,16 +183,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I7t-4f-m7y">
+                                <rect key="frame" x="20" y="174" width="374" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="uan-Zb-ZaL"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2JK-k3-fHN" firstAttribute="top" secondItem="VJW-5g-VGQ" secondAttribute="top" constant="50" id="2mw-0K-4RL"/>
-                            <constraint firstItem="VJW-5g-VGQ" firstAttribute="trailing" secondItem="vNm-CU-s3L" secondAttribute="trailing" constant="20" id="IZl-2b-PMj"/>
-                            <constraint firstItem="vNm-CU-s3L" firstAttribute="leading" secondItem="VJW-5g-VGQ" secondAttribute="leading" constant="20" id="Sah-R9-WEN"/>
+                            <constraint firstItem="I7t-4f-m7y" firstAttribute="leading" secondItem="VJW-5g-VGQ" secondAttribute="leading" constant="20" id="2vh-IC-qA9"/>
                             <constraint firstItem="VJW-5g-VGQ" firstAttribute="trailing" secondItem="ehS-c8-4qK" secondAttribute="trailing" constant="20" id="XAz-WO-Qwy"/>
-                            <constraint firstItem="VJW-5g-VGQ" firstAttribute="bottom" secondItem="ehS-c8-4qK" secondAttribute="bottom" id="dbp-WC-ghL"/>
+                            <constraint firstItem="VJW-5g-VGQ" firstAttribute="trailing" secondItem="I7t-4f-m7y" secondAttribute="trailing" constant="20" id="a3Z-sO-wJB"/>
+                            <constraint firstItem="VJW-5g-VGQ" firstAttribute="bottom" secondItem="ehS-c8-4qK" secondAttribute="bottom" constant="50" id="dbp-WC-ghL"/>
                             <constraint firstItem="2JK-k3-fHN" firstAttribute="leading" secondItem="VJW-5g-VGQ" secondAttribute="leading" constant="20" id="oPG-Pi-JXz"/>
-                            <constraint firstItem="vNm-CU-s3L" firstAttribute="top" secondItem="VJW-5g-VGQ" secondAttribute="top" constant="150" id="wRM-NJ-QLd"/>
+                            <constraint firstItem="I7t-4f-m7y" firstAttribute="top" secondItem="2JK-k3-fHN" secondAttribute="bottom" constant="50" id="uLk-0i-q5t"/>
                             <constraint firstItem="ehS-c8-4qK" firstAttribute="leading" secondItem="VJW-5g-VGQ" secondAttribute="leading" constant="20" id="wov-o3-xOG"/>
                             <constraint firstItem="VJW-5g-VGQ" firstAttribute="trailing" secondItem="2JK-k3-fHN" secondAttribute="trailing" constant="20" id="z7X-11-mik"/>
                         </constraints>
@@ -208,7 +210,7 @@
                     </view>
                     <connections>
                         <outlet property="numberLabel" destination="2JK-k3-fHN" id="XIU-3B-kF5"/>
-                        <outlet property="whyTextField" destination="vNm-CU-s3L" id="Qyl-hO-9Hr"/>
+                        <outlet property="whyText" destination="I7t-4f-m7y" id="IHC-tc-v7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nny-Vo-qGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

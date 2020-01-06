@@ -18,7 +18,7 @@ enum JimRequest: STRequest {
     
     switch self {
       
-    case .whyRefundMessage(let email):
+    case .whyRefundMessage(let email,_,_,_):
       
       return ["Content-Type" :"application/json" ,STHTTPHeaderField.email.rawValue: "\(email)"]
       
@@ -42,7 +42,9 @@ enum JimRequest: STRequest {
       
       let package = ["data": dict]
       
-      return try? JSONSerialization.data(withJSONObject: package, options: .prettyPrinted)
+      let reallyData = try? JSONSerialization.data(withJSONObject: package, options: .prettyPrinted)
+      
+      return reallyData
       
     case .switchProduct:
       
