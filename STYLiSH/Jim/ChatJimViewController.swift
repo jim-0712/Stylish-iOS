@@ -54,6 +54,7 @@ class ChatJimViewController: UIViewController {
             //        let header = ["email": userEmail, "Content-Type": "application/json"]
             let url = URL(string: "https://williamyhhuang.com/api/1.0/service")!
             var request = URLRequest(url: url)
+            
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue(userEmail, forHTTPHeaderField: "email")
