@@ -90,16 +90,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgw-pH-uHd">
+                                <rect key="frame" x="16" y="166" width="382" height="320"/>
+                                <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.4914651674483923" blue="0.54165610418848886" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="9Yv-Fw-NLy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dgw-pH-uHd" firstAttribute="top" secondItem="THR-Tz-9pE" secondAttribute="bottom" constant="16" id="9N4-BH-xNj"/>
                             <constraint firstItem="sFh-CJ-udM" firstAttribute="top" secondItem="THR-Tz-9pE" secondAttribute="bottom" constant="30" id="Caf-Ig-xr1"/>
                             <constraint firstItem="B4Z-GX-tkO" firstAttribute="top" secondItem="sFh-CJ-udM" secondAttribute="bottom" constant="16" id="Cnv-5Y-Kow"/>
                             <constraint firstItem="P64-av-1m9" firstAttribute="trailing" secondItem="sFh-CJ-udM" secondAttribute="trailing" constant="16" id="Edw-cd-Hq4"/>
                             <constraint firstItem="P64-av-1m9" firstAttribute="trailing" secondItem="THR-Tz-9pE" secondAttribute="trailing" constant="16" id="F6P-RF-77j"/>
                             <constraint firstItem="sFh-CJ-udM" firstAttribute="leading" secondItem="P64-av-1m9" secondAttribute="leading" constant="16" id="H2w-40-DI2"/>
                             <constraint firstItem="THR-Tz-9pE" firstAttribute="top" secondItem="rRM-nm-Hzt" secondAttribute="top" constant="100" id="kud-mb-9TT"/>
+                            <constraint firstItem="P64-av-1m9" firstAttribute="trailing" secondItem="dgw-pH-uHd" secondAttribute="trailing" constant="16" id="mr0-xb-uv5"/>
                             <constraint firstItem="B4Z-GX-tkO" firstAttribute="leading" secondItem="P64-av-1m9" secondAttribute="leading" id="pFF-nZ-Qxj"/>
+                            <constraint firstItem="dgw-pH-uHd" firstAttribute="leading" secondItem="P64-av-1m9" secondAttribute="leading" constant="16" id="sQa-gX-1Dj"/>
                             <constraint firstItem="P64-av-1m9" firstAttribute="trailing" secondItem="B4Z-GX-tkO" secondAttribute="trailing" id="wyc-Di-PS3"/>
                             <constraint firstItem="THR-Tz-9pE" firstAttribute="leading" secondItem="P64-av-1m9" secondAttribute="leading" constant="16" id="y8l-Aw-JB5"/>
                         </constraints>
