@@ -74,7 +74,7 @@
                                     <segment title="退換貨"/>
                                     <segment title="尺寸"/>
                                     <segment title="購買"/>
-                                    <segment title="物流查詢"/>
+                                    <segment title="物流"/>
                                 </segments>
                                 <connections>
                                     <action selector="questionSegAction:" destination="ARI-XU-OtO" eventType="valueChanged" id="R0D-bF-97M"/>
