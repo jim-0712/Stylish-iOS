@@ -10,6 +10,8 @@
 		24C53BFE23C2E8E500C83693 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C53BFD23C2E8E500C83693 /* Comment.storyboard */; };
 		24C53C0023C2E9CE00C83693 /* ReviewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53BFF23C2E9CE00C83693 /* ReviewCommentViewController.swift */; };
 		24C53C0223C2E9DF00C83693 /* MakeCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53C0123C2E9DF00C83693 /* MakeCommentViewController.swift */; };
+		24C53C0423C32C3F00C83693 /* ServiceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53C0323C32C3F00C83693 /* ServiceData.swift */; };
+		24C53C0623C33FB200C83693 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C53C0523C33FB200C83693 /* File.swift */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */; };
 		3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */; };
@@ -153,6 +155,8 @@
 		24C53BFD23C2E8E500C83693 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		24C53BFF23C2E9CE00C83693 /* ReviewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCommentViewController.swift; sourceTree = "<group>"; };
 		24C53C0123C2E9DF00C83693 /* MakeCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCommentViewController.swift; sourceTree = "<group>"; };
+		24C53C0323C32C3F00C83693 /* ServiceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceData.swift; sourceTree = "<group>"; };
+		24C53C0523C33FB200C83693 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F51B22114A0100C5B3E2 /* STTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarViewController.swift; sourceTree = "<group>"; };
 		3C09F51D22114E1900C5B3E2 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
 				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
 				FB6DECF423C0A55E000B3138 /* CommentViewController.swift */,
+				24C53C0323C32C3F00C83693 /* ServiceData.swift */,
+				24C53C0523C33FB200C83693 /* File.swift */,
 			);
 			path = "Customer Service";
 			sourceTree = "<group>";
@@ -1100,6 +1106,7 @@
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
 				FB6DECF123C09998000B3138 /* CouponTableViewCell.swift in Sources */,
 				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
+				24C53C0623C33FB200C83693 /* File.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
@@ -1118,6 +1125,7 @@
 				3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */,
 				3CB8011E22299B460029A552 /* STCompondViewController.swift in Sources */,
 				3CCB3BC4222AA8FD00976A1C /* ProductDetailViewController.swift in Sources */,
+				24C53C0423C32C3F00C83693 /* ServiceData.swift in Sources */,
 				3C9EF5342213C5C800DEE152 /* HTTPClient.swift in Sources */,
 				3CEBE07C222F7A210064EF82 /* Int+Extension.swift in Sources */,
 				3CED80AE23012CE400B7DA8E /* NSLocalizedString+Extension.swift in Sources */,

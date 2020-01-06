@@ -18,5 +18,5 @@ class StoreJimS {
   var refundNum = [ResponseWhy]()
   var totalMoney = 0
   var id = 0
-  var email = ""
+  var email = "" 
 }
