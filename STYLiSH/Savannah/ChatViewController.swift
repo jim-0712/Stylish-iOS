@@ -7,10 +7,25 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class ChatViewController: UIViewController {
+
+    var chatCount = 1
+    var ownerQuestion: [String] = []
+    var dbAnswer: [String] = []
+    var questionIndex = 0
     
     @IBOutlet weak var chatTable: UITableView!
+    @IBOutlet weak var customerText: UITextField!
+    @IBAction func sendButton(_ sender: Any) {
+        
+        guard let question = customerText.text else{ return }
+        ownerQuestion.append(question)
+        chatCount += 2
+        chatTable.reloadData()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,21 +37,27 @@ class ChatViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.shared.enable = true
+    }
 }
 
 extension ChatViewController: UITableViewDelegate {
-    
+  
 }
 
 extension ChatViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return chatCount
+  }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.row % 2 == 0 {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "Server Cell", for: indexPath) as? ServerTableViewCell else {
                 return UITableViewCell()
             }
@@ -49,11 +70,15 @@ extension ChatViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.messageLable.text = "你是誰？"
+            questionIndex = (indexPath.row - 1) / 2
+            cell.messageLable.text = ownerQuestion[questionIndex]
             return cell
             
         } else {
+            
             return UITableViewCell()
+            
         }
+
     }
 }

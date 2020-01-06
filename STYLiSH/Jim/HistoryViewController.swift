@@ -29,40 +29,68 @@ class HistoryViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+//    getData()
     cartTable.delegate = self
     cartTable.dataSource = self
     cartTable.separatorStyle = .none
     
   }
   
+  func getData() {
+      let configuration = URLSessionConfiguration.default
+      let session = URLSession(configuration: configuration)
+  //    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/search?email=won54chan@gmail.com")!
+      let email = UserDefaults.standard.value(forKey: "email") as? String
+      let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/search?email=\(email!)")!
+      var request = URLRequest(url: shoppingCart)
+      request.httpMethod = "GET"
+ 
+  //    request.value(forHTTPHeaderField: email!)
+      
+      let task = session.dataTask(with: request) {(data, response, error)  in
+        guard let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 else {return}
+        
+        guard let data = data else {
+          return
+        }
+        let decoder = JSONDecoder()
+        do {
+          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          let result  = try decoder.decode(HistoryList.self, from: data)
+          self.storeManJim.historyData = [result]
+          for count in 0 ..< result.total.count {
+            self.total += result.total[count]
+          }
+          self.storeManJim.totalMoney = self.total
+          print(result)
+        } catch {
+          
+        }
+      }
+      task.resume()
+    }
 }
 
-extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return storeManJim.historyData[0].list.count
-    
+
+    return storeManJim.historyData[0].orderlist.count
+
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "history", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell()}
-    cell.accountLabel.text = "數量：\(storeManJim.historyData[0].list[0].product[indexPath.row].qty)"
-    cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].list[0].orderid)"
-    cell.productLabel.text = storeManJim.historyData[0].list[0].product[indexPath.row].name
-    cell.sizeLabel.text = storeManJim.historyData[0].list[0].product[indexPath.row].size
-    let colorUrl = storeManJim.historyData[0].list[0].product[indexPath.row].color.colorcode
-    cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
-    cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].list[0].product[indexPath.row].price)"
-    let imageURL = URL(string: storeManJim.historyData[0].list[0].product[indexPath.row].picture)
-    cell.pictureView.kf.setImage(with: imageURL)
     
-//    for count1 in 0 ..< storeManJim.historyData[0].list.count{
-//      for count2 in 0 ..< storeManJim.historyData[0].list[count1].product.count {
-//        guard let money = Int(storeManJim.historyData[0].list[count1].product[count2].price) else {return cell}
-//        total += money
-//      }
-//    }
-//    storeManJim.totalMoney = total
+    cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].qty)"
+    cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
+    cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].name
+    cell.sizeLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].size
+    let colorUrl = storeManJim.historyData[0].orderlist[indexPath.row].list[0].color
+    cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
+    cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].price)"
+    let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list[0].mainimage)
+    cell.pictureView.kf.setImage(with: imageURL)
     return cell
   }
   

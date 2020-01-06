@@ -127,10 +127,15 @@
 		FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC623BEE8E30059176B /* HistoryViewController.swift */; };
 		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
 		FB335DCB23BF02640059176B /* Jim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB335DCA23BF02640059176B /* Jim.storyboard */; };
+		FB4FC74B23C1B450008AB2EA /* ChatJimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */; };
 		FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE623C07E18000B3138 /* ChatViewController.swift */; };
 		FB6DECEB23C07E18000B3138 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */; };
 		FB6DECEC23C07E18000B3138 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6DECE823C07E18000B3138 /* Chat.storyboard */; };
 		FB6DECED23C07E18000B3138 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */; };
+		FB6DECEF23C09402000B3138 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECEE23C09402000B3138 /* CouponViewController.swift */; };
+		FB6DECF123C09998000B3138 /* CouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */; };
+		FB6DECF323C09D67000B3138 /* FreeDeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */; };
+		FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECF423C0A55E000B3138 /* CommentViewController.swift */; };
 		FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */; };
 		FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B723BF2E0200BC18A7 /* DataNow.swift */; };
 		FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B923BF34EC00BC18A7 /* storeJim.swift */; };
@@ -272,10 +277,15 @@
 		FB335DC623BEE8E30059176B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FB335DCA23BF02640059176B /* Jim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jim.storyboard; sourceTree = "<group>"; };
+		FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatJimViewController.swift; sourceTree = "<group>"; };
 		FB6DECE623C07E18000B3138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		FB6DECE823C07E18000B3138 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		FB6DECEE23C09402000B3138 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTableViewCell.swift; sourceTree = "<group>"; };
+		FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeDeliveryTableViewCell.swift; sourceTree = "<group>"; };
+		FB6DECF423C0A55E000B3138 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		FBBC47B723BF2E0200BC18A7 /* DataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNow.swift; sourceTree = "<group>"; };
 		FBBC47B923BF34EC00BC18A7 /* storeJim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeJim.swift; sourceTree = "<group>"; };
@@ -818,6 +828,10 @@
 				FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */,
 				FBBC47B723BF2E0200BC18A7 /* DataNow.swift */,
 				FBBC47B923BF34EC00BC18A7 /* storeJim.swift */,
+				FB6DECEE23C09402000B3138 /* CouponViewController.swift */,
+				FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */,
+				FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */,
+				FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -829,6 +843,7 @@
 				FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */,
 				FB6DECE823C07E18000B3138 /* Chat.storyboard */,
 				FB6DECE923C07E18000B3138 /* CustomerTableViewCell.swift */,
+				FB6DECF423C0A55E000B3138 /* CommentViewController.swift */,
 			);
 			path = Savannah;
 			sourceTree = "<group>";
@@ -1027,8 +1042,10 @@
 				3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
+				FB4FC74B23C1B450008AB2EA /* ChatJimViewController.swift in Sources */,
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
+				FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */,
 				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
 				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,
@@ -1037,6 +1054,7 @@
 				3CB80E76222FCBE60095F18C /* STConstant.swift in Sources */,
 				3C1ACFE422151F50005583E2 /* ProfileViewController.swift in Sources */,
 				3C34794C222E82F600969C30 /* AmountSelectionCell.swift in Sources */,
+				FB6DECF123C09998000B3138 /* CouponTableViewCell.swift in Sources */,
 				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */,
@@ -1074,6 +1092,7 @@
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
 				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
 				3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */,
+				FB6DECEF23C09402000B3138 /* CouponViewController.swift in Sources */,
 				3C8F191922E5997B00EECE90 /* LobbyTableViewHeaderView.swift in Sources */,
 				3CE7A517223061A9009FF003 /* UserRequest.swift in Sources */,
 				3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */,
@@ -1081,6 +1100,7 @@
 				3C41B8472216667000112F94 /* ProductViewController.swift in Sources */,
 				3CE7A51322305916009FF003 /* UserProvider.swift in Sources */,
 				3CE7A51E22308D34009FF003 /* OrderObject.swift in Sources */,
+				FB6DECF323C09D67000B3138 /* FreeDeliveryTableViewCell.swift in Sources */,
 				3CD9BB35223B882C0012C00D /* AuthViewController.swift in Sources */,
 				3CB801212229A0970029A552 /* KingFisherWrapper.swift in Sources */,
 				3CFAC67322EEF71C00785FAB /* String+Extension.swift in Sources */,
@@ -1224,7 +1244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1280,7 +1300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1296,7 +1316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
@@ -1321,7 +1341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",

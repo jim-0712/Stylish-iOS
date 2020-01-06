@@ -32,13 +32,16 @@ class PointViewController: UIViewController {
   @IBAction func backAction(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
   }
+  
   var useWidth : CGFloat = 0
   var money = 0
   var percent: CGFloat = 0.0
   var count = 0
+  
   @IBOutlet weak var myGodWidth: NSLayoutConstraint!
   @IBOutlet weak var myGodView: UIView!
   @IBOutlet weak var stackViewCon: NSLayoutConstraint!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     let targetWidth = backgroundView.frame.size.width
@@ -51,11 +54,12 @@ class PointViewController: UIViewController {
     ticketCountLabel.text = "您有\(count)張折價券"
     memberLevel()
   }
+  
   @IBAction func getTickAction(_ sender: Any) {
     if count == 0 {
       ticketCountLabel.text = "沒折價券了傻逼"
       getTicketButton.isEnabled = false
-    }else {
+    } else {
       getTicketButton.isEnabled = true
       count -= 1
       NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
@@ -84,7 +88,6 @@ class PointViewController: UIViewController {
     },
                    completion: nil)
     
-    
     UIView.animate(withDuration: 1.5,
                    delay: 0,
                    options: [.repeat, .autoreverse],
@@ -99,7 +102,7 @@ class PointViewController: UIViewController {
   func memberLevel() {
     if money < 4999 {
       vipImage.image = UIImage(named: "popo")
-      memberLabel.text = "一班會員"
+      memberLabel.text = "一般會員"
       let cash = 4999 - money
       mileStoneLabel.text = "距離下一等級差\(cash)元"
       targetLabelSett(now: 0, target: 4999)
@@ -119,8 +122,11 @@ class PointViewController: UIViewController {
       targetLabelSett(now: 10001, target: 20000)
       percent = CGFloat(money / 20000)
     } else {
-      vipImage.image = UIImage(named: "diamond")
-      memberLabel.text = "鑽石會員"
+      vipImage.image = UIImage(named: "man")
+      let cash = 100000 - money
+      targetLabelSett(now: 20000, target: 100000)
+      mileStoneLabel.text = "距離下一等級差\(cash)元"
+      memberLabel.text = "爸爸會員"
     }
   }
   
@@ -146,4 +152,6 @@ class PointViewController: UIViewController {
     }
     task.resume()
   }
+ 
+  
 }

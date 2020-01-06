@@ -8,25 +8,39 @@
 
 import UIKit
 
-class ProductTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var productImg: UIImageView!
-
-    @IBOutlet weak var productTitleLbl: UILabel!
-
-    @IBOutlet weak var productPriceLbl: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
-    func layoutCell(image: String, title: String, price: Int) {
-
-        productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
-
-        productTitleLbl.text = title
-
-        productPriceLbl.text = String(price)
-    }
+protocol CommentManager {
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool)
 }
+
+class ProductTableViewCell: UITableViewCell {
+  
+  @IBOutlet weak var productImg: UIImageView!
+  
+  @IBOutlet weak var productTitleLbl: UILabel!
+  
+  @IBOutlet weak var productPriceLbl: UILabel!
+  
+  @IBOutlet weak var commentAction: UIButton!
+  
+  var delegate: CommentManager?
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+  }
+  @IBAction func commentActionReal(_ sender: Any) {
+    
+    self.delegate?.commentVC(tableviewCell: self, trigger: true)
+
+  }
+  
+  func layoutCell(image: String, title: String, price: Int) {
+    
+    productImg.loadImage(image, placeHolder: UIImage.asset(.Image_Placeholder))
+    
+    productTitleLbl.text = title
+    
+    productPriceLbl.text = String(price)
+  }
+}
+

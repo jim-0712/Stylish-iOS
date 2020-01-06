@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   var storeManJim = StoreJimS.sharedJim
+  let provider = UserProvider()
   @IBOutlet weak var collectionView: UICollectionView! {
     
     didSet {
@@ -24,52 +25,15 @@ class ProfileViewController: UIViewController {
   var total = 0
   override func viewDidLoad() {
     super.viewDidLoad()
-    getData()
   }
   
-  func getData() {
-    let configuration = URLSessionConfiguration.default
-    let session = URLSession(configuration: configuration)
-    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/test")!
-    var request = URLRequest(url: shoppingCart)
-    request.httpMethod = "GET"
-    
-    let task = session.dataTask(with: request) {(data, response, error)  in
-      guard let httpResponse = response as? HTTPURLResponse,
-        httpResponse.statusCode == 200 else {return}
-      
-      guard let data = data else {
-        return
-      }
-      let decoder = JSONDecoder()
-      do {
-        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        let result  = try decoder.decode(HistoryList.self, from: data)
-        self.storeManJim.historyData = [result]
-        for count1 in 0 ..< self.storeManJim.historyData[0].list.count {
-          for count2 in 0 ..< self.storeManJim.historyData[0].list[count1].product.count {
-            guard let money = Int(self.storeManJim.historyData[0].list[count1].product[count2].price) else {break }
-            self.total += money
-          }
-        }
-        self.storeManJim.totalMoney = self.total
-        print(result)
-      } catch {
-        
-      }
-    }
-    task.resume()
-  }
-  //
-  //  func getDataFromSty() {
-  //    let token = KeyChainManager.shared.token
+  //  func serviceData() {
   //    let configuration = URLSessionConfiguration.default
   //    let session = URLSession(configuration: configuration)
-  //    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/user/profile")!
+  //
+  //    let shoppingCart = URL(string: "")!
   //    var request = URLRequest(url: shoppingCart)
   //    request.httpMethod = "GET"
-  //    request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-  //
   //    let task = session.dataTask(with: request) {(data, response, error)  in
   //      guard let httpResponse = response as? HTTPURLResponse,
   //        httpResponse.statusCode == 200 else {return}
@@ -80,7 +44,8 @@ class ProfileViewController: UIViewController {
   //      let decoder = JSONDecoder()
   //      do {
   //        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-  //        let result  = try decoder.decode(FromSty.self, from: data)
+  //        let result  = try decoder.decode(Services.self, from: data)
+  //        self.storeManJim.servicesAnswer = [result]
   //        print(result)
   //      } catch {
   //
@@ -88,43 +53,6 @@ class ProfileViewController: UIViewController {
   //    }
   //    task.resume()
   //  }
-  
-  func postLoginCall(){
-    let email = UserDefaults.standard.value(forKey: "email")
-    let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/user/profile")!
-    var request = URLRequest(url: shoppingCart)
-    request.httpMethod = "POST"
-    let postString = "emailaddress=\(email)"
-    print(postString)
-    request.httpBody = postString.data(using: String.Encoding.utf8)
-    
-    let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-      guard error == nil else {                                                          // check for fundamental networking error
-        print("error=\(error)")
-        return
-      }
-      guard let data = data else {
-        return
-      }
-      let decoder = JSONDecoder()
-      do {
-        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        let result  = try decoder.decode(HistoryList.self, from: data)
-        self.storeManJim.historyData = [result]
-        for count1 in 0 ..< self.storeManJim.historyData[0].list.count {
-          for count2 in 0 ..< self.storeManJim.historyData[0].list[count1].product.count {
-            guard let money = Int(self.storeManJim.historyData[0].list[count1].product[count2].price) else {break }
-            self.total += money
-          }
-        }
-        self.storeManJim.totalMoney = self.total
-        print(result)
-      } catch {
-        
-      }
-    }
-    task.resume()
-  }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -142,15 +70,27 @@ extension ProfileViewController: UICollectionViewDataSource {
       }
       vcc.modalPresentationStyle = .overCurrentContext
       present(vcc, animated: true, completion: nil)
-    }else if indexPath.section == 1 && indexPath.row == 4 {
+    } else if indexPath.section == 1 && indexPath.row == 4 {
       guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "chat") as? ChatViewController else {
+        return
+      }
+      vc.navigationController?.pushViewController(vc, animated: true)
+      show(vc, sender: nil)
+    } else if indexPath.section == 1 && indexPath.row ==  1 {
+      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "Coupon") as? CouponViewController else {
+        return
+      }
+      vc.navigationController?.pushViewController(vc, animated: true)
+      show(vc, sender: nil)
+    } else if indexPath.section == 1 && indexPath.row ==  5 {
+      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "chatJim") as? ChatJimViewController else {
         return
       }
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
     }
   }
-  
+  //  CouponViewController
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     
     return manager.groups.count
