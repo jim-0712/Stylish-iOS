@@ -241,10 +241,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-Ne-XK9">
+                                                    <rect key="frame" x="328" y="76" width="50" height="35"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="3uY-o3-LFG"/>
+                                                        <constraint firstAttribute="width" constant="50" id="vvm-Ia-O7E"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="退貨"/>
+                                                    <connections>
+                                                        <action selector="refundAction:" destination="E6s-Le-0h2" eventType="touchUpInside" id="bzf-J3-Pxv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="hec-LI-TqM" secondAttribute="bottom" id="0cw-KV-vn4"/>
                                                 <constraint firstItem="hec-LI-TqM" firstAttribute="leading" secondItem="Opk-D7-vhF" secondAttribute="leading" constant="16" id="5en-7q-epH"/>
+                                                <constraint firstItem="OT9-Ne-XK9" firstAttribute="top" secondItem="O9x-EU-s1N" secondAttribute="bottom" id="6iY-gc-eVt"/>
                                                 <constraint firstAttribute="trailing" secondItem="O9x-EU-s1N" secondAttribute="trailing" constant="16" id="6zo-Se-NoC"/>
                                                 <constraint firstItem="nEf-3p-HBf" firstAttribute="top" secondItem="Opk-D7-vhF" secondAttribute="top" constant="24" id="DIK-Ra-yFE"/>
                                                 <constraint firstItem="Yfe-eU-PAY" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="Ens-Yk-KeL"/>
@@ -252,6 +266,7 @@
                                                 <constraint firstItem="nEf-3p-HBf" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="Hkv-pv-jhB"/>
                                                 <constraint firstAttribute="trailing" secondItem="MSg-3e-QZb" secondAttribute="trailing" constant="16" id="L7h-XB-Ldr"/>
                                                 <constraint firstItem="O9x-EU-s1N" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="U1D-9a-TkF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OT9-Ne-XK9" secondAttribute="trailing" constant="16" id="UUr-30-yU4"/>
                                                 <constraint firstItem="1Wk-7L-Id7" firstAttribute="top" secondItem="Yfe-eU-PAY" secondAttribute="bottom" constant="12" id="V4V-Qi-Gnc"/>
                                                 <constraint firstItem="hec-LI-TqM" firstAttribute="top" secondItem="Opk-D7-vhF" secondAttribute="top" constant="24" id="Xtz-qs-HZF"/>
                                                 <constraint firstItem="MSg-3e-QZb" firstAttribute="leading" secondItem="1Wk-7L-Id7" secondAttribute="trailing" constant="12" id="YeH-Yp-bKc"/>
@@ -270,6 +285,7 @@
                                             <outlet property="numberLabel" destination="nEf-3p-HBf" id="yP4-ib-oq0"/>
                                             <outlet property="pictureView" destination="hec-LI-TqM" id="jns-E1-gP6"/>
                                             <outlet property="productLabel" destination="O9x-EU-s1N" id="0og-6C-x3t"/>
+                                            <outlet property="refundButton" destination="OT9-Ne-XK9" id="LlO-PQ-YwW"/>
                                             <outlet property="sizeLabel" destination="LvU-jT-Gew" id="aSk-fN-i3H"/>
                                         </connections>
                                     </tableViewCell>

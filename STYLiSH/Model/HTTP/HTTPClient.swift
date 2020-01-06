@@ -36,6 +36,8 @@ enum STHTTPMethod: String {
 enum STHTTPHeaderField: String {
 
     case contentType = "Content-Type"
+  
+    case email = "email"
 
     case auth = "Authorization"
 }

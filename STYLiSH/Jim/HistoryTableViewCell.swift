@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HistoryTableViewCell: UITableViewCell {
   
   @IBOutlet weak var pictureView: UIImageView!
@@ -17,6 +18,13 @@ class HistoryTableViewCell: UITableViewCell {
   @IBOutlet weak var sizeLabel: UILabel!
   @IBOutlet weak var accountLabel: UILabel!
   @IBOutlet weak var moneyLabel: UILabel!
+  @IBOutlet weak var refundButton: UIButton!
+  
+  var number = 0
+  
+  @IBAction func refundAction(_ sender: Any) {
+  
+  }
   
   override func awakeFromNib() {
     super.awakeFromNib()

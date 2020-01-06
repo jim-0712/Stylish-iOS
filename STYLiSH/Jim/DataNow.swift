@@ -31,12 +31,12 @@ struct HistoryProduct: Codable {
   let color: String
   let price: Int
   let mainimage: String
-
+  
   enum CodingKeys: String, CodingKey {
     case mainimage = "main_image"
     case id, qty, name, size, color, price
   }
- }
+}
 
 
 struct Lottery: Codable{
@@ -45,9 +45,9 @@ struct Lottery: Codable{
   let coupon: Coupons
   
   enum CodingKeys: String, CodingKey {
-      case totalpoints = "total_points"
-      case email = "email"
-      case coupon = "coupon"
+    case totalpoints = "total_points"
+    case email = "email"
+    case coupon = "coupon"
   }
 }
 
@@ -56,7 +56,56 @@ struct Coupons: Codable {
   let shipfree: [Int]
   
   enum CodingKeys: String, CodingKey {
-      case tenpercent = "ten_percent"
-      case shipfree = "ship_free"
+    case tenpercent = "ten_percent"
+    case shipfree = "ship_free"
   }
+}
+
+
+struct WantRefund: Codable {
+  let number: String
+  let details: RefundOrder
+}
+
+struct RefundOrder: Codable {
+  let shipping: String
+  let payment: String
+  let subtotal: Int
+  let freight: Int
+  let total: Int
+  let recipient: BuyName
+  let list: [Buylist]
+}
+
+struct BuyName: Codable {
+  let name: String
+  let phone: String
+  let email: String
+  let address: String
+  let time: String
+}
+
+struct Buylist: Codable {
+  let id: String
+  let name: String
+  let price: Int
+  let color: String
+  let size: String
+  let qty: Int
+ 
+}
+
+
+
+struct ResponseWhy: Codable {
+  let productbacknumber: String
+  let ordernumber: String
+  let status: Int
+  
+  enum CodingKeys: String, CodingKey {
+    case productbacknumber = "product_back_number"
+    case ordernumber = "order_number"
+    case status
+  }
+  
 }

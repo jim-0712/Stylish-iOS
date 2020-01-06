@@ -22,6 +22,8 @@ class ChatJimViewController: UIViewController {
   @IBOutlet weak var reallyQuestionText: UITextField!
   @IBOutlet weak var sendButton: UIButton!
   
+  
+  
   @IBAction func sendAction(_ sender: Any) {
   }
   

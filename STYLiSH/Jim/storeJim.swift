@@ -13,6 +13,7 @@ class StoreJimS {
   static let sharedJim = StoreJimS()
   private init() {}
   var historyData = [HistoryList]()
+  var refundData = [WantRefund]()
 //  var servicesAnswer = [Services]()
   var lottery = [Lottery]()
   var totalMoney = 0

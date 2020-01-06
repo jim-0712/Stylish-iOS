@@ -15,6 +15,7 @@ class LobbyViewController: STBaseViewController {
   let provider = UserProvider()
   let manager = ProfileManager()
   var total = 0
+  let jimManager = JimManager()
   
   @IBOutlet weak var lobbyView: LobbyView! {
     
@@ -43,8 +44,10 @@ class LobbyViewController: STBaseViewController {
     
     guard let data = UserDefaults.standard.value(forKey: "email") else { return }
     getData()
+    
+    getRefundData()
   }
-  
+
   // MARK: - Action
   func fetchData() {
     
@@ -84,11 +87,29 @@ class LobbyViewController: STBaseViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(Lottery.self, from: data)
         self.storeManJim.lottery = [result]
-        print(result)
+//        print(result)
       } catch {
       }
     }
     task.resume()
+  }
+  
+  func getRefundData() {
+    guard let email = UserDefaults.standard.value(forKey: "email") else {return }
+    jimManager.canRefundData (completion: { result in
+        
+        switch result {
+            
+        case .success(let recommands):
+      
+            print(recommands)
+            
+        case .failure(let error):
+        
+            print(error)
+        }
+        
+    })
   }
   
   
@@ -117,7 +138,7 @@ class LobbyViewController: STBaseViewController {
         }
         self.storeManJim.totalMoney = self.total
         self.lotteryData()
-        print(result)
+//        print(result)
       } catch {
       }
     }

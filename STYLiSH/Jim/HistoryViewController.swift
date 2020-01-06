@@ -91,6 +91,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].price)"
     let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list[0].mainimage)
     cell.pictureView.kf.setImage(with: imageURL)
+    cell.refundButton.isEnabled = false
+    cell.refundButton.alpha = 0.0
+    
     return cell
   }
   

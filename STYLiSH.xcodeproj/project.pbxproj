@@ -139,6 +139,11 @@
 		FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */; };
 		FBBC47B823BF2E0200BC18A7 /* DataNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B723BF2E0200BC18A7 /* DataNow.swift */; };
 		FBBC47BA23BF34EC00BC18A7 /* storeJim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC47B923BF34EC00BC18A7 /* storeJim.swift */; };
+		FBD3EB0223C2D1D7005F29CD /* RefundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0123C2D1D7005F29CD /* RefundViewController.swift */; };
+		FBD3EB0423C2F189005F29CD /* JimConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0323C2F189005F29CD /* JimConnect.swift */; };
+		FBD3EB0623C2FFA0005F29CD /* WhyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */; };
+		FBD3EB0823C312BC005F29CD /* second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD3EB0723C312BC005F29CD /* second.storyboard */; };
+		FBD3EB0A23C31480005F29CD /* RefundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +294,11 @@
 		FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		FBBC47B723BF2E0200BC18A7 /* DataNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNow.swift; sourceTree = "<group>"; };
 		FBBC47B923BF34EC00BC18A7 /* storeJim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeJim.swift; sourceTree = "<group>"; };
+		FBD3EB0123C2D1D7005F29CD /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
+		FBD3EB0323C2F189005F29CD /* JimConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimConnect.swift; sourceTree = "<group>"; };
+		FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyViewController.swift; sourceTree = "<group>"; };
+		FBD3EB0723C312BC005F29CD /* second.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = second.storyboard; sourceTree = "<group>"; };
+		FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -822,9 +832,12 @@
 		FB335DC523BEE89E0059176B /* Jim */ = {
 			isa = PBXGroup;
 			children = (
+				FBD3EB0123C2D1D7005F29CD /* RefundViewController.swift */,
+				FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */,
 				FB335DC623BEE8E30059176B /* HistoryViewController.swift */,
 				FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */,
 				FB335DCA23BF02640059176B /* Jim.storyboard */,
+				FBD3EB0723C312BC005F29CD /* second.storyboard */,
 				FBBC47B323BF1CC000BC18A7 /* PointViewController.swift */,
 				FBBC47B723BF2E0200BC18A7 /* DataNow.swift */,
 				FBBC47B923BF34EC00BC18A7 /* storeJim.swift */,
@@ -832,6 +845,8 @@
 				FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */,
 				FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */,
 				FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */,
+				FBD3EB0323C2F189005F29CD /* JimConnect.swift */,
+				FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -932,6 +947,7 @@
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
+				FBD3EB0823C312BC005F29CD /* second.storyboard in Resources */,
 				3CED808C2301138800B7DA8E /* Localizable.strings in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
 				3CED80AF2301301300B7DA8E /* Trolley.storyboard in Resources */,
@@ -1046,7 +1062,9 @@
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				FB6DECF523C0A55E000B3138 /* CommentViewController.swift in Sources */,
+				FBD3EB0423C2F189005F29CD /* JimConnect.swift in Sources */,
 				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
+				FBD3EB0223C2D1D7005F29CD /* RefundViewController.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
 				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
@@ -1063,8 +1081,10 @@
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
+				FBD3EB0623C2FFA0005F29CD /* WhyViewController.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,
 				FB335DC723BEE8E30059176B /* HistoryViewController.swift in Sources */,
+				FBD3EB0A23C31480005F29CD /* RefundTableViewCell.swift in Sources */,
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
 				FBBC47B423BF1CC100BC18A7 /* PointViewController.swift in Sources */,
