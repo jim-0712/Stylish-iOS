@@ -20,7 +20,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var customerText: UITextField!
     @IBAction func sendButton(_ sender: Any) {
         
-        guard let question = customerText.text else{ return }
+        guard let question = customerText.text else { return }
         ownerQuestion.append(question)
         chatCount += 2
         chatTable.reloadData()

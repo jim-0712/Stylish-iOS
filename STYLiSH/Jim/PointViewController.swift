@@ -51,7 +51,7 @@ class PointViewController: UIViewController {
     pointLabel.text = "總金額：\(money)"
     
     count = money / 10000
-    ticketCountLabel.text = "您有\(count)張折價券"
+    ticketCountLabel.text = "您有\(count)張折價券可領取"
     memberLevel()
   }
   
@@ -63,7 +63,7 @@ class PointViewController: UIViewController {
       getTicketButton.isEnabled = true
       count -= 1
       NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
-      ticketCountLabel.text = "您有\(count)張折價券"
+      ticketCountLabel.text = "您有\(count)張折價券可領取"
     }
   }
   override func viewDidAppear(_ animated: Bool) {
@@ -104,20 +104,20 @@ class PointViewController: UIViewController {
       vipImage.image = UIImage(named: "popo")
       memberLabel.text = "一般會員"
       let cash = 4999 - money
-      mileStoneLabel.text = "距離下一等級差\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
       targetLabelSett(now: 0, target: 4999)
       percent = CGFloat(money / 4999)
     } else if 5000 <= money && money <= 10000 {
       vipImage.image = UIImage(named: "gold")
       let cash = 10000 - money
-      mileStoneLabel.text = "距離下一等級差\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
       memberLabel.text = "黃金會員"
       targetLabelSett(now: 5000, target: 10000)
       percent = CGFloat(money / 10000)
     } else if 10001 <= money && money <= 20000 {
       vipImage.image = UIImage(named: "white")
       let cash = 20000 - money
-      mileStoneLabel.text = "距離下一等級差\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
       memberLabel.text = "白金會員"
       targetLabelSett(now: 10001, target: 20000)
       percent = CGFloat(money / 20000)
@@ -125,7 +125,7 @@ class PointViewController: UIViewController {
       vipImage.image = UIImage(named: "man")
       let cash = 100000 - money
       targetLabelSett(now: 20000, target: 100000)
-      mileStoneLabel.text = "距離下一等級差\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
       memberLabel.text = "爸爸會員"
     }
   }
