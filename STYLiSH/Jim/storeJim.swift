@@ -18,5 +18,5 @@ class StoreJimS {
   var lottery = [Lottery]()
   var totalMoney = 0
   var id = 0
-  var email = ""
+  var email = "" 
 }

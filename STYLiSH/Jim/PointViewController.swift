@@ -48,22 +48,22 @@ class PointViewController: UIViewController {
     money = storeManJim.totalMoney
     useWidth = targetWidth
     mileStoneView.backgroundColor = .lightGray
-    pointLabel.text = "總金額：\(money)"
+    pointLabel.text = "NT$\(money)"
     
     count = money / 10000
-    ticketCountLabel.text = "您有\(count)張折價券可領取"
+    ticketCountLabel.text = "您有\(count)張九折折價券可領取"
     memberLevel()
   }
   
   @IBAction func getTickAction(_ sender: Any) {
     if count == 0 {
-      ticketCountLabel.text = "沒折價券了傻逼"
+      ticketCountLabel.text = "沒折價券可領啊傻逼"
       getTicketButton.isEnabled = false
     } else {
       getTicketButton.isEnabled = true
       count -= 1
       NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
-      ticketCountLabel.text = "您有\(count)張折價券可領取"
+      ticketCountLabel.text = "您有\(count)張9折折價券可領取"
     }
   }
   override func viewDidAppear(_ animated: Bool) {

@@ -34,7 +34,6 @@ class ChatViewController: UIViewController {
         chatTable.dataSource = self
         self.navigationItem.title = "Chat Room"
         chatTable.separatorStyle = .none
-        
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +41,7 @@ class ChatViewController: UIViewController {
         super.viewWillAppear(animated)
         IQKeyboardManager.shared.enable = true
     }
+    
 }
 
 extension ChatViewController: UITableViewDelegate {
