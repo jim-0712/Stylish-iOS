@@ -220,7 +220,7 @@ class ProductListViewController: STCompondViewController {
 
 extension ProductListViewController: CommentManager {
   func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool) {
-        guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "Comment") as? CommentViewController else {
+        guard let vc = UIStoryboard(name: "Comment", bundle: nil).instantiateViewController(identifier: "Review Comment") as? ReviewCommentViewController else {
           return
         }
         vc.navigationController?.pushViewController(vc, animated: true)

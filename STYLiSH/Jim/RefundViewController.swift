@@ -20,19 +20,19 @@ class RefundViewController: UIViewController {
     refundTable.delegate = self
     refundTable.dataSource = self
     
+    self.navigationItem.title = "Returns"
+    
     NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNow), name: Notification.Name("reload"), object: nil)
     // Do any additional setup after loading the view.
   }
   @IBOutlet weak var refundTable: UITableView!
   
-  @objc func reloadDataNow(){
+  @objc func reloadDataNow() {
     DispatchQueue.main.async {
       self.refundTable.reloadData()
     }
   }
 }
-
-
 
 extension RefundViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -72,7 +72,7 @@ extension RefundViewController: UITableViewDelegate, UITableViewDataSource {
   }
 }
 
-extension RefundViewController : RefundManager {
+extension RefundViewController: RefundManager {
   func refundMan(viewCell: RefundTableViewCell, isClick: Bool) {
     guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "why") as? WhyViewController else {
       return
@@ -82,5 +82,4 @@ extension RefundViewController : RefundManager {
     show(vc, sender: nil)
   }
 }
-
 
