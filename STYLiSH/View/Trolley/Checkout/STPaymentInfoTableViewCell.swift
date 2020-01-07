@@ -23,6 +23,10 @@ protocol STPaymentInfoTableViewCellDelegate: AnyObject {
     func endEditing(_ cell: STPaymentInfoTableViewCell)
 }
 
+protocol Couponmanager: AnyObject {
+  func couponUse(_ cell: STPaymentInfoTableViewCell,free: Bool, percent: Bool)
+}
+
 class STPaymentInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var paymentTextField: UITextField! {
@@ -74,26 +78,51 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var appleView: UIView!
   
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//      super.init(style: style, reuseIdentifier: reuseIdentifier)
-//      let percentBtn: UIButton = {
-//        let hi = UIButton()
-//        NSLayoutConstraint.activate([
-//          hi.topAnchor.constraint(equalTo: appleView.topAnchor, constant: 0),
-//          hi.bottomAnchor.constraint(equalTo: appleView.bottomAnchor, constant: 0),
-//          hi.leadingAnchor.constraint(equalTo: appleView.leadingAnchor, constant: 50),
-//          hi.widthAnchor.constraint(equalToConstant: 40)
-//        ])
-//        hi.translatesAutoresizingMaskIntoConstraints = false
-//        hi.backgroundColor = .red
-//        return hi
-//      }()
-//      appleView.addSubview(percentBtn)
-//  }
-//
-//  required init?(coder: NSCoder) {
-//    super.init(coder: coder)
-//  }
+
+  @IBOutlet weak var freeShipBtn: UIButton!
+  
+  @IBOutlet weak var percentBtn: UIButton!
+  
+  @IBOutlet weak var useBtn: UIButton!
+  
+  var useFree = false
+  var usePercent = false
+  
+  @IBAction func useAction(_ sender: Any) {
+    
+    self.delegateJim?.couponUse(self, free: useFree, percent: usePercent)
+    useBtn.isEnabled = false
+    
+  }
+  
+  @IBAction func percentAction(_ sender: Any) {
+    usePercent = !usePercent
+    
+    if usePercent{
+      percentBtn.isEnabled = false
+      freeShipBtn.isEnabled = true
+    }else{
+      percentBtn.isEnabled = true
+      freeShipBtn.isEnabled = false
+    }
+  }
+  
+  
+  @IBAction func freeBtnAct(_ sender: Any) {
+    useFree = !useFree
+    
+    if useFree {
+      percentBtn.isEnabled = true
+      freeShipBtn.isEnabled = false
+    }else {
+      percentBtn.isEnabled = false
+      freeShipBtn.isEnabled = true
+    }
+  }
+  
+  
+  
+  
   
   @IBOutlet weak var creditView: UIView! {
         
@@ -108,6 +137,8 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     private lazy var paymentMethod: [String] = self.delegate?.textsForPickerView(self) ?? []
     
     weak var delegate: STPaymentInfoTableViewCellDelegate?
+  
+    weak var delegateJim: Couponmanager?
     
     override func awakeFromNib() {
         super.awakeFromNib()

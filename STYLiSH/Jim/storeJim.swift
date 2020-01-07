@@ -18,5 +18,11 @@ class StoreJimS {
   var refundNum = [ResponseWhy]()
   var totalMoney = 0
   var id = 0
-  var email = "" 
+  var email = ""
+  
+  var reallyTicketUse = 0
+  var totalProductMoney = 0
+  var totalFreight = 0
+  var discount = 0
+  var freeDelivery = 0
 }

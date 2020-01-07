@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="運費總金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPR-LJ-9ws">
-                        <rect key="frame" x="16" y="138.66666666666666" width="80" height="22.333333333333343"/>
+                        <rect key="frame" x="16" y="138.66666666666666" width="80" height="22.666666666666657"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                         <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -59,16 +59,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NT$ 60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-QS-RG3">
-                        <rect key="frame" x="402" y="138.66666666666666" width="56" height="22.333333333333343"/>
+                        <rect key="frame" x="402.33333333333331" y="138.66666666666666" width="55.666666666666686" height="22.666666666666657"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                         <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WmE-zR-aH4">
-                        <rect key="frame" x="0.0" y="185" width="474" height="56"/>
+                        <rect key="frame" x="0.0" y="185.33333333333334" width="474" height="56"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總計 (4樣商品)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ov-ov-dSM">
-                                <rect key="frame" x="16" y="16" width="106" height="22.666666666666671"/>
+                                <rect key="frame" x="16.000000000000007" y="16" width="105.66666666666669" height="22.666666666666671"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,14 +79,74 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehv-YU-CwC">
+                                <rect key="frame" x="131.66666666666666" y="10" width="40" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="xFo-ik-wjz"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" 免運"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lkCornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="freeBtnAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oZN-mK-Qg8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTw-53-ECi">
+                                <rect key="frame" x="181.66666666666666" y="10" width="40" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Wlu-Ru-Cgj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="九折"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lkCornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="percentAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qtN-A4-8Hw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vif-Wb-t25">
+                                <rect key="frame" x="231.66666666666666" y="10" width="39.999999999999972" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="QXG-UI-Qxn"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="使用"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lkCornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="useAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="m9p-o0-kXw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ehv-YU-CwC" firstAttribute="top" secondItem="WmE-zR-aH4" secondAttribute="top" constant="10" id="9KL-8z-ydn"/>
                             <constraint firstItem="8ov-ov-dSM" firstAttribute="leading" secondItem="WmE-zR-aH4" secondAttribute="leading" constant="16" id="FAt-dn-3Qx"/>
+                            <constraint firstItem="ehv-YU-CwC" firstAttribute="leading" secondItem="8ov-ov-dSM" secondAttribute="trailing" constant="10" id="JTI-Yl-Xaq"/>
                             <constraint firstItem="8ov-ov-dSM" firstAttribute="top" secondItem="WmE-zR-aH4" secondAttribute="top" constant="16" id="KdJ-UH-xkA"/>
                             <constraint firstAttribute="trailing" secondItem="j2h-mD-Jbi" secondAttribute="trailing" constant="16" id="MeW-JK-c5E"/>
+                            <constraint firstAttribute="bottom" secondItem="vif-Wb-t25" secondAttribute="bottom" constant="10" id="MfO-rG-fBN"/>
                             <constraint firstAttribute="height" constant="56" id="NCY-Q4-yKY"/>
+                            <constraint firstItem="nTw-53-ECi" firstAttribute="top" secondItem="WmE-zR-aH4" secondAttribute="top" constant="10" id="Qsk-dU-J4r"/>
+                            <constraint firstItem="vif-Wb-t25" firstAttribute="top" secondItem="WmE-zR-aH4" secondAttribute="top" constant="10" id="YTP-ta-RIL"/>
+                            <constraint firstAttribute="bottom" secondItem="ehv-YU-CwC" secondAttribute="bottom" constant="10" id="iAD-Bd-a1f"/>
                             <constraint firstItem="j2h-mD-Jbi" firstAttribute="centerY" secondItem="8ov-ov-dSM" secondAttribute="centerY" id="kIy-aM-ha2"/>
+                            <constraint firstItem="vif-Wb-t25" firstAttribute="leading" secondItem="nTw-53-ECi" secondAttribute="trailing" constant="10" id="kad-a6-y2Y"/>
+                            <constraint firstAttribute="bottom" secondItem="nTw-53-ECi" secondAttribute="bottom" constant="10" id="rqx-Ae-CMH"/>
+                            <constraint firstItem="nTw-53-ECi" firstAttribute="leading" secondItem="ehv-YU-CwC" secondAttribute="trailing" constant="10" id="wmu-a9-jO4"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg8-e7-47O">
@@ -102,11 +162,6 @@
                         <connections>
                             <action selector="checkout" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UOr-T6-Rh9"/>
                         </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3h-Kh-vPL">
-                        <rect key="frame" x="308" y="270" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,12 +197,15 @@
                 <outlet property="appleView" destination="WmE-zR-aH4" id="Z0x-77-et7"/>
                 <outlet property="checkoutBtn" destination="Jg8-e7-47O" id="Rdv-gI-U7C"/>
                 <outlet property="creditView" destination="nue-Rk-3kZ" id="2mE-Xs-Z0g"/>
+                <outlet property="freeShipBtn" destination="ehv-YU-CwC" id="tqP-d9-1nG"/>
                 <outlet property="paymentTextField" destination="da4-NM-yrP" id="eia-6w-AhH"/>
+                <outlet property="percentBtn" destination="nTw-53-ECi" id="vMp-Z0-QYO"/>
                 <outlet property="productAmountLabel" destination="8ov-ov-dSM" id="rep-49-JCF"/>
                 <outlet property="productPriceLabel" destination="Umo-U6-mXM" id="lO9-CN-8hm"/>
                 <outlet property="shipPriceLabel" destination="vX3-QS-RG3" id="5yE-nD-2sk"/>
                 <outlet property="topDistanceConstraint" destination="yp3-1R-2Z2" id="x3v-cE-cSh"/>
                 <outlet property="totalPriceLabel" destination="j2h-mD-Jbi" id="sBE-u8-nC1"/>
+                <outlet property="useBtn" destination="vif-Wb-t25" id="1cV-hL-3Fc"/>
             </connections>
             <point key="canvasLocation" x="143.47826086956522" y="152.00892857142856"/>
         </tableViewCell>
