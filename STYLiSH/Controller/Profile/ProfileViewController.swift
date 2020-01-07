@@ -71,7 +71,7 @@ extension ProfileViewController: UICollectionViewDataSource {
       vcc.modalPresentationStyle = .overCurrentContext
       present(vcc, animated: true, completion: nil)
     } else if indexPath.section == 1 && indexPath.row == 4 {
-      guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "chat") as? ChatViewController else {
+      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "chatJim") as? ChatJimViewController else {
         return
       }
       vc.navigationController?.pushViewController(vc, animated: true)
@@ -83,7 +83,7 @@ extension ProfileViewController: UICollectionViewDataSource {
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
     } else if indexPath.section == 1 && indexPath.row ==  5 {
-      guard let vc = UIStoryboard(name: "Jim", bundle: nil).instantiateViewController(identifier: "chatJim") as? ChatJimViewController else {
+      guard let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(identifier: "chat") as? ChatViewController else {
         return
       }
       vc.navigationController?.pushViewController(vc, animated: true)

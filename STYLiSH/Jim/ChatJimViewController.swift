@@ -10,17 +10,20 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class ChatJimViewController: UIViewController {
-  
-  override func viewDidLoad() {
+    
+    override func viewDidLoad() {
+    guard let userEmail = UserDefaults.standard.value(forKey: "email") as? String else {return}
     super.viewDidLoad()
     IQKeyboardManager.shared.enable = true
     self.navigationItem.title = "Chat Room"
+        emailLabel.text = "Hi, \(userEmail)!"
     // Do any additional setup after loading the view.
   }
   
   @IBOutlet weak var answerTextView: UITextView!
-  @IBOutlet weak var emailTextField: UITextField!
-  @IBOutlet weak var reallyQuestionText: UITextField!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var reallyQuestionText: UITextField!
   @IBOutlet weak var sendButton: UIButton!
     
   @IBAction func sendAction(_ sender: Any) {
