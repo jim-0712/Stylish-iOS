@@ -58,13 +58,20 @@ extension RefundViewController: UITableViewDelegate, UITableViewDataSource {
       
       cell.accountLabel.text = "數量：\(storeManJim.refundData[indexPath.row].details.list[0].qty)"
       cell.numberLabel.text = "訂單編號\(storeManJim.refundData[indexPath.row].number)"
+      let productSearch = storeManJim.refundData[indexPath.row].details.list[0].name
       cell.productLabel.text = storeManJim.refundData[indexPath.row].details.list[0].name
       cell.sizeLabel.text = storeManJim.refundData[indexPath.row].details.list[0].size
       let colorUrl = storeManJim.refundData[indexPath.row].details.list[0].color
       cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
       cell.moneyLabel.text = "價格：\(storeManJim.refundData[indexPath.row].details.list[0].price)"
-      //    let imageURL = URL(string: storeManJim.refundData[0].details[indexPath.row].list[0].mainimage)
-      //    cell.pictureView.kf.setImage(with: imageURL)
+
+      for count1 in 0 ..< storeManJim.historyData[0].orderlist[0].list.count {
+        if productSearch == storeManJim.historyData[0].orderlist[0].list[count1].name {
+          let imageURL = URL(string: storeManJim.historyData[0].orderlist[0].list[count1].mainimage)
+          cell.pictureView.kf.setImage(with: imageURL)
+        }
+      }
+      
       cell.refundButton.isEnabled = true
       cell.refundButton.alpha = 1.0
       guard let transferNumber =  Int(storeManJim.refundData[indexPath.row].number) else {return cell}

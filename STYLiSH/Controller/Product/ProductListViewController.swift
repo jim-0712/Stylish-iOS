@@ -163,6 +163,7 @@ class ProductListViewController: STCompondViewController {
             return cell
         }
         productCell.delegate = self
+        productCell.selectedIndex = indexPath.row
         productCell.layoutCell(
             image: product.mainImage,
             title: product.title,
@@ -219,11 +220,13 @@ class ProductListViewController: STCompondViewController {
 }
 
 extension ProductListViewController: CommentManager {
-  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool) {
-        guard let vc = UIStoryboard(name: "Comment", bundle: nil).instantiateViewController(identifier: "Review Comment") as? ReviewCommentViewController else {
+  
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool, selectedIndex: Int) {
+        guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "SeeComment") as? SeeCommentViewController else {
           return
         }
         vc.navigationController?.pushViewController(vc, animated: true)
         self.show(vc, sender: nil)
   }
+  
 }

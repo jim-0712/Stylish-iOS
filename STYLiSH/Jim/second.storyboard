@@ -217,5 +217,45 @@
             </objects>
             <point key="canvasLocation" x="1965" y="213"/>
         </scene>
+        <!--See Comment View Controller-->
+        <scene sceneID="iEV-iA-t81">
+            <objects>
+                <viewController storyboardIdentifier="SeeComment" id="6Of-wX-XaR" customClass="SeeCommentViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Db9-Ax-Q0q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="egF-mu-zPk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="comment" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="132" id="psp-Yd-LLJ" customClass="CommentTableViewCell" customModule="STYLiSH" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="psp-Yd-LLJ" id="Vhz-vs-uPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ABt-xe-ZL5" firstAttribute="bottom" secondItem="egF-mu-zPk" secondAttribute="bottom" id="ILm-he-fJR"/>
+                            <constraint firstItem="egF-mu-zPk" firstAttribute="leading" secondItem="ABt-xe-ZL5" secondAttribute="leading" id="Lyo-3D-Od1"/>
+                            <constraint firstItem="ABt-xe-ZL5" firstAttribute="trailing" secondItem="egF-mu-zPk" secondAttribute="trailing" id="Prg-Zs-MRK"/>
+                            <constraint firstItem="egF-mu-zPk" firstAttribute="top" secondItem="ABt-xe-ZL5" secondAttribute="top" id="gCZ-e9-za4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ABt-xe-ZL5"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTable" destination="egF-mu-zPk" id="swf-cI-b3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySd-Kd-VGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2873.913043478261" y="209.59821428571428"/>
+        </scene>
     </scenes>
 </document>

@@ -149,6 +149,8 @@
 		FBD3EB0623C2FFA0005F29CD /* WhyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */; };
 		FBD3EB0823C312BC005F29CD /* second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD3EB0723C312BC005F29CD /* second.storyboard */; };
 		FBD3EB0A23C31480005F29CD /* RefundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */; };
+		FBD3EB4B23C4854B005F29CD /* SeeCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB4A23C4854B005F29CD /* SeeCommentViewController.swift */; };
+		FBD3EB4D23C485F4005F29CD /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3EB4C23C485F4005F29CD /* CommentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -309,6 +311,8 @@
 		FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyViewController.swift; sourceTree = "<group>"; };
 		FBD3EB0723C312BC005F29CD /* second.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = second.storyboard; sourceTree = "<group>"; };
 		FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundTableViewCell.swift; sourceTree = "<group>"; };
+		FBD3EB4A23C4854B005F29CD /* SeeCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeCommentViewController.swift; sourceTree = "<group>"; };
+		FBD3EB4C23C485F4005F29CD /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -881,6 +885,8 @@
 				FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */,
 				FBD3EB0323C2F189005F29CD /* JimConnect.swift */,
 				FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */,
+				FBD3EB4A23C4854B005F29CD /* SeeCommentViewController.swift */,
+				FBD3EB4C23C485F4005F29CD /* CommentTableViewCell.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -1069,6 +1075,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD3EB4B23C4854B005F29CD /* SeeCommentViewController.swift in Sources */,
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
@@ -1149,6 +1156,7 @@
 				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
 				3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */,
 				FB6DECEF23C09402000B3138 /* CouponViewController.swift in Sources */,
+				FBD3EB4D23C485F4005F29CD /* CommentTableViewCell.swift in Sources */,
 				3C8F191922E5997B00EECE90 /* LobbyTableViewHeaderView.swift in Sources */,
 				3CE7A517223061A9009FF003 /* UserRequest.swift in Sources */,
 				3C09F52122115AB700C5B3E2 /* UIImage+Extension.swift in Sources */,
