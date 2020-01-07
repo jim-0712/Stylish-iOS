@@ -84,6 +84,7 @@
                                             <constraint firstAttribute="width" constant="40" id="P8g-UV-Vip"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
+                                        <state key="selected" image="star-2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCL-zA-AeB">
                                         <rect key="frame" x="58" y="0.0" width="40" height="40"/>
@@ -92,6 +93,7 @@
                                             <constraint firstAttribute="height" constant="40" id="eXL-Hb-Agl"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
+                                        <state key="selected" image="star-2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-TF-oOb">
                                         <rect key="frame" x="116" y="0.0" width="40" height="40"/>
@@ -100,6 +102,7 @@
                                             <constraint firstAttribute="height" constant="40" id="pL5-8C-na3"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
+                                        <state key="selected" image="star-2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-ya-uBE">
                                         <rect key="frame" x="174" y="0.0" width="40" height="40"/>
@@ -108,6 +111,7 @@
                                             <constraint firstAttribute="height" constant="40" id="bnM-Qv-smI"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
+                                        <state key="selected" image="star-2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUD-i9-QDZ">
                                         <rect key="frame" x="232" y="0.0" width="40" height="40"/>
@@ -116,6 +120,7 @@
                                             <constraint firstAttribute="height" constant="40" id="evl-wd-Vg7"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
+                                        <state key="selected" image="star-2"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -163,6 +168,7 @@
     </scenes>
     <resources>
         <image name="Icons_36px_Profile_Normal" width="36" height="36"/>
+        <image name="star-2" width="512" height="512"/>
         <image name="star-3" width="512" height="512"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
