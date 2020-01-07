@@ -70,7 +70,8 @@ class LobbyViewController: STBaseViewController {
     let configuration = URLSessionConfiguration.default
     let session = URLSession(configuration: configuration)
     let email = UserDefaults.standard.value(forKey: "email") as? String
-    let newlottery = URL(string: "https://yssites.com/api/1.0/points")!
+//  let newlottery = URL(string: "https://yssites.com/api/1.0/points")!
+    let newlottery = URL(string: "https://williamyhhuang.com/api/1.0/points")!
     var request = URLRequest(url: newlottery)
     request.httpMethod = "GET"
     request.addValue(email!, forHTTPHeaderField: "email")

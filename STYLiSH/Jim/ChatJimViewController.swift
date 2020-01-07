@@ -14,6 +14,7 @@ class ChatJimViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     IQKeyboardManager.shared.enable = true
+    self.navigationItem.title = "Chat Room"
     // Do any additional setup after loading the view.
   }
   
