@@ -161,6 +161,7 @@
                         </state>
                         <connections>
                             <action selector="checkout" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UOr-T6-Rh9"/>
+                            <action selector="realToCheck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Ew-hc-wnB"/>
                         </connections>
                     </button>
                 </subviews>

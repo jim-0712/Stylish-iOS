@@ -10,6 +10,9 @@ import UIKit
 
 class CheckoutViewController: STBaseViewController {
   
+  var reFreshIndexSection = 0
+  var refreshIndexRow = 0
+  
   private struct Segue {
     
     static let success = "SegueSuccess"
@@ -305,6 +308,9 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
   
   private func mappingCellWtih(payment: String, at indexPath: IndexPath) -> UITableViewCell {
     
+    refreshIndexRow = indexPath.row
+    reFreshIndexSection = indexPath.section
+    
     guard
       let inputCell = tableView.dequeueReusableCell(
         withIdentifier: STPaymentInfoTableViewCell.identifier,
@@ -322,11 +328,13 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     StoreJimS.sharedJim.totalProductMoney = orderProvider.order.productPrices
     StoreJimS.sharedJim.totalFreight = orderProvider.order.freight
+    StoreJimS.sharedJim.finalProductMoney = orderProvider.order.productPrices
+    StoreJimS.sharedJim.finalFreeDelivey = orderProvider.order.freight
     
     inputCell.layoutCellWith(
-      productPrice: orderProvider.order.productPrices,
+      productPrice: StoreJimS.sharedJim.finalProductMoney,
       //productPrice: 商品總金額
-      shipPrice: orderProvider.order.freight,
+      shipPrice: StoreJimS.sharedJim.finalFreeDelivey,
       //運費
       productCount: orderProvider.order.amount,
       payment: orderProvider.order.payment.rawValue,
@@ -425,13 +433,18 @@ extension CheckoutViewController: Couponmanager {
       orderProvider.order.freeShip = 1
       StoreJimS.sharedJim.freeDelivery = 1
       StoreJimS.sharedJim.reallyTicketUse = StoreJimS.sharedJim.lottery[0].coupon.shipfree[0]
+      StoreJimS.sharedJim.freeDelivery = 0
+      StoreJimS.sharedJim.finalProductMoney = StoreJimS.sharedJim.totalProductMoney
     }else {
       let money = Double(StoreJimS.sharedJim.totalProductMoney)
       let discount = money * 0.1
       StoreJimS.sharedJim.discount = Int(discount)
       orderProvider.order.discount = Int(discount)
       StoreJimS.sharedJim.reallyTicketUse = StoreJimS.sharedJim.lottery[0].coupon.tenpercent[0]
+      StoreJimS.sharedJim.freeDelivery = StoreJimS.sharedJim.totalFreight
+      StoreJimS.sharedJim.finalProductMoney = StoreJimS.sharedJim.totalProductMoney - Int(discount)
     }
+    
+    tableView.reloadRows(at: [IndexPath(row: refreshIndexRow, section: reFreshIndexSection)], with: .automatic)
   }
-
 }

@@ -75,34 +75,48 @@ class HistoryViewController: UIViewController {
                 
             }
         }
-        task.resume()
-    }
+      task.resume()
+  }
 }
+  
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return storeManJim.historyData[0].orderlist.count
-        
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    let count = storeManJim.historyData.count
+    if count == 0{
+      return 0
+    }else {
+      return storeManJim.historyData[0].orderlist.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "history", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell()}
-        
-        cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].qty)"
-        cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
-        cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].name
-        cell.sizeLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].size
-        let colorUrl = storeManJim.historyData[0].orderlist[indexPath.row].list[0].color
-        cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
-        cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].price)"
-        let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list[0].mainimage)
-        cell.pictureView.kf.setImage(with: imageURL)
-        
-        return cell
-    }
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+    if storeManJim.historyData.count == 0 {
+      return UITableViewCell()
+    }else{
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "history", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell()}
+      
+      cell.accountLabel.text = "數量：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].qty)"
+      cell.numberLabel.text = "訂單編號\(storeManJim.historyData[0].orderlist[indexPath.row].number)"
+      cell.productLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].name
+      cell.sizeLabel.text = storeManJim.historyData[0].orderlist[indexPath.row].list[0].size
+      let colorUrl = storeManJim.historyData[0].orderlist[indexPath.row].list[0].color
+      cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
+      cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].price)"
+      let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list[0].mainimage)
+      cell.pictureView.kf.setImage(with: imageURL)
+      cell.refundButton.isEnabled = false
+      cell.refundButton.alpha = 0.0
+      
+      return cell
     }
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 160
+  }
+
 }
