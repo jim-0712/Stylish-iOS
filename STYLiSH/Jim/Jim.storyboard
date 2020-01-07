@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -229,23 +229,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-Ne-XK9">
-                                                    <rect key="frame" x="328" y="76" width="50" height="35"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="3uY-o3-LFG"/>
-                                                        <constraint firstAttribute="width" constant="50" id="vvm-Ia-O7E"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="344" y="24" width="54" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="退貨"/>
+                                                    <state key="normal" title="撰寫評論">
+                                                        <color key="titleColor" red="0.24711078410000001" green="0.2274727523" blue="0.22742256520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="refundAction:" destination="E6s-Le-0h2" eventType="touchUpInside" id="bzf-J3-Pxv"/>
+                                                        <action selector="writeButton:" destination="g8Q-as-Ss3" eventType="touchUpInside" id="peB-h8-gRl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="hec-LI-TqM" secondAttribute="bottom" id="0cw-KV-vn4"/>
                                                 <constraint firstItem="hec-LI-TqM" firstAttribute="leading" secondItem="Opk-D7-vhF" secondAttribute="leading" constant="16" id="5en-7q-epH"/>
-                                                <constraint firstItem="OT9-Ne-XK9" firstAttribute="top" secondItem="O9x-EU-s1N" secondAttribute="bottom" id="6iY-gc-eVt"/>
                                                 <constraint firstAttribute="trailing" secondItem="O9x-EU-s1N" secondAttribute="trailing" constant="16" id="6zo-Se-NoC"/>
                                                 <constraint firstItem="nEf-3p-HBf" firstAttribute="top" secondItem="Opk-D7-vhF" secondAttribute="top" constant="24" id="DIK-Ra-yFE"/>
                                                 <constraint firstItem="Yfe-eU-PAY" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="Ens-Yk-KeL"/>
@@ -253,7 +251,7 @@
                                                 <constraint firstItem="nEf-3p-HBf" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="Hkv-pv-jhB"/>
                                                 <constraint firstAttribute="trailing" secondItem="MSg-3e-QZb" secondAttribute="trailing" constant="16" id="L7h-XB-Ldr"/>
                                                 <constraint firstItem="O9x-EU-s1N" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="U1D-9a-TkF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="OT9-Ne-XK9" secondAttribute="trailing" constant="16" id="UUr-30-yU4"/>
+                                                <constraint firstAttribute="trailing" secondItem="OT9-Ne-XK9" secondAttribute="trailing" constant="16" id="UUr-30-yU4"/>
                                                 <constraint firstItem="1Wk-7L-Id7" firstAttribute="top" secondItem="Yfe-eU-PAY" secondAttribute="bottom" constant="12" id="V4V-Qi-Gnc"/>
                                                 <constraint firstItem="hec-LI-TqM" firstAttribute="top" secondItem="Opk-D7-vhF" secondAttribute="top" constant="24" id="Xtz-qs-HZF"/>
                                                 <constraint firstItem="MSg-3e-QZb" firstAttribute="leading" secondItem="1Wk-7L-Id7" secondAttribute="trailing" constant="12" id="YeH-Yp-bKc"/>
@@ -261,6 +259,7 @@
                                                 <constraint firstItem="MSg-3e-QZb" firstAttribute="top" secondItem="O9x-EU-s1N" secondAttribute="bottom" constant="12" id="b5N-dv-cu6"/>
                                                 <constraint firstItem="O9x-EU-s1N" firstAttribute="top" secondItem="nEf-3p-HBf" secondAttribute="bottom" constant="12" id="c0k-ov-Ooc"/>
                                                 <constraint firstItem="1Wk-7L-Id7" firstAttribute="leading" secondItem="hec-LI-TqM" secondAttribute="trailing" constant="16" id="csy-O2-dt1"/>
+                                                <constraint firstItem="OT9-Ne-XK9" firstAttribute="top" secondItem="nEf-3p-HBf" secondAttribute="top" id="i6Z-Ak-VP1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nEf-3p-HBf" secondAttribute="trailing" constant="16" id="of5-5M-qfH"/>
                                                 <constraint firstItem="LvU-jT-Gew" firstAttribute="leading" secondItem="Yfe-eU-PAY" secondAttribute="trailing" constant="16" id="qoz-FE-B6d"/>
                                             </constraints>
