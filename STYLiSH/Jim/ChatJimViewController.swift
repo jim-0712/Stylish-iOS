@@ -66,13 +66,18 @@ class ChatJimViewController: UIViewController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(userEmail, forHTTPHeaderField: "email")
-        //            let customerQuest = CustomerQuest(comment: reallyQuestionText.text!)
-        //            let customerData = CustomerData(data: customerQuest)
-        //            let postData = try? JSONSerialization.data(withJSONObject: customerData, options: .prettyPrinted)
         
-        let parameters = ["data": [
-            ["comment": reallyQuestionText.text]]]
-        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        let customerQuest = CustomerQuest(comment: reallyQuestionText.text!)
+        let customerData = CustomerData(data: customerQuest)
+        
+        let encoder = JSONEncoder()
+        
+        let postData = try? encoder.encode(customerData)
+//        let postData = try? JSONSerialization.data(withJSONObject: customerData, options: .prettyPrinted)
+        
+//        let parameters = ["data": [
+//            ["comment": reallyQuestionText.text]]]
+//        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         
         request.httpBody = postData
         
