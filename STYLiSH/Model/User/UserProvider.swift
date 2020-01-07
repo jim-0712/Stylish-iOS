@@ -116,8 +116,11 @@ class UserProvider {
       
       return completion(Result.failure(STYLiSHSignInError.noToken))
     }
+    let reallyTicketUse = StoreJimS.sharedJim.reallyTicketUse
     
-    let body = CheckoutAPIBody(order: order, prime: prime)
+    NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
+    
+    let body = CheckoutAPIBody(order: order, prime: prime, coupon: reallyTicketUse)
     
     let request = STUserRequest.checkout(
       token: token,

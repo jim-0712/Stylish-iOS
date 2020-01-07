@@ -25,6 +25,12 @@ class CouponViewController: UIViewController {
     freeShip = storeManJim.lottery[0].coupon.shipfree.count
     totalCount = tenpercent + freeShip
     // Do any additional setup after loading the view.
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(reCoupon), name: Notification.Name("reloadCoupon"), object: nil)
+  }
+  
+  @objc func reCoupon(){
+    couponTable.reloadData()
   }
   
 }

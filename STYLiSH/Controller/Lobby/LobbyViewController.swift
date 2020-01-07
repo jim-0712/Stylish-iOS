@@ -42,12 +42,52 @@ class LobbyViewController: STBaseViewController {
     navigationItem.titleView = UIImageView(image: UIImage.asset(.Image_Logo02))
     lobbyView.beginHeaderRefresh()
     
+    NotificationCenter.default.addObserver(self, selector: #selector(reFetchData), name: Notification.Name("reloadTicket"), object: nil)
+    
     guard let data = UserDefaults.standard.value(forKey: "email") else { return }
     getData()
     
     getRefundData()
   }
 
+  @objc func reFetchData(){
+    
+    lotteryDataNew()
+    
+    
+  }
+  
+  
+  func lotteryDataNew() {
+      let configuration = URLSessionConfiguration.default
+      let session = URLSession(configuration: configuration)
+      let email = UserDefaults.standard.value(forKey: "email") as? String
+  //  let newlottery = URL(string: "https://yssites.com/api/1.0/points")!
+      let newlottery = URL(string: "https://williamyhhuang.com/api/1.0/points")!
+      var request = URLRequest(url: newlottery)
+      request.httpMethod = "GET"
+      request.addValue(email!, forHTTPHeaderField: "email")
+      
+      let task = session.dataTask(with: request) {(data, response, error)  in
+        guard let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 else {return}
+        
+        guard let data = data else {
+          return
+        }
+        let decoder = JSONDecoder()
+        do {
+          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          let result  = try decoder.decode(Lottery.self, from: data)
+          self.storeManJim.lottery = [result]
+           NotificationCenter.default.post(name: Notification.Name("reloadCoupon"), object: nil)
+          print(result)
+        } catch {
+        }
+      }
+      task.resume()
+    }
+  
   // MARK: - Action
   func fetchData() {
     
@@ -88,7 +128,7 @@ class LobbyViewController: STBaseViewController {
         let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         let result  = try decoder.decode(Lottery.self, from: data)
         self.storeManJim.lottery = [result]
-//        print(result)
+        print(result)
       } catch {
       }
     }
@@ -103,7 +143,7 @@ class LobbyViewController: STBaseViewController {
             
         case .success(let recommands):
       
-            print(recommands)
+            print("Ya")
             
         case .failure(let error):
         

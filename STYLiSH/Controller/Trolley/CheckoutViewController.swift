@@ -318,6 +318,10 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     inputCell.creditView.stickSubView(tappayVC.view)
     
     inputCell.delegate = self
+    inputCell.delegateJim = self
+    
+    StoreJimS.sharedJim.totalProductMoney = orderProvider.order.productPrices
+    StoreJimS.sharedJim.totalFreight = orderProvider.order.freight
     
     inputCell.layoutCellWith(
       productPrice: orderProvider.order.productPrices,
@@ -410,4 +414,24 @@ extension CheckoutViewController: STOrderUserInputCellDelegate {
     
   }
   
+}
+
+
+extension CheckoutViewController: Couponmanager {
+  
+  func couponUse(_ cell: STPaymentInfoTableViewCell, free: Bool, percent: Bool) {
+    
+    if free{
+      orderProvider.order.freeShip = 1
+      StoreJimS.sharedJim.freeDelivery = 1
+      StoreJimS.sharedJim.reallyTicketUse = StoreJimS.sharedJim.lottery[0].coupon.shipfree[0]
+    }else {
+      let money = Double(StoreJimS.sharedJim.totalProductMoney)
+      let discount = money * 0.1
+      StoreJimS.sharedJim.discount = Int(discount)
+      orderProvider.order.discount = Int(discount)
+      StoreJimS.sharedJim.reallyTicketUse = StoreJimS.sharedJim.lottery[0].coupon.tenpercent[0]
+    }
+  }
+
 }
