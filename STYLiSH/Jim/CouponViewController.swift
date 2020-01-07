@@ -21,9 +21,6 @@ class CouponViewController: UIViewController {
     couponTable.dataSource = self
     couponTable.separatorStyle = .none
     
-    tenpercent = storeManJim.lottery[0].coupon.tenpercent.count
-    freeShip = storeManJim.lottery[0].coupon.shipfree.count
-    totalCount = tenpercent + freeShip
     // Do any additional setup after loading the view.
     
     NotificationCenter.default.addObserver(self, selector: #selector(reCoupon), name: Notification.Name("reloadCoupon"), object: nil)
@@ -38,12 +35,21 @@ class CouponViewController: UIViewController {
 extension CouponViewController : UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return totalCount
+    
+    let count = storeManJim.historyData.count
+    if count == 0{
+      return 0
+    }else {
+      tenpercent = storeManJim.lottery[0].coupon.tenpercent.count
+      freeShip = storeManJim.lottery[0].coupon.shipfree.count
+      totalCount = tenpercent + freeShip
+      return totalCount
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    if totalCount == 0 {
+    if storeManJim.historyData.count == 0 {
       return UITableViewCell()
     }else if tenpercent == 0 && freeShip != 0 {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "freeDe", for: indexPath) as? FreeDeliveryTableViewCell else{ return UITableViewCell() }

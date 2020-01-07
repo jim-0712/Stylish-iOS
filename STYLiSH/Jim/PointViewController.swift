@@ -122,11 +122,11 @@ class PointViewController: UIViewController {
       targetLabelSett(now: 10001, target: 20000)
       percent = CGFloat(money / 20000)
     } else {
-      vipImage.image = UIImage(named: "man")
+      vipImage.image = UIImage(named: "diamond")
       let cash = 100000 - money
       targetLabelSett(now: 20000, target: 100000)
       mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
-      memberLabel.text = "爸爸會員"
+      memberLabel.text = "鑽石會員"
     }
   }
   

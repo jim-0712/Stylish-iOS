@@ -55,6 +55,7 @@ class LobbyViewController: STBaseViewController {
     lotteryDataNew()
     
     
+    
   }
   
   
@@ -80,6 +81,7 @@ class LobbyViewController: STBaseViewController {
           let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
           let result  = try decoder.decode(Lottery.self, from: data)
           self.storeManJim.lottery = [result]
+          self.getRefundDataNew()
            NotificationCenter.default.post(name: Notification.Name("reloadCoupon"), object: nil)
           print(result)
         } catch {
@@ -142,7 +144,7 @@ class LobbyViewController: STBaseViewController {
         switch result {
             
         case .success(let recommands):
-      
+     
             print("Ya")
             
         case .failure(let error):
@@ -153,6 +155,57 @@ class LobbyViewController: STBaseViewController {
     })
   }
   
+  func getRefundDataNew() {
+    guard let email = UserDefaults.standard.value(forKey: "email") else {return }
+    jimManager.canRefundData (completion: { result in
+        
+        switch result {
+            
+        case .success(let recommands):
+      
+            NotificationCenter.default.post(name: Notification.Name("refundNew"), object: nil)
+            self.getDataNew()
+            print("Ya")
+            
+        case .failure(let error):
+        
+            print(error)
+        }
+        
+    })
+  }
+  
+  func getDataNew() {
+    
+      let configuration = URLSessionConfiguration.default
+      let session = URLSession(configuration: configuration)
+      let email = UserDefaults.standard.value(forKey: "email") as? String
+      let shoppingCart = URL(string: "https://williamyhhuang.com/api/1.0/search")!
+      var request = URLRequest(url: shoppingCart)
+      request.httpMethod = "GET"
+      request.addValue(email!, forHTTPHeaderField: "email")
+      let task = session.dataTask(with: request) {(data, response, error)  in
+        guard let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 else {return}
+        
+        guard let data = data else {
+          return
+        }
+        let decoder = JSONDecoder()
+        do {
+          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          let result  = try decoder.decode(HistoryList.self, from: data)
+          self.storeManJim.historyData = [result]
+          for count in 0 ..< result.total.count {
+            self.total += result.total[count]
+          }
+          self.storeManJim.totalMoney = self.total
+          NotificationCenter.default.post(name: Notification.Name("historyNew"), object: nil)
+        } catch {
+        }
+      }
+      task.resume()
+    }
   
   func getData() {
     let configuration = URLSessionConfiguration.default

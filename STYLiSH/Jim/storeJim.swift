@@ -25,4 +25,11 @@ class StoreJimS {
   var totalFreight = 0
   var discount = 0
   var freeDelivery = 0
+  
+  var finalProductMoney = 0
+  var finalFreeDelivey = 0
+  
+  var productBackNumber = 0
+  var orderNumber = 0
+  
 }

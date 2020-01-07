@@ -120,10 +120,13 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     }
   }
   
+  @IBAction func realToCheck(_ sender: Any) {
+    
+    NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
+  }
   
   
-  
-  
+
   @IBOutlet weak var creditView: UIView! {
         
         didSet {
@@ -169,6 +172,7 @@ class STPaymentInfoTableViewCell: UITableViewCell {
     func updateCheckouttButton(isEnable: Bool) {
         
         checkoutBtn.isEnabled = isEnable
+      
         
         checkoutBtn.backgroundColor = isEnable ? UIColor.B1 : UIColor.B5
     }

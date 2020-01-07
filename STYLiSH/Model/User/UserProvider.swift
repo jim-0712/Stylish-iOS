@@ -118,7 +118,6 @@ class UserProvider {
     }
     let reallyTicketUse = StoreJimS.sharedJim.reallyTicketUse
     
-    NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
     
     let body = CheckoutAPIBody(order: order, prime: prime, coupon: reallyTicketUse)
     
