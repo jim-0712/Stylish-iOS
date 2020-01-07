@@ -73,7 +73,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
       cell.moneyLabel.text = "價格：\(storeManJim.historyData[0].orderlist[indexPath.row].list[0].price)"
       let imageURL = URL(string: storeManJim.historyData[0].orderlist[indexPath.row].list[0].mainimage)
       cell.pictureView.kf.setImage(with: imageURL)
+<<<<<<< HEAD
   
+=======
+>>>>>>> 33a42d4760a7249bfce73baada6ae094e2cd50b6
       
       return cell
     }

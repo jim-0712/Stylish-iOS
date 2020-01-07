@@ -85,6 +85,9 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
+                                        <connections>
+                                            <action selector="first:" destination="v6R-Js-hDi" eventType="touchUpInside" id="s8o-bf-5Hd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCL-zA-AeB">
                                         <rect key="frame" x="58" y="0.0" width="40" height="40"/>
@@ -160,6 +163,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ain-cw-zjA"/>
                     </view>
+                    <connections>
+                        <outlet property="userLabel" destination="TOj-Nw-tKo" id="mG5-TQ-R18"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY2-NA-8TU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
