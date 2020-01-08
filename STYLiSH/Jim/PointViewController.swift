@@ -86,7 +86,7 @@ class PointViewController: UIViewController {
                     self.myGodWidth.constant = 300
                     // self.myGodView.transform = CGAffineTransform(translationX: 0, y: 0)
                     self.myGodView.transform = CGAffineTransform(translationX: 0.6 * self.useWidth, y: 0)
-                    self.myGodView.backgroundColor = .red
+                    self.myGodView.backgroundColor = .gray
     },
                    completion: nil)
     
@@ -103,23 +103,23 @@ class PointViewController: UIViewController {
   
   func memberLevel() {
     if money < 4999 {
-      vipImage.image = UIImage(named: "popo")
-      memberLabel.text = "一般會員"
+      vipImage.image = UIImage(named: "member")
+      memberLabel.text = "您目前為：一般會員"
       let cash = 4999 - money
-      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
       targetLabelSett(now: 0, target: 4999)
       percent = CGFloat(money / 4999)
     } else if 5000 <= money && money <= 10000 {
       vipImage.image = UIImage(named: "gold")
       let cash = 10000 - money
-      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
       memberLabel.text = "黃金會員"
       targetLabelSett(now: 5000, target: 10000)
       percent = CGFloat(money / 10000)
     } else if 10001 <= money && money <= 20000 {
-      vipImage.image = UIImage(named: "white")
+      vipImage.image = UIImage(named: "VIP")
       let cash = 20000 - money
-      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
       memberLabel.text = "白金會員"
       targetLabelSett(now: 10001, target: 20000)
       percent = CGFloat(money / 20000)
@@ -127,18 +127,17 @@ class PointViewController: UIViewController {
       vipImage.image = UIImage(named: "diamond")
       let cash = 100000 - money
       targetLabelSett(now: 20000, target: 100000)
-      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)元"
-      memberLabel.text = "鑽石會員"
+      mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
+      memberLabel.text = "您目前為：鑽石會員"
     }
   }
   
-  
-  func targetLabelSett(now: Int,target: Int){
+  func targetLabelSett(now: Int,target: Int) {
     nowLabel.text = "\(now)元"
     targetLabel.text = "\(target)元"
   }
   
-  func postLoginCall(){
+  func postLoginCall() {
     let shoppingCart = URL(string: "")!
     var request = URLRequest(url: shoppingCart)
     request.httpMethod = "POST"
@@ -155,5 +154,4 @@ class PointViewController: UIViewController {
     task.resume()
   }
  
-  
 }

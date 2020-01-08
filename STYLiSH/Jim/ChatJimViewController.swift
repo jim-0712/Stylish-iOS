@@ -95,7 +95,6 @@ class ChatJimViewController: UIViewController {
                 } catch {
                     print(error)
                 }
-                
             }
         }.resume()
         
