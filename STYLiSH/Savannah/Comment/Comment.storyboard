@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Review Comment View Controller-->
-        <scene sceneID="ERJ-Lz-iGU">
-            <objects>
-                <viewController storyboardIdentifier="Review Comment" id="F0K-jf-uGI" customClass="ReviewCommentViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EFg-Ow-pPM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="eJz-jb-BDC"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mhB-j2-sML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-239" y="108"/>
-        </scene>
         <!--Make Comment View Controller-->
         <scene sceneID="79F-ET-2aj">
             <objects>
@@ -86,7 +71,7 @@
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
                                         <connections>
-                                            <action selector="first:" destination="v6R-Js-hDi" eventType="touchUpInside" id="s8o-bf-5Hd"/>
+                                            <action selector="oneStarBtn:" destination="v6R-Js-hDi" eventType="touchUpInside" id="Uul-0I-80x"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCL-zA-AeB">
@@ -97,6 +82,9 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
+                                        <connections>
+                                            <action selector="twoStarsBtn:" destination="v6R-Js-hDi" eventType="touchUpInside" id="AEi-zX-XeG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-TF-oOb">
                                         <rect key="frame" x="116" y="0.0" width="40" height="40"/>
@@ -106,6 +94,9 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
+                                        <connections>
+                                            <action selector="threeStarsBtn:" destination="v6R-Js-hDi" eventType="touchUpInside" id="p5o-be-3Ry"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-ya-uBE">
                                         <rect key="frame" x="174" y="0.0" width="40" height="40"/>
@@ -115,6 +106,9 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
+                                        <connections>
+                                            <action selector="fourStarsBtn:" destination="v6R-Js-hDi" eventType="touchUpInside" id="ZQT-C1-Qwm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUD-i9-QDZ">
                                         <rect key="frame" x="232" y="0.0" width="40" height="40"/>
@@ -124,6 +118,9 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="star-3"/>
                                         <state key="selected" image="star-2"/>
+                                        <connections>
+                                            <action selector="fiveStarsBtn:" destination="v6R-Js-hDi" eventType="touchUpInside" id="RSS-6H-flw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -133,6 +130,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" red="0.24711078410000001" green="0.2274727523" blue="0.22742256520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="postButton:" destination="v6R-Js-hDi" eventType="touchUpInside" id="wS0-sb-gPz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04n-Ks-sTA">
                                 <rect key="frame" x="71" y="456" width="272" height="30"/>
@@ -164,6 +164,12 @@
                         <viewLayoutGuide key="safeArea" id="ain-cw-zjA"/>
                     </view>
                     <connections>
+                        <outlet property="commentTF" destination="rQa-Nz-ZTD" id="Zev-TF-LH7"/>
+                        <outlet property="fiveStarsBtn" destination="vUD-i9-QDZ" id="w5N-Dl-jzI"/>
+                        <outlet property="fourStarsBtn" destination="BaU-ya-uBE" id="DMn-Jc-EH8"/>
+                        <outlet property="oneStarBtn" destination="8KS-Hm-HEJ" id="6Il-Vm-ezE"/>
+                        <outlet property="threeStarsBtn" destination="yPg-TF-oOb" id="Xvs-ZL-DsK"/>
+                        <outlet property="twoStarsBtn" destination="lCL-zA-AeB" id="LNi-cV-blf"/>
                         <outlet property="userLabel" destination="TOj-Nw-tKo" id="mG5-TQ-R18"/>
                     </connections>
                 </viewController>
