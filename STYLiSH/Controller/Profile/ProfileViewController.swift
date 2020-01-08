@@ -94,6 +94,12 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     vc.navigationController?.pushViewController(vc, animated: true)
     show(vc, sender: nil)
+    }else if indexPath.section == 1 && indexPath.row ==  2 {
+    guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "signin") as? SignInViewController else {
+      return
+    }
+    vc.navigationController?.pushViewController(vc, animated: true)
+    show(vc, sender: nil)
     }
   }
   //  CouponViewController

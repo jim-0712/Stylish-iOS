@@ -43,12 +43,24 @@ class WhyViewController: UIViewController {
       
             print(recommands)
             
+            let message = StoreJimS.sharedJim.refundNum[0].productbacknumber
+          
+            self.success(message: message)
+            
         case .failure(let error):
         
             print(error)
         }
         
     })
+  }
+  
+  func success(message: String) {
+    
+    let alert = UIAlertController(title: "退貨編號", message: message, preferredStyle: UIAlertController.Style.alert)
+    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
   
 

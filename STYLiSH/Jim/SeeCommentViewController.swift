@@ -10,12 +10,14 @@ import UIKit
 
 class SeeCommentViewController: UIViewController {
   
+  let jimManager = JimManager()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     commentTable.delegate = self
     commentTable.dataSource = self
-    commentDataDown()
+     getCommentBack()
     if commentDataBack.isEmpty {
       DispatchQueue.main.async {
         LKProgressHUD.show()
@@ -41,36 +43,24 @@ class SeeCommentViewController: UIViewController {
   @IBOutlet weak var commentTable: UITableView!
   
   
-  func commentDataDown() {
-    let configuration = URLSessionConfiguration.default
-    let session = URLSession(configuration: configuration)
-    //    let email = UserDefaults.standard.value(forKey: "email") as? String
-    let commentBack = URL(string: "https://williamyhhuang.com/api/1.0/comment")!
-    var request = URLRequest(url: commentBack)
-    request.httpMethod = "GET"
-    let prodID = String(productID)
-    request.addValue(prodID, forHTTPHeaderField: "productid")
+  func getCommentBack(){
     
-    let task = session.dataTask(with: request) {(data, response, error)  in
-      guard let httpResponse = response as? HTTPURLResponse,
-        httpResponse.statusCode == 200 else {return}
+    jimManager.productCommentReturn { result  in
       
-      guard let data = data else {
-        return
-      }
-      let decoder = JSONDecoder()
-      do {
-        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        let result  = try decoder.decode([BackComment].self, from: data)
-        self.commentDataBack = result
+      switch result {
         
-        print(result)
-      } catch {
+      case .success(let data):
+        
+        self.commentDataBack = data
+      
+      case .failure(let error):
+        
         print(error)
+        
       }
     }
-    task.resume()
   }
+  
 }
 
 extension SeeCommentViewController: UITableViewDelegate, UITableViewDataSource {

@@ -8,6 +8,13 @@
 
 import Foundation
 
+//
+//enum Result<T, A: Error> {
+//
+//    case success(T)
+//
+//    case failure(A)
+//}
 enum Result<T> {
 
     case success(T)
@@ -93,6 +100,7 @@ class HTTPClient {
         completion: @escaping (Result<Data>) -> Void
     ) {
 
+      
         URLSession.shared.dataTask(
             with: stRequest.makeRequest(),
             completionHandler: { (data, response, error) in

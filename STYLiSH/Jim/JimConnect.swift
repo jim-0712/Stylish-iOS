@@ -14,6 +14,12 @@ enum JimRequest: STRequest {
   
   case switchProduct(email: String)
   
+  case productCommentBack(productId: String)
+  
+  case everyDaySignPost(email: String, time: Int, totalPoints: Int)
+  
+  case signGet(email: String)
+  
   var headers: [String: String] {
     
     switch self {
@@ -25,7 +31,20 @@ enum JimRequest: STRequest {
     case .switchProduct(let email):
       
       return [STHTTPHeaderField.email.rawValue: "\(email)"]
+      
+    case .productCommentBack(let productId):
+      
+      return ["productid": productId]
+      
+    case .everyDaySignPost(let email, let time, let totalPoints):
+      
+      return ["email": email]
+      
+    case .signGet(let email):
+      
+      return ["email": email]
     }
+  
   }
   
   var body: Data? {
@@ -46,18 +65,28 @@ enum JimRequest: STRequest {
       
       return reallyData
       
-    case .switchProduct:
+    case .everyDaySignPost(let email, let time, let totalPoints):
+      
+      let dict = [
+        "time" : time,
+        "total_points": totalPoints
+      ]
+      
+      return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+      
+    case .switchProduct, .productCommentBack, .signGet:
       
       return nil
+      
     }
   }
   var method: String {
     
     switch self {
       
-    case .whyRefundMessage: return STHTTPMethod.POST.rawValue
+    case .whyRefundMessage, .everyDaySignPost: return STHTTPMethod.POST.rawValue
       
-    case .switchProduct: return STHTTPMethod.GET.rawValue
+    case .switchProduct, .productCommentBack, .signGet: return STHTTPMethod.GET.rawValue
       
     }
   }
@@ -67,12 +96,17 @@ enum JimRequest: STRequest {
     switch self {
       
     case .whyRefundMessage , .switchProduct: return "/returnProduct"
+      
+    case .productCommentBack: return "/comment"
+      
+    case .everyDaySignPost, .signGet: return "/sign"
     }
   }
 }
 
 
 class  JimManager {
+  
   let decoder = JSONDecoder()
   
   func postWhyRefund(number: String,why: String, options: String,completion : @escaping ((Result<ResponseWhy>) -> Void)){
@@ -138,7 +172,110 @@ class  JimManager {
         completion(.failure(error))
       }
     }
+  }
+  
+  
+  
+  func productCommentReturn(completion : @escaping ((Result<[BackComment]>)) -> Void){
     
+    let productId = StoreJimS.sharedJim.commentProductId
     
+    HTTPClient.shared.request(JimRequest.productCommentBack(productId: productId)) { result in
+      
+//      guard let strongSelf = self else { return }
+      
+      switch result {
+        
+      case .success(let data):
+        
+        do {
+          let apple = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          
+          let productBack = try self.decoder.decode([BackComment].self, from: data)
+          
+          StoreJimS.sharedJim.productBack = productBack
+          
+          completion(.success(productBack))
+          
+        } catch  {
+          
+          completion(.failure(error))
+        }
+        
+      case .failure(let error):
+        
+        completion(.failure(error))
+      }
+    }
+    
+  }
+  
+  func postEveryDaySign(time: Int, completion: @escaping ((Result<SignFeedBack>) -> Void)){
+    
+    guard let email = UserDefaults.standard.value(forKey: "email") else { return }
+    guard let stringEmail = email as?String else { return }
+    let totalPoints = StoreJimS.sharedJim.totalPoints
+    
+    HTTPClient.shared.request(JimRequest.everyDaySignPost(email: stringEmail, time: time, totalPoints: totalPoints)) { result in
+      
+      switch result {
+        
+      case .success(let data):
+        
+        do {
+          let apple = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          
+          let postSignBack = try self.decoder.decode(SignFeedBack.self, from: data)
+          
+          StoreJimS.sharedJim.signFeedBack = [postSignBack]
+          
+          completion(.success(postSignBack))
+          
+        } catch  {
+          
+          completion(.failure(error))
+        }
+        
+      case .failure(let error):
+        
+        completion(.failure(error))
+      }
+      
+    }
+  }
+  
+  func signGet(completion: @escaping ((Result<SignIn>) -> Void)){
+    
+    guard let email = UserDefaults.standard.value(forKey: "email") else { return }
+    guard let stringEmail = email as?String else { return }
+    
+    HTTPClient.shared.request(JimRequest.signGet(email: stringEmail)) { result in
+      
+      switch result {
+        
+      case .success(let data):
+        
+        do {
+          let apple = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          
+          let signBack = try self.decoder.decode(SignIn.self, from: data)
+          
+          StoreJimS.sharedJim.signBack = [signBack]
+          
+          StoreJimS.sharedJim.totalPoints = signBack.totalpoints
+          
+          completion(.success(signBack))
+          
+        } catch  {
+          
+          completion(.failure(error))
+        }
+        
+      case .failure(let error):
+        
+        completion(.failure(error))
+      }
+      
+    }
   }
 }

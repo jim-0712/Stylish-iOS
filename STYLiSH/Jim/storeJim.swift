@@ -16,6 +16,8 @@ class StoreJimS {
   var refundData = [WantRefund]()
   var lottery = [Lottery]()
   var refundNum = [ResponseWhy]()
+  var signFeedBack = [SignFeedBack]()
+  var signBack = [SignIn]()
   var totalMoney = 0
   var id = 0
   var email = ""
@@ -32,4 +34,8 @@ class StoreJimS {
   var productBackNumber = 0
   var orderNumber = 0
   
+  var commentProductId = ""
+  var productBack = [BackComment]()
+  
+  var totalPoints = 0
 }

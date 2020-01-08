@@ -133,6 +133,7 @@
 		FB335DC923BEEFFC0059176B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */; };
 		FB335DCB23BF02640059176B /* Jim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB335DCA23BF02640059176B /* Jim.storyboard */; };
 		FB4FC74B23C1B450008AB2EA /* ChatJimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */; };
+		FB60604C23C5B962005D4106 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60604B23C5B962005D4106 /* SignInViewController.swift */; };
 		FB6DECEA23C07E18000B3138 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE623C07E18000B3138 /* ChatViewController.swift */; };
 		FB6DECEB23C07E18000B3138 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */; };
 		FB6DECEC23C07E18000B3138 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6DECE823C07E18000B3138 /* Chat.storyboard */; };
@@ -295,6 +296,7 @@
 		FB335DC823BEEFFC0059176B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FB335DCA23BF02640059176B /* Jim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jim.storyboard; sourceTree = "<group>"; };
 		FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatJimViewController.swift; sourceTree = "<group>"; };
+		FB60604B23C5B962005D4106 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FB6DECE623C07E18000B3138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FB6DECE723C07E18000B3138 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		FB6DECE823C07E18000B3138 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -870,6 +872,7 @@
 		FB335DC523BEE89E0059176B /* Jim */ = {
 			isa = PBXGroup;
 			children = (
+				FBD3EB0323C2F189005F29CD /* JimConnect.swift */,
 				FBD3EB0123C2D1D7005F29CD /* RefundViewController.swift */,
 				FBD3EB0923C31480005F29CD /* RefundTableViewCell.swift */,
 				FB335DC623BEE8E30059176B /* HistoryViewController.swift */,
@@ -883,10 +886,10 @@
 				FB6DECF023C09998000B3138 /* CouponTableViewCell.swift */,
 				FB6DECF223C09D67000B3138 /* FreeDeliveryTableViewCell.swift */,
 				FB4FC74A23C1B450008AB2EA /* ChatJimViewController.swift */,
-				FBD3EB0323C2F189005F29CD /* JimConnect.swift */,
 				FBD3EB0523C2FFA0005F29CD /* WhyViewController.swift */,
 				FBD3EB4A23C4854B005F29CD /* SeeCommentViewController.swift */,
 				FBD3EB4C23C485F4005F29CD /* CommentTableViewCell.swift */,
+				FB60604B23C5B962005D4106 /* SignInViewController.swift */,
 			);
 			path = Jim;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */,
 				3C6020DD222B90DF00312958 /* ProductDetailCell.swift in Sources */,
 				3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */,
+				FB60604C23C5B962005D4106 /* SignInViewController.swift in Sources */,
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
 				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
 				3CC706122216955900CAD850 /* STBaseNavigationController.swift in Sources */,

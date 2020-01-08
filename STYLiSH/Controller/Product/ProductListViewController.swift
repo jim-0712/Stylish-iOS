@@ -228,6 +228,7 @@ extension ProductListViewController: CommentManager {
           return
         }
         vc.productID = productId
+        StoreJimS.sharedJim.commentProductId = String(productId)
         vc.navigationController?.pushViewController(vc, animated: true)
         self.show(vc, sender: nil)
   }

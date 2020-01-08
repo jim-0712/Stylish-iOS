@@ -130,4 +130,16 @@ struct BackComment: Codable {
   
 }
 
+struct SignIn: Codable {
+  let time: String
+  let totalpoints: Int
+  
+  enum CodingKeys: String, CodingKey {
+     case totalpoints = "total_points"
+     case time
+   }
+}
 
+struct SignFeedBack: Codable {
+  let message: String
+}

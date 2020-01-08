@@ -48,6 +48,7 @@ class PointViewController: UIViewController {
     money = storeManJim.lottery[0].totalpoints
     useWidth = targetWidth
     mileStoneView.backgroundColor = .lightGray
+    
     pointLabel.text = "NT$\(money)"
     
     count = money / 10000

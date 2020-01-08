@@ -376,9 +376,70 @@
             </objects>
             <point key="canvasLocation" x="2873.913043478261" y="209.59821428571428"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="Avh-IY-Geg">
+            <objects>
+                <viewController storyboardIdentifier="signin" id="vub-u3-vnh" customClass="SignInViewController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ELR-Pn-PzK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signin" translatesAutoresizingMaskIntoConstraints="NO" id="WC1-Yb-Cpi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="rxr-en-ywT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyC-1e-pur">
+                                <rect key="frame" x="100" y="712" width="214" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jRH-HY-fyP"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="簽到"/>
+                                <connections>
+                                    <action selector="signAction:" destination="vub-u3-vnh" eventType="touchUpInside" id="q5G-CW-RUM"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-7I-JXa">
+                                <rect key="frame" x="82" y="284" width="250" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="0kU-0L-AI3"/>
+                                    <constraint firstAttribute="height" constant="150" id="HKR-ck-WMh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kuh-br-C8i" firstAttribute="trailing" secondItem="eyC-1e-pur" secondAttribute="trailing" constant="100" id="FmJ-xz-nne"/>
+                            <constraint firstItem="p9S-7I-JXa" firstAttribute="top" secondItem="kuh-br-C8i" secondAttribute="top" constant="240" id="OTo-sg-EqY"/>
+                            <constraint firstItem="eyC-1e-pur" firstAttribute="leading" secondItem="kuh-br-C8i" secondAttribute="leading" constant="100" id="SM2-hQ-R2H"/>
+                            <constraint firstItem="WC1-Yb-Cpi" firstAttribute="top" secondItem="kuh-br-C8i" secondAttribute="top" id="ffO-YB-r5l"/>
+                            <constraint firstItem="p9S-7I-JXa" firstAttribute="centerX" secondItem="WC1-Yb-Cpi" secondAttribute="centerX" id="kQl-35-r2T"/>
+                            <constraint firstItem="WC1-Yb-Cpi" firstAttribute="leading" secondItem="kuh-br-C8i" secondAttribute="leading" id="pw4-od-b3J"/>
+                            <constraint firstItem="kuh-br-C8i" firstAttribute="trailing" secondItem="WC1-Yb-Cpi" secondAttribute="trailing" id="uGh-6A-Zjf"/>
+                            <constraint firstItem="kuh-br-C8i" firstAttribute="bottom" secondItem="eyC-1e-pur" secondAttribute="bottom" constant="100" id="x5u-x3-n68"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kuh-br-C8i"/>
+                    </view>
+                    <connections>
+                        <outlet property="niceSignClick" destination="p9S-7I-JXa" id="UuE-zg-EqU"/>
+                        <outlet property="signBtnR" destination="eyC-1e-pur" id="dB8-7e-a08"/>
+                        <outlet property="signImageView" destination="WC1-Yb-Cpi" id="nbb-cZ-jjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOr-OS-vwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4019" y="210"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="signin" width="526" height="419"/>
         <image name="star-2" width="512" height="512"/>
         <image name="star-3" width="512" height="512"/>
+        <image name="v" width="225" height="225"/>
     </resources>
 </document>
