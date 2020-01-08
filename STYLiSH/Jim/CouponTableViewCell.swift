@@ -9,21 +9,24 @@
 import UIKit
 
 class CouponTableViewCell: UITableViewCell {
-
-  @IBOutlet weak var nintyPercentLabel: UILabel!
-  @IBOutlet weak var percentLabel: UIImageView!
-  @IBOutlet weak var getButton: UIButton!
-  
-  
-  override func awakeFromNib() {
+    
+    
+    @IBOutlet weak var getButton: UIButton!
+    @IBOutlet weak var couponImage: UIImageView!
+    @IBOutlet weak var couponLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
+    @IBOutlet weak var descripLabel: UILabel!
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
