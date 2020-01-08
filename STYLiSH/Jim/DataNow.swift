@@ -92,7 +92,7 @@ struct Buylist: Codable {
   let color: String
   let size: String
   let qty: Int
- 
+  
 }
 
 
@@ -109,3 +109,25 @@ struct ResponseWhy: Codable {
   }
   
 }
+
+struct BackComment: Codable {
+  
+  let userid: Int
+  let ordernumber : String
+  let productid: String
+  let time: String
+  let star: String
+  let comment: String
+ // let pic: String
+  let status: Int
+  
+  enum CodingKeys: String, CodingKey {
+    case userid = "user_id"
+    case ordernumber = "order_number"
+    case productid = "product_id"
+    case time, star, comment, status
+  }
+  
+}
+
+

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CommentManager {
-  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool, selectedIndex: Int)
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool, productId: Int)
 }
 
 class ProductTableViewCell: UITableViewCell {
@@ -24,6 +24,7 @@ class ProductTableViewCell: UITableViewCell {
   
   var delegate: CommentManager?
   
+  var productID = 0
   var selectedIndex = 0
   
   override func awakeFromNib() {
@@ -32,7 +33,7 @@ class ProductTableViewCell: UITableViewCell {
   }
   @IBAction func commentActionReal(_ sender: Any) {
     
-    self.delegate?.commentVC(tableviewCell: self, trigger: true, selectedIndex: self.selectedIndex)
+    self.delegate?.commentVC(tableviewCell: self, trigger: true, productId: self.productID)
 
   }
   

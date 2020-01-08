@@ -331,6 +331,20 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     StoreJimS.sharedJim.finalProductMoney = orderProvider.order.productPrices
     StoreJimS.sharedJim.finalFreeDelivey = orderProvider.order.freight
     
+    if StoreJimS.sharedJim.lottery[0].coupon.shipfree.count == 0{
+      inputCell.freeShipBtn.isEnabled = false
+      
+    }
+    
+    if StoreJimS.sharedJim.lottery[0].coupon.tenpercent.count == 0 {
+       inputCell.percentBtn.isEnabled = false
+    }
+    
+    if StoreJimS.sharedJim.lottery[0].coupon.shipfree.count == 0 && StoreJimS.sharedJim.lottery[0].coupon.tenpercent.count == 0 {
+      inputCell.useBtn.isEnabled = false
+    }
+    
+    
     inputCell.layoutCellWith(
       productPrice: StoreJimS.sharedJim.finalProductMoney,
       //productPrice: 商品總金額

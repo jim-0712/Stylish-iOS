@@ -162,8 +162,10 @@ class ProductListViewController: STCompondViewController {
 
             return cell
         }
+      
         productCell.delegate = self
         productCell.selectedIndex = indexPath.row
+        productCell.productID = product.id
         productCell.layoutCell(
             image: product.mainImage,
             title: product.title,
@@ -221,10 +223,11 @@ class ProductListViewController: STCompondViewController {
 
 extension ProductListViewController: CommentManager {
   
-  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool, selectedIndex: Int) {
+  func commentVC(tableviewCell: ProductTableViewCell, trigger: Bool, productId: Int) {
         guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "SeeComment") as? SeeCommentViewController else {
           return
         }
+        vc.productID = productId
         vc.navigationController?.pushViewController(vc, animated: true)
         self.show(vc, sender: nil)
   }

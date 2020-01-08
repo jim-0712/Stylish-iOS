@@ -53,6 +53,7 @@ class PointViewController: UIViewController {
     count = money / 10000
     ticketCountLabel.text = "您有\(count)張九折折價券可領取"
     memberLevel()
+    
   }
   
   @IBAction func getTickAction(_ sender: Any) {

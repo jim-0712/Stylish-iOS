@@ -15,9 +15,24 @@ class CommentTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+  @IBOutlet weak var starBtn: UIButton!
 
+  @IBOutlet weak var starBtn2: UIButton!
+  
+  @IBOutlet weak var starBtn3: UIButton!
+  
+  @IBOutlet weak var starBtn4: UIButton!
+  
+  @IBOutlet weak var starBtn5: UIButton!
+  
+  @IBOutlet weak var userIdLabel: UILabel!
+  
+  @IBOutlet weak var commentTextView: UITextView!
+  
+  @IBOutlet weak var timeLabel: UILabel!
+  override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    
         // Configure the view for the selected state
     }
 
