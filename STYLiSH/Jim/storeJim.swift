@@ -38,4 +38,5 @@ class StoreJimS {
   var productBack = [BackComment]()
   
   var totalPoints = 0
+  var clickOrNot = false
 }

@@ -20,10 +20,21 @@ class SignInViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+   
     
     let currentTimeS = now.timeIntervalSince1970
-    currentTime = Int(currentTimeS)
-    
+    currentTime = Int(currentTimeS) * 1000
+    if StoreJimS.sharedJim.clickOrNot{
+      DispatchQueue.main.async {
+        self.niceSignClick.isHidden = true
+        self.signBtnR.isEnabled = false
+      }
+    }else{
+      DispatchQueue.main.async {
+        self.niceSignClick.isHidden = false
+        self.signBtnR.isEnabled = true
+      }
+    }
     print(currentTime)
     getSignDataBack()
     
@@ -52,14 +63,15 @@ class SignInViewController: UIViewController {
         
         guard let finalTime = Int(lastTime) else { return }
         
-        var time = Int(self.time1970)
-               
-           time *=  1000
-        
         if self.currentTime - finalTime > 200 {
-          self.signBtnR.isEnabled = true
           DispatchQueue.main.async {
-            self.niceSignClick.alpha = 0.0
+            self.signBtnR.isEnabled = true
+            StoreJimS.sharedJim.clickOrNot = false
+          }
+        }else {
+          DispatchQueue.main.async {
+            self.signBtnR.isEnabled = false
+            StoreJimS.sharedJim.clickOrNot = true
           }
         }
         
@@ -82,9 +94,11 @@ class SignInViewController: UIViewController {
         
       case .success(let data):
         DispatchQueue.main.async {
-            self.signBtnR.isEnabled = false
-            self.niceSignClick.alpha = 1.0
+          self.signBtnR.isEnabled = false
+          self.niceSignClick.alpha = 1.0
+          self.success()
         }
+        StoreJimS.sharedJim.clickOrNot = true
         print(data)
         
       case .failure(let error):
@@ -96,9 +110,9 @@ class SignInViewController: UIViewController {
   }
   
   
-  func success(message: String) {
+  func success() {
     
-    let alert = UIAlertController(title: "簽到成功", message: message, preferredStyle: UIAlertController.Style.alert)
+    let alert = UIAlertController(title: "簽到成功", message: "Success", preferredStyle: UIAlertController.Style.alert)
     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
