@@ -71,11 +71,24 @@ class MakeCommentViewController: UIViewController {
     }
     
     @IBOutlet weak var commentTF: UITextField!
+    @IBOutlet weak var addPhotosBtn: UIButton!
+    @IBOutlet weak var postButton: UIButton!
     @IBAction func postButton(_ sender: Any) {
         
-        postComment()
-        
-        postAlert()
+        if oneStarBtn.isSelected == true && commentTF.text != nil {
+            
+            postButton.isEnabled = false
+            postComment()
+            postAlert()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        } else {
+            return
+        }
+            
     }
     
     override func viewDidLoad() {
@@ -86,9 +99,18 @@ class MakeCommentViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Share Comments"
         
+        addPhotosBtn.isEnabled = false
+        
+        commentTF.delegate = self
+
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        postButton.isEnabled = false
+    }
+
     func postComment() {
         
         guard let userEmail = UserDefaults.standard.value(forKey: "email") as? String else {return}
@@ -128,9 +150,9 @@ class MakeCommentViewController: UIViewController {
             }
             
             guard httpResponse.statusCode >= 200 && httpResponse.statusCode < 300
-            else {
-                print("Status Failed! \(httpResponse.statusCode)")
-                return
+                else {
+                    print("Status Failed! \(httpResponse.statusCode)")
+                    return
             }
             
             do {
@@ -141,7 +163,7 @@ class MakeCommentViewController: UIViewController {
                 print(error)
             }
             
-            }).resume()
+        }).resume()
         
     }
     
@@ -158,4 +180,16 @@ class MakeCommentViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+}
+
+extension MakeCommentViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if commentTF != nil && oneStarBtn.isSelected == true {
+            postButton.isEnabled = true
+        } else {
+            return
+        }
+    }
+    
 }

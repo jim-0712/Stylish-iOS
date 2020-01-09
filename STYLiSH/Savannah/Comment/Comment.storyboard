@@ -130,6 +130,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" red="0.24711078410000001" green="0.2274727523" blue="0.22742256520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="postButton:" destination="v6R-Js-hDi" eventType="touchUpInside" id="wS0-sb-gPz"/>
                                 </connections>
@@ -139,6 +142,9 @@
                                 <color key="backgroundColor" name="B6"/>
                                 <state key="normal" title="Add photos">
                                     <color key="titleColor" red="0.24711078410000001" green="0.2274727523" blue="0.22742256520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                         </subviews>
@@ -164,10 +170,12 @@
                         <viewLayoutGuide key="safeArea" id="ain-cw-zjA"/>
                     </view>
                     <connections>
+                        <outlet property="addPhotosBtn" destination="04n-Ks-sTA" id="Q5j-LU-xPx"/>
                         <outlet property="commentTF" destination="rQa-Nz-ZTD" id="Zev-TF-LH7"/>
                         <outlet property="fiveStarsBtn" destination="vUD-i9-QDZ" id="w5N-Dl-jzI"/>
                         <outlet property="fourStarsBtn" destination="BaU-ya-uBE" id="DMn-Jc-EH8"/>
                         <outlet property="oneStarBtn" destination="8KS-Hm-HEJ" id="6Il-Vm-ezE"/>
+                        <outlet property="postButton" destination="tlS-zX-SqU" id="PVE-Jh-HU9"/>
                         <outlet property="threeStarsBtn" destination="yPg-TF-oOb" id="Xvs-ZL-DsK"/>
                         <outlet property="twoStarsBtn" destination="lCL-zA-AeB" id="LNi-cV-blf"/>
                         <outlet property="userLabel" destination="TOj-Nw-tKo" id="mG5-TQ-R18"/>

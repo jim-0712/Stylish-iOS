@@ -113,7 +113,7 @@ enum ServiceItem: ProfileItem {
 
         case .refund: return UIImage(named: "contract")
 
-        case .address: return UIImage.asset(.Icons_24px_Address)
+        case .address: return UIImage(named: "coin")
 
         case .customService: return UIImage.asset(.Icons_24px_CustomerService)
 
