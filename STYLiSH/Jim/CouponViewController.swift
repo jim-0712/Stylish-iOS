@@ -60,10 +60,10 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "coupon", for: indexPath) as? CouponTableViewCell else { return UITableViewCell() }
             return cell
     } else if indexPath.row < tenpercent {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "freeDe", for: indexPath) as? FreeDeliveryTableViewCell else { return UITableViewCell() }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "coupon", for: indexPath) as? CouponTableViewCell else { return UITableViewCell() }
       return cell
     } else {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "coupon", for: indexPath) as? CouponTableViewCell else { return UITableViewCell() }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "freeDe", for: indexPath) as? FreeDeliveryTableViewCell else { return UITableViewCell() }
       return cell
     }
   }

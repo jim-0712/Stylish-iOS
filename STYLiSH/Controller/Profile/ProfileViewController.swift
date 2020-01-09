@@ -24,9 +24,17 @@ class ProfileViewController: UIViewController {
   let manager = ProfileManager()
   var total = 0
   override func viewDidLoad() {
+    
+    let timer = Timer.scheduledTimer(
+      timeInterval: 20.0, target: self, selector: Selector("doYourTask"),
+    userInfo: nil, repeats: true)
     super.viewDidLoad()
+
   }
   
+  @objc func doYourTask(){
+      UserDefaults.standard.set(false, forKey: "sign")
+  }
   //  func serviceData() {
   //    let configuration = URLSessionConfiguration.default
   //    let session = URLSession(configuration: configuration)
@@ -89,17 +97,24 @@ extension ProfileViewController: UICollectionViewDataSource {
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
     }else if indexPath.section == 0 && indexPath.row ==  4 {
-    guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "refund") as? RefundViewController else {
-      return
-    }
-    vc.navigationController?.pushViewController(vc, animated: true)
-    show(vc, sender: nil)
+      guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "refund") as? RefundViewController else {
+        return
+      }
+      vc.navigationController?.pushViewController(vc, animated: true)
+      show(vc, sender: nil)
     }else if indexPath.section == 1 && indexPath.row ==  2 {
-    guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "signin") as? SignInViewController else {
-      return
-    }
-    vc.navigationController?.pushViewController(vc, animated: true)
-    show(vc, sender: nil)
+      
+      guard let isSign = UserDefaults.standard.value(forKey: "sign") as? Bool else {return }
+      
+      if isSign{
+        self.fail()
+      }else {
+        guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "signin") as? SignInViewController else {
+          return
+        }
+        vc.navigationController?.pushViewController(vc, animated: true)
+        show(vc, sender: nil)
+      }
     }
   }
   //  CouponViewController
@@ -213,5 +228,13 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
   ) -> CGSize {
     
     return CGSize(width: UIScreen.width, height: 48.0)
+  }
+  
+  func fail() {
+    
+    let alert = UIAlertController(title: "簽到過了", message: "Success", preferredStyle: UIAlertController.Style.alert)
+    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
 }

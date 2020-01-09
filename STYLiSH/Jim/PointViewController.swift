@@ -48,13 +48,20 @@ class PointViewController: UIViewController {
     money = storeManJim.lottery[0].totalpoints
     useWidth = targetWidth
     mileStoneView.backgroundColor = .lightGray
-    
+    getTicketButton.isEnabled = false
     pointLabel.text = "NT$\(money)"
     
-    count = money / 10000
+    count = StoreJimS.sharedJim.lottery[0].coupon.tenpercent.count
     ticketCountLabel.text = "您有\(count)張九折折價券可領取"
     memberLevel()
+//       NotificationCenter.default.post(name: Notification.Name("reloadCoupon"), object: nil)
     
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadThisPage), name: Notification.Name("reloadCoupon"), object: nil)
+  }
+  
+  @objc func reloadThisPage(){
+    self.viewDidLoad()
+    self.viewWillAppear(true)
   }
   
   @IBAction func getTickAction(_ sender: Any) {
@@ -85,7 +92,7 @@ class PointViewController: UIViewController {
                    animations: {
                     self.myGodWidth.constant = 300
                     // self.myGodView.transform = CGAffineTransform(translationX: 0, y: 0)
-                    self.myGodView.transform = CGAffineTransform(translationX: 0.6 * self.useWidth, y: 0)
+                    self.myGodView.transform = CGAffineTransform(translationX: 0.4 * self.useWidth, y: 0)
                     self.myGodView.backgroundColor = .gray
     },
                    completion: nil)

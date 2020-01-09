@@ -122,7 +122,9 @@ class STPaymentInfoTableViewCell: UITableViewCell {
   
   @IBAction func realToCheck(_ sender: Any) {
     
-    NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
+    }
   }
   
   

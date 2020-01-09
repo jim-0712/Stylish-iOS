@@ -46,15 +46,13 @@ class LobbyViewController: STBaseViewController {
     
     guard let data = UserDefaults.standard.value(forKey: "email") else { return }
     getData()
-    
+    UserDefaults.standard.set(false, forKey: "sign")
     getRefundData()
   }
 
   @objc func reFetchData(){
     
     lotteryDataNew()
-    
-    
     
   }
   
@@ -83,6 +81,7 @@ class LobbyViewController: STBaseViewController {
           self.storeManJim.lottery = [result]
           self.getRefundDataNew()
            NotificationCenter.default.post(name: Notification.Name("reloadCoupon"), object: nil)
+          
           print(result)
         } catch {
         }

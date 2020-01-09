@@ -20,19 +20,19 @@ class SignInViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   
+    UserDefaults.standard.set(false, forKey: "sign")
     
     let currentTimeS = now.timeIntervalSince1970
     currentTime = Int(currentTimeS) * 1000
-    if StoreJimS.sharedJim.clickOrNot{
+    guard let isSign = UserDefaults.standard.value(forKey: "sign") as? Bool else { return }
+    
+    if  isSign {
       DispatchQueue.main.async {
-        self.niceSignClick.isHidden = true
-        self.signBtnR.isEnabled = false
+        self.niceSignClick.isHidden = false
       }
     }else{
       DispatchQueue.main.async {
-        self.niceSignClick.isHidden = false
-        self.signBtnR.isEnabled = true
+        self.niceSignClick.isHidden = true
       }
     }
     print(currentTime)
@@ -43,6 +43,10 @@ class SignInViewController: UIViewController {
   @IBAction func signAction(_ sender: Any) {
     
     getSignSuccess()
+    
+    UserDefaults.standard.set(false, forKey: "sign")
+    
+    niceSignClick.isHidden = false
     
   }
   @IBOutlet weak var signBtnR: UIButton!
@@ -59,19 +63,23 @@ class SignInViewController: UIViewController {
         
         print(data)
         
+        
+        
         var lastTime = StoreJimS.sharedJim.signBack[0].time
         
         guard let finalTime = Int(lastTime) else { return }
         
-        if self.currentTime - finalTime > 200 {
+        if self.currentTime - finalTime > 5 {
           DispatchQueue.main.async {
-            self.signBtnR.isEnabled = true
+            StoreJimS.sharedJim.totalPoints = data.totalpoints
             StoreJimS.sharedJim.clickOrNot = false
+            UserDefaults.standard.set(false, forKey: "sign")
           }
         }else {
           DispatchQueue.main.async {
-            self.signBtnR.isEnabled = false
+          
             StoreJimS.sharedJim.clickOrNot = true
+            UserDefaults.standard.set(true, forKey: "sign")
           }
         }
         
@@ -94,7 +102,8 @@ class SignInViewController: UIViewController {
         
       case .success(let data):
         DispatchQueue.main.async {
-          self.signBtnR.isEnabled = false
+          UserDefaults.standard.set(true, forKey: "sign")
+         
           self.niceSignClick.alpha = 1.0
           self.success()
         }

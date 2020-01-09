@@ -34,11 +34,14 @@ enum JimRequest: STRequest {
       
     case .productCommentBack(let productId):
       
-      return ["productid": productId]
+      return ["productid": productId, "status": "1"]
       
     case .everyDaySignPost(let email, let time, let totalPoints):
       
-      return ["email": email]
+      return [
+        "email": email,
+        "Content-Type" :"application/json"
+      ]
       
     case .signGet(let email):
       
@@ -67,12 +70,28 @@ enum JimRequest: STRequest {
       
     case .everyDaySignPost(let email, let time, let totalPoints):
       
-      let dict = [
-        "time" : time,
-        "total_points": totalPoints
+      let dict: [String: Any] = [
+        "time": "13231223",
+        "total_points": 54353
       ]
       
-      return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+      struct Test: Codable {
+        let time: String
+        let total: String
+        
+        enum CodingKeys: String, CodingKey {
+          case time
+          case total = "total_points"
+        }
+      }
+      
+      
+      
+      let object = Test(time: "10", total: "20")
+//      let reallyData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+      
+      let reallyData = try? JSONEncoder().encode(object)
+      return "{\"time\":2,\"total_points\":3}".data(using: .utf8)
       
     case .switchProduct, .productCommentBack, .signGet:
       
@@ -214,7 +233,11 @@ class  JimManager {
     
     guard let email = UserDefaults.standard.value(forKey: "email") else { return }
     guard let stringEmail = email as?String else { return }
-    let totalPoints = StoreJimS.sharedJim.totalPoints
+    var totalPoints = StoreJimS.sharedJim.totalPoints
+    totalPoints += 1
+    let data = JimRequest.everyDaySignPost(email: stringEmail, time: time, totalPoints: totalPoints).makeRequest().httpBody
+    
+    print(String(data: data!, encoding: .utf8))
     
     HTTPClient.shared.request(JimRequest.everyDaySignPost(email: stringEmail, time: time, totalPoints: totalPoints)) { result in
       
