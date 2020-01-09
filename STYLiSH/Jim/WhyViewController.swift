@@ -11,7 +11,6 @@ import IQKeyboardManagerSwift
 
 class WhyViewController: UIViewController {
 
-  
   var storeManJim = StoreJimS.sharedJim
   let jimManager = JimManager()
   var number = 0
@@ -34,7 +33,7 @@ class WhyViewController: UIViewController {
    }
   
   func getRefundData() {
-    guard let email = UserDefaults.standard.value(forKey: "email") else {return }
+    guard let email = UserDefaults.standard.value(forKey: "email") else { return }
     jimManager.canRefundData (completion: { result in
         
         switch result {
@@ -63,8 +62,7 @@ class WhyViewController: UIViewController {
     present(alert, animated: true, completion: nil)
   }
   
-
-  func whyRefund(){
+  func whyRefund() {
     
     let numberString = String(number)
     let current = "0\(numberString)"

@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
 
   }
   
-  @objc func doYourTask(){
+  @objc func doYourTask() {
       UserDefaults.standard.set(false, forKey: "sign")
   }
   //  func serviceData() {
@@ -96,19 +96,19 @@ extension ProfileViewController: UICollectionViewDataSource {
       }
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
-    }else if indexPath.section == 0 && indexPath.row ==  4 {
+    } else if indexPath.section == 0 && indexPath.row ==  4 {
       guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "refund") as? RefundViewController else {
         return
       }
       vc.navigationController?.pushViewController(vc, animated: true)
       show(vc, sender: nil)
-    }else if indexPath.section == 1 && indexPath.row ==  2 {
+    } else if indexPath.section == 1 && indexPath.row ==  2 {
       
-      guard let isSign = UserDefaults.standard.value(forKey: "sign") as? Bool else {return }
+      guard let isSign = UserDefaults.standard.value(forKey: "sign") as? Bool else { return }
       
-      if isSign{
+      if isSign {
         self.fail()
-      }else {
+      } else {
         guard let vc = UIStoryboard(name: "second", bundle: nil).instantiateViewController(identifier: "signin") as? SignInViewController else {
           return
         }

@@ -10,7 +10,7 @@ import Foundation
 
 enum JimRequest: STRequest {
   
-  case whyRefundMessage(email: String,number: String, why: String, options: String)
+  case whyRefundMessage(email: String, number: String, why: String, options: String)
   
   case switchProduct(email: String)
   
@@ -24,9 +24,9 @@ enum JimRequest: STRequest {
     
     switch self {
       
-    case .whyRefundMessage(let email,_,_,_):
+    case .whyRefundMessage(let email, _, _, _):
       
-      return ["Content-Type" :"application/json" ,STHTTPHeaderField.email.rawValue: "\(email)"]
+      return ["Content-Type": "application/json", STHTTPHeaderField.email.rawValue: "\(email)"]
       
     case .switchProduct(let email):
       
@@ -40,7 +40,7 @@ enum JimRequest: STRequest {
       
       return [
         "email": email,
-        "Content-Type" :"application/json"
+        "Content-Type":"application/json"
       ]
       
     case .signGet(let email):
@@ -54,7 +54,7 @@ enum JimRequest: STRequest {
     
     switch self {
       
-    case .whyRefundMessage(let email,let number, let why, let options):
+    case .whyRefundMessage(let email, let number, let why, let options):
       
       let dict = [
         "number": number,
@@ -85,8 +85,6 @@ enum JimRequest: STRequest {
         }
       }
       
-      
-      
       let object = Test(time: "10", total: "20")
 //      let reallyData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
       
@@ -114,7 +112,7 @@ enum JimRequest: STRequest {
     
     switch self {
       
-    case .whyRefundMessage , .switchProduct: return "/returnProduct"
+    case .whyRefundMessage, .switchProduct: return "/returnProduct"
       
     case .productCommentBack: return "/comment"
       
@@ -123,12 +121,11 @@ enum JimRequest: STRequest {
   }
 }
 
-
 class  JimManager {
   
   let decoder = JSONDecoder()
   
-  func postWhyRefund(number: String,why: String, options: String,completion : @escaping ((Result<ResponseWhy>) -> Void)){
+  func postWhyRefund(number: String, why: String, options: String, completion : @escaping ((Result<ResponseWhy>) -> Void)) {
     
     let email = UserDefaults.standard.value(forKey: "email") as? String
     
@@ -146,7 +143,7 @@ class  JimManager {
           
           completion(.success(refundData))
           
-        } catch  {
+        } catch {
           
           completion(.failure(error))
         }
@@ -159,8 +156,7 @@ class  JimManager {
     
   }
   
-  
-  func canRefundData(completion : @escaping ((Result<[WantRefund]>) -> Void)){
+  func canRefundData(completion: @escaping ((Result<[WantRefund]>) -> Void)) {
     
     let email = UserDefaults.standard.value(forKey: "email") as? String
     
@@ -181,7 +177,7 @@ class  JimManager {
           
           completion(.success(refundData))
           
-        } catch  {
+        } catch {
           
           completion(.failure(error))
         }
@@ -195,7 +191,7 @@ class  JimManager {
   
   
   
-  func productCommentReturn(completion : @escaping ((Result<[BackComment]>)) -> Void){
+  func productCommentReturn(completion : @escaping ((Result<[BackComment]>)) -> Void) {
     
     let productId = StoreJimS.sharedJim.commentProductId
     
@@ -216,7 +212,7 @@ class  JimManager {
           
           completion(.success(productBack))
           
-        } catch  {
+        } catch {
           
           completion(.failure(error))
         }
@@ -229,7 +225,7 @@ class  JimManager {
     
   }
   
-  func postEveryDaySign(time: Int, completion: @escaping ((Result<SignFeedBack>) -> Void)){
+  func postEveryDaySign(time: Int, completion: @escaping ((Result<SignFeedBack>) -> Void)) {
     
     guard let email = UserDefaults.standard.value(forKey: "email") else { return }
     guard let stringEmail = email as?String else { return }
@@ -237,7 +233,7 @@ class  JimManager {
     totalPoints += 1
     let data = JimRequest.everyDaySignPost(email: stringEmail, time: time, totalPoints: totalPoints).makeRequest().httpBody
     
-    print(String(data: data!, encoding: .utf8))
+    print(String(data: data!, encoding: .utf8)!)
     
     HTTPClient.shared.request(JimRequest.everyDaySignPost(email: stringEmail, time: time, totalPoints: totalPoints)) { result in
       
@@ -254,7 +250,7 @@ class  JimManager {
           
           completion(.success(postSignBack))
           
-        } catch  {
+        } catch {
           
           completion(.failure(error))
         }
@@ -267,7 +263,7 @@ class  JimManager {
     }
   }
   
-  func signGet(completion: @escaping ((Result<SignIn>) -> Void)){
+  func signGet(completion: @escaping ((Result<SignIn>) -> Void)) {
     
     guard let email = UserDefaults.standard.value(forKey: "email") else { return }
     guard let stringEmail = email as?String else { return }
@@ -289,7 +285,7 @@ class  JimManager {
           
           completion(.success(signBack))
           
-        } catch  {
+        } catch {
           
           completion(.failure(error))
         }

@@ -14,7 +14,7 @@ enum STUserRequest: STRequest {
 
     case checkout(token: String, body: Data?)
   
-    case lottery()
+    case lottery ()
 
     var headers: [String: String] {
 
@@ -53,7 +53,7 @@ enum STUserRequest: STRequest {
 
             return body
           
-        case .lottery():
+        case .lottery() :
           
           return nil
         }
