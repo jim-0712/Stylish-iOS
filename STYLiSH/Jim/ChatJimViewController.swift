@@ -10,7 +10,15 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class ChatJimViewController: UIViewController {
-    
+  
+    var result = ""
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.sendButton.isEnabled = true
+  }
+  
     override func viewDidLoad() {
         
         guard let userEmail = UserDefaults.standard.value(forKey: "email") as? String else {return}
@@ -34,6 +42,13 @@ class ChatJimViewController: UIViewController {
     @IBAction func sendAction(_ sender: Any) {
         
         postQuestion(comment: reallyQuestionText.text!)
+      
+        success()
+      DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        self.dismiss(animated: true, completion: nil)
+      }
+      sendButton.isEnabled = false
+      sendButton.backgroundColor = .lightGray
     }
     
     var questionType = ""
@@ -91,6 +106,7 @@ class ChatJimViewController: UIViewController {
                 do {
                     let result = try decoder.decode(ServiceData.self, from: data)
                     ServiceManager.shared.number.append(result.serviceNumber)
+                    self.result = result.serviceNumber
                     print(result.serviceNumber)
                 } catch {
                     print(error)
@@ -99,4 +115,14 @@ class ChatJimViewController: UIViewController {
         }.resume()
         
     }
+  
+  
+  func success() {
+    
+    let alert = UIAlertController(title: "提問成功", message: "Success", preferredStyle: UIAlertController.Style.alert)
+    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
+  
+  }
 }
