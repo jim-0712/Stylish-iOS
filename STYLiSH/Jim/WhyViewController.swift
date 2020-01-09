@@ -10,81 +10,103 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class WhyViewController: UIViewController {
-
-  var storeManJim = StoreJimS.sharedJim
-  let jimManager = JimManager()
-  var number = 0
-  
+    
+    var storeManJim = StoreJimS.sharedJim
+    let jimManager = JimManager()
+    var number = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      numberLabel.text = "訂單編號：\(number)"
-       IQKeyboardManager.shared.enable = true
+        numberLabel.text = "訂單編號：\(number)"
+        IQKeyboardManager.shared.enable = true
+        
+        whyText.delegate = self
         // Do any additional setup after loading the view.
     }
     
-  @IBOutlet weak var numberLabel: UILabel!
- 
-  @IBOutlet weak var whyText: UITextView!
-  
-   @IBAction func sendWhy(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        sendWhy.isEnabled = false
+    }
     
-    whyRefund()
+    @IBOutlet weak var numberLabel: UILabel!
     
-   }
-  
-  func getRefundData() {
-
-    guard let email = UserDefaults.standard.value(forKey: "email") else { return }
-
-    jimManager.canRefundData (completion: { result in
+    @IBOutlet weak var sendWhy: UIButton!
+    @IBOutlet weak var whyText: UITextView!
+    
+    @IBAction func sendWhy(_ sender: Any) {
         
-        switch result {
+        whyRefund()
+//        NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
+         NotificationCenter.default.post(name: Notification.Name("reloadTicket"), object: nil)
+//        reloadTicket
+        sendWhy.isEnabled = false
+    }
+    
+    func getRefundData() {
+        
+        guard let email = UserDefaults.standard.value(forKey: "email") else { return }
+        
+        jimManager.canRefundData (completion: { result in
             
-        case .success(let recommands):
-      
-            print(recommands)
-      
-           DispatchQueue.main.async {
-              self.success()
+            switch result {
+                
+            case .success(let recommands):
+                
+                print(recommands)
+                
+                DispatchQueue.main.async {
+                    self.success()
+                }
+                
+            case .failure(let error):
+                
+                print(error)
             }
             
-        case .failure(let error):
+        })
+    }
+    
+    func success() {
         
-            print(error)
+        let alert = UIAlertController(title: "申請退貨成功！", message: "客服人員將儘速替您處理。", preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func whyRefund() {
+        
+        let numberString = String(number)
+        let current = "0\(numberString)"
+        
+        jimManager.postWhyRefund(number: current, why: whyText.text!, options: "退貨") { result in
+            switch result {
+                
+            case .success(let recommands):
+                
+                print(recommands)
+                
+                self.getRefundData()
+                
+                NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
         }
         
-    })
-  }
-  
-  func success() {
+    }
+}
+
+extension WhyViewController: UITextViewDelegate {
     
-    let alert = UIAlertController(title: "退貨", message: "處理中", preferredStyle: UIAlertController.Style.alert)
-    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-    alert.addAction(action)
-    present(alert, animated: true, completion: nil)
-  }
-  
-  func whyRefund() {
-    
-    let numberString = String(number)
-    let current = "0\(numberString)"
-    
-    jimManager.postWhyRefund(number: current, why: whyText.text!, options: "退貨") { result in
-            switch result {
-    
-            case .success(let recommands):
-    
-              print(recommands)
-              
-              self.getRefundData()
-              
-              NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
-    
-            case .failure(let error):
-    
-              print(error)
-            }
-          }
-  
-  }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if whyText.text != nil {
+            sendWhy.isEnabled = true
+            sendWhy.backgroundColor = .black
+        } else {
+            return
+        }
+    }
 }

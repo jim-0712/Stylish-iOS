@@ -163,7 +163,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehS-c8-4qK">
                                 <rect key="frame" x="20" y="762" width="374" height="50"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WDn-xv-8rw"/>
                                 </constraints>
@@ -222,6 +222,7 @@
                     </view>
                     <connections>
                         <outlet property="numberLabel" destination="2JK-k3-fHN" id="XIU-3B-kF5"/>
+                        <outlet property="sendWhy" destination="ehS-c8-4qK" id="9Fo-JB-J1N"/>
                         <outlet property="whyText" destination="I7t-4f-m7y" id="IHC-tc-v7g"/>
                     </connections>
                 </viewController>

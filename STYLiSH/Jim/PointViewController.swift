@@ -56,7 +56,7 @@ class PointViewController: UIViewController {
         
         pointLabel.text = "NT$\(money)"
         
-        getTicketButton.isEnabled = true
+        getTicketButton.isEnabled = false
         count = StoreJimS.sharedJim.lottery[0].coupon.tenpercent.count
       
         ticketCountLabel.text = "您有\(count)張九折折價券可領取"
@@ -69,7 +69,7 @@ class PointViewController: UIViewController {
             ticketCountLabel.text = "沒九折券可領啊傻逼"
             getTicketButton.isEnabled = false
         } else {
-            getTicketButton.isEnabled = true
+            getTicketButton.isEnabled = false
             count -= 1
             NotificationCenter.default.post(name: Notification.Name("ticket"), object: nil)
             ticketCountLabel.text = "您有\(count)張9折折價券可領取"

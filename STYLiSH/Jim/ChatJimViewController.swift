@@ -16,7 +16,7 @@ class ChatJimViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.sendButton.isEnabled = true
+    self.sendButton.isEnabled = false
   }
   
     override func viewDidLoad() {
@@ -32,6 +32,8 @@ class ChatJimViewController: UIViewController {
         emailLabel.text = "Hi, \(userEmail)!"
         
         self.answerImage.image = UIImage(named: "returned")
+        
+        reallyQuestionText.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -119,10 +121,21 @@ class ChatJimViewController: UIViewController {
   
   func success() {
     
-    let alert = UIAlertController(title: "提問成功", message: "Success", preferredStyle: UIAlertController.Style.alert)
+    let alert = UIAlertController(title: "提問成功！", message: "客服人員將儘速回覆您，謝謝。", preferredStyle: UIAlertController.Style.alert)
     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
   
   }
+}
+
+extension ChatJimViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if reallyQuestionText.text != nil {
+            sendButton.isEnabled = true
+            sendButton.backgroundColor = .black
+        } else {
+            return
+        }
+    }
 }
