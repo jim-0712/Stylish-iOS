@@ -70,7 +70,8 @@ extension RefundViewController: UITableViewDelegate, UITableViewDataSource {
         if productSearch == storeManJim.historyData[0].orderlist[count1].list[count2].name {
           let imageURL = URL(string: storeManJim.historyData[0].orderlist[count1].list[count2].mainimage)
           cell.pictureView.kf.setImage(with: imageURL)
-
+          print(imageURL)
+          
           }
         }
       }

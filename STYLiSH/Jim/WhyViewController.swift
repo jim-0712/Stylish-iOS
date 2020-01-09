@@ -34,6 +34,7 @@ class WhyViewController: UIViewController {
    }
   
   func getRefundData() {
+    
     guard let email = UserDefaults.standard.value(forKey: "email") else {return }
     jimManager.canRefundData (completion: { result in
         
@@ -42,10 +43,10 @@ class WhyViewController: UIViewController {
         case .success(let recommands):
       
             print(recommands)
-            
-            let message = StoreJimS.sharedJim.refundNum[0].productbacknumber
-          
-            self.success(message: message)
+      
+           DispatchQueue.main.async {
+              self.success()
+            }
             
         case .failure(let error):
         
@@ -55,9 +56,9 @@ class WhyViewController: UIViewController {
     })
   }
   
-  func success(message: String) {
+  func success() {
     
-    let alert = UIAlertController(title: "退貨編號", message: message, preferredStyle: UIAlertController.Style.alert)
+    let alert = UIAlertController(title: "退貨", message: "處理中", preferredStyle: UIAlertController.Style.alert)
     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alert.addAction(action)
     present(alert, animated: true, completion: nil)

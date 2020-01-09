@@ -71,8 +71,8 @@ enum JimRequest: STRequest {
     case .everyDaySignPost(let email, let time, let totalPoints):
       
       let dict: [String: Any] = [
-        "time": "13231223",
-        "total_points": 54353
+        "time": time,
+        "total_points": totalPoints
       ]
       
       struct Test: Codable {
@@ -84,14 +84,11 @@ enum JimRequest: STRequest {
           case total = "total_points"
         }
       }
+ 
+      let reallyData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
       
-      
-      
-      let object = Test(time: "10", total: "20")
-//      let reallyData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-      
-      let reallyData = try? JSONEncoder().encode(object)
-      return "{\"time\":2,\"total_points\":3}".data(using: .utf8)
+     
+      return reallyData
       
     case .switchProduct, .productCommentBack, .signGet:
       

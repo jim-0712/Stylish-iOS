@@ -69,7 +69,7 @@ class SignInViewController: UIViewController {
         
         guard let finalTime = Int(lastTime) else { return }
         
-        if self.currentTime - finalTime > 5 {
+        if self.currentTime - finalTime > 500 {
           DispatchQueue.main.async {
             StoreJimS.sharedJim.totalPoints = data.totalpoints
             StoreJimS.sharedJim.clickOrNot = false
