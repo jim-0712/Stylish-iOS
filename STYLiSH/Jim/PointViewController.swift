@@ -55,7 +55,9 @@ class PointViewController: UIViewController {
         
         pointLabel.text = "NT$\(money)"
         
-        count = money / 10000
+        getTicketButton.isEnabled = true
+        count = StoreJimS.sharedJim.lottery[0].coupon.tenpercent.count
+      
         ticketCountLabel.text = "您有\(count)張九折折價券可領取"
         memberLevel()
         
