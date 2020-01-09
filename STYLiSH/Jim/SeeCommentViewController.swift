@@ -22,6 +22,10 @@ class SeeCommentViewController: UIViewController {
       DispatchQueue.main.async {
         LKProgressHUD.show()
       }
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        LKProgressHUD.dismiss()
+      }
     }
     // Do any additional setup after loading the view.
   }

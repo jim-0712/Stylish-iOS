@@ -65,10 +65,13 @@ extension RefundViewController: UITableViewDelegate, UITableViewDataSource {
       cell.colorBlock.backgroundColor = UIColor.hexStringToUIColor(hex: colorUrl)
       cell.moneyLabel.text = "價格：\(storeManJim.refundData[indexPath.row].details.list[0].price)"
 
-      for count1 in 0 ..< storeManJim.historyData[0].orderlist[0].list.count {
-        if productSearch == storeManJim.historyData[0].orderlist[0].list[count1].name {
-          let imageURL = URL(string: storeManJim.historyData[0].orderlist[0].list[count1].mainimage)
+      for count1 in 0 ..< storeManJim.historyData[0].orderlist.count {
+        for count2 in 0 ..< storeManJim.historyData[0].orderlist[0].list.count {
+        if productSearch == storeManJim.historyData[0].orderlist[count1].list[count2].name {
+          let imageURL = URL(string: storeManJim.historyData[0].orderlist[count1].list[count2].mainimage)
           cell.pictureView.kf.setImage(with: imageURL)
+
+          }
         }
       }
       
