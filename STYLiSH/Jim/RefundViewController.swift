@@ -23,7 +23,9 @@ class RefundViewController: UIViewController {
     self.navigationItem.title = "Returns"
     
     NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNow), name: Notification.Name("reload"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNow), name: Notification.Name("refundNew"), object: nil)
     
+
     // Do any additional setup after loading the view.
   }
   @IBOutlet weak var refundTable: UITableView!
@@ -97,4 +99,3 @@ extension RefundViewController: RefundManager {
     show(vc, sender: nil)
   }
 }
-
