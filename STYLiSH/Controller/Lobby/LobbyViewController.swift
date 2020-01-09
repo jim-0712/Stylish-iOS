@@ -53,7 +53,7 @@ class LobbyViewController: STBaseViewController {
   @objc func reFetchData(){
     
     lotteryDataNew()
-    
+    getRefundDataNew()
   }
   
   
