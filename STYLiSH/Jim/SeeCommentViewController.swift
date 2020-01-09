@@ -35,7 +35,7 @@ class SeeCommentViewController: UIViewController {
     didSet {
       if commentDataBack.isEmpty {
     
-      }else{
+      } else {
         DispatchQueue.main.async {
           self.commentTable.reloadData()
           LKProgressHUD.dismiss()
@@ -46,8 +46,7 @@ class SeeCommentViewController: UIViewController {
   
   @IBOutlet weak var commentTable: UITableView!
   
-  
-  func getCommentBack(){
+  func getCommentBack() {
     
     jimManager.productCommentReturn { result  in
       
@@ -78,12 +77,12 @@ extension SeeCommentViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    if commentDataBack.count == 0{
+    if commentDataBack.count == 0 {
       
       return UITableViewCell()
-    }else {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentTable", for: indexPath) as? CommentTableViewCell else {return UITableViewCell()}
-      guard let star = Int(commentDataBack[indexPath.row].star) else{
+    } else {
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentTable", for: indexPath) as? CommentTableViewCell else {return UITableViewCell() }
+      guard let star = Int(commentDataBack[indexPath.row].star) else {
         return cell
       }
       switch star {
@@ -111,7 +110,7 @@ extension SeeCommentViewController: UITableViewDelegate, UITableViewDataSource {
         cell.starBtn.isSelected = false
       }
       cell.userIdLabel.text = "會員編號\(commentDataBack[indexPath.row].userid)"
-      cell.commentTextView.text = commentDataBack[indexPath.row].comment
+        cell.commentTextView.text = commentDataBack[indexPath.row].comment
       cell.timeLabel.text = "發布時間\(commentDataBack[indexPath.row].time)"
       return cell
     }

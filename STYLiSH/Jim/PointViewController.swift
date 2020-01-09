@@ -24,6 +24,7 @@ class PointViewController: UIViewController {
     @IBOutlet weak var percentLabel: UIImageView!
     @IBOutlet weak var getTicketButton: UIButton!
     @IBOutlet weak var cheatView: UIView!
+    @IBOutlet weak var secondCheat: UIView!
     @IBOutlet weak var ticketCountLabel: UILabel!
     
     @IBOutlet weak var targetLabel: UILabel!
@@ -65,7 +66,7 @@ class PointViewController: UIViewController {
     
     @IBAction func getTickAction(_ sender: Any) {
         if count == 0 {
-            ticketCountLabel.text = "沒折價券可領啊傻逼"
+            ticketCountLabel.text = "沒九折券可領啊傻逼"
             getTicketButton.isEnabled = false
         } else {
             getTicketButton.isEnabled = true
@@ -91,9 +92,9 @@ class PointViewController: UIViewController {
                        delay: 0,
                        options: [.curveLinear] ,
                        animations: {
-                        self.myGodWidth.constant = 300
+                        self.myGodWidth.constant = 378
                         // self.myGodView.transform = CGAffineTransform(translationX: 0, y: 0)
-                        self.myGodView.transform = CGAffineTransform(translationX: self.percent * self.targetWidth - 50, y: 0)
+                        self.myGodView.transform = CGAffineTransform(translationX: self.percent * self.targetWidth, y: 0)
                         self.myGodView.backgroundColor = .black
         },
                        completion: nil)
@@ -121,14 +122,14 @@ class PointViewController: UIViewController {
             vipImage.image = UIImage(named: "gold")
             let cash = 10000 - money
             mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
-            memberLabel.text = "黃金會員"
+            memberLabel.text = "您目前為：黃金會員"
             targetLabelSett(now: 0, target: 10000)
             percent = CGFloat(money) / 10000
         } else if 10001 <= money && money <= 20000 {
             vipImage.image = UIImage(named: "VIP")
             let cash = 20000 - money
             mileStoneLabel.text = "距離下一等級會員還差NT$\(cash)"
-            memberLabel.text = "白金會員"
+            memberLabel.text = "您目前為：白金會員"
             targetLabelSett(now: 0, target: 20000)
             percent = CGFloat(money) / 20000
         } else {

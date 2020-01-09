@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -372,7 +372,7 @@
                                 <rect key="frame" x="16" y="314" width="378" height="45"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-TQ-kri">
-                                        <rect key="frame" x="-242" y="8" width="200" height="29"/>
+                                        <rect key="frame" x="-390" y="8" width="200" height="29"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="e5L-eU-qVJ"/>
@@ -383,7 +383,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="0MI-ep-ZJk"/>
                                     <constraint firstItem="XTa-TQ-kri" firstAttribute="top" secondItem="w9f-fR-JSR" secondAttribute="topMargin" id="9Ag-PY-Om5"/>
-                                    <constraint firstItem="XTa-TQ-kri" firstAttribute="leading" secondItem="w9f-fR-JSR" secondAttribute="leadingMargin" constant="-250" id="gEO-EB-N71"/>
+                                    <constraint firstItem="XTa-TQ-kri" firstAttribute="leading" secondItem="w9f-fR-JSR" secondAttribute="leadingMargin" constant="-398" id="gEO-EB-N71"/>
                                     <constraint firstItem="XTa-TQ-kri" firstAttribute="bottom" secondItem="w9f-fR-JSR" secondAttribute="bottomMargin" id="mA7-7O-wj1"/>
                                 </constraints>
                             </view>
@@ -550,6 +550,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3D6-SN-wHG">
+                                <rect key="frame" x="394" y="314" width="20" height="45"/>
+                                <color key="backgroundColor" red="0.96465545890000004" green="0.964740932" blue="0.9645841718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="evr-rs-Omx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96419603298158207" green="0.96419603298158207" blue="0.96419603298158207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -559,10 +566,13 @@
                             <constraint firstItem="eut-PH-1Rh" firstAttribute="top" secondItem="IFu-f7-5hM" secondAttribute="bottom" constant="20" id="67X-MX-CHL"/>
                             <constraint firstItem="Ipm-d9-Wmr" firstAttribute="top" secondItem="xll-dO-gr4" secondAttribute="bottom" constant="110" id="9HE-Sg-DJj"/>
                             <constraint firstItem="t71-xg-onU" firstAttribute="trailing" secondItem="bh4-vF-MUl" secondAttribute="trailing" constant="16" id="BUD-Bv-Zcq"/>
+                            <constraint firstItem="3D6-SN-wHG" firstAttribute="leading" secondItem="w9f-fR-JSR" secondAttribute="trailing" id="Flz-b5-6f2"/>
                             <constraint firstItem="u8I-1u-yb9" firstAttribute="leading" secondItem="t71-xg-onU" secondAttribute="leading" constant="35" id="HQT-kT-x9u"/>
                             <constraint firstItem="MLy-uq-3SG" firstAttribute="top" secondItem="dad-ft-ojq" secondAttribute="top" constant="-10" id="HTS-wm-pMb"/>
                             <constraint firstItem="eut-PH-1Rh" firstAttribute="trailing" secondItem="t71-xg-onU" secondAttribute="trailing" id="MFK-1d-lzt"/>
+                            <constraint firstItem="3D6-SN-wHG" firstAttribute="top" secondItem="w9f-fR-JSR" secondAttribute="top" id="NBN-UV-GfO"/>
                             <constraint firstItem="w9f-fR-JSR" firstAttribute="top" secondItem="vUl-AD-rGN" secondAttribute="bottom" id="PEc-6o-ee9"/>
+                            <constraint firstItem="3D6-SN-wHG" firstAttribute="bottom" secondItem="w9f-fR-JSR" secondAttribute="bottom" id="Pu7-5K-P2p"/>
                             <constraint firstAttribute="bottom" secondItem="eut-PH-1Rh" secondAttribute="bottom" constant="70" id="RN5-pp-i6w"/>
                             <constraint firstItem="TVw-YC-oZy" firstAttribute="top" secondItem="xll-dO-gr4" secondAttribute="bottom" constant="65" id="RSQ-Yu-7dg"/>
                             <constraint firstItem="w9f-fR-JSR" firstAttribute="leading" secondItem="t71-xg-onU" secondAttribute="leading" constant="16" id="Twh-yR-vKM"/>
@@ -573,6 +583,7 @@
                             <constraint firstItem="8t8-PV-mKI" firstAttribute="leading" secondItem="t71-xg-onU" secondAttribute="leading" id="bhl-gy-0T9"/>
                             <constraint firstItem="w9f-fR-JSR" firstAttribute="top" secondItem="K8p-0E-ofE" secondAttribute="bottom" id="bys-gS-K7g"/>
                             <constraint firstItem="bh4-vF-MUl" firstAttribute="leading" secondItem="u8I-1u-yb9" secondAttribute="trailing" constant="50" id="e6l-YU-rhh"/>
+                            <constraint firstItem="3D6-SN-wHG" firstAttribute="trailing" secondItem="t71-xg-onU" secondAttribute="trailing" id="e81-At-Eaf"/>
                             <constraint firstItem="MLy-uq-3SG" firstAttribute="leading" secondItem="t71-xg-onU" secondAttribute="leading" id="eVT-0M-jcb"/>
                             <constraint firstItem="YxO-hO-r4t" firstAttribute="centerY" secondItem="Gft-Yg-605" secondAttribute="centerY" id="fWQ-5Y-w7G"/>
                             <constraint firstItem="vUl-AD-rGN" firstAttribute="leading" secondItem="8t8-PV-mKI" secondAttribute="trailing" id="gOM-oU-UhS"/>
@@ -609,6 +620,7 @@
                         <outlet property="nowLabel" destination="vUl-AD-rGN" id="lFQ-r8-YQn"/>
                         <outlet property="percentLabel" destination="seV-MK-hB0" id="uOf-Qb-yeW"/>
                         <outlet property="pointLabel" destination="Ipm-d9-Wmr" id="Tba-j8-aUv"/>
+                        <outlet property="secondCheat" destination="3D6-SN-wHG" id="i1C-ze-S4S"/>
                         <outlet property="stackViewCon" destination="RN5-pp-i6w" id="jJC-Wa-wmo"/>
                         <outlet property="targetLabel" destination="K8p-0E-ofE" id="M1P-L2-2sL"/>
                         <outlet property="ticketCountLabel" destination="YxO-hO-r4t" id="43o-kk-a0T"/>

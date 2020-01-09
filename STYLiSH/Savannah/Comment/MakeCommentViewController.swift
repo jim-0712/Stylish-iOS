@@ -129,7 +129,7 @@ class MakeCommentViewController: UIViewController {
                 "order_number": "\(orderNumber)",
                 "product_id": "\(productID)",
                 "star": "\(star)",
-                "comment": "\(String(describing: commentTF.text))"
+                "comment": "\(String(describing: commentTF.text!))"
             ]
         ]
         let data = try? JSONSerialization.data(withJSONObject: bodyDict, options: .prettyPrinted)
